@@ -1,0 +1,129 @@
+<!DOCTYPE HTML><html><head><title>SemCloth API documentation</title><meta http-equiv=X-UA-Compatible content="IE=edge"><meta http-equiv=Content-Type content="text/html; charset=utf-8"><meta name=generator content="https://github.com/kevinrenskers/raml2html 1.0.4"><link rel=stylesheet href=http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css><link rel=stylesheet href=http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css><script type=text/javascript src=http://code.jquery.com/jquery-1.11.0.min.js></script><script type=text/javascript src=http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js></script><script type=text/javascript src=http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js></script><script type=text/javascript>
+        $(document).ready(function() {
+            $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+
+            $('[data-toggle]').click(function() {
+                var selector = $(this).data('target') + ' pre code';
+                $(selector).each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            });
+        });
+    </script><style>
+        .hljs {
+            background: transparent;
+        }
+        .parent {
+            color: #999;
+        }
+        .list-group-item > .badge {
+            float: none;
+            margin-right: 6px;
+        }
+        .panel-title > .methods {
+            float: right;
+        }
+        .badge {
+            border-radius: 0;
+            text-transform: uppercase;
+            width: 70px;
+            font-weight: normal;
+            color: #f3f3f6;
+            line-height: normal;
+        }
+        .badge_get {
+            background-color: #63a8e2;
+        }
+        .badge_post {
+            background-color: #6cbd7d;
+        }
+        .badge_put {
+            background-color: #22bac4;
+        }
+        .badge_delete {
+            background-color: #d26460;
+        }
+        .list-group, .panel-group {
+            margin-bottom: 0;
+        }
+        .panel-group .panel+.panel-white {
+            margin-top: 0;
+        }
+        .panel-group .panel-white {
+            border-bottom: 1px solid #F5F5F5;
+            border-radius: 0;
+        }
+        .panel-white:last-child {
+            border-bottom-color: white;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        .panel-white .panel-heading {
+            background: white;
+        }
+        .tab-pane ul {
+            padding-left: 2em;
+        }
+        .tab-pane h2 {
+            font-size: 1.2em;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab-pane h3 {
+            font-size: 1.1em;
+        }
+        .tab-content {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+        #sidebar {
+            margin-top: 30px;
+        }
+        .top-resource-description {
+            border-bottom: 1px solid #ddd;
+            background: #fcfcfc;
+            padding: 15px 15px 0 15px;
+            margin: -15px -15px 10px -15px;
+        }
+        .resource-description {
+            border-bottom: 1px solid #fcfcfc;
+            background: #fcfcfc;
+            padding: 15px 15px 0 15px;
+            margin: -15px -15px 10px -15px;
+        }
+        .list-group .badge {
+            float: left;
+        }
+        .method_description {
+            margin-left: 85px;
+        }
+        .method_description p:last-child {
+            margin: 0;
+        }
+        .list-group-item {
+            cursor: pointer;
+        }
+        .list-group-item:hover {
+            background-color: #f5f5f5;
+        }
+    </style></head><body data-spy=scroll data-target=#sidebar><div class=container><div class=row><div class=col-md-9 role=main><div class=page-header><h1>SemCloth API documentation <small>version v1</small></h1><p>www.api.semcloth.org/v1/</p></div><div class="panel panel-default"><div class=panel-heading><h3 id=_wardrobe class=panel-title>/wardrobe</h3></div><div class=panel-body><div class=panel-group><div class="panel panel-white"><div class=panel-heading><h4 class=panel-title><a class=collapsed data-toggle=collapse href=#panel__wardrobe><span class=parent></span>/wardrobe</a> <span class=methods><a href=# data-toggle=modal data-target=#_wardrobe_get><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a> <a href=# data-toggle=modal data-target=#_wardrobe_post><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span></a></span></h4></div><div id=panel__wardrobe class="panel-collapse collapse"><div class=panel-body><div class=list-group><div data-toggle=modal data-target=#_wardrobe_get class=list-group-item><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class=method_description><p>List clothing items of a users wardrobe.</p></div><div class=clearfix></div></div><div data-toggle=modal data-target=#_wardrobe_post class=list-group-item><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span><div class=method_description><p>Create a new wardrobe item.</p></div><div class=clearfix></div></div></div></div></div><div class="modal fade" tabindex=0 id=_wardrobe_get><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_get">get <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class=parent></span>/wardrobe</h4></div><div class=modal-body><div class="alert alert-info"><p>List clothing items of a users wardrobe.</p></div><ul class="nav nav-tabs"><li class=active><a href=#_wardrobe_get_request data-toggle=tab>Request</a></li><li><a href=#_wardrobe_get_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_wardrobe_get_request></div><div class=tab-pane id=_wardrobe_get_response><h2>HTTP status code <a href=http://httpstatus.es/200 target=_blank>200</a></h2><p>Successfully returns a list of wardrobe items.</p><h3>Body</h3><p><strong>Type: application/xml</strong></p><p><strong>Example</strong>:</p><pre><code>"&lt;rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:clothes="http://www.clothes.pt/ontologies/clothes.owl#"
+  xmlns="http://www.w3.org/2002/07/owl#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" &gt; 
+  &lt;rdf:Description rdf:about="http://www.clothes.pt/ontologies/clothes.owl#False_Plain_Tie"&gt;
+    &lt;clothes:SQL_ID_DATA rdf:datatype="http://www.w3.org/2001/XMLSchema#int"&gt;93&lt;/clothes:SQL_ID_DATA&gt;
+    &lt;clothes:Model_Data rdf:datatype="http://www.w3.org/2001/XMLSchema#string"&gt;False Plain Tie&lt;/clothes:Model_Data&gt;
+    &lt;clothes:Price_Data rdf:datatype="http://www.w3.org/2001/XMLSchema#float"&gt;9.99&lt;/clothes:Price_Data&gt;
+    &lt;clothes:isMadeOf rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#wool"/&gt;
+    &lt;clothes:hasColor rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#grey"/&gt;
+    &lt;rdfs:label xml:lang="Hello"&gt;SQL-ID&lt;/rdfs:label&gt;
+    &lt;rdf:type rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#ClassicTie"/&gt;
+  &lt;/rdf:Description&gt;
+&lt;/rdf:RDF&gt;"
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex=0 id=_wardrobe_post><div class=modal-dialog><div class=modal-content><div class=modal-header><button type=button class=close data-dismiss=modal aria-hidden=true>&times;</button><h4 class=modal-title id=myModalLabel><span class="badge badge_post">post <span class="glyphicon glyphicon-lock" title="Authentication required"></span></span> <span class=parent></span>/wardrobe</h4></div><div class=modal-body><div class="alert alert-info"><p>Create a new wardrobe item.</p></div><ul class="nav nav-tabs"><li class=active><a href=#_wardrobe_post_request data-toggle=tab>Request</a></li><li><a href=#_wardrobe_post_response data-toggle=tab>Response</a></li></ul><div class=tab-content><div class="tab-pane active" id=_wardrobe_post_request></div><div class=tab-pane id=_wardrobe_post_response><h2>HTTP status code <a href=http://httpstatus.es/201 target=_blank>201</a></h2><p>Wardrobe item successfully created.</p><h3>Body</h3><p><strong>Type: application/json</strong></p></div></div></div></div></div></div></div></div></div></div></div><div class=col-md-3><div id=sidebar class="hidden-print affix" role=complementary><ul class="nav nav-pills nav-stacked"><li><a href=#_wardrobe>/wardrobe</a></li></ul></div></div></div></div></body></html>

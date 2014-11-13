@@ -1,0 +1,86 @@
+#%RAML 0.8
+title: SemCloth
+version: v1
+baseUri: www.api.semcloth.org/{version}/
+securitySchemes:
+  - oauth_2_0:
+      description: |
+        OAuth2 is a protocol that lets external apps request authorization to private
+        details in a user's SemCloth account without getting their password. This is
+        preferred over Basic Authentication because tokens can be limited to specific
+        types of data, and can be revoked by users at any time.
+      type: OAuth 2.0
+      describedBy:
+        headers:
+          Authorization:
+            description: |
+              Used to send a valid OAuth 2 access token. Do not use together with
+              the "access_token" query string parameter.
+            type: string
+        queryParameters:
+          access_token:
+            description: |
+              Used to send a valid OAuth 2 access token. Do not use together with
+              the "Authorization" header
+            type: string
+        responses:
+          404:
+            description: Unauthorized
+      settings:
+        authorizationUri: https://www.api.semcloth.org/login/oauth/authorize
+        accessTokenUri: https://www.api.semcloth.org/login/oauth/access_token
+        authorizationGrants: [ code ]
+        scopes:
+          "wardrobe"
+securedBy: [ oauth_2_0 ]
+mediaType: application/json, application/xml
+
+resourceTypes:
+  - item:
+      get?:
+      post?:
+      patch?:
+      put?:
+      delete?:
+        responses:
+          204:
+            description: Item removed.
+  - collection:
+      get?:
+      post?:
+
+/wardrobe:
+  type: collection
+  get:
+    description: List clothing items of a users wardrobe.
+    responses:
+      200:
+        description: Successfully returns a list of wardrobe items.
+        body:
+          application/xml:
+            example: |
+              "<rdf:RDF
+                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:clothes="http://www.clothes.pt/ontologies/clothes.owl#"
+                xmlns="http://www.w3.org/2002/07/owl#"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+                xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+                <rdf:Description rdf:about="http://www.clothes.pt/ontologies/clothes.owl#False_Plain_Tie">
+                  <clothes:SQL_ID_DATA rdf:datatype="http://www.w3.org/2001/XMLSchema#int">93</clothes:SQL_ID_DATA>
+                  <clothes:Model_Data rdf:datatype="http://www.w3.org/2001/XMLSchema#string">False Plain Tie</clothes:Model_Data>
+                  <clothes:Price_Data rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.99</clothes:Price_Data>
+                  <clothes:isMadeOf rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#wool"/>
+                  <clothes:hasColor rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#grey"/>
+                  <rdfs:label xml:lang="Hello">SQL-ID</rdfs:label>
+                  <rdf:type rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#ClassicTie"/>
+                </rdf:Description>
+              </rdf:RDF>"
+  post:
+    description:
+      Create a new wardrobe item.
+    responses:
+      201:
+        description:
+          Wardrobe item successfully created.
+        body:
+          application/json:
