@@ -59,16 +59,21 @@ traits:
    - sortable:
        queryParameters:
         sort:
-          description: Define how a list result is displayed
+          description: Define how a list result is displayed.
           type: string
    - paginable:
        queryParameters:
         start:
-          description: Index at which the pagination starts
+          description: Index at which the pagination starts.
           type: integer
         size:
-          description: Number of results in a page
+          description: Number of results in a page.
           type: integer
+   - filtrable:
+       queryParameters:
+        category:
+          description: Filter to return results only from specific categories.
+          type: string
       
 /users:
   displayName: Users
@@ -113,7 +118,7 @@ traits:
 /wardrobe:
   displayName: Wardrobe
   type: collection
-  is: [ paginable, sortable ]
+  is: [ paginable, sortable, filtrable ]
   get:
     description: List clothing items of a users wardrobe.
     responses:
@@ -153,12 +158,20 @@ traits:
   /{id}:
     type: item
     get:
+      description: Retrive information about a wardrobe item.
     patch:
+      description: Update information about a wardrobe item.
     delete:
+      description: Remove a wardrobe item.
     /shops:
       type: collection
       get:
-        description:      
+        description: Retrieve information about shop where you can buy related item.
+        queryParameters: 
+          range:
+            description: Maximum range where you what to find out about shops.
+            type: integer
+            required: false
 
 /recommendations:
   displayName: Recommendatinos
@@ -168,19 +181,19 @@ traits:
     description:
     queryParameters:
       event:
-        description:
+        description: Type of event for which the user wants recommandation
         type: string
         required: true
       style:
-        description:
+        description: Types of fashion styles that a users preffers
         type: string
         required: true
       weather:
-        description:
+        description: Take into account weather consitions
         type: string
         required: false
-      trends:
-        description:
+      trends: 
+        description: Take into consideration current fashion trends
         type: string
         required: false
         
