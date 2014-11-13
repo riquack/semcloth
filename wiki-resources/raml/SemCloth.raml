@@ -48,7 +48,51 @@ resourceTypes:
   - collection:
       get?:
       post?:
-
+      
+/users:
+  type: collection
+  post:
+    description: Create a new user in the system
+    body:
+      application/json:
+        example: |
+          {
+            "email": "John Doe",
+            "password": "passwordIuseEverywere",
+            "birthday": "01-01-1979"
+            "sex": "male",
+            "nationality": "american"
+            "current_country": "UK"
+            "skin_tone": "light"
+            "eye_color": "blue"
+            "height": 180
+            "height_scale": "cm"
+            "weight": 80
+            "weight_scale": "kg"
+          }
+    
+        
+    responses: 
+      201:
+        description: User successfully registered.
+      400:
+        description: |
+          There is a problem with the information you have supplied
+  /{id}:
+    type: item
+    get:
+      description: Retrive information about a user.
+      responses:
+        200:
+          description: Successfully retrive information about the user.
+        403:
+          description: You don't have access to that information.
+    patch:
+      description: Update information about a user.
+      responses:
+        200:
+          description: formation updated successfully.
+          
 /wardrobe:
   type: collection
   get:
@@ -59,7 +103,7 @@ resourceTypes:
         body:
           application/xml:
             example: |
-              "<rdf:RDF
+              <rdf:RDF
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:clothes="http://www.clothes.pt/ontologies/clothes.owl#"
                 xmlns="http://www.w3.org/2002/07/owl#"
@@ -74,7 +118,7 @@ resourceTypes:
                   <rdfs:label xml:lang="Hello">SQL-ID</rdfs:label>
                   <rdf:type rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#ClassicTie"/>
                 </rdf:Description>
-              </rdf:RDF>"
+              </rdf:RDF>
   post:
     description:
       Create a new wardrobe item.
@@ -84,11 +128,13 @@ resourceTypes:
           Wardrobe item successfully created.
         body:
           application/json:
+            example: |
+              
           
   /{id}:
     type: item
     get:
-    put:
+    patch:
     delete:
     /shops:
       type: collection
