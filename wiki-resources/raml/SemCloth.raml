@@ -84,3 +84,45 @@ resourceTypes:
           Wardrobe item successfully created.
         body:
           application/json:
+          
+  /{id}:
+    type: item
+    get:
+    put:
+    delete:
+    /shops:
+      type: collection
+      get:
+        description:      
+
+/recommendations:
+  type: collection
+  get:
+    description:
+    queryParameters:
+      event:
+        description:
+        type: string
+        required: true
+      style:
+        description:
+        type: string
+        required: true
+      weather:
+        description:
+        type: string
+        required: false
+      trends:
+        description:
+        type: string
+        required: false
+        
+/sparql:
+  type: collection
+  get:
+    description:
+    queryParameters:
+      q:
+        description:
+        type: string
+        required: true
