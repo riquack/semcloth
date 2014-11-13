@@ -38,8 +38,14 @@ mediaType: application/json, application/xml
 resourceTypes:
   - item:
       get?:
+        responses:
+          200:
+            description: Successfully retrived information about the resource.
       post?:
       patch?:
+        responses:
+          200:
+            description: Information updated successfully.
       put?:
       delete?:
         responses:
@@ -49,7 +55,23 @@ resourceTypes:
       get?:
       post?:
       
+traits:
+   - sortable:
+       queryParameters:
+        sort:
+          description: Define how a list result is displayed
+          type: string
+   - paginable:
+       queryParameters:
+        start:
+          description: Index at which the pagination starts
+          type: integer
+        size:
+          description: Number of results in a page
+          type: integer
+      
 /users:
+  displayName: Users
   type: collection
   post:
     description: Create a new user in the system
@@ -83,18 +105,15 @@ resourceTypes:
     get:
       description: Retrive information about a user.
       responses:
-        200:
-          description: Successfully retrive information about the user.
         403:
           description: You don't have access to that information.
     patch:
       description: Update information about a user.
-      responses:
-        200:
-          description: formation updated successfully.
           
 /wardrobe:
+  displayName: Wardrobe
   type: collection
+  is: [ paginable, sortable ]
   get:
     description: List clothing items of a users wardrobe.
     responses:
@@ -142,7 +161,9 @@ resourceTypes:
         description:      
 
 /recommendations:
+  displayName: Recommendatinos
   type: collection
+  is: [ paginable, sortable ]
   get:
     description:
     queryParameters:
@@ -164,11 +185,14 @@ resourceTypes:
         required: false
         
 /sparql:
+  displayName: SPARQL
   type: collection
+  is: [ paginable, sortable ]
   get:
     description:
+      Retrieve various clothing information based on SPARQL queries that you make.
     queryParameters:
       q:
-        description:
+        description: SPARQL query to interogate for various clothing information.
         type: string
         required: true
