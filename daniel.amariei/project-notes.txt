@@ -1,0 +1,77 @@
+Freebase, DBpedia
+
+Anumite articole de imbracamite nu pot fi purtate pe mai multe parti ale corpului.
+De modelat dijunctia.
+
+Clothing Item,
+Diverse parti ale corpului.
+Restrictii privind cardinalitatea unor proprietati, clase.
+
+owl:Class
+owl:FunctionalProperty
+owl:InverseFunctionalProperty
+owl:ObjectProperty
+owl:DatatypeProperty
+owl:SymmetricProperty
+owl:equivalentProperty
+owl:inverseOf
+owl:TransitiveProperty
+owl:unionOf
+owl:intersectionOf
+owl:complementOf
+owl:disjointWith
+owl:oneOf
+owl:equivalentClass
+
+owl:disjointUnionOf
+owl:AllDisjointClasses  owl:members
+
+Restrictii de cardinalitate calificate.
+
+
+owl:Restriction
+owl:onProperty
+	allValuesFrom, someValuesFrom, hasValue, cardinality, minCardinality, maxCardinality
+
+
+owl:sameAs
+owl:differentFrom
+owl:distinctMembers
+
+rdfs:subClassOf
+rdfs:label
+rdfs:comment
+rdf:Type == a
+
+Functional property: has only one value for each individual.
+
+De utilizat urmatoarele vocabulare:
+	GoodRelations, DCMI, FOAF, vocab.org/relationship, umbel, yago, dbpedia.org/ontology,
+	dbpedia.org/relationship, http://www.w3.org/TR/skos-reference/, http://www.w3.org/TR/skos-primer/,
+	http://www.w3.org/2004/02/skos/core
+	
+De utilizat foaf:name pentru denumirea articolelor de imbracaminte -> vor deveni implicit
+owl:Thing.	
+	
+Triple stores: AllegroGraph, Apache Jena, Stardog, (####)Openling Virtuso.
+
+Procesoare SPARQL: AllegroGraph, dotNetRDF (programatice), SPARQL GUI (desktop).
+
+voiD store, service description a service
+
+SPARQL 1.1: 
+	UPDATE RDF graph (INSERT, DELETE, MODIFY, LOAD, CLEAR)
+	MANAGE RDF graph (CREATE, DROP, COPY, MOVE, ADD)
+
+SPARQL endpoints (w3c): 
+	rdf-sparql-protocol
+	rdf11-protocol
+	
+dbpedia.org/sparql
+
+ideasoruce.blankdots.com/.../open-data-source...
+datahub.io
+	
+	
+	
+Motoare de cautare: knoodle, SameAS, sig.ma, sindice, swoogle.	

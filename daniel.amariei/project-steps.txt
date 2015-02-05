@@ -1,0 +1,17 @@
+dbpedia.org/ontology
+dbpedia.org/property
+
+STEP #1
+	sTABILIRE URI ontologie
+	Slide 64, WEEK 9 -> ...
+		RDF Schema, OWL, etc.
+			defining the classes
+			defining the properties 
+				Dataype properties
+				Object properties
+			Defining relations
+			
+			a, subClassOf, subPropertyOf, domain, range
+
+STEP #2
+	Testare si depanare, slide 101 -> ...        
