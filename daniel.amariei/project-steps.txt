@@ -1,10 +1,13 @@
 dbpedia.org/ontology
 dbpedia.org/property
 
+To view zara.com and other online stores in order to inspect possible classifications for clothes.
+
 STEP #1
 	sTABILIRE URI ontologie
 	Slide 64, WEEK 9 -> ...
 	Slide 61, WEEK 13 -> ...
+	      87          -> ...
 		RDF Schema, OWL, etc.
 			defining the classes
 			defining the properties 

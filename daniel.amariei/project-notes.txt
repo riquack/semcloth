@@ -11,6 +11,10 @@ Clothing Item,
 Diverse parti ale corpului.
 Restrictii privind cardinalitatea unor proprietati, clase.
 
+UnisexClothingItem
+
+Extrinsic vs. intrinsic properties.
+
 owl:Class
 owl:FunctionalProperty
 owl:InverseFunctionalProperty
