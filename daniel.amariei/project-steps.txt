@@ -4,6 +4,7 @@ dbpedia.org/property
 STEP #1
 	sTABILIRE URI ontologie
 	Slide 64, WEEK 9 -> ...
+	Slide 61, WEEK 13 -> ...
 		RDF Schema, OWL, etc.
 			defining the classes
 			defining the properties 
@@ -12,6 +13,14 @@ STEP #1
 			Defining relations
 			
 			a, subClassOf, subPropertyOf, domain, range
+	
+	Testare si depanare, slide 101 -> ...        
+	Explore the ontology visually.
 
 STEP #2
-	Testare si depanare, slide 101 -> ...        
+	Triple Store
+
+Step #3
+	Java library that interacts with the triple store
+	
+	

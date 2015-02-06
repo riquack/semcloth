@@ -3,6 +3,10 @@ Freebase, DBpedia
 Anumite articole de imbracamite nu pot fi purtate pe mai multe parti ale corpului.
 De modelat dijunctia.
 
+Knowledge Base
+	TBox
+	ABox
+	Cu cat numarul constrangerilor creste, cu atat numarul modelelor poibile scade
 Clothing Item,
 Diverse parti ale corpului.
 Restrictii privind cardinalitatea unor proprietati, clase.
