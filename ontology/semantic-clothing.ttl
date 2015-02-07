@@ -2,6 +2,7 @@
 # 1. Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII;
 # to mention the other document W3C, et all
 # zara.com
+# hm.com
 
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -11,18 +12,24 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
 
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbp: <http://dbpedia.org/resource/> .
+
 @prefix sc: <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 @prefix : <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 
 @base <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 
 
-<http://www.semanticweb.org/ontologies/2008/10/SWOnto.owl> rdf:type owl:Ontology ;
-                                                           rdfs:label "Semantic Clothing Ontology"^^xsd:string ,
-																	  "A common vocabular for clothing items."^^xsd:string ;															  
-                                                           dc:date "2015"^^xsd:dateTime ;
-                                                           dc:creator "Daniel Amariei, Oana Gagea, Iordan Rață."^^xsd:string .
-                                                           
+<http://www.semanticweb.org/ontologies/2015/02/semcloth.owl> 
+					rdf:type owl:Ontology ;
+                    rdfs:label "Semantic Clothing Ontology"^^xsd:string ,
+							   "A common vocabular for clothing items."^^xsd:string ;											  
+                    dc:date "2015"^^xsd:dateTime ;
+                    dc:creator "Daniel Amariei, Oana Gagea, Iordan Rață."^^xsd:string .
+                                         
+                                         
 # Annotation properties                                                           
 
 dc:creator a owl:AnnotationProperty .
@@ -31,21 +38,292 @@ dc:date a owl:AnnotationProperty .
 
 # The classes of the Semantic Clothing vocabulary
 
+# Defining the events
+
+
+:BusinessMeeting a owl:Class ;
+				 rdfs:subClassOf dbo:Event ;
+		 		 rdfs:label "Business meeting"^^xsd:string .
+
+
+:Interview a owl:Class ;
+ 		   rdfs:subClassOf :BusinessMeeting ;
+		   rdfs:label "Interview"^^xsd:string .
+		  
+:Wedding a owl:Class ;
+ 		 rdfs:subClassOf dbo:Event ;
+		 rdfs:label "Wedding"^^xsd:string .
+
+:PyjamaParty a owl:Class ;
+ 		     rdfs:subClassOf dbo:Event ;
+		     rdfs:label "Pyjama party"^^xsd:string .
+
+:Funneral a owl:Class ;
+          rdfs:subClassOf dbo:Event ;
+		  rdfs:label "Funneral"^^xsd:string .
+		 
+:Date a owl:Class ;
+      rdfs:subClassOf dbo:Event ;
+	  rdfs:label "Date"^^xsd:string .
+	  
+:RomanticDate a owl:Class ;
+			  rdfs:subClassOf :Date ;
+ 			  rdfs:label "Romantic date"^^xsd:string .
+
+:Club rdfs:subClassOf dbo:Event ;
+ 		rdfs:label "Club"^^xsd:string .
+		 
+# The clothing items
+
 :Clothing a owl:Class ;
-		  rdfs:label "Clothing"^^xsd:string ,
+		  rdfs:label "Clothing"^^xsd:string ;
 		  rdfs:comment "Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items."^^xsd:string .		  
 
-:Blazer a owl:Class .
+:Coat a owl:Class ;
+      rdfs:subClassOf :Clothing ;
+   	  rdfs:label "Coat"^^xsd:string .
 
-:Dress a owl:Class .
-:Jumpsuit a owl:Class .
-:Top a owl:Class .
+:Blazer a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   		rdfs:label "Blazer"^^xsd:string .
+
+:Dress a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   		rdfs:label "Dress"^^xsd:string .
+
+:Trousers a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   		rdfs:label "Trousers"^^xsd:string .
+
+:SkinnyFitTrousers a owl:Class ;
+        			rdfs:subClassOf :Trousers ;
+   					rdfs:label "Skinny fit trousers"^^xsd:string .
+   		
+:SlimFitTrousers a owl:Class ;
+        		 rdfs:subClassOf :Trousers ;
+   				 rdfs:label "Slim fit trousers"^^xsd:string .
+
+:RegularFitTrousers a owl:Class ;
+        			rdfs:subClassOf :Trousers ;
+   					rdfs:label "Regular fit trousers"^^xsd:string .
+
+:Jeans a owl:Class ;
+       rdfs:subClassOf :Clothing ;
+   	   rdfs:label "Jeans"^^xsd:string .
+   		
+:Pyjama a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   	    rdfs:label "Pyjama"^^xsd:string .
+   		
+   		
+:Raincoat a owl:Class ;
+          rdfs:subClassOf :Clothing ;
+   	      rdfs:label "Raincoat"^^xsd:string .
+   		
+:Shirt a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   		rdfs:label "Shirt"^^xsd:string .
+   		
+:Suit a owl:Class ;
+      rdfs:subClassOf :Clothing ;
+   	  rdfs:label "Suit"^^xsd:string .
+   		
+
+:Top a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   		rdfs:label "Top"^^xsd:string .
+
+:Skirt a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   		rdfs:label "Skirt"^^xsd:string .
+   		
+:TShirt a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   		rdfs:label "T-shirt"^^xsd:string .
+   		
+:Shoes a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   		rdfs:label "Shoes"^^xsd:string .
+   		
+:Sandals a owl:Class ;
+         rdfs:subClassOf :Shoes ;
+   		 rdfs:label "Sandals"^^xsd:string .
+   		
+:HighHeels a owl:Class ;
+           rdfs:subClassOf :Shoes ;
+   		   rdfs:label "High-heels"^^xsd:string .
+
+:Flats a owl:Class ;
+       rdfs:subClassOf :Shoes ;
+   	   rdfs:label "Flats"^^xsd:string .
+
+:AnkleBoots a owl:Class ;
+            rdfs:subClassOf :Shoes ;
+   		    rdfs:label "Ankle boots"^^xsd:string .
+
+:Moccasins a owl:Class ;
+           rdfs:subClassOf :Shoes ;
+   		   rdfs:label "Mocassins"^^xsd:string .
+   		
+:Sneakers a owl:Class ;
+          rdfs:subClassOf :Shoes ;
+   		  rdfs:label "Sneakers"^^xsd:string .
+
+:Boots a owl:Class ;
+       rdfs:subClassOf :Shoes ;
+   	   rdfs:label "Boots"^^xsd:string .
+
+:Accessory a owl:Class ;
+           rdfs:subClassOf :Clothing ;
+   	       rdfs:label "Accessory"^^xsd:string .
+
+:Umbrella a owl:Class ;
+           rdfs:subClassOf :Accessory ;
+   	       rdfs:label "Umbrella"^^xsd:string .
+      
+:Belt a owl:Class ;
+      rdfs:subClassOf :Accessory ;
+   	  rdfs:label "Belt"^^xsd:string .
+
+:Hat a owl:Class ;
+     rdfs:subClassOf :Accessory ;
+   	 rdfs:label "Hat"^^xsd:string .
+
+:Scarf a owl:Class ;
+       rdfs:subClassOf :Accessory ;
+   	   rdfs:label "Scarf"^^xsd:string .
+
+:Gloves a owl:Class ;
+        rdfs:subClassOf :Clothing ;
+   	    rdfs:label "Gloves"^^xsd:string .
+   	    
+:Jewellery a owl:Class ;
+           rdfs:subClassOf :Accessory ;
+   	       rdfs:label "Jewellery"^^xsd:string .
+
+:Earrings a owl:Class ;
+         rdfs:subClassOf :Jewellery ;
+   	     rdfs:label "Earrings"^^xsd:string .
+
+:Necklace a owl:Class ;
+          rdfs:subClassOf :Jewellery ;
+   	      rdfs:label "Necklace"^^xsd:string .
+
+:Bracelet a owl:Class ;
+          rdfs:subClassOf :Jewellery ;
+   	      rdfs:label "Bracelet"^^xsd:string .
+
+:Ring a owl:Class ;
+      rdfs:subClassOf :Jewellery ;
+   	  rdfs:label "Ring"^^xsd:string .
+
+:Sunglasses a owl:Class ;
+            rdfs:subClassOf :Accessory ;
+   	        rdfs:label "Sunglasses"^^xsd:string .
+
+:Tie a owl:Class ;
+     rdfs:subClassOf :Accessory ;
+   	 rdfs:label "Tie"^^xsd:string .
 
 
+:Bag a owl:Class ;
+         rdfs:subClassOf :Accessory ;
+   	     rdfs:label "Bag"^^xsd:string .
+
+:Handbag a owl:Class ;
+         rdfs:subClassOf :Bag ;
+   	     rdfs:label "Handbag"^^xsd:string .
+
+:ShoulderBag a owl:Class ;
+             rdfs:subClassOf :Bag ;
+   	         rdfs:label "Shoulder bag"^^xsd:string .
+
+:Underwear a owl:Class ;
+		   rdfs:subClassOf :Clothing ;
+		   rdfs:label "Underwear"^^xsd:string .
+
+:Underpants a owl:Class ;
+		    rdfs:subClassOf :Underwear ;
+		    rdfs:label "Underpants"^^xsd:string .
+
+:Socks a owl:Class ;
+	   rdfs:subClassOf :Underwear ;
+	   rdfs:label "Socks"^^xsd:string .
 
 
+:Lingerie a owl:Class ;
+		  rdfs:subClassOf :Underwear ;
+		  rdfs:label "Lingerie"^^xsd:string .
+
+:Bra a owl:Class ;
+	 rdfs:subClassOf :Lingerie ;
+	 rdfs:label "Bra"^^xsd:string .
+
+:PushUpBra a owl:Class ;
+		   rdfs:subClassOf :Bra ;
+		   rdfs:label "Push-up bra"^^xsd:string .
+
+:SportBra a owl:Class ;
+		  rdfs:subClassOf :Bra ;
+		  rdfs:label "Sports bra"^^xsd:string .
+
+:Briefs a owl:Class ;
+		rdfs:subClassOf :Lingerie ;
+		rdfs:label "Briefs"^^xsd:string .
+
+:Nylons a owl:Class ;
+		rdfs:subClassOf :Lingerie ;
+		rdfs:label "Nylons"^^xsd:string .
+
+:Knickers a owl:Class ;
+		  rdfs:subClassOf :Lingerie ;
+		  rdfs:label "Knickers"^^xsd:string .
+
+:Bodysuit a owl:Class ;
+          rdfs:subClassOf :Lingerie ;
+          rdfs:label "Bodysuit"^^xsd:string .
+
+:ShapeLingerie a owl:Class ;
+		   	   rdfs:subClassOf :Bra ;
+		   	   rdfs:label "Shape lingerie"^^xsd:string .
+
+:Bodysuit a owl:Class ;
+          rdfs:subClassOf :Lingerie ;
+          rdfs:label "Bodysuit"^^xsd:string .
+
+          
 
 # The properties of the Semantic Clothing vocabulary
-#Outwear
 
+:hasTextileComposition a owl:ObjectProperty ;
+	            	   owl:rdfs:subPropertyOf dbp:composition ;
+	            	   rdfs:label "Has textile composition"^^xsd:string ;
+	            	   rdfs:comment "This property denotes the materials from which a clothing item is composed of."^^xsd:string .
+	            	   
+:hasColour a owl:ObjectProperty ;
+		   owl:sameAs dbp:colour ;
+		   rdfs:label "Has colour"^^xsd:string .
 
+# To consider making it an DatatypeProperty
+:hasSize a owl:ObjectProperty ;
+		 rdfs:label "Has size"^^xsd:string .
+
+dbp:dressSize rdfs:subClassOf :hasSize .
+
+:isSuitableForGenre a owl:ObjectProperty ;
+					rdfs:label "Is suitable for genre"^^xsd:string ;
+					rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes"^^xsd:string .
+
+:isSuitableForEvent a owl:ObjectProperty ;
+					rdfs:label "Is suitable for event"^^xsd:string .
+
+:isSuitableForBodyShape a owl:ObjectProperty ;
+					    rdfs:label "Is suitable for body shape"^^xsd:string .
+					    
+:isSuitableForSeason a owl:ObjectProperty ;
+					 rdfs:label "Is suitable for season"^^xsd:string .
+
+:isSuitableForWeatherConditions a owl:ObjectProperty ;
+					            rdfs:label "Is suitable for weather conditions"^^xsd:string .
+
+					    
