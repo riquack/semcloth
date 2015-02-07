@@ -8,6 +8,17 @@ STEP #1
 	Slide 64, WEEK 9 -> ...
 	Slide 61, WEEK 13 -> ...
 	      87          -> ...
+		  
+	Care sunt aspectele principae care trebuie surprinse privind datele aplicatiei Web?
+	Articole de imbracaminte.
+	Anotimpuri.
+    Conditii meteorologice.	
+	Genul pentru care se preteaza un articol de imbracaminte.
+	Reprezentarea articolului de imbracaminte: vizuala, textuala, multimedia, etc.
+	Evenimente
+	Caracteristici ale articolelor de imbracaminte.
+		  
+		  
 		RDF Schema, OWL, etc.
 			defining the classes
 			defining the properties 

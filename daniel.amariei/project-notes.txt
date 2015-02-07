@@ -12,6 +12,7 @@ Diverse parti ale corpului.
 Restrictii privind cardinalitatea unor proprietati, clase.
 
 UnisexClothingItem
+hasPrice
 
 Extrinsic vs. intrinsic properties.
 
@@ -61,7 +62,7 @@ De utilizat urmatoarele vocabulare:
 De utilizat foaf:name pentru denumirea articolelor de imbracaminte -> vor deveni implicit
 owl:Thing.	
 	
-Triple stores: AllegroGraph, Apache Jena, Stardog, (####)Openling Virtuso.
+Triple stores: AllegroGraph, Apache Jena, Stardog, (####)Openlink Virtuoso.
 
 Procesoare SPARQL: AllegroGraph, dotNetRDF (programatice), SPARQL GUI (desktop).
 
