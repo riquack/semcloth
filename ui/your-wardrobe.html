@@ -21,23 +21,29 @@
 				<div class="title">
 					<h1>Sec - Your Wardrobe</h1>
 				</div>
+				<div class="user-options">
+					<ul> 
+						<li><a href="./logout.html" title="logout" id="logout" >Logout</a></li>
+						<li><a href="./recommendations.html" title="recommendations">Recommendations</a></li>
+					</ul>
+				</div>
 			</div>
 		</header>
         <section class="body">
 			<div class="content"> 
 				<div class="profile-user">
-					<h3>Hello user,</h3>
+					<h3>Hello <span id="get_user_name"></span>,</h3> 
 					<h4>Your Profile: </h4>
 					<div id="basic-info">
 						<ul>
-							<li>Name: <span id="name">user</span></li>
-							<li>Age: <span id="age">13</span> years</li>
-							<li>Sex: <span id="sex">fem</span> </li>
-							<li>Religion: <span id="religion">orthodox</span></li>
-						<ul>
+							<li>Name: <span id="name-profile">user</span></li>
+							<li>Age: <span id="age-profile">13</span> years</li>
+							<li>Gender: <span id="gender-profile">fem</span> </li>
+							<li>Religion: <span id="religion-profile">musulman</span></li>
+						</ul>
 						<button id="edit-profile" title="edit">Edit profile</button>
 					</div>
-
+					<hr/>
 					<div id="profile-edit">
 						<div class="box-text lightbox">
 						<div class="close-button">x</div>
@@ -50,9 +56,9 @@
 							<input type="text" id="new-age" value=""  />
 						</div>	
 						<div>
-							<label>Sex:</label>
-							<input type="radio" name="sex" value="mas">mas<br>
-							<input type="radio" name="sex" value="fem" checked>fem
+							<label>Gender:</label>
+							<input type="radio" name="gender" value="mas" id="new-mas">mas<br>
+							<input type="radio" name="gender" value="fem" id="new-fem" >fem
 						</div>
 						<div>
 							<label>Religion:</label>
@@ -95,6 +101,7 @@
 		<!--<script type="text/javascript" src="./js/modernizr_2.8.3.js"></script>-->
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.cookie.js"></script>
 		<script type="text/javascript" src="./js/script.js"></script>
     </body>
 </html>

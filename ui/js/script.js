@@ -74,12 +74,13 @@ jQuery(document).ready(function(){
 						    if (results.length==0) { // nu exista user cu acest email
 
 									var hash = CryptoJS.SHA3(pass_add);
+									hash  = hash.toString(CryptoJS.enc.Base64);
 									 
-									console.log(user);	
+									console.log(hash);	
 									var Users = Parse.Object.extend("Users");
 									var user = new Users();
 									user.set("email", email_add);
-									user.set("password", hash);
+									user.set("password",  hash);
 
 									user.save(null, {
 										  success: function(gameScore) {
@@ -123,28 +124,52 @@ jQuery(document).ready(function(){
 
  
  	/* Login -------------------------------------------------------------*/
-
+ 
  	$("#login").click(function() {
  			var email_login = $("#email-add").val();
  			var pass_login = $('#pass').val();
+ 			var text_verif =  $('#validationEmailLg').val();
+ 			
+ 			
+
+			if(email_login!=="" && pass_login !== "" ){
+				var hash1 = CryptoJS.SHA3(pass_login);
+			 console.log(hash1);
+				 hash1 = hash1.toString(CryptoJS.enc.Base64);
+				 
+				 console.log(hash1);
+				var Users = Parse.Object.extend("Users");
+				var query = new Parse.Query(Users);
+				query.equalTo("email", email_login);
+				query.find({
+				  success: function(results) {
+				   // alert("Successfully retrieved " + results.length + " scores.");
+				    // Do something with the returned Parse.Object value
+				    console.log(results);
+				    if (results[0].get('password') === hash1) {
+				    	// ok
+				    	console.log("ok");
+				    	$.cookie('email', results[0].get('email') , { expires: 9999999 });
+				    	window.location.replace("./your-wardrobe.html");
+
+				    	console.log(hash1 + " -- " + results[0].get('password'));
+				    } else {
+				    	// not ok
+				    	console.log(hash1 + " -- " + results[0].get('password'));
+				   }
+				  },
+				  error: function(error) {
+				    alert("Error: " + error.code + " " + error.message);
+				  }
+				});
 
 
- 			/*var Users = Parse.Object.extend("Users");
-			var query = new Parse.Query(Users);
-			query.equalTo("playerName", "Dan Stemkoski");
-			query.find({
-			  success: function(results) {
-			    alert("Successfully retrieved " + results.length + " scores.");
-			    // Do something with the returned Parse.Object values
-			    for (var i = 0; i < results.length; i++) { 
-			      var object = results[i];
-			      alert(object.id + ' - ' + object.get('playerName'));
-			    }
-			  },
-			  error: function(error) {
-			    alert("Error: " + error.code + " " + error.message);
-			  }
-			});*/
+
+			}else {
+					$("#loginEmailLg").removeClass().addClass('alert alert-error').html('Please check again the form');
+			}
+
+
  	});
 
 
@@ -174,14 +199,51 @@ jQuery(document).ready(function(){
 	/*Popup - Edit profile-----------------------------------------------------------------*/
 	$("#edit-profile").click(function() {
 		$("#profile-edit").fadeIn(500);//.css("display","block");
-		//var name = $('#basic-info #name').val();
-		//console.log(name);
-		//$('#new-name').val(name);
+			var name = $('#name-profile').text();
+			console.log(name);
+			$('#new-name').val("name");
 
-		//var aux = $("#email-add").val();
-		//$("#email-fp").val(aux); 
+			var age = $("#age-profile").text();
+			console.log(age);
+			$('#new-age').val(age);
+
+			var gender = $('#gender-profile').text();
+			console.log(gender);
+			$('#gender-new').val(gender);
+
+			if(gender === "fem"){
+				$("#new-fem").attr('checked', 'checked');
+			}else {
+				$("#new-masc").attr('checked', 'checked');
+			}
+
+			var religion = $("#religion-profile").text();
+			//console.log(religion);
+
+			$("#new-religion").find('option').each(function()
+			{
+			    // add $(this).val() to your list
+			    if($(this).val() === religion){
+			    	//console.log($(this).val());
+			    	$(this).selected = true;
+			    }
+			    	
+			});
+
+
+
+		/*Creez un obiect Json si in adaug in Parse*/
+
+
+
+
 	});
 	
+
+
+
+
+
 	$(".close-button").click(function() {
 		$("#profile-edit").fadeOut(500);//.css("display","none"); 
 		
@@ -252,7 +314,17 @@ jQuery(document).ready(function(){
 			$('#container ul').removeClass('grid').addClass('list');
 		}
 	});
+
+	var user_name_from_chookie = $.cookie('email');
+	console.log(user_name_from_chookie);
+	var usr = user_name_from_chookie.split("@");
+
+	$('#get_user_name').text(usr[0]);
+
+
 	
+
+
 	/*Populare garderoba*/
 	/*$.ajax({
 	    type: "GET",
@@ -396,8 +468,7 @@ jQuery(document).ready(function(){
 		});
 
 
-
-
+		
 		/*$('.filters-item').each(function(){
 			if($(this).find('input[type="radio"]:checked').length > 0){
 				console.log($('input[type="radio"]:checked').val());
@@ -435,6 +506,14 @@ jQuery(document).ready(function(){
 
 	});
 
+	/* Logout ----------------------------------------*/
+	$( "#logout" ).click(function() {
+			//alert("dddd");
+		//$.cookie('email', null);  
+		$.cookie('email', 'the_value', { expires: -7 });
+
+
+	});
 
 
 
