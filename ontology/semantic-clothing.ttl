@@ -1,6 +1,7 @@
 # Bibliography
 # 1. Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII;
 # to mention the other document W3C, et all
+# zara.com
 
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -11,14 +12,13 @@
 @prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
 
 @prefix sc: <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
-@prefix cws: <https://raw.githubusercontent.com/psychok7/clothes-semantic-web/master/ClothesWS/old-clothes.owl#> .
 @prefix : <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 
 @base <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 
 
 <http://www.semanticweb.org/ontologies/2008/10/SWOnto.owl> rdf:type owl:Ontology ;
-                                                           rdfs:label "Semantic Clothing Ongology"^^xsd:string ,
+                                                           rdfs:label "Semantic Clothing Ontology"^^xsd:string ,
 																	  "A common vocabular for clothing items."^^xsd:string ;															  
                                                            dc:date "2015"^^xsd:dateTime ;
                                                            dc:creator "Daniel Amariei, Oana Gagea, Iordan Rață."^^xsd:string .
@@ -31,12 +31,21 @@ dc:date a owl:AnnotationProperty .
 
 # The classes of the Semantic Clothing vocabulary
 
-cws:Clothing a owl:Class . 
-cws:Clo  
+:Clothing a owl:Class ;
+		  rdfs:label "Clothing"^^xsd:string ,
+		  rdfs:comment "Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items."^^xsd:string .		  
+
+:Blazer a owl:Class .
+
+:Dress a owl:Class .
+:Jumpsuit a owl:Class .
+:Top a owl:Class .
+
+
 
 
 
 # The properties of the Semantic Clothing vocabulary
-
+#Outwear
 
 
