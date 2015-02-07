@@ -1,0 +1,43 @@
+<?xml version='1.0' ?>
+<warderobe>
+	<item>
+		<name>T-shirt1</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt2</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt3</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt4</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt5</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt6</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt7</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt8</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt9</name>
+		<events>Funeral|Interview</events>
+	</item>
+	<item>
+		<name>T-shirt10</name>
+		<events>Funeral|Interview</events>
+	</item>
+</warderobe>

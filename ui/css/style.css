@@ -1,0 +1,459 @@
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.content {
+	width: 1200px;
+	margin: 50px auto;
+}
+
+.title {
+	border-bottom: 1px solid #000;
+}
+
+.box-center {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.box-text button, .box-text input, .box-text  select, .box-text textarea {
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+#register-box, #fbox-box, #profile-edit { 
+	display: none;
+	background: url('../images/background-black-transparent.png') repeat;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	z-index: 999;
+}
+
+.box-text {
+	width: 60%;
+	margin: 7% auto;
+	position: relative;
+	padding: 30px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	/* overflow: hidden; */
+	bordeR: 1px solid #000;
+	
+}
+
+.lightbox {
+	background: #000;
+	min-height: 300px;
+	width: 27%;
+}
+
+.close-button {
+	color: red;
+	background: #fff;
+	width: 20px;
+	margin: 0 auto;
+	-webkit-border-radius: 50px;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	border-bottom-left-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	height: 20px;
+	font-weight: 700;
+	position: absolute;
+	top: -7px;
+	right: -3px;
+	cursor: pointer;
+	font-size: 20px;
+	line-height: 16px;
+}
+
+
+
+/*Add Password*/
+
+.btn {
+  display: inline-block;
+  *display: inline;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  *margin-left: .3em;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  *background-color: #e6e6e6;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  *border: 0;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  *zoom: 1;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.alert,
+.alert h4 {
+  color: #c09853;
+}
+
+.alert h4 {
+  margin: 0;
+}
+
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: 20px;
+}
+
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.alert-success h4 {
+  color: #468847;
+}
+
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.alert-danger h4,
+.alert-error h4 {
+  color: #b94a48;
+}
+
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.alert-info h4 {
+  color: #3a87ad;
+}
+
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+
+.alert-block p + p {
+  margin-top: 5px;
+}
+/*End add password*/
+
+
+/*Your wardrobe---------------------------------------------------------------*/
+#container ul { 
+	list-style: none; 
+	margin-left: 0px;
+	padding-left: 0px;
+	overflow: hidden;
+}
+
+#container .buttons { 
+	margin-bottom: 20px; 
+}
+
+#container .list li { 
+	width: 100%; 
+	border-bottom: 1px dotted #CCC; 
+	margin-bottom: 10px; 
+	padding-bottom: 10px; 
+}
+
+#container .grid li { 
+	float: left; 
+	width: 33.3%; 
+	height: 150px;
+	border-right: 1px dotted #CCC; 
+	border-bottom: 1px dotted #CCC;
+	padding: 20px; 
+}
+
+.grid {
+	overflow: hidden;
+}
+
+/*Recomandation----------------------------------------------------------------------*/
+
+.filters-item{
+		border-bottom: 1px solid #000;
+		margin-bottom: 10px;
+}
+
+.list-events, .list-pref, .ws-pref{
+	display: none;
+}
+
+
+
+
+/*
+
+#clouds{
+	background:url('../images/cloud1.png') no-repeat;
+	height: 145px;
+	left: 50%;
+	position: absolute;
+	top: 250px;
+	margin-left: -542px;
+	width: 222px;
+	z-index: -1;
+}
+
+#clouds:before{
+	content:'';
+	background:url('../images/cloud2.png') no-repeat;
+	height: 102px;
+	right: -710px;
+	position: absolute;
+	top: -125px;
+	width: 156px;
+}
+
+#clouds:after{
+	content:'';
+	background:url('../images/cloud3.png') no-repeat;
+	height: 74px;
+	right: -750px;
+	position: absolute;
+	top: 325px;
+	width: 114px;
+}
+
+*/
+/*----------------------------
+	The Weather Div
+-----------------------------
+
+
+#weather{
+	position:relative;
+	width:494px;
+	height:407px;
+	margin: 50px auto 25px;
+	overflow:hidden;
+}
+/*
+#weather:before{
+	background: url("../images/preloader.gif") no-repeat center center #111;
+	border: 1px solid #000;
+	border-radius: 50% 50% 50% 50%;
+	box-shadow: 0 1px 2px #444;
+	content: "";
+	height: 44px;
+	left: 50%;
+	margin: -22px 0 0 -22px;
+	opacity: 0.7;
+	position: absolute;
+	top: 50%;
+	width: 44px;
+}
+
+#weather.error:before{
+	display:none;
+}
+/*
+#weather.error{
+	text-align:center;
+	font-size: 20px;
+}
+*//*
+#weather.loaded #scroller,
+#weather.loaded .arrow{
+	display:block
+}
+
+#weather.loaded:before{
+	display:none;
+}*/
+/*
+#weather.loaded{
+	border-radius:3px;
+	background:url('../images/weather_bg.jpg') no-repeat;
+	box-shadow:0 0 5px rgba(0,0,0,0.15);
+}
+
+#weather.first a.previous,
+#weather.last a.next{
+	display:none;
+}
+*/
+
+/*----------------------------
+	The Scroller
+-----------------------------*/
+
+/*
+#scroller{
+	position:absolute;
+	list-style:none;
+	width:100%;
+	height: 336px;
+	white-space:nowrap;
+	top:0;
+	left:0;
+}
+
+#scroller li{
+	position:relative;
+	width:100%;
+	height:100%;
+	display:inline-block;
+	text-align:center;
+}
+
+#scroller li img{
+	display:block;
+	margin: 35px auto 0;
+}
+
+#scroller li .day{
+	color:#dcf0f6;
+	font-size:15px;
+	padding-top: 20px;
+	text-shadow:1px 1px 0 rgba(0,0,0,0.15);
+}
+
+#scroller li .day b{
+	font-weight:normal;
+	color:#0f3642;
+}
+
+#scroller li .cond{
+	bottom: -52px;
+	color: #424242;
+	font-size: 24px;
+	position: absolute;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+	width: 100%;
+}
+
+#scroller li .cond b{
+	text-transform:uppercase;
+}
+
+#scroller, .arrow{
+	display:none;
+}
+*/
+
+/*------------------------------
+	The Next/Previous arrows
+-------------------------------*/
+
+/*
+.arrow{
+	background:url('../images/arrows.png') no-repeat;
+	width:34px;
+	height:45px;
+	position:absolute;
+	top:50%;
+	margin-top:-45px;
+	opacity:0.6;
+	overflow:hidden;
+	text-indent:-99999px;
+}
+
+.arrow:hover{
+	opacity:1;
+}
+
+.arrow.previous{
+	left:20px;
+}
+
+.arrow.next{
+	background-position:top right;
+	right:20px;
+}
+*/
+
+.arrow.next,
+.arrow.previous {
+	display: none;
+}
+
+/*----------------------------
+	The Location Div
+-----------------------------*/
+
+
+p.location{
+	font-weight:bold;
+	font-size:28px;
+	color:#296c81;
+	text-align:center;
+	margin-bottom:80px;
+}
+
+p.location b{
+	color:#569cb3;
+}
+
+
+/*-------------------------------Edit profile*/
+.profile-edit{
+	position:aboslute;
+
+}

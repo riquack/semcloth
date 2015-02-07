@@ -1,0 +1,100 @@
+ <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <title>SEC - Your Wardrobe</title>
+		<meta name="viewport" content="width=device-width,user-scalable = no">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./css/style.css" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,800,600,300' rel='stylesheet' type='text/css'>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    	<header>
+			<div class="content"> 
+				<div class="title">
+					<h1>Sec - Your Wardrobe</h1>
+				</div>
+			</div>
+		</header>
+        <section class="body">
+			<div class="content"> 
+				<div class="profile-user">
+					<h3>Hello user,</h3>
+					<h4>Your Profile: </h4>
+					<div id="basic-info">
+						<ul>
+							<li>Name: <span id="name">user</span></li>
+							<li>Age: <span id="age">13</span> years</li>
+							<li>Sex: <span id="sex">fem</span> </li>
+							<li>Religion: <span id="religion">orthodox</span></li>
+						<ul>
+						<button id="edit-profile" title="edit">Edit profile</button>
+					</div>
+
+					<div id="profile-edit">
+						<div class="box-text lightbox">
+						<div class="close-button">x</div>
+						<div>
+							<label>Name:</label>
+							<input type="text" id="new-name" value=""  />
+						</div>
+						<div>
+							<label>Age:</label>
+							<input type="text" id="new-age" value=""  />
+						</div>	
+						<div>
+							<label>Sex:</label>
+							<input type="radio" name="sex" value="mas">mas<br>
+							<input type="radio" name="sex" value="fem" checked>fem
+						</div>
+						<div>
+							<label>Religion:</label>
+								<select id="new-religion">
+								  <option value="orthodox">orthodox</option>
+								  <option value="musulman">musulman</option>
+								  <option value="adventist">adventist</option>
+								  <option value="catholic">catholic</option>
+								</select>
+						</div>
+						<button id="done-edit" title="Edit">Edit</button>
+					</div>
+					</div>
+				</div>
+
+
+				<div id="container">
+					<div class="buttons">
+						<button class="grid">Grid View</button>
+						<button class="list">List View</button>
+					</div>
+					
+					<ul class="list-w grid">
+						<!-- Compleatat cu JQuery -->
+					</ul>
+				</div>    
+				
+			
+				
+			</div>
+			
+		</section>
+		<footer>
+			<div class="content"> 
+			
+			</div>
+		</footer>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.4.min.js"></script>
+		<!--<script type="text/javascript" src="./js/modernizr_2.8.3.js"></script>-->
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./js/script.js"></script>
+    </body>
+</html>
