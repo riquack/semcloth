@@ -24,7 +24,7 @@
 				<div class="user-options">
 					<ul> 
 						<li><a href="./logout.html" title="logout" id="logout" >Logout</a></li>
-						<li><a href="./recommendations.html" title="recommendations">Recommendations</a></li>
+						<li><a href="./your-wardrobe.html" title="your wardrobe">Your wardrobe</a></li>
 					</ul>
 				</div>
 			</div>
@@ -39,26 +39,35 @@
 							<div class="filters-item">
 								<input type="checkbox" name="events" value="Events" id="events">Events<br>
 								<div class="list-events">
-									<input type="radio" name="events" value="diner">Diner<br>
+									<!--<input type="radio" name="events" value="diner">Diner<br>
 									<input type="radio" name="events" value="funeral">Funeral<br>
 									<input type="radio" name="events" value="interview">Interview<br>
 									<input type="radio" name="events" value="murder">Murder<br>
-									<input type="radio" name="events" value="gym">Gym<br>
+									<input type="radio" name="events" value="gym">Gym<br>-->
+									<input type="radio" name="events" value="business meeting"> Business Meeting <br/>
+									<input type="radio" name="events" value="interview"> Interview <br/>
+									<input type="radio" name="events" value="wedding"> Wedding <br/>
+									<input type="radio" name="events" value="pyjama party"> Pyjama Party <br/>
+									<input type="radio" name="events" value="funneral"> Funneral <br/>
+									<input type="radio" name="events" value="date"> Date <br/>
+									<input type="radio" name="events" value="romantic date"> Romantic Date <br/>
+									<input type="radio" name="events" value="club"> Club <br/>
+									
 								</div>
 							</div>
 							<!-- Filtru 2 -->
 							<div class="filters-item">
-								<input type="checkbox" name="style-pref" value="Style" id="style">Style Preferences<br>
+								<input type="checkbox" name="style-pref" value="Style" id="style">Style Preferences<br/>
 								<div class="list-pref">
-									<input type="checkbox" name="style-pref" value="casual">Casual<br>
-									<input type="checkbox" name="style-pref" value="sport">Sport<br>
-									<input type="checkbox" name="style-pref" value="rock">Rock<br>
-									<input type="checkbox" name="style-pref" value="conservative">Conservative<br>
+									<input type="radio" name="style-pref" value="casual">Casual<br/>
+									<input type="radio" name="style-pref" value="sport">Sport<br/>
+									<input type="radio" name="style-pref" value="rock">Rock<br/>
+									<input type="radio" name="style-pref" value="conservative">Conservative<br/>
 								</div>
 							</div>
 							<!-- Filtru 3 -->
 							<div class="filters-item">
-								<input type="checkbox" name="ws-pref" value="weather and seasons" id="weather_season">Weather and seasons<br>
+								<input type="checkbox" name="ws-pref" value="weather and seasons" id="weather">Weather and seasons<br/>
 								<div class="ws-pref">
 									<!-- Detect Location -->
 									<div id="weather">
@@ -74,7 +83,31 @@
 								</div>
 							</div>
 								
+							<div class="filters-item">
+								<input type="checkbox" name="season" value="Season" id="season">Season<br/>
+								<div class="list-season">    
+									<input type="radio" name="season" value="spring">Spring<br/>
+									<input type="radio" name="season" value="summer">Summer<br/>
+									<input type="radio" name="season" value="autumn">Autumn<br/>
+									<input type="radio" name="season" value="winter">Winter<br/>
+
+								</div>
+							</div>
+
+							<div class="filters-item">
+								<input type="checkbox" name="material" value="Material" id="material">Material<br/>
+								<div class="list-material">    
+									<input type="radio" name="material" value="natural">Natural<br/>
+									<input type="radio" name="material" value="sinthetic">Sinthetic<br/>
+									<!--<input type="radio" name="season" value="autumn">Autumn<br/>
+									<input type="radio" name="season" value="winter">Winter<br/>-->
+
+								</div>
+							</div>
+
+
 							<button id="app-filters" class="b-filters">Search</button>
+							<button id="reset-filters" class="b-filters">Reset</button>
 						</div>
 					</div>
 					
@@ -111,5 +144,8 @@
 		<script type="text/javascript" src="./js/script-ws.js"></script>
 		<script type="text/javascript" src="./js/jquery.cookie.js"></script>
 		<script type="text/javascript" src="./js/script.js"></script>
+		<script type="text/javascript" src="./js/script-filters.js"></script>
+		<!--<script type="text/javascript" src="./js/script-logout.js"></script>-->
+		<script type="text/javascript" src="./js/script-wardrobe.js"></script> 
     </body>
 </html>

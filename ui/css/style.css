@@ -224,7 +224,7 @@ body {
 #container .grid li { 
 	float: left; 
 	width: 33.3%; 
-	height: 150px;
+	height: 250px;
 	border-right: 1px dotted #CCC; 
 	border-bottom: 1px dotted #CCC;
 	padding: 20px; 
@@ -237,11 +237,11 @@ body {
 /*Recomandation----------------------------------------------------------------------*/
 
 .filters-item{
-		border-bottom: 1px solid #000;
+		border-bottom: 1px dotted #aeaeae;
 		margin-bottom: 10px;
 }
 
-.list-events, .list-pref, .ws-pref{
+.list-events, .list-pref, .ws-pref, .list-season, .list-material{
 	display: none;
 }
 
