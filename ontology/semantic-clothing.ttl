@@ -303,14 +303,17 @@ dbr:Winter a dbr:Season .
 
 
 # The materials from which clothes are made of
-:ClothingMaterial rdfs:subClassOf dbr:Raw_material ;
+:ClothingMaterial a owl:Class, :ClothingCharacteristic ;
+				  rdfs:subClassOf dbr:Raw_material ;
 				  rdfs:label "Clothing material"^^xsd:string ;
 				  rdfs:comment "The basic materials from which clothes are made of."^^xsd:string .
 
-:NaturalClothingMaterial rdfs:subClassOf :ClothingMaterial ;
+:NaturalClothingMaterial a owl:Class ; 
+		                 rdfs:subClassOf :ClothingMaterial ;
 						 rdfs:label "Natural clothing material"^^xsd:string .
           
-:SyntheticClothingMaterial rdfs:subClassOf :ClothingMaterial ;
+:SyntheticClothingMaterial a owl:Class ;
+						   rdfs:subClassOf :ClothingMaterial ;
 						   rdfs:label "Synthetic clothing material"^^xsd:string .
 
 # Natural clothing materials
@@ -385,6 +388,62 @@ dbr:Female a dbr:Genre .
 
 dbr:Male a dbr:Genre .
 
+# Infering clothing types
+
+#						 owl:equivalentClass [ a owl:Restriction ;
+#									 	 	   owl:onProperty :hasTextileComposition ;
+#									  		   owl:allValuesFrom :NaturalClothingMaterial 
+#									         ] ;
+#						 owl:equivalentClass [ a owl:Restriction ;
+#									 	 	   owl:onProperty :hasTextileComposition ;
+#									  		   owl:someValuesFrom :NaturalClothingMaterial 
+#									         ] ;
+
+
+:ClothingsWithAllNaturalMaterials rdfs:subClassOf :Clothing ;
+								  owl:equivalentClass [ a owl:Restriction ;
+								  						owl:onProperty :hasTextileComposition ;
+								  						owl:allValuesFrom :NaturalClothingMaterial 
+								  					  ] ;
+								  rdfs:label "Clothings with all natural materials." .
+
+:ClothingsWithAllSyntheticMaterials rdfs:subClassOf :Clothing ;
+								    owl:equivalentClass [ a owl:Restriction ; 
+								  						  owl:onProperty :hasTextileComposition ;
+								  						  owl:allValuesFrom :SyntheticClothingMaterial 
+								  					    ] ;
+								  rdfs:label "Clothings with all syntetic materials." .
+
+
+:ClothingsWithAtLeastOneNaturalMaterial rdfs:subClassOf :Clothing ;
+								    	owl:equivalentClass [ a owl:Restriction ;
+								  				    		    owl:onProperty :hasTextileComposition ;
+								  						        owl:someValuesFrom :NaturalClothingMaterial 
+								  					        ] ;
+								  rdfs:label "Clothings with at least one natural material." .
+
+
+:ClothingsWithAtLeastOneSyntheticMaterial rdfs:subClassOf :Clothing ;
+								    	  owl:equivalentClass [ a owl:Restriction ;
+								  				    		    owl:onProperty :hasTextileComposition ;
+								  						        owl:someValuesFrom :SyntheticClothingMaterial 
+								  					          ] ;
+								  rdfs:label "Clothings with at least one synthetic material." .
+
+
+:NaturalMaterialClothing rdfs:subClassOf :Clothing ;
+						 owl:equivalentClass [ a owl:Class ; 
+ 											   owl:intersectionOf (:ClothingsWithAllNaturalMaterials :ClothingsWithAtLeastOneNaturalMaterial)
+ 											 ] ;			         
+				 		 rdfs:label "Natural material clothing"^^xsd:string .
+
+:SyntheticMaterialClothing a owl:Class ;
+						   rdfs:subClassOf :Clothing ;
+						   owl:equivalentClass [ a owl:Class ; 
+ 											   owl:intersectionOf (:ClothingsWithAllSyntheticMaterials :ClothingsWithAtLeastOneSyntheticMaterial)
+ 											 ] ;			         
+				 		   rdfs:label "Synthetic material clothing"^^xsd:string .
+
 :UnisexClothing rdfs:subClassOf :Clothing ;
 				owl:equivalentClass [ rdfs:subClassOf :Clothing ;
 									  owl:intersectionOf (:MensClothing :WomensClothing)
@@ -398,6 +457,7 @@ dbr:Male a dbr:Genre .
 									  owl:hasValue dbr:Female 
 									] ;
 				rdfs:label "Women's clothing"^^xsd:string .
+				
 
 :MensClothing rdfs:subClassOf :Clothing ;
 				owl:equivalentClass [ a owl:Restriction ;
@@ -405,44 +465,65 @@ dbr:Male a dbr:Genre .
 									  owl:hasValue dbr:Male 
 									] ;
 				rdfs:label "Men's clothing"^^xsd:string .
-				
-:pijamalePentruFemei a :Pyjama ;
-					 :isSuitableForGenre dbr:Female .
+
+
+####################################################### ABox
+:pijamalePentruFemeiNatural a :Pyjama ;
+					 :isSuitableForGenre dbr:Female ;
+					 :hasTextileComposition dbr:Silk, dbr:Mohair.		
 					    
-:pijamalePentruBarbati a :Pyjama ;
-					 :isSuitableForGenre dbr:Male .
+:pijamalePentruBarbatiSynthetic a :Pyjama ;
+					 :isSuitableForGenre dbr:Male ;
+					 :hasTextileComposition dbr:Nylon, dbr:Acrylic_fiber, dbr:Polyester, dbr:Spandex, dbr:Satin.
 
 :pijamaleUnisex a :Pyjama ;
-					 :isSuitableForGenre dbr:Male, dbr:Female .
+			    :isSuitableForGenre dbr:Male, dbr:Female ;
+			    :hasTextileComposition dbr:Nylon, dbr:Silk .
+##############################################################
+
+
+
 # The properties of the Semantic Clothing vocabulary
 
 :hasTextileComposition a owl:ObjectProperty ;
 	            	   rdfs:subPropertyOf dbp:composition ;
+	            	   rdfs:domain :Clothing ;
+	            	   rdfs:range :ClothingMaterial ;
 	            	   rdfs:label "Has textile composition"^^xsd:string ;
 	            	   rdfs:comment "This property denotes the materials from which a clothing item is composed of."^^xsd:string .
 	            	   
 :hasColour a owl:ObjectProperty ;
 		   owl:sameAs dbp:colour ;
+    	   rdfs:domain :Clothing ;
+    	   rdfs:range :Color ;
 		   rdfs:label "Has colour"^^xsd:string .
 
 # To consider making it an DatatypeProperty
 :hasSize a owl:ObjectProperty ;
+         rdfs:domain :Clothing ;
+	     rdfs:range :ClothingMaterial ;
 		 rdfs:label "Has size"^^xsd:string .
 
 dbp:dressSize rdfs:subPropertyOf :hasSize .
 
 :isSuitableForGenre a owl:ObjectProperty ;
+             	    rdfs:domain :Clothing ;
+             	    rdfs:range dbr:Genre ;
 					rdfs:label "Is suitable for genre"^^xsd:string ;
 					rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes"^^xsd:string .
 
 :isSuitableForEvent a owl:ObjectProperty ;
+             	    rdfs:domain :Clothing ;
+             	    rdfs:range dbo:Event ;
 					rdfs:label "Is suitable for event"^^xsd:string .
 
 :isSuitableForBodyShape a owl:ObjectProperty ;
 					    rdfs:label "Is suitable for body shape"^^xsd:string .
 					    
 :isSuitableForSeason a owl:ObjectProperty ;
-					 rdfs:label "Is suitable for season"^^xsd:string .
+             	     rdfs:domain :Clothing ;
+             	     rdfs:range dbr:Season ;
+   				     rdfs:label "Is suitable for season"^^xsd:string .
 
 :isSuitableForWeather a owl:ObjectProperty ;
 					  rdfs:label "Is suitable for weather conditions"^^xsd:string .
