@@ -1,9 +1,9 @@
 # Bibliography
 # 1. Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII;
-# to mention the other document W3C, et all
+# to mention the other documents W3C, et all
 # zara.com
 # hm.com
-
+# Bîrsan Ioana
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -14,7 +14,7 @@
 
 @prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix dbr: <http://dbpedia.org/resource/> .
-@prefix dbp: <http://dbpedia.org/resource/> .
+@prefix dbp: <http://dbpedia.org/property/> .
 
 @prefix sc: <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 @prefix : <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
@@ -291,12 +291,133 @@ dc:date a owl:AnnotationProperty .
           rdfs:subClassOf :Lingerie ;
           rdfs:label "Bodysuit"^^xsd:string .
 
-          
 
+# The seasons
+dbr:Autumn a dbr:Season .
+
+dbr:Spring a dbr:Season .
+
+dbr:Summer a dbr:Season .
+
+dbr:Winter a dbr:Season .
+
+
+# The materials from which clothes are made of
+:ClothingMaterial rdfs:subClassOf dbr:Raw_material ;
+				  rdfs:label "Clothing material"^^xsd:string ;
+				  rdfs:comment "The basic materials from which clothes are made of."^^xsd:string .
+
+:NaturalClothingMaterial rdfs:subClassOf :ClothingMaterial ;
+						 rdfs:label "Natural clothing material"^^xsd:string .
+          
+:SyntheticClothingMaterial rdfs:subClassOf :ClothingMaterial ;
+						   rdfs:label "Synthetic clothing material"^^xsd:string .
+
+# Natural clothing materials
+dbr:Cotton a :NaturalClothingMaterial .
+
+dbr:Leather a :NaturalClothingMaterial .
+
+dbr:Wool a :NaturalClothingMaterial .
+
+dbr:Fur a :NaturalClothingMaterial .
+
+dbr:Linen a :NaturalClothingMaterial .
+
+dbr:Mohair a :NaturalClothingMaterial .
+
+dbr:Silk a :NaturalClothingMaterial .
+
+dbr:Lace a :NaturalClothingMaterial .
+
+dbr:Cashmere_wool a :NaturalClothingMaterial .
+
+
+#Syntetic clothing materials
+dbr:Spandex a :SyntheticClothingMaterial ;
+			owl:sameAs dbr:Lycra, dbr:Elastan .
+			
+dbr:Polyester a :SyntheticClothingMaterial .
+			
+dbr:Acrylic_fiber a :SyntheticClothingMaterial .
+
+dbr:Satin a :SyntheticClothingMaterial .
+
+dbr:Nylon a :SyntheticClothingMaterial .
+
+
+:ClothingCharacteristic a owl:Class ;
+					    rdfs:label "Clothing characteristic"^^xsd:string .
+
+dbr:Color a :ClothingCharacteristic .
+
+dbr:Clothing_sizes a :ClothingCharacteristic .
+
+dbr:Shoe_size a :ClothingCharacteristic .
+
+
+# Weather
+dbr:Weather a owl:Class ;
+			rdfs:subClassOf owl:Thing .
+								    
+dbr:Cold a dbr:Weather .
+
+:Hot a dbr:Weather ;
+     rdfs:label "Hot"^^xsd:string .
+					    
+:Wet a dbr:Weather ;
+     rdfs:label "Wet"^^xsd:string .
+
+:Dry a dbr:Weather ;
+     rdfs:label "Dry"^^xsd:string .
+     
+:Clear a dbr:Weather ;
+       rdfs:label "Clear"^^xsd:string .
+       
+dbr:cloudy a dbr:Weather ;
+      	   rdfs:label "Cloudy"^^xsd:string .
+       
+
+# The genres
+dbr:Genre a owl:Class .
+
+dbr:Female a dbr:Genre .
+
+dbr:Male a dbr:Genre .
+
+:UnisexClothing rdfs:subClassOf :Clothing ;
+				owl:equivalentClass [ rdfs:subClassOf :Clothing ;
+									  owl:intersectionOf (:MensClothing :WomensClothing)
+									] ;
+									
+				rdfs:label "Unisex clothing"^^xsd:string .
+
+:WomensClothing rdfs:subClassOf :Clothing ;
+				owl:equivalentClass [ a owl:Restriction ;
+									  owl:onProperty :isSuitableForGenre ;
+									  owl:hasValue dbr:Female 
+									] ;
+				rdfs:label "Women's clothing"^^xsd:string .
+
+:MensClothing rdfs:subClassOf :Clothing ;
+				owl:equivalentClass [ a owl:Restriction ;
+									  owl:onProperty :isSuitableForGenre ;
+									  owl:hasValue dbr:Male 
+									] ;
+				rdfs:label "Men's clothing"^^xsd:string .
+				
+:pijamalePentruFemei a :Pyjama ;
+					 :isSuitableForGenre dbr:Female .
+					    
+:pijamalePentruBarbati a :Pyjama ;
+					 :isSuitableForGenre dbr:Male .
+
+:pijamaleUnisex a :Pyjama ;
+					 :isSuitableForGenre dbr:Male, dbr:Female .
 # The properties of the Semantic Clothing vocabulary
 
 :hasTextileComposition a owl:ObjectProperty ;
-	            	   owl:rdfs:subPropertyOf dbp:composition ;
+	            	   rdfs:subPropertyOf dbp:composition ;
 	            	   rdfs:label "Has textile composition"^^xsd:string ;
 	            	   rdfs:comment "This property denotes the materials from which a clothing item is composed of."^^xsd:string .
 	            	   
@@ -308,7 +429,7 @@ dc:date a owl:AnnotationProperty .
 :hasSize a owl:ObjectProperty ;
 		 rdfs:label "Has size"^^xsd:string .
 
-dbp:dressSize rdfs:subClassOf :hasSize .
+dbp:dressSize rdfs:subPropertyOf :hasSize .
 
 :isSuitableForGenre a owl:ObjectProperty ;
 					rdfs:label "Is suitable for genre"^^xsd:string ;
@@ -323,7 +444,9 @@ dbp:dressSize rdfs:subClassOf :hasSize .
 :isSuitableForSeason a owl:ObjectProperty ;
 					 rdfs:label "Is suitable for season"^^xsd:string .
 
-:isSuitableForWeatherConditions a owl:ObjectProperty ;
-					            rdfs:label "Is suitable for weather conditions"^^xsd:string .
+:isSuitableForWeather a owl:ObjectProperty ;
+					  rdfs:label "Is suitable for weather conditions"^^xsd:string .
 
+:isSuitableForSeason a owl:ObjectProperty ;
+					 rdfs:label "Is suitable for Season"^^xsd:string .
 					    
