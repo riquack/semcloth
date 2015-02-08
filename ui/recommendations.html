@@ -1,0 +1,115 @@
+ <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <title>SEC - Recomandation</title>
+		<meta name="viewport" content="width=device-width,user-scalable = no">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./css/style.css" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,800,600,300' rel='stylesheet' type='text/css'>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    	<header>
+			<div class="content"> 
+				<div class="title">
+					<h1>Sec - Recomandation </h1>
+				</div>
+				<div class="user-options">
+					<ul> 
+						<li><a href="./logout.html" title="logout" id="logout" >Logout</a></li>
+						<li><a href="./recommendations.html" title="recommendations">Recommendations</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+        <section class="body">
+			<div class="content">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="filters">
+							<h3>Filter by:</h3>
+							<!-- Filtru 1 -->
+							<div class="filters-item">
+								<input type="checkbox" name="events" value="Events" id="events">Events<br>
+								<div class="list-events">
+									<input type="radio" name="events" value="diner">Diner<br>
+									<input type="radio" name="events" value="funeral">Funeral<br>
+									<input type="radio" name="events" value="interview">Interview<br>
+									<input type="radio" name="events" value="murder">Murder<br>
+									<input type="radio" name="events" value="gym">Gym<br>
+								</div>
+							</div>
+							<!-- Filtru 2 -->
+							<div class="filters-item">
+								<input type="checkbox" name="style-pref" value="Style" id="style">Style Preferences<br>
+								<div class="list-pref">
+									<input type="checkbox" name="style-pref" value="casual">Casual<br>
+									<input type="checkbox" name="style-pref" value="sport">Sport<br>
+									<input type="checkbox" name="style-pref" value="rock">Rock<br>
+									<input type="checkbox" name="style-pref" value="conservative">Conservative<br>
+								</div>
+							</div>
+							<!-- Filtru 3 -->
+							<div class="filters-item">
+								<input type="checkbox" name="ws-pref" value="weather and seasons" id="weather_season">Weather and seasons<br>
+								<div class="ws-pref">
+									<!-- Detect Location -->
+									<div id="weather">
+										<ul id="scroller">
+											<!-- The forecast items will go here -->
+										</ul>
+										<!--<a href="#" class="arrow previous">Previous</a>
+										<a href="#" class="arrow next">Next</a>	-->		
+									</div>
+											
+									<p class="location"></p>
+									<div id="clouds"></div>
+								</div>
+							</div>
+								
+							<button id="app-filters" class="b-filters">Search</button>
+						</div>
+					</div>
+					
+					<div class="col-sm-9">
+						<h3>Recomandation</h3>
+					
+						<div id="container">
+							<div class="buttons">
+								<button class="grid">Grid View</button>
+								<button class="list">List View</button>
+							</div>			
+							<ul class="list-w grid">
+								<!-- Compleatat cu JQuery -->
+							</ul> 
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		</section>
+		<footer>
+			<div class="content"> 
+			
+			</div>
+		</footer>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.4.min.js"></script>
+		<!--<script type="text/javascript" src="./js/modernizr_2.8.3.js"></script>-->
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+		<script type="text/javascript" src="./js/script-ws.js"></script>
+		<script type="text/javascript" src="./js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="./js/script.js"></script>
+    </body>
+</html>

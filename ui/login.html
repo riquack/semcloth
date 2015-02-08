@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <title>SEC - Login</title>
+		<meta name="viewport" content="width=device-width,user-scalable = no">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="./css/style.css" type="text/css" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,800,600,300' rel='stylesheet' type='text/css'>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    	<header>
+			<div class="content"> 
+				<div class="title">
+					<h1>Sec</h1>
+				</div>
+			</div>
+		</header>
+        <section class="body">
+			<div class="content"> 
+				<div class="box-center">
+					<div class="box-text">
+						<input id="email-add" type="email" value="oana@gmail.com" placeholder="Email Address">
+						<input id="pass" type="password" value="test123456" placeholder="Password" >
+						 
+						<div id="validationEmailLg"></div>
+						<div id="loginEmailLg"></div>
+						<button title="Login" id="login">Login</button> <br/>
+						<button title="Forgot password" id="f-pass">Forgot password</button> <br/>
+						<button title="Register" id="register-form">Register</button> <br/>
+					</div>
+					
+ 				</div>
+				
+			
+				
+			</div>
+			<!-- Register Box-->
+			<div id="register-box">	
+					<div class="box-text lightbox">
+						<div class="close-button">x</div>
+						<input id="email-r" type="email" value="oana@gmail.com" placeholder="Email Address">
+						<input id="passwordInput" type="password" value="test123456" name="passwordInput" placeholder="Password" >
+						<input id="confirmPasswordInput" type="password" name="confirmPasswordInput" value = "test123456" placeholder="Confirm Password" >
+						<div  id="passwordStrength"></div>
+						<div  id="validationEmail"></div>
+						<div id="validResults"></div> 
+						<button title="Register" id="register">Register</button>
+					</div>
+			</div>
+			<!-- End Register Box-->
+			
+			<!-- Forgot Password Box-->
+			<div id="fbox-box">
+				<div class="box-text lightbox">
+					<div class="close-button">x</div>
+						<input id="email-fp" type="email" value="" placeholder="Email Address">
+						 <div   id="passwordValidFP"></div>  
+						 <div  id="validationEmailFP"></div>
+						<button title="Register" id="forg-pass">Recover Password</button>
+				</div>
+			</div>
+			<!-- End Forgot Password Box-->
+		</section>
+		<footer>
+			<div class="content"> 
+			
+			</div>
+		</footer>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.4.min.js"></script>
+		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha3.js"></script>
+		<!--<script type="text/javascript" src="./js/modernizr_2.8.3.js"></script>-->
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="./js/script.js"></script>
+		<script type="text/javascript">
+			$(document ).ready(function() {
+	   			var cookie = $.cookie('email'); 
+	   			if(cookie!=null) {
+					window.location.replace("./your-wardrobe.html");
+
+	   			}
+			});
+
+		</script>
+    </body>
+</html>
