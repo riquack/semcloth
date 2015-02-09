@@ -1,10 +1,3 @@
-# Bibliography
-# 1. Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII;
-# to mention the other documents W3C, et all
-# zara.com
-# hm.com
-# Bîrsan Ioana
-# http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -26,9 +19,22 @@
 <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl> 
 					rdf:type owl:Ontology ;
                     rdfs:label "Semantic Clothing Ontology"^^xsd:string ,
-							   "A common vocabular for clothing items."^^xsd:string ;											  
+							   "A common vocabulary for clothing items."^^xsd:string ;
+					rdfs:comment "The purpose of this ontology is to create the common conceptual framwork for 'talking' about clothing or related concepts."^^xsd:string ;							   
                     dc:date "2015"^^xsd:dateTime ;
-                    dc:creator "Daniel Amariei, Oana Gagea, Iordan Rață."^^xsd:string .
+                    dc:creator "Daniel Amariei"^^xsd:string ;
+                    dc:contributor "Oana Gagea"^^xsd:string, "Ioan Bîrsan"^^xsd:string, "Iordan Rață"^^xsd:string ;
+                    dc:bibliographicCitation 
+                    	"***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support)."^^xsd:string ,
+                    	
+                    	"***, W3C, http://www.w3.org/2001/sw/"^^xsd:string ,
+                    	
+                    	"***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"^^xsd:string ,
+                    	
+                    	"*** H&M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)"^^xsd:string,
+                    	
+                    	"***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the 'body shapes' part of the ontology)"^^xsd:string .
+                                         
                                          
                                          
 # Annotation properties                                                           
@@ -443,8 +449,26 @@ dbr:Male owl:disjointWith dbr:Female .
 								  ] ;
 				rdfs:label "Men's clothing"^^xsd:string .
 
+# Casual Sport Rock Conservative 
 
+:ClothingStyle a owl:Class ;
+			   owl:sameAs dbr:Dress_code;
+			   rdfs:label "Clothing style"^^xsd:string ;
+			   rdfs:comment "This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
+			   
+dbr:Casual a :ClothingStyle, dbr:Dress_code .
 
+:Sport a :ClothingStyle, dbr:Dress_code ;
+	   rdfs:label "Sport dress code"^^xsd:string ;
+	   rdfs:comment "This individual specifies that a particular clothing item is suitable for the Sport dressing code."^^xsd:string .
+
+:Rock a :ClothingStyle, dbr:Dress_code ;
+	   rdfs:label "Rock dress code"^^xsd:string ;
+	   rdfs:comment "This individual specifies that a particular clothing item is suitable for the Rock dressing code."^^xsd:string .
+
+:Conservative a :ClothingStyle, dbr:Dress_code ;
+	   rdfs:label "Conservative dress code"^^xsd:string ;
+	   rdfs:comment "This individual specifies that a particular clothing item is suitable for the Conservative dressing code."^^xsd:string .
 
 ################## To be deleted
 rdfs:subClassOf a owl:TransitiveProperty .
@@ -472,7 +496,7 @@ rdfs:subClassOf a owl:TransitiveProperty .
          rdfs:domain :Clothing ;
 	     rdfs:range :Clothing_sizes ;
 		 rdfs:label "Has size"^^xsd:string ;
-		 rdfs:comment "This property specifies the size of a particular clothing item"^^xsd:string .
+		 rdfs:comment "This property specifies the size of a particular clothing item."^^xsd:string .
 
 dbp:dressSize rdfs:subPropertyOf :hasSize ;
 			  rdfs:domain :Dress ;
@@ -483,7 +507,15 @@ dbp:dressSize rdfs:subPropertyOf :hasSize ;
 		             	      rdfs:domain :Clothing ;
 		             	      rdfs:range dbr:Genre ;
 							  rdfs:label "Is suitable to be dressed by genre"^^xsd:string ;
-							  rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes"^^xsd:string .
+							  rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes."^^xsd:string .
+
+:genreHasSuitableClothingForDressing a owl:ObjectProperty ;
+		             	      rdfs:domain :Genre ;
+		             	      rdfs:range dbr:Clothing ;
+							  rdfs:label "Genre has suitable clothing for dressing"^^xsd:string ;
+							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular genre."^^xsd:string .
+							  
+:isSuitableToBeDressedByGenre owl:inverseOf :genreHasSuitableClothingForDressing .							  
 
 :isSuitableToBeDressedAtEvent a owl:ObjectProperty ;
              	    rdfs:domain :Clothing ;
@@ -491,24 +523,74 @@ dbp:dressSize rdfs:subPropertyOf :hasSize ;
 					rdfs:label "Is suitable to be dressed at event"^^xsd:string ;
 					dbo:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
 
+:eventHasSuitableClothingForDressing a owl:ObjectProperty ;
+		             	      rdfs:domain :Event ;
+		             	      rdfs:range dbr:Clothing ;
+							  rdfs:label "Event has suitable clothing for dressing"^^xsd:string ;
+							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular event."^^xsd:string .
+
+:isSuitableToBeDressedAtEvent owl:inverseOf :eventHasSuitableClothingForDressing .							  
+
+
 :isSuitableToBeDressedByBodyShape a owl:ObjectProperty ;
 								  dbo:domain :Clothing ;
 								  rdfs:range :BodyShape ;								  
 					              rdfs:label "Is suitable to be dressed by body shape"^^xsd:string ;
 					              rdfs:comment "Stipulates for which body shape a particular clothing item and/or class is/are suitable for."^^xsd:string .
-					    
+
+:bodyShapeHasSuitableClothingForDressing a owl:ObjectProperty ;
+		             	      rdfs:domain :BodyShape ;
+		             	      rdfs:range :Clothing ;
+							  rdfs:label "Body shape has suitable clothing for dressing"^^xsd:string ;
+							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular body shape."^^xsd:string .
+
+:isSuitableToBeDressedByBodyShape owl:inverseOf :bodyShapeHasSuitableClothingForDressing .							  
+
+
 :isSuitableToBeDressedInSeason a owl:ObjectProperty ;
              	     		   rdfs:domain :Clothing ;
 			             	   rdfs:range dbr:Season ;
    							   rdfs:label "Is suitable to be dressed in season"^^xsd:string ;
-   							   rdfs:comment "This property specifies the season for which a particular clothing item and/or class is/are suitable for"^^xsd:string .
+   							   rdfs:comment "This property specifies the season for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
+
+:seasonHasSuitableClothingForDressing a owl:ObjectProperty ;
+		             	      rdfs:domain :Season ;
+		             	      rdfs:range dbr:Clothing ;
+							  rdfs:label "Season has suitable clothing for dressing"^^xsd:string ;
+							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular season."^^xsd:string .
+
+:isSuitableToBeDressedInSeason owl:inverseOf :seasonHasSuitableClothingForDressing .							  
+
 
 :isSuitableToBeDressedOnWeather a owl:ObjectProperty ;
 								  rdfs:domain :Clothing ;
 								  rdfs:range :Weather ;						  
 								  rdfs:label "Is suitable to be dressed in weather conditions"^^xsd:string ;
 								  rdfs:comment "This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
-					    
+
+:weatherHasSuitableClothingForDressing a owl:ObjectProperty ;
+		             	      rdfs:domain :Weather ;
+		             	      rdfs:range dbr:Clothing ;
+							  rdfs:label "Weather has suitable clothing for dressing"^^xsd:string ;
+							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular weather condition."^^xsd:string .
+
+:isSuitableToBeDressedOnWeather owl:inverseOf :weatherHasSuitableClothingForDressing .							  
+
+
+:isSuitableForDressingCode a owl:ObjectProperty ;
+								  rdfs:domain :Clothing ;
+								  rdfs:range :ClothingStyle, dbr:Dress_code ;						  
+								  rdfs:label "Is suitable for dressing code"^^xsd:string ;
+								  rdfs:comment "This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
+
+:dressingCodeHasSuitableClothingForDressing a owl:ObjectProperty ;
+		             	      rdfs:domain :ClothingStyle, dbr:Dress_code ;
+		             	      rdfs:range dbr:Clothing ;
+							  rdfs:label "Dressing code has suitable clothing for dressing"^^xsd:string ;
+							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular dressing code."^^xsd:string .
+
+:isSuitableForDressingCode owl:inverseOf :dressingCodeHasSuitableClothingForDressing .							  
+
 					    
 ####################################################### ABox
 :pijamalePentruFemeiNatural a :Pyjama ;
