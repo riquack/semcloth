@@ -106,6 +106,7 @@ jQuery(document).ready(function(){
     				+ '<p class="item-season"><b>Season:</b> '+ season +'</p>'
     				+ '<p class="item-styles"><b>Styles:</b> '+ styles +'</p>' 
     				+ '<p class="item-material"><b>Material:</b> '+ material +'</p>'
+    				+ '<p class="item-material"><b>Note:</b> .... </p>'
     				+ '</div>'
 	   				//+'<div class="e-item"> <button id="item-e-'+i+'" class="options edit-item">Edit</button> '
 	   				//+'<button id="item-d-'+i+'" class="options delete-item">Delete</button> </div>';
@@ -140,6 +141,26 @@ jQuery(document).ready(function(){
 			/*sterge si din fisier/vector...*/
 	});
 
+	/* Add new item ----------------------------------------------------------------- */
 
+	$('#add-item').on('click',function(e) {	
+		var type_type = $('#item-options-type').find(":selected").text();
+		var type_material = $('#item-options-material').find(":selected").text();
+		var type_color = $('#item-options-color').find(":selected").text();
+		var type_size = $('#item-options-size').find(":selected").text();
+		var type_texture = $('#item-options-texture').find(":selected").text();
+		var item_note = $("#item-note").val();
+
+		var new_item = { "item" : {}};
+		new_item.item.type = type_type;
+		new_item.item.material = type_material;
+		new_item.item.color = type_color;
+		new_item.item.size = type_size;
+		new_item.item.texture = type_texture;
+		new_item.item.note = item_note;
+
+		console.log(new_item);
+
+	});
 
 });

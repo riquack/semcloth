@@ -224,7 +224,7 @@ body {
 #container .grid li { 
 	float: left; 
 	width: 33.3%; 
-	height: 250px;
+	height: 300px;
 	border-right: 1px dotted #CCC; 
 	border-bottom: 1px dotted #CCC;
 	padding: 20px; 
@@ -246,6 +246,15 @@ body {
 }
 
 
+footer .content{
+	display: none;
+}
+
+.span6 {
+	border-top: 1px solid #000;
+	margin-top: 15px;
+	padding-top: 15px;
+}
 
 
 /*

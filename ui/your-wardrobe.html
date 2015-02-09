@@ -35,15 +35,71 @@
 				<div class="profile-user">
 					<h3>Hello <span id="get_user_name"></span>,</h3> 
 					<h4>Your Profile: </h4>
-					<div id="basic-info">
-						<p id="update_info"></p>
-						<ul>
-							<li>Name: <span id="name-profile">...</span></li>
-							<li>Birthday/Age: <span id="age-profile">...</span> - <span id="years-profile">0</span> years</li>
-							<li>Gender: <span id="gender-profile">...</span> </li>
-							<li>Religion: <span id="religion-profile">...</span></li>
-						</ul>
-						<button id="edit-profile" title="edit">Edit profile</button>
+					<div class="span6">
+						<div id="basic-info">
+							<p id="update_info"></p>
+							<ul>
+								<li>Name: <span id="name-profile">...</span></li>
+								<li>Birthday/Age: <span id="age-profile">...</span> - <span id="years-profile">0</span> years</li>
+								<li>Gender: <span id="gender-profile">...</span> </li>
+								<li>Religion: <span id="religion-profile">...</span></li>
+							</ul>
+							<button id="edit-profile" title="edit">Edit profile</button>
+						</div>
+					</div>
+					<div class="span6">
+						<div class="new-item-add">
+							<p>Item type</p>
+							<div class="item-type">
+								<select id="item-options-type" name="item-list-type">
+									<option  value="none">none</option>
+									<option  value="pajamas">pajamas</option>
+									<option  value="blouse">blouse</option>
+								</select>
+							</div>
+
+							<p>Material</p>
+							<div class="item-material">
+								<select id="item-options-material" name="item-list-material">
+									<option  value="none">none</option>
+									<option  value="natural">natural</option>
+									<option  value="sinthetic">sinthetic</option>
+								</select>
+							</div>
+
+							<p>Color</p>
+							<div class="item-color">
+								<select id="item-options-color" name="item-list-color">
+									<option  value="none">none</option>
+									<option  value="rosu">rosu</option>
+									<option  value="verde">verde</option>
+								</select>
+							</div>
+
+							<p>Size</p>
+							<div class="item-size">
+								<select id="item-options-size" name="item-list-size">
+									<option  value="none">none</option>
+									<option  value="L">L</option>
+									<option  value="M">M</option>
+									<option  value="XL">XL</option>
+								</select>
+							</div>
+
+							<p>Texture</p>
+							<div class="item-texture">
+								<select id="item-options-texture" name="item-list-texture">
+									<option  value="none">none</option>
+									<option  value="knit">Knit</option>
+									
+								</select>
+							</div>
+ 
+							<p>Note</p>
+							<textarea placeholder="Note" id="item-note"></textarea>
+
+						</div>
+						<button id="add-item" name="Add item">Add item</button>
 					</div>
 					<hr/>
 					<div id="profile-edit">

@@ -110,19 +110,97 @@ jQuery(document).ready(function(){
 		}
 
 
+		/*Json Filter ---------------------------------------------------------------*/
 		var jsonResultFilter = {}; 
-		jsonResultFilter = {
-				// toate datele si filtere
+
+	/*	$( ".list-w li" ).each(function( index ) {
+							  	//item-events
+				var events = $('.list-events :radio:checked').val().toLowerCase();
+				var events_item =  $( this ).find(".item-events").text().toLowerCase();
+				if (events_item.toLowerCase().indexOf(events) >= 0){
+							  		//indexs.push(index);
+				} else {
+							$(this).fadeOut();
+				}
+		});	
+*/
+		var events ="no"; 
+		if($('#events').is(':checked')) { /*events*/
+			events = $('.list-events :radio:checked').val().toLowerCase();
+		} 
+
+		var pref = "no";
+		if($('#style').is(':checked')) {
+			 pref = $('.list-pref :radio:checked').val().toLowerCase();
+		}
+		
+		var season = "no";
+		if($('#season').is(':checked')) { /*season*/
+			season = $('.list-season :radio:checked').val().toLowerCase();
+		}
+
+		var material = "no";
+		if($('#material').is(':checked')) {
+		  	material = $('.list-material :radio:checked').val().toLowerCase();
+		}
+
+		var weather = "no";
+		if($('#weather').is(':checked')) {
+			weather = "yes";
+		}
+
+		var name = $("#name-profile").text();
+		var birthday = $("#age-profile").text();
+		var age = $("#years-profile").text();
+		var gender = $("#gender-profile").text();
+		var religion = $("#religion-profile").text();
 
 
+		jsonResultFilter = { 	// toate datele si filtere
+			"preferences":  { }
 		};
+
+		if(name!="")
+			jsonResultFilter.preferences.name = name;
+		if(age!=="")
+			jsonResultFilter.preferences.age = age;
+		if(birthday!=="")
+			jsonResultFilter.preferences.birthday = birthday;
+		if(religion!=="")
+			jsonResultFilter.preferences.religion = religion;
+		if(events!=="no")
+			jsonResultFilter.preferences.events = events;
+		if(pref!=="no")
+			jsonResultFilter.preferences.stylePref = pref;
+		if(weather!=="no")
+			jsonResultFilter.preferences.weather = weather;
+		if(season!=="no")
+			jsonResultFilter.preferences.season = season;
+		if(material!=="no")
+			jsonResultFilter.preferences.material = material;
+
+		console.log(jsonResultFilter);
 
 
 
 		//alert(result);
 		console.log(result);
-		/* filtrez div-urile ------------------------------------- */
-		var count_item = 0 ; 
+
+		/*
+
+				/*	"name": name,
+							"age": parseInt(age),
+							"birthday": birthday,
+							"gender": gender ,
+							"religion": religion,
+							"events": events,
+							"style-preferences": pref,
+							"weather": weather,
+							"season": season,
+							"material": material*/
+		
+		/* filtrez div-urile manual  ------------------------------------- */
+	/*	var count_item = 0 ; 
 		var values_results = result.split("|");
 		var indexs = [];
 
@@ -183,19 +261,19 @@ jQuery(document).ready(function(){
 			}
 
 		});
-		
+		*/
 		/* caut in vector doar valorile unice de atatea ori cate filtre am !!! ----------------------------- */
 		//jQuery.inArray( "John", arr )
-		jQuery.each( indexs, function( i, val ) { 
+		/*jQuery.each( indexs, function( i, val ) { 
 			console.log(indexs[i]);
 		});
-
+*/
 		console.log("--------------------------------------------");
-
+/*
 		jQuery.each( indexs, function( i, val ) { 
 				console.log(jQuery.inArray( 11, indexs ) + "  " + i + " " + indexs);
 		});
-		
+		*/
 		
 		//$( ".list-w li" ).each(function( index ) {
 
