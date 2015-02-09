@@ -423,19 +423,6 @@ dbr:Male a dbr:Genre .
 				rdfs:label "Men's clothing"^^xsd:string .
 
 
-####################################################### ABox
-:pijamalePentruFemeiNatural a :Pyjama ;
-					 :isSuitableForGenre dbr:Female ;
-					 :hasTextileComposition dbr:Silk, dbr:Mohair.		
-					    
-:pijamalePentruBarbatiSynthetic a :Pyjama ;
-					 :isSuitableForGenre dbr:Male ;
-					 :hasTextileComposition dbr:Nylon, dbr:Acrylic_fiber, dbr:Polyester, dbr:Spandex, dbr:Satin.
-
-:pijamaleUnisex a :Pyjama ;
-			    :isSuitableForGenre dbr:Male, dbr:Female ;
-			    :hasTextileComposition dbr:Nylon, dbr:Silk .
-##############################################################
 
 
 
@@ -448,8 +435,6 @@ dbr:Male a dbr:Genre .
 	            	   rdfs:label "Has textile composition"^^xsd:string ;
 	            	   rdfs:comment "This property denotes the materials from which a clothing item is composed of."^^xsd:string .
 	            	   
-owl:Restriction owl:onProperty :hasTextileComposition ;
-				owl:maxCardinality 2 .
 	            	   
 :hasColour a owl:ObjectProperty ;
 		   owl:sameAs dbp:colour ;
@@ -460,10 +445,13 @@ owl:Restriction owl:onProperty :hasTextileComposition ;
 # To consider making it an DatatypeProperty
 :hasSize a owl:ObjectProperty ;
          rdfs:domain :Clothing ;
-	     rdfs:range :ClothingMaterial ;
+	     rdfs:range :Clothing_sizes ;
 		 rdfs:label "Has size"^^xsd:string .
 
-dbp:dressSize rdfs:subPropertyOf :hasSize .
+dbp:dressSize rdfs:subPropertyOf :hasSize ;
+			  rdfs:domain :Dress ;
+			  rdfs:range :Clothing_sizes ;
+			  rdfs:label "Dress size"^^xsd:string .
 
 :isSuitableForGenre a owl:ObjectProperty ;
              	    rdfs:domain :Clothing ;
@@ -485,8 +473,26 @@ dbp:dressSize rdfs:subPropertyOf :hasSize .
    				     rdfs:label "Is suitable for season"^^xsd:string .
 
 :isSuitableForWeather a owl:ObjectProperty ;
+					  rdfs:domain :Clothing ;
+					  rdfs:range :Weather ;						  
 					  rdfs:label "Is suitable for weather conditions"^^xsd:string .
 
 :isSuitableForSeason a owl:ObjectProperty ;
+					 rdfs:domain :Clothing ;
+					 rdfs:range dbr:Season ;
 					 rdfs:label "Is suitable for Season"^^xsd:string .
 					    
+					    
+####################################################### ABox
+:pijamalePentruFemeiNatural a :Pyjama ;
+					 :isSuitableForGenre dbr:Female ;
+					 :hasTextileComposition dbr:Silk, dbr:Mohair.		
+					    
+:pijamalePentruBarbatiSynthetic a :Pyjama ;
+					 :isSuitableForGenre dbr:Male ;
+					 :hasTextileComposition dbr:Nylon, dbr:Acrylic_fiber, dbr:Polyester, dbr:Spandex, dbr:Satin.
+
+:pijamaleUnisex a :Pyjama ;
+			    :isSuitableForGenre dbr:Male, dbr:Female ;
+			    :hasTextileComposition dbr:Nylon, dbr:Silk .
+##############################################################
