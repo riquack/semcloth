@@ -4,6 +4,7 @@
 # zara.com
 # hm.com
 # Bîrsan Ioana
+# http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -302,6 +303,24 @@ dbr:Summer a dbr:Season .
 dbr:Winter a dbr:Season .
 
 
+:BodyShape a owl:Class, :ClothingCharacteristic ;
+		   rdfs:subClassOf dbr:Shape ;
+		   rdfs:label "Body shape"^^xsd:string ;
+		   rdfs:comment "The class of body shapes a person can have."^^xsd:string .
+		   
+		   
+:Apple a :BodyShape ;
+	   rdfs:label "Apple"^^xsd:string .
+
+:Pear a :BodyShape ;
+	  rdfs:label "Pear"^^xsd:string .
+
+:Hourglass a :BodyShape ;
+	   	   rdfs:label "Hourglass"^^xsd:string .
+
+:Rectangle a :BodyShape ;
+	       rdfs:label "Rectangle"^^xsd:string .
+
 # The materials from which clothes are made of
 :ClothingMaterial a owl:Class, :ClothingCharacteristic ;
 				  rdfs:subClassOf dbr:Raw_material ;
@@ -394,6 +413,8 @@ dbr:Female a dbr:Genre .
 
 dbr:Male a dbr:Genre .
 
+dbr:Male owl:disjointWith dbr:Female .
+
 # Infering clothing types
 
 						   
@@ -408,7 +429,7 @@ dbr:Male a dbr:Genre .
 :WomensClothing a owl:Class ;
 				rdfs:subClassOf :Clothing ;
 				owl:equivalentClass [ a owl:Restriction ;
-									  owl:onProperty :isSuitableForGenre ;
+									  owl:onProperty :isSuitableToBeDressedByGenre ;
 									  owl:hasValue dbr:Female 
 									] ;
 				rdfs:label "Women's clothing"^^xsd:string .
@@ -417,13 +438,16 @@ dbr:Male a dbr:Genre .
 :MensClothing a owl:Class ;
 			  rdfs:subClassOf :Clothing ;
 			  owl:equivalentClass [ a owl:Restriction ;
-									  owl:onProperty :isSuitableForGenre ;
+									  owl:onProperty :isSuitableToBeDressedByGenre ;
 									  owl:hasValue dbr:Male 
 								  ] ;
 				rdfs:label "Men's clothing"^^xsd:string .
 
 
 
+
+################## To be deleted
+rdfs:subClassOf a owl:TransitiveProperty .
 
 
 # The properties of the Semantic Clothing vocabulary
@@ -440,59 +464,62 @@ dbr:Male a dbr:Genre .
 		   owl:sameAs dbp:colour ;
     	   rdfs:domain :Clothing ;
     	   rdfs:range :Color ;
-		   rdfs:label "Has colour"^^xsd:string .
+		   rdfs:label "Has colour"^^xsd:string ;
+		   rdfs:comment "This property specifies the color a particular clothing item has."^^xsd:string .
 
 # To consider making it an DatatypeProperty
 :hasSize a owl:ObjectProperty ;
          rdfs:domain :Clothing ;
 	     rdfs:range :Clothing_sizes ;
-		 rdfs:label "Has size"^^xsd:string .
+		 rdfs:label "Has size"^^xsd:string ;
+		 rdfs:comment "This property specifies the size of a particular clothing item"^^xsd:string .
 
 dbp:dressSize rdfs:subPropertyOf :hasSize ;
 			  rdfs:domain :Dress ;
 			  rdfs:range :Clothing_sizes ;
 			  rdfs:label "Dress size"^^xsd:string .
 
-:isSuitableForGenre a owl:ObjectProperty ;
-             	    rdfs:domain :Clothing ;
-             	    rdfs:range dbr:Genre ;
-					rdfs:label "Is suitable for genre"^^xsd:string ;
-					rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes"^^xsd:string .
+:isSuitableToBeDressedByGenre a owl:ObjectProperty ;
+		             	      rdfs:domain :Clothing ;
+		             	      rdfs:range dbr:Genre ;
+							  rdfs:label "Is suitable to be dressed by genre"^^xsd:string ;
+							  rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes"^^xsd:string .
 
-:isSuitableForEvent a owl:ObjectProperty ;
+:isSuitableToBeDressedAtEvent a owl:ObjectProperty ;
              	    rdfs:domain :Clothing ;
              	    rdfs:range dbo:Event ;
-					rdfs:label "Is suitable for event"^^xsd:string .
+					rdfs:label "Is suitable to be dressed at event"^^xsd:string ;
+					dbo:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
 
-:isSuitableForBodyShape a owl:ObjectProperty ;
-					    rdfs:label "Is suitable for body shape"^^xsd:string .
+:isSuitableToBeDressedByBodyShape a owl:ObjectProperty ;
+								  dbo:domain :Clothing ;
+								  rdfs:range :BodyShape ;								  
+					              rdfs:label "Is suitable to be dressed by body shape"^^xsd:string ;
+					              rdfs:comment "Stipulates for which body shape a particular clothing item and/or class is/are suitable for."^^xsd:string .
 					    
-:isSuitableForSeason a owl:ObjectProperty ;
-             	     rdfs:domain :Clothing ;
-             	     rdfs:range dbr:Season ;
-   				     rdfs:label "Is suitable for season"^^xsd:string .
+:isSuitableToBeDressedInSeason a owl:ObjectProperty ;
+             	     		   rdfs:domain :Clothing ;
+			             	   rdfs:range dbr:Season ;
+   							   rdfs:label "Is suitable to be dressed in season"^^xsd:string ;
+   							   rdfs:comment "This property specifies the season for which a particular clothing item and/or class is/are suitable for"^^xsd:string .
 
-:isSuitableForWeather a owl:ObjectProperty ;
-					  rdfs:domain :Clothing ;
-					  rdfs:range :Weather ;						  
-					  rdfs:label "Is suitable for weather conditions"^^xsd:string .
-
-:isSuitableForSeason a owl:ObjectProperty ;
-					 rdfs:domain :Clothing ;
-					 rdfs:range dbr:Season ;
-					 rdfs:label "Is suitable for Season"^^xsd:string .
+:isSuitableToBeDressedOnWeather a owl:ObjectProperty ;
+								  rdfs:domain :Clothing ;
+								  rdfs:range :Weather ;						  
+								  rdfs:label "Is suitable to be dressed in weather conditions"^^xsd:string ;
+								  rdfs:comment "This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
 					    
 					    
 ####################################################### ABox
 :pijamalePentruFemeiNatural a :Pyjama ;
-					 :isSuitableForGenre dbr:Female ;
+					 :isSuitableToBeDressedByGenre dbr:Female ;
 					 :hasTextileComposition dbr:Silk, dbr:Mohair.		
 					    
 :pijamalePentruBarbatiSynthetic a :Pyjama ;
-					 :isSuitableForGenre dbr:Male ;
+					 :isSuitableToBeDressedByGenre dbr:Male ;
 					 :hasTextileComposition dbr:Nylon, dbr:Acrylic_fiber, dbr:Polyester, dbr:Spandex, dbr:Satin.
 
 :pijamaleUnisex a :Pyjama ;
-			    :isSuitableForGenre dbr:Male, dbr:Female ;
+			    :isSuitableToBeDressedByGenre dbr:Male, dbr:Female ;
 			    :hasTextileComposition dbr:Nylon, dbr:Silk .
 ##############################################################
