@@ -316,6 +316,12 @@ dbr:Winter a dbr:Season .
 						   rdfs:subClassOf :ClothingMaterial ;
 						   rdfs:label "Synthetic clothing material"^^xsd:string .
 
+:NaturalClothingMaterial owl:disjointWith :SyntheticClothingMaterial .
+
+################## Enum example 
+# :NaturalClothingMaterialEnum owl:oneOf (dbr:Cotton dbr:Silk dbr:Mohair) .
+
+
 # Natural clothing materials
 dbr:Cotton a :NaturalClothingMaterial .
 
@@ -390,68 +396,17 @@ dbr:Male a dbr:Genre .
 
 # Infering clothing types
 
-#						 owl:equivalentClass [ a owl:Restriction ;
-#									 	 	   owl:onProperty :hasTextileComposition ;
-#									  		   owl:allValuesFrom :NaturalClothingMaterial 
-#									         ] ;
-#						 owl:equivalentClass [ a owl:Restriction ;
-#									 	 	   owl:onProperty :hasTextileComposition ;
-#									  		   owl:someValuesFrom :NaturalClothingMaterial 
-#									         ] ;
-
-
-:ClothingsWithAllNaturalMaterials rdfs:subClassOf :Clothing ;
-								  owl:equivalentClass [ a owl:Restriction ;
-								  						owl:onProperty :hasTextileComposition ;
-								  						owl:allValuesFrom :NaturalClothingMaterial 
-								  					  ] ;
-								  rdfs:label "Clothings with all natural materials." .
-
-:ClothingsWithAllSyntheticMaterials rdfs:subClassOf :Clothing ;
-								    owl:equivalentClass [ a owl:Restriction ; 
-								  						  owl:onProperty :hasTextileComposition ;
-								  						  owl:allValuesFrom :SyntheticClothingMaterial 
-								  					    ] ;
-								  rdfs:label "Clothings with all syntetic materials." .
-
-
-:ClothingsWithAtLeastOneNaturalMaterial rdfs:subClassOf :Clothing ;
-								    	owl:equivalentClass [ a owl:Restriction ;
-								  				    		    owl:onProperty :hasTextileComposition ;
-								  						        owl:someValuesFrom :NaturalClothingMaterial 
-								  					        ] ;
-								  rdfs:label "Clothings with at least one natural material." .
-
-
-:ClothingsWithAtLeastOneSyntheticMaterial rdfs:subClassOf :Clothing ;
-								    	  owl:equivalentClass [ a owl:Restriction ;
-								  				    		    owl:onProperty :hasTextileComposition ;
-								  						        owl:someValuesFrom :SyntheticClothingMaterial 
-								  					          ] ;
-								  rdfs:label "Clothings with at least one synthetic material." .
-
-
-:NaturalMaterialClothing rdfs:subClassOf :Clothing ;
-						 owl:equivalentClass [ a owl:Class ; 
- 											   owl:intersectionOf (:ClothingsWithAllNaturalMaterials :ClothingsWithAtLeastOneNaturalMaterial)
- 											 ] ;			         
-				 		 rdfs:label "Natural material clothing"^^xsd:string .
-
-:SyntheticMaterialClothing a owl:Class ;
-						   rdfs:subClassOf :Clothing ;
-						   owl:equivalentClass [ a owl:Class ; 
- 											   owl:intersectionOf (:ClothingsWithAllSyntheticMaterials :ClothingsWithAtLeastOneSyntheticMaterial)
- 											 ] ;			         
-				 		   rdfs:label "Synthetic material clothing"^^xsd:string .
-
-:UnisexClothing rdfs:subClassOf :Clothing ;
+						   
+:UnisexClothing a owl:Class ;
+				rdfs:subClassOf :Clothing ;
 				owl:equivalentClass [ rdfs:subClassOf :Clothing ;
 									  owl:intersectionOf (:MensClothing :WomensClothing)
 									] ;
 									
 				rdfs:label "Unisex clothing"^^xsd:string .
 
-:WomensClothing rdfs:subClassOf :Clothing ;
+:WomensClothing a owl:Class ;
+				rdfs:subClassOf :Clothing ;
 				owl:equivalentClass [ a owl:Restriction ;
 									  owl:onProperty :isSuitableForGenre ;
 									  owl:hasValue dbr:Female 
@@ -459,11 +414,12 @@ dbr:Male a dbr:Genre .
 				rdfs:label "Women's clothing"^^xsd:string .
 				
 
-:MensClothing rdfs:subClassOf :Clothing ;
-				owl:equivalentClass [ a owl:Restriction ;
+:MensClothing a owl:Class ;
+			  rdfs:subClassOf :Clothing ;
+			  owl:equivalentClass [ a owl:Restriction ;
 									  owl:onProperty :isSuitableForGenre ;
 									  owl:hasValue dbr:Male 
-									] ;
+								  ] ;
 				rdfs:label "Men's clothing"^^xsd:string .
 
 
@@ -491,6 +447,9 @@ dbr:Male a dbr:Genre .
 	            	   rdfs:range :ClothingMaterial ;
 	            	   rdfs:label "Has textile composition"^^xsd:string ;
 	            	   rdfs:comment "This property denotes the materials from which a clothing item is composed of."^^xsd:string .
+	            	   
+owl:Restriction owl:onProperty :hasTextileComposition ;
+				owl:maxCardinality 2 .
 	            	   
 :hasColour a owl:ObjectProperty ;
 		   owl:sameAs dbp:colour ;
