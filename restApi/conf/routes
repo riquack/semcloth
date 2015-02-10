@@ -14,6 +14,7 @@ GET        /clothingMaterials        ro.info.uaic.semcloth.controllers.EntitiesC
 #TODO add colors to ontology
 GET        /colors                   ro.info.uaic.semcloth.controllers.EntitiesController.colors
 
+POST        /users/:id/wardrobe                ro.info.uaic.semcloth.controllers.WardrobeController.clothingItem(id: String)
 
 
 # Map static resources from the /public folder to the /assets URL path

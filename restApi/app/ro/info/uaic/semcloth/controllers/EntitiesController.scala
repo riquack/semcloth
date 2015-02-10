@@ -1,13 +1,13 @@
 package ro.info.uaic.semcloth.controllers
 
 import play.api.mvc.{Action, Controller}
-import ro.info.uaic.semcloth.db.SimpleQuery
+import ro.info.uaic.semcloth.db.SimpleSPARQL
 
 object EntitiesController extends Controller {
 
   def events = Action {
     Ok(
-      SimpleQuery.selectQuery(
+      SimpleSPARQL.select(
         """select ?event ?label where { ?event a dbo:Event;
                                                rdfs:label ?label .}"""
       )
@@ -16,7 +16,7 @@ object EntitiesController extends Controller {
 
   def clothingStyles = Action {
     Ok(
-      SimpleQuery.selectQuery(
+      SimpleSPARQL.select(
         """select ?clothingStyle ?label where { ?clothingStyle a :ClothingStyle;
                                                                rdfs:label ?label .}"""
       )
@@ -25,7 +25,7 @@ object EntitiesController extends Controller {
 
   def religions = Action {
     Ok(
-      SimpleQuery.selectQuery(
+      SimpleSPARQL.select(
         """select ?religion ?label where { ?religion a dbr:Religion;
                                                      rdfs:label ?label .}"""
       )
@@ -34,7 +34,7 @@ object EntitiesController extends Controller {
 
   def seasons = Action {
     Ok(
-      SimpleQuery.selectQuery(
+      SimpleSPARQL.select(
         """select ?season ?label where { {?season a dbr:Season.} UNION
                                                 {?season a dbr:Season;
                                                          rdfs:label ?label} .}"""
@@ -44,7 +44,7 @@ object EntitiesController extends Controller {
 
   def weatherConditions = Action {
     Ok(
-      SimpleQuery.selectQuery(
+      SimpleSPARQL.select(
         """select ?weatherCondition ?label where { ?weatherCondition a dbr:Weather;
                                                                       rdfs:label ?label .}"""
       )
@@ -53,7 +53,7 @@ object EntitiesController extends Controller {
 
   def clothingMaterials = Action {
     Ok(
-      SimpleQuery.selectQuery(
+      SimpleSPARQL.select(
         """select ?clothingMaterial ?label where { {?clothingMaterial a :ClothingMaterial.} UNION {?clothingMaterial a :ClothingMaterial;
                                                                      rdfs:label ?label .}}"""
       )
@@ -62,7 +62,7 @@ object EntitiesController extends Controller {
 
   def colors = Action {
     Ok(
-      SimpleQuery.selectQuery(
+      SimpleSPARQL.select(
         """select ?color ?label where { ?color a dbr:Color;
                                                rdfs:label ?label .}"""
       )
