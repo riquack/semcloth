@@ -26,7 +26,7 @@
                                                                                       "***, W3C, http://www.w3.org/2001/sw/"^^xsd:string ,
                                                                                       "***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"^^xsd:string ;
                                                              
-                                                             dc:date "2015"^^xsd:dateTime ;
+                                                             dc:date "2015-02"^^xsd:gYearMonth ;
                                                              
                                                              dc:creator "Daniel Amariei"^^xsd:string ;
                                                              
