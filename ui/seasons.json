@@ -1,0 +1,29 @@
+
+{
+  "head" : {
+    "vars" : [ "season", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Autumn"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Spring"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Summer"
+      }
+    }, {
+      "season" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Winter"
+      }
+    } ]
+  }
+}

@@ -71,13 +71,3 @@
 		</events>
 	</item>
 </warderobe>
-
-
-<seasons><season>Winter</season></seasons>
-
-<styles> <style>Rock</style> <style>Sport</style></styles>
-
-<materials>
-	<material>cotton</material>
-	<material>wool</material>
-</materials>

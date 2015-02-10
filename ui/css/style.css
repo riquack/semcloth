@@ -22,7 +22,7 @@ body {
 	width: 100%;
 }
 
-#register-box, #fbox-box, #profile-edit { 
+#register-box, #fbox-box, #profile-edit, .new-item-add { 
 	display: none;
 	background: url('../images/background-black-transparent.png') repeat;
 	position: fixed;
@@ -241,8 +241,13 @@ body {
 		margin-bottom: 10px;
 }
 
-.list-events, .list-pref, .ws-pref, .list-season, .list-material{
+.list-events, .list-pref, .ws-pref, .list-season, .list-material, .list-religions, .list-weatherConditions{
 	display: none;
+}
+
+
+.new-item-add .lightbox  {
+	width: 50%!important;
 }
 
 
@@ -256,6 +261,16 @@ footer .content{
 	padding-top: 15px;
 }
 
+.box-50 {
+	width: 48%;
+	float: left;
+	margin-left: 10px;
+	
+}
+
+.box-50  p {
+	color: #fff;
+}
 
 /*
 

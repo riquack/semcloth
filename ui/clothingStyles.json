@@ -1,0 +1,39 @@
+
+{
+  "head" : {
+    "vars" : [ "clothingStyle", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "clothingStyle" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Conservative"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Conservative dress code"
+      }
+    }, {
+      "clothingStyle" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Rock"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Rock dress code"
+      }
+    }, {
+      "clothingStyle" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sport"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Sport dress code"
+      }
+    } ]
+  }
+}

@@ -21,25 +21,9 @@ jQuery(document).ready(function(){
 	
 
 
-	/*Populare garderoba*/
-	/*$.ajax({
-	    type: "GET",
-	    url: "http://students.info.uaic.ro/~oana.gagea/wade-ui/date.xml",
-	    dataType: "xml",
-	    success: function(xml){
-	    $(xml).find('Book').each(function(){
-	      var sTitle = $(this).find('Title').text();
-	      var sPublisher = $(this).find('Publisher').text();
-	      $("<li></li>").html(sTitle + ", " + sPublisher).appendTo("#dvContent ul");
-	    });
-	  },
-	  error: function() {
-	    alert("An error occurred while processing XML file.");
-	  }
-	});*/
 	//Sample XML    
 	//var xml = "<?xml version='1.0' ?><warderobe><item><name>T-shirt1</name><events>Funeral</events></item><item><name>T-shirt2</name><events>Interview</events></item><item><name>T-shirt3</name><events>Funeral|Interview</events></item><item><name>T-shirt4</name><events>Funeral|Interview</events></item><item><name>T-shirt5</name><events>Funeral|Interview</events></item><item><name>T-shirt6</name><events>Funeral|Interview</events></item><item><name>T-shirt7</name><events>Funeral|Interview</events></item><item><name>T-shirt8</name><events>Funeral|Interview</events></item><item><name>T-shirt9</name><events>Funeral|Interview</events></item><item><name>T-shirt10</name><events>Funeral|Interview</events></item></warderobe>";
-
+ 
 	 
 	var xml =  	"<?xml version='1.0' ?> " 
 					+ "<warderobe> <item> <name>T-shirt0</name> <events> <event>Funneral</event>  	<event>Date</event> <event>Romantic Date</event> </events> <styles> <style>Rock</style> <style>Sport</style></styles> <materials><material>cotton</material></materials></item>"
@@ -145,11 +129,12 @@ jQuery(document).ready(function(){
 
 	$('#add-item').on('click',function(e) {	
 		var type_type = $('#item-options-type').find(":selected").text();
+		var type_gender = $('#item-options-gender').find(":selected").text();
 		var type_material = $('#item-options-material').find(":selected").text();
 		var type_color = $('#item-options-color').find(":selected").text();
 		var type_size = $('#item-options-size').find(":selected").text();
 		var type_texture = $('#item-options-texture').find(":selected").text();
-		var item_note = $("#item-note").val();
+		var type_note = $("#item-note").val();
 
 		var new_item = { "item" : {}};
 		new_item.item.type = type_type;
@@ -157,10 +142,26 @@ jQuery(document).ready(function(){
 		new_item.item.color = type_color;
 		new_item.item.size = type_size;
 		new_item.item.texture = type_texture;
-		new_item.item.note = item_note;
+		new_item.item.note = type_note;
+		new_item.item.gender = type_gender;
 
 		console.log(new_item);
+		$("#success-error").removeClass().addClass('alert alert-success').html("Success");
+		$("#success-error").fadeOut(7000);
 
 	});
+
+
+	/*Popup add new item ------------------------------------------------------  */
+
+	$("#add-items-db").on('click',function() {	
+	 	$(".new-item-add").fadeIn(500);//.css("display","block"); 
+	});
+
+
+
+	$(".close-button").click(function() {
+		$("#register-box").fadeOut(500);//.css("display","none"); 
+	});	
 
 });
