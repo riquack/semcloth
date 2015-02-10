@@ -1,607 +1,1723 @@
+@prefix : <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sc: <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
+@base <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl> .
 
-@prefix dbo: <http://dbpedia.org/ontology/> .
-@prefix dbr: <http://dbpedia.org/resource/> .
-@prefix dbp: <http://dbpedia.org/property/> .
+<http://www.semanticweb.org/ontologies/2015/02/semcloth.owl> rdf:type owl:Ontology ;
+                                                             
+                                                             rdfs:label "A common vocabulary for clothing items."^^xsd:string ,
+                                                                        "Semantic Clothing Ontology"^^xsd:string ;
+                                                             
+                                                             dc:bibliographicCitation "*** H&M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)"^^xsd:string ,
+                                                                                      "***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support)."^^xsd:string ,
+                                                                                      "***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the 'body shapes' part of the ontology)"^^xsd:string ,
+                                                                                      "***, W3C, http://www.w3.org/2001/sw/"^^xsd:string ,
+                                                                                      "***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"^^xsd:string ;
+                                                             
+                                                             dc:date "2015"^^xsd:dateTime ;
+                                                             
+                                                             dc:creator "Daniel Amariei"^^xsd:string ;
+                                                             
+                                                             dc:contributor "Ioana Bîrsan"^^xsd:string ,
+                                                                            "Iordan Rață"^^xsd:string ,
+                                                                            "Oana Gagea"^^xsd:string ;
+                                                             
+                                                             rdfs:comment "The purpose of this ontology is to create the common conceptual framwork for 'talking' about clothing or related concepts."^^xsd:string .
 
-@prefix sc: <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
-@prefix : <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 
-@base <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
 
 
-<http://www.semanticweb.org/ontologies/2015/02/semcloth.owl> 
-					rdf:type owl:Ontology ;
-                    rdfs:label "Semantic Clothing Ontology"^^xsd:string ,
-							   "A common vocabulary for clothing items."^^xsd:string ;
-					rdfs:comment "The purpose of this ontology is to create the common conceptual framwork for 'talking' about clothing or related concepts."^^xsd:string ;							   
-                    dc:date "2015"^^xsd:dateTime ;
-                    dc:creator "Daniel Amariei"^^xsd:string ;
-                    dc:contributor "Oana Gagea"^^xsd:string, "Ioan Bîrsan"^^xsd:string, "Iordan Rață"^^xsd:string ;
-                    dc:bibliographicCitation 
-                    	"***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support)."^^xsd:string ,
-                    	
-                    	"***, W3C, http://www.w3.org/2001/sw/"^^xsd:string ,
-                    	
-                    	"***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"^^xsd:string ,
-                    	
-                    	"*** H&M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)"^^xsd:string,
-                    	
-                    	"***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the 'body shapes' part of the ontology)"^^xsd:string .
+###  http://dbpedia.org/ontology/comment
+
+dbo:comment rdf:type owl:AnnotationProperty .
+
+
+
+###  http://dbpedia.org/ontology/domain
+
+dbo:domain rdf:type owl:AnnotationProperty .
+
+
+
+###  http://purl.org/dc/elements/1.1/creator
+
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+
+###  http://purl.org/dc/elements/1.1/date
+
+dc:date rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://dbpedia.org/property/composition
+
+dbp:composition rdf:type owl:ObjectProperty .
+
+
+
+###  http://dbpedia.org/property/dressSize
+
+dbp:dressSize rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "Dress size"^^xsd:string ;
+              
+              rdfs:range dbr:Clothing_sizes ;
+              
+              rdfs:domain :Dress ;
+              
+              rdfs:subPropertyOf :hasSize .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#bodyShapeHasSuitableClothingForDressing
+
+:bodyShapeHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
                                          
+                                         rdfs:label "Body shape has suitable clothing for dressing"^^xsd:string ;
                                          
+                                         rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular body shape."^^xsd:string ;
                                          
-# Annotation properties                                                           
-
-dc:creator a owl:AnnotationProperty .
-dc:date a owl:AnnotationProperty .
-
-
-# The classes of the Semantic Clothing vocabulary
-
-# Defining the events
-
-
-:BusinessMeeting a owl:Class ;
-				 rdfs:subClassOf dbo:Event ;
-		 		 rdfs:label "Business meeting"^^xsd:string .
-
-
-:Interview a owl:Class ;
- 		   rdfs:subClassOf :BusinessMeeting ;
-		   rdfs:label "Interview"^^xsd:string .
-		  
-:Wedding a owl:Class ;
- 		 rdfs:subClassOf dbo:Event ;
-		 rdfs:label "Wedding"^^xsd:string .
-
-:PyjamaParty a owl:Class ;
- 		     rdfs:subClassOf dbo:Event ;
-		     rdfs:label "Pyjama party"^^xsd:string .
-
-:Funneral a owl:Class ;
-          rdfs:subClassOf dbo:Event ;
-		  rdfs:label "Funneral"^^xsd:string .
-		 
-:Date a owl:Class ;
-      rdfs:subClassOf dbo:Event ;
-	  rdfs:label "Date"^^xsd:string .
-	  
-:RomanticDate a owl:Class ;
-			  rdfs:subClassOf :Date ;
- 			  rdfs:label "Romantic date"^^xsd:string .
-
-:Club rdfs:subClassOf dbo:Event ;
- 		rdfs:label "Club"^^xsd:string .
-		 
-# The clothing items
-
-:Clothing a owl:Class ;
-		  rdfs:label "Clothing"^^xsd:string ;
-		  rdfs:comment "Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items."^^xsd:string .		  
-
-:Coat a owl:Class ;
-      rdfs:subClassOf :Clothing ;
-   	  rdfs:label "Coat"^^xsd:string .
-
-:Blazer a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   		rdfs:label "Blazer"^^xsd:string .
-
-:Dress a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   		rdfs:label "Dress"^^xsd:string .
-
-:Trousers a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   		rdfs:label "Trousers"^^xsd:string .
-
-:SkinnyFitTrousers a owl:Class ;
-        			rdfs:subClassOf :Trousers ;
-   					rdfs:label "Skinny fit trousers"^^xsd:string .
-   		
-:SlimFitTrousers a owl:Class ;
-        		 rdfs:subClassOf :Trousers ;
-   				 rdfs:label "Slim fit trousers"^^xsd:string .
-
-:RegularFitTrousers a owl:Class ;
-        			rdfs:subClassOf :Trousers ;
-   					rdfs:label "Regular fit trousers"^^xsd:string .
-
-:Jeans a owl:Class ;
-       rdfs:subClassOf :Clothing ;
-   	   rdfs:label "Jeans"^^xsd:string .
-   		
-:Pyjama a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   	    rdfs:label "Pyjama"^^xsd:string .
-   		
-   		
-:Raincoat a owl:Class ;
-          rdfs:subClassOf :Clothing ;
-   	      rdfs:label "Raincoat"^^xsd:string .
-   		
-:Shirt a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   		rdfs:label "Shirt"^^xsd:string .
-   		
-:Suit a owl:Class ;
-      rdfs:subClassOf :Clothing ;
-   	  rdfs:label "Suit"^^xsd:string .
-   		
-
-:Top a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   		rdfs:label "Top"^^xsd:string .
-
-:Skirt a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   		rdfs:label "Skirt"^^xsd:string .
-   		
-:TShirt a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   		rdfs:label "T-shirt"^^xsd:string .
-   		
-:Shoes a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   		rdfs:label "Shoes"^^xsd:string .
-   		
-:Sandals a owl:Class ;
-         rdfs:subClassOf :Shoes ;
-   		 rdfs:label "Sandals"^^xsd:string .
-   		
-:HighHeels a owl:Class ;
-           rdfs:subClassOf :Shoes ;
-   		   rdfs:label "High-heels"^^xsd:string .
-
-:Flats a owl:Class ;
-       rdfs:subClassOf :Shoes ;
-   	   rdfs:label "Flats"^^xsd:string .
-
-:AnkleBoots a owl:Class ;
-            rdfs:subClassOf :Shoes ;
-   		    rdfs:label "Ankle boots"^^xsd:string .
-
-:Moccasins a owl:Class ;
-           rdfs:subClassOf :Shoes ;
-   		   rdfs:label "Mocassins"^^xsd:string .
-   		
-:Sneakers a owl:Class ;
-          rdfs:subClassOf :Shoes ;
-   		  rdfs:label "Sneakers"^^xsd:string .
-
-:Boots a owl:Class ;
-       rdfs:subClassOf :Shoes ;
-   	   rdfs:label "Boots"^^xsd:string .
-
-:Accessory a owl:Class ;
-           rdfs:subClassOf :Clothing ;
-   	       rdfs:label "Accessory"^^xsd:string .
-
-:Umbrella a owl:Class ;
-           rdfs:subClassOf :Accessory ;
-   	       rdfs:label "Umbrella"^^xsd:string .
-      
-:Belt a owl:Class ;
-      rdfs:subClassOf :Accessory ;
-   	  rdfs:label "Belt"^^xsd:string .
-
-:Hat a owl:Class ;
-     rdfs:subClassOf :Accessory ;
-   	 rdfs:label "Hat"^^xsd:string .
-
-:Scarf a owl:Class ;
-       rdfs:subClassOf :Accessory ;
-   	   rdfs:label "Scarf"^^xsd:string .
-
-:Gloves a owl:Class ;
-        rdfs:subClassOf :Clothing ;
-   	    rdfs:label "Gloves"^^xsd:string .
-   	    
-:Jewellery a owl:Class ;
-           rdfs:subClassOf :Accessory ;
-   	       rdfs:label "Jewellery"^^xsd:string .
-
-:Earrings a owl:Class ;
-         rdfs:subClassOf :Jewellery ;
-   	     rdfs:label "Earrings"^^xsd:string .
-
-:Necklace a owl:Class ;
-          rdfs:subClassOf :Jewellery ;
-   	      rdfs:label "Necklace"^^xsd:string .
-
-:Bracelet a owl:Class ;
-          rdfs:subClassOf :Jewellery ;
-   	      rdfs:label "Bracelet"^^xsd:string .
-
-:Ring a owl:Class ;
-      rdfs:subClassOf :Jewellery ;
-   	  rdfs:label "Ring"^^xsd:string .
-
-:Sunglasses a owl:Class ;
-            rdfs:subClassOf :Accessory ;
-   	        rdfs:label "Sunglasses"^^xsd:string .
-
-:Tie a owl:Class ;
-     rdfs:subClassOf :Accessory ;
-   	 rdfs:label "Tie"^^xsd:string .
-
-
-:Bag a owl:Class ;
-         rdfs:subClassOf :Accessory ;
-   	     rdfs:label "Bag"^^xsd:string .
-
-:Handbag a owl:Class ;
-         rdfs:subClassOf :Bag ;
-   	     rdfs:label "Handbag"^^xsd:string .
-
-:ShoulderBag a owl:Class ;
-             rdfs:subClassOf :Bag ;
-   	         rdfs:label "Shoulder bag"^^xsd:string .
-
-:Underwear a owl:Class ;
-		   rdfs:subClassOf :Clothing ;
-		   rdfs:label "Underwear"^^xsd:string .
-
-:Underpants a owl:Class ;
-		    rdfs:subClassOf :Underwear ;
-		    rdfs:label "Underpants"^^xsd:string .
-
-:Socks a owl:Class ;
-	   rdfs:subClassOf :Underwear ;
-	   rdfs:label "Socks"^^xsd:string .
-
-
-:Lingerie a owl:Class ;
-		  rdfs:subClassOf :Underwear ;
-		  rdfs:label "Lingerie"^^xsd:string .
-
-:Bra a owl:Class ;
-	 rdfs:subClassOf :Lingerie ;
-	 rdfs:label "Bra"^^xsd:string .
-
-:PushUpBra a owl:Class ;
-		   rdfs:subClassOf :Bra ;
-		   rdfs:label "Push-up bra"^^xsd:string .
-
-:SportBra a owl:Class ;
-		  rdfs:subClassOf :Bra ;
-		  rdfs:label "Sports bra"^^xsd:string .
-
-:Briefs a owl:Class ;
-		rdfs:subClassOf :Lingerie ;
-		rdfs:label "Briefs"^^xsd:string .
-
-:Nylons a owl:Class ;
-		rdfs:subClassOf :Lingerie ;
-		rdfs:label "Nylons"^^xsd:string .
-
-:Knickers a owl:Class ;
-		  rdfs:subClassOf :Lingerie ;
-		  rdfs:label "Knickers"^^xsd:string .
-
-:Bodysuit a owl:Class ;
-          rdfs:subClassOf :Lingerie ;
-          rdfs:label "Bodysuit"^^xsd:string .
-
-:ShapeLingerie a owl:Class ;
-		   	   rdfs:subClassOf :Bra ;
-		   	   rdfs:label "Shape lingerie"^^xsd:string .
-
-:Bodysuit a owl:Class ;
-          rdfs:subClassOf :Lingerie ;
-          rdfs:label "Bodysuit"^^xsd:string .
-
-
-# The seasons
-dbr:Autumn a dbr:Season .
-
-dbr:Spring a dbr:Season .
-
-dbr:Summer a dbr:Season .
-
-dbr:Winter a dbr:Season .
-
-
-:BodyShape a owl:Class, :ClothingCharacteristic ;
-		   rdfs:subClassOf dbr:Shape ;
-		   rdfs:label "Body shape"^^xsd:string ;
-		   rdfs:comment "The class of body shapes a person can have."^^xsd:string .
-		   
-		   
-:Apple a :BodyShape ;
-	   rdfs:label "Apple"^^xsd:string .
-
-:Pear a :BodyShape ;
-	  rdfs:label "Pear"^^xsd:string .
-
-:Hourglass a :BodyShape ;
-	   	   rdfs:label "Hourglass"^^xsd:string .
-
-:Rectangle a :BodyShape ;
-	       rdfs:label "Rectangle"^^xsd:string .
-
-# The materials from which clothes are made of
-:ClothingMaterial a owl:Class, :ClothingCharacteristic ;
-				  rdfs:subClassOf dbr:Raw_material ;
-				  rdfs:label "Clothing material"^^xsd:string ;
-				  rdfs:comment "The basic materials from which clothes are made of."^^xsd:string .
-
-:NaturalClothingMaterial a owl:Class ; 
-		                 rdfs:subClassOf :ClothingMaterial ;
-						 rdfs:label "Natural clothing material"^^xsd:string .
+                                         rdfs:range dbr:Clothing ;
+                                         
+                                         rdfs:domain :BodyShape .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#dressingCodeHasSuitableClothingForDressing
+
+:dressingCodeHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
+                                            
+                                            rdfs:label "Dressing code has suitable clothing for dressing"^^xsd:string ;
+                                            
+                                            rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular dressing code."^^xsd:string ;
+                                            
+                                            rdfs:range dbr:Clothing ;
+                                            
+                                            rdfs:domain dbr:Dress_code ,
+                                                        :ClothingStyle .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#eventHasSuitableClothingForDressing
+
+:eventHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
+                                     
+                                     rdfs:label "Event has suitable clothing for dressing"^^xsd:string ;
+                                     
+                                     rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular event."^^xsd:string ;
+                                     
+                                     rdfs:domain dbo:Event ;
+                                     
+                                     rdfs:range dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#genreHasSuitableClothingForDressing
+
+:genreHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
+                                     
+                                     rdfs:label "Genre has suitable clothing for dressing"^^xsd:string ;
+                                     
+                                     rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular genre."^^xsd:string ;
+                                     
+                                     rdfs:range dbr:Clothing ;
+                                     
+                                     rdfs:domain dbr:Genre .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour
+
+:hasColour rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "Has colour"^^xsd:string ;
+           
+           rdfs:comment "This property specifies the color a particular clothing item has."^^xsd:string ;
+           
+           rdfs:domain dbr:Clothing ;
+           
+           rdfs:range dbr:Color .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasSize
+
+:hasSize rdf:type owl:ObjectProperty ;
+         
+         rdfs:label "Has size"^^xsd:string ;
+         
+         rdfs:comment "This property specifies the size of a particular clothing item."^^xsd:string ;
+         
+         rdfs:domain dbr:Clothing ;
+         
+         rdfs:range dbr:Clothing_sizes .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTextileComposition
+
+:hasTextileComposition rdf:type owl:ObjectProperty ;
+                       
+                       rdfs:label "Has textile composition"^^xsd:string ;
+                       
+                       rdfs:comment "This property denotes the materials from which a clothing item is composed of."^^xsd:string ;
+                       
+                       rdfs:subPropertyOf dbp:composition ;
+                       
+                       rdfs:domain dbr:Clothing ;
+                       
+                       rdfs:range :ClothingMaterial .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForDressingCode
+
+:isSuitableForDressingCode rdf:type owl:ObjectProperty ;
+                           
+                           rdfs:label "Is suitable for dressing code"^^xsd:string ;
+                           
+                           rdfs:comment "This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                           
+                           rdfs:domain dbr:Clothing ;
+                           
+                           rdfs:range dbr:Dress_code ,
+                                      :ClothingStyle ;
+                           
+                           owl:inverseOf :dressingCodeHasSuitableClothingForDressing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedAtEvent
+
+:isSuitableToBeDressedAtEvent rdf:type owl:ObjectProperty ;
+                              
+                              rdfs:label "Is suitable to be dressed at event"^^xsd:string ;
+                              
+                              dbo:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                              
+                              rdfs:range dbo:Event ;
+                              
+                              rdfs:domain dbr:Clothing ;
+                              
+                              owl:inverseOf :eventHasSuitableClothingForDressing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByBodyShape
+
+:isSuitableToBeDressedByBodyShape rdf:type owl:ObjectProperty ;
+                                  
+                                  rdfs:label "Is suitable to be dressed by body shape"^^xsd:string ;
+                                  
+                                  rdfs:comment "Stipulates for which body shape a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                                  
+                                  dbo:domain dbr:Clothing ;
+                                  
+                                  rdfs:range :BodyShape ;
+                                  
+                                  owl:inverseOf :bodyShapeHasSuitableClothingForDressing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByGenre
+
+:isSuitableToBeDressedByGenre rdf:type owl:ObjectProperty ;
+                              
+                              rdfs:label "Is suitable to be dressed by genre"^^xsd:string ;
+                              
+                              rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes."^^xsd:string ;
+                              
+                              rdfs:domain dbr:Clothing ;
+                              
+                              rdfs:range dbr:Genre ;
+                              
+                              owl:inverseOf :genreHasSuitableClothingForDressing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedInSeason
+
+:isSuitableToBeDressedInSeason rdf:type owl:ObjectProperty ;
+                               
+                               rdfs:label "Is suitable to be dressed in season"^^xsd:string ;
+                               
+                               rdfs:comment "This property specifies the season for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                               
+                               rdfs:domain dbr:Clothing ;
+                               
+                               rdfs:range dbr:Season ;
+                               
+                               owl:inverseOf :seasonHasSuitableClothingForDressing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedOnWeather
+
+:isSuitableToBeDressedOnWeather rdf:type owl:ObjectProperty ;
+                                
+                                rdfs:label "Is suitable to be dressed in weather conditions"^^xsd:string ;
+                                
+                                rdfs:comment "This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                                
+                                rdfs:domain dbr:Clothing ;
+                                
+                                rdfs:range dbr:Weather ;
+                                
+                                owl:inverseOf :weatherHasSuitableClothingForDressing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#seasonHasSuitableClothingForDressing
+
+:seasonHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
+                                      
+                                      rdfs:label "Season has suitable clothing for dressing"^^xsd:string ;
+                                      
+                                      rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular season."^^xsd:string ;
+                                      
+                                      rdfs:range dbr:Clothing ;
+                                      
+                                      rdfs:domain dbr:Season .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#weatherHasSuitableClothingForDressing
+
+:weatherHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
+                                       
+                                       rdfs:label "Weather has suitable clothing for dressing"^^xsd:string ;
+                                       
+                                       rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular weather condition."^^xsd:string ;
+                                       
+                                       rdfs:range dbr:Clothing ;
+                                       
+                                       rdfs:domain dbr:Weather .
+
+
+
+###  http://www.w3.org/2000/01/rdf-schema#subClassOf
+
+rdfs:subClassOf rdf:type owl:ObjectProperty ,
+                         owl:TransitiveProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://dbpedia.org/ontology/Event
+
+dbo:Event rdf:type owl:Class ;
           
-:SyntheticClothingMaterial a owl:Class ;
-						   rdfs:subClassOf :ClothingMaterial ;
-						   rdfs:label "Synthetic clothing material"^^xsd:string .
-
-:NaturalClothingMaterial owl:disjointWith :SyntheticClothingMaterial .
-
-################## Enum example 
-# :NaturalClothingMaterialEnum owl:oneOf (dbr:Cotton dbr:Silk dbr:Mohair) .
+          owl:disjointUnionOf ( :BusinessMeeting
+                                :Club
+                                :Date
+                                :Funneral
+                                :PyjamaParty
+                              ) .
 
 
-# Natural clothing materials
-dbr:Cotton a :NaturalClothingMaterial .
 
-dbr:Leather a :NaturalClothingMaterial .
+###  http://dbpedia.org/resource/Clothing
 
-dbr:Wool a :NaturalClothingMaterial .
-
-dbr:Fur a :NaturalClothingMaterial .
-
-dbr:Linen a :NaturalClothingMaterial .
-
-dbr:Mohair a :NaturalClothingMaterial .
-
-dbr:Silk a :NaturalClothingMaterial .
-
-dbr:Lace a :NaturalClothingMaterial .
-
-dbr:Cashmere_wool a :NaturalClothingMaterial .
-
-
-#Syntetic clothing materials
-dbr:Spandex a :SyntheticClothingMaterial ;
-			owl:sameAs dbr:Lycra, dbr:Elastan .
-			
-dbr:Polyester a :SyntheticClothingMaterial .
-			
-dbr:Acrylic_fiber a :SyntheticClothingMaterial .
-
-dbr:Satin a :SyntheticClothingMaterial .
-
-dbr:Nylon a :SyntheticClothingMaterial .
+dbr:Clothing rdf:type owl:Class ;
+             
+             rdfs:label "Clothing"^^xsd:string ;
+             
+             rdfs:comment "Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items."^^xsd:string ;
+             
+             owl:disjointUnionOf ( :Accessory
+                                   :Blazer
+                                   :Coat
+                                   :Dress
+                                   :Gloves
+                                   :Jeans
+                                   :Pyjama
+                                   :Raincoat
+                                   :Shirt
+                                   :Shoes
+                                   :Skirt
+                                   :Suit
+                                   :TShirt
+                                   :Top
+                                   :Trousers
+                                   :Underwear
+                                 ) .
 
 
-:ClothingCharacteristic a owl:Class ;
-					    rdfs:label "Clothing characteristic"^^xsd:string .
 
-dbr:Color a :ClothingCharacteristic .
+###  http://dbpedia.org/resource/Clothing_sizes
 
-dbr:Clothing_sizes a :ClothingCharacteristic .
-
-dbr:Shoe_size a :ClothingCharacteristic .
+dbr:Clothing_sizes rdf:type owl:Class .
 
 
-# Weather
-dbr:Weather a owl:Class ;
-			rdfs:subClassOf owl:Thing .
-								    
-dbr:Cold a dbr:Weather .
 
-:Hot a dbr:Weather ;
+###  http://dbpedia.org/resource/Color
+
+dbr:Color rdf:type owl:Class .
+
+
+
+###  http://dbpedia.org/resource/Dress_code
+
+dbr:Dress_code rdf:type owl:Class .
+
+
+
+###  http://dbpedia.org/resource/Female
+
+dbr:Female rdf:type owl:Class ;
+           
+           owl:disjointWith dbr:Male .
+
+
+
+###  http://dbpedia.org/resource/Genre
+
+dbr:Genre rdf:type owl:Class ;
+          
+          owl:disjointUnionOf ( dbr:Female
+                                dbr:Male
+                              ) .
+
+
+
+###  http://dbpedia.org/resource/Male
+
+dbr:Male rdf:type owl:Class .
+
+
+
+###  http://dbpedia.org/resource/Raw_material
+
+dbr:Raw_material rdf:type owl:Class .
+
+
+
+###  http://dbpedia.org/resource/Season
+
+dbr:Season rdf:type owl:Class .
+
+
+
+###  http://dbpedia.org/resource/Shape
+
+dbr:Shape rdf:type owl:Class .
+
+
+
+###  http://dbpedia.org/resource/Weather
+
+dbr:Weather rdf:type owl:Class ;
+            
+            rdfs:subClassOf owl:Thing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Accessory
+
+:Accessory rdf:type owl:Class ;
+           
+           rdfs:label "Accessory"^^xsd:string ;
+           
+           rdfs:subClassOf dbr:Clothing ;
+           
+           owl:disjointUnionOf ( :Bag
+                                 :Belt
+                                 :Hat
+                                 :Jewellery
+                                 :Scarf
+                                 :Sunglasses
+                                 :Tie
+                                 :Umbrella
+                               ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#AnkleBoots
+
+:AnkleBoots rdf:type owl:Class ;
+            
+            rdfs:label "Ankle boots"^^xsd:string ;
+            
+            rdfs:subClassOf :Shoes .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bag
+
+:Bag rdf:type owl:Class ;
+     
+     rdfs:label "Bag"^^xsd:string ;
+     
+     rdfs:subClassOf :Accessory ;
+     
+     owl:disjointUnionOf ( :Handbag
+                           :ShoulderBag
+                         ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Belt
+
+:Belt rdf:type owl:Class ;
+      
+      rdfs:label "Belt"^^xsd:string ;
+      
+      rdfs:subClassOf :Accessory .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Blazer
+
+:Blazer rdf:type owl:Class ;
+        
+        rdfs:label "Blazer"^^xsd:string ;
+        
+        rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BodyShape
+
+:BodyShape rdf:type owl:Class ;
+           
+           rdfs:label "Body shape"^^xsd:string ;
+           
+           rdfs:subClassOf dbr:Shape ;
+           
+           rdfs:comment "The class of body shapes a person can have."^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bodysuit
+
+:Bodysuit rdf:type owl:Class ;
+          
+          rdfs:label "Bodysuit"^^xsd:string ;
+          
+          rdfs:subClassOf :Lingerie .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Boots
+
+:Boots rdf:type owl:Class ;
+       
+       rdfs:label "Boots"^^xsd:string ;
+       
+       rdfs:subClassOf :Shoes .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bra
+
+:Bra rdf:type owl:Class ;
+     
+     rdfs:label "Bra"^^xsd:string ;
+     
+     rdfs:subClassOf :Lingerie ;
+     
+     owl:disjointUnionOf ( :PushUpBra
+                           :ShapeLingerie
+                           :SportBra
+                         ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bracelet
+
+:Bracelet rdf:type owl:Class ;
+          
+          rdfs:label "Bracelet"^^xsd:string ;
+          
+          rdfs:subClassOf :Jewellery .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Briefs
+
+:Briefs rdf:type owl:Class ;
+        
+        rdfs:label "Briefs"^^xsd:string ;
+        
+        rdfs:subClassOf :Lingerie .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BusinessMeeting
+
+:BusinessMeeting rdf:type owl:Class ;
+                 
+                 rdfs:label "Business meeting"^^xsd:string ;
+                 
+                 rdfs:subClassOf dbo:Event .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingCharacteristic
+
+:ClothingCharacteristic rdf:type owl:Class ;
+                        
+                        rdfs:label "Clothing characteristic"^^xsd:string ;
+                        
+                        owl:disjointUnionOf ( dbr:Clothing_sizes
+                                              dbr:Color
+                                              :BodyShape
+                                              :ClothingMaterial
+                                              :ClothingStyle
+                                            ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingMaterial
+
+:ClothingMaterial rdf:type owl:Class ;
+                  
+                  rdfs:label "Clothing material"^^xsd:string ;
+                  
+                  rdfs:subClassOf dbr:Raw_material ;
+                  
+                  rdfs:comment "The basic materials from which clothes are made of."^^xsd:string ;
+                  
+                  owl:disjointUnionOf ( :NaturalClothingMaterial
+                                        :SyntheticClothingMaterial
+                                      ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingStyle
+
+:ClothingStyle rdf:type owl:Class ;
+               
+               rdfs:label "Clothing style"^^xsd:string ;
+               
+               rdfs:comment "This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club
+
+:Club rdf:type owl:Class ;
+      
+      rdfs:label "Club"^^xsd:string ;
+      
+      rdfs:subClassOf dbo:Event .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Coat
+
+:Coat rdf:type owl:Class ;
+      
+      rdfs:label "Coat"^^xsd:string ;
+      
+      rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Date
+
+:Date rdf:type owl:Class ;
+      
+      rdfs:label "Date"^^xsd:string ;
+      
+      rdfs:subClassOf dbo:Event .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dress
+
+:Dress rdf:type owl:Class ;
+       
+       rdfs:label "Dress"^^xsd:string ;
+       
+       rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Earrings
+
+:Earrings rdf:type owl:Class ;
+          
+          rdfs:label "Earrings"^^xsd:string ;
+          
+          rdfs:subClassOf :Jewellery .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flats
+
+:Flats rdf:type owl:Class ;
+       
+       rdfs:label "Flats"^^xsd:string ;
+       
+       rdfs:subClassOf :Shoes .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Funneral
+
+:Funneral rdf:type owl:Class ;
+          
+          rdfs:label "Funneral"^^xsd:string ;
+          
+          rdfs:subClassOf dbo:Event .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#FunneralClothing
+
+:FunneralClothing rdf:type owl:Class ;
+                  
+                  rdfs:label "Funneral clothing"^^xsd:string ;
+                  
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :hasColour ;
+                                                               owl:hasValue dbr:Black
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :isSuitableToBeDressedAtEvent ;
+                                                               owl:hasValue :Funneral
+                                                             ]
+                                                           )
+                                      ] ;
+                  
+                  rdfs:subClassOf dbr:Clothing ;
+                  
+                  rdfs:comment "Clothing that is suitable for a funneral."^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Gloves
+
+:Gloves rdf:type owl:Class ;
+        
+        rdfs:label "Gloves"^^xsd:string ;
+        
+        rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Handbag
+
+:Handbag rdf:type owl:Class ;
+         
+         rdfs:label "Handbag"^^xsd:string ;
+         
+         rdfs:subClassOf :Bag .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Hat
+
+:Hat rdf:type owl:Class ;
+     
+     rdfs:label "Hat"^^xsd:string ;
+     
+     rdfs:subClassOf :Accessory .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#HighHeels
+
+:HighHeels rdf:type owl:Class ;
+           
+           rdfs:label "High-heels"^^xsd:string ;
+           
+           rdfs:subClassOf :Shoes .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Interview
+
+:Interview rdf:type owl:Class ;
+           
+           rdfs:label "Interview"^^xsd:string ;
+           
+           rdfs:subClassOf :BusinessMeeting .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Jeans
+
+:Jeans rdf:type owl:Class ;
+       
+       rdfs:label "Jeans"^^xsd:string ;
+       
+       rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Jewellery
+
+:Jewellery rdf:type owl:Class ;
+           
+           rdfs:label "Jewellery"^^xsd:string ;
+           
+           rdfs:subClassOf :Accessory ;
+           
+           owl:disjointUnionOf ( :Bracelet
+                                 :Earrings
+                                 :Necklace
+                                 :Ring
+                               ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Knickers
+
+:Knickers rdf:type owl:Class ;
+          
+          rdfs:label "Knickers"^^xsd:string ;
+          
+          rdfs:subClassOf :Lingerie .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Lingerie
+
+:Lingerie rdf:type owl:Class ;
+          
+          rdfs:label "Lingerie"^^xsd:string ;
+          
+          rdfs:subClassOf :Underwear ;
+          
+          owl:disjointUnionOf ( :Bodysuit
+                                :Bra
+                                :Briefs
+                                :Knickers
+                                :Nylons
+                              ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#MensClothing
+
+:MensClothing rdf:type owl:Class ;
+              
+              rdfs:label "Men's clothing"^^xsd:string ;
+              
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isSuitableToBeDressedByGenre ;
+                                    owl:hasValue dbr:Male
+                                  ] ;
+              
+              rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Moccasins
+
+:Moccasins rdf:type owl:Class ;
+           
+           rdfs:label "Mocassins"^^xsd:string ;
+           
+           rdfs:subClassOf :Shoes .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#NaturalClothingMaterial
+
+:NaturalClothingMaterial rdf:type owl:Class ;
+                         
+                         rdfs:label "Natural clothing material"^^xsd:string ;
+                         
+                         rdfs:subClassOf :ClothingMaterial ;
+                         
+                         owl:disjointWith :SyntheticClothingMaterial .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Necklace
+
+:Necklace rdf:type owl:Class ;
+          
+          rdfs:label "Necklace"^^xsd:string ;
+          
+          rdfs:subClassOf :Jewellery .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Nylons
+
+:Nylons rdf:type owl:Class ;
+        
+        rdfs:label "Nylons"^^xsd:string ;
+        
+        rdfs:subClassOf :Lingerie .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#PushUpBra
+
+:PushUpBra rdf:type owl:Class ;
+           
+           rdfs:label "Push-up bra"^^xsd:string ;
+           
+           rdfs:subClassOf :Bra .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Pyjama
+
+:Pyjama rdf:type owl:Class ;
+        
+        rdfs:label "Pyjama"^^xsd:string ;
+        
+        rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#PyjamaParty
+
+:PyjamaParty rdf:type owl:Class ;
+             
+             rdfs:label "Pyjama party"^^xsd:string ;
+             
+             rdfs:subClassOf dbo:Event .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Raincoat
+
+:Raincoat rdf:type owl:Class ;
+          
+          rdfs:label "Raincoat"^^xsd:string ;
+          
+          rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#RegularFitTrousers
+
+:RegularFitTrousers rdf:type owl:Class ;
+                    
+                    rdfs:label "Regular fit trousers"^^xsd:string ;
+                    
+                    rdfs:subClassOf :Trousers .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Ring
+
+:Ring rdf:type owl:Class ;
+      
+      rdfs:label "Ring"^^xsd:string ;
+      
+      rdfs:subClassOf :Jewellery .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#RomanticDate
+
+:RomanticDate rdf:type owl:Class ;
+              
+              rdfs:label "Romantic date"^^xsd:string ;
+              
+              rdfs:subClassOf :Date .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sandals
+
+:Sandals rdf:type owl:Class ;
+         
+         rdfs:label "Sandals"^^xsd:string ;
+         
+         rdfs:subClassOf :Shoes .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Scarf
+
+:Scarf rdf:type owl:Class ;
+       
+       rdfs:label "Scarf"^^xsd:string ;
+       
+       rdfs:subClassOf :Accessory .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ShapeLingerie
+
+:ShapeLingerie rdf:type owl:Class ;
+               
+               rdfs:label "Shape lingerie"^^xsd:string ;
+               
+               rdfs:subClassOf :Bra .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Shirt
+
+:Shirt rdf:type owl:Class ;
+       
+       rdfs:label "Shirt"^^xsd:string ;
+       
+       rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Shoes
+
+:Shoes rdf:type owl:Class ;
+       
+       rdfs:label "Shoes"^^xsd:string ;
+       
+       rdfs:subClassOf dbr:Clothing ;
+       
+       owl:disjointUnionOf ( :AnkleBoots
+                             :Boots
+                             :Flats
+                             :HighHeels
+                             :Moccasins
+                             :Sandals
+                             :Sneakers
+                           ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ShoulderBag
+
+:ShoulderBag rdf:type owl:Class ;
+             
+             rdfs:label "Shoulder bag"^^xsd:string ;
+             
+             rdfs:subClassOf :Bag .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SkinnyFitTrousers
+
+:SkinnyFitTrousers rdf:type owl:Class ;
+                   
+                   rdfs:label "Skinny fit trousers"^^xsd:string ;
+                   
+                   rdfs:subClassOf :Trousers .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Skirt
+
+:Skirt rdf:type owl:Class ;
+       
+       rdfs:label "Skirt"^^xsd:string ;
+       
+       rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SlimFitTrousers
+
+:SlimFitTrousers rdf:type owl:Class ;
+                 
+                 rdfs:label "Slim fit trousers"^^xsd:string ;
+                 
+                 rdfs:subClassOf :Trousers .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sneakers
+
+:Sneakers rdf:type owl:Class ;
+          
+          rdfs:label "Sneakers"^^xsd:string ;
+          
+          rdfs:subClassOf :Shoes .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Socks
+
+:Socks rdf:type owl:Class ;
+       
+       rdfs:label "Socks"^^xsd:string ;
+       
+       rdfs:subClassOf :Underwear .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SportBra
+
+:SportBra rdf:type owl:Class ;
+          
+          rdfs:label "Sports bra"^^xsd:string ;
+          
+          rdfs:subClassOf :Bra .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Suit
+
+:Suit rdf:type owl:Class ;
+      
+      rdfs:label "Suit"^^xsd:string ;
+      
+      rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sunglasses
+
+:Sunglasses rdf:type owl:Class ;
+            
+            rdfs:label "Sunglasses"^^xsd:string ;
+            
+            rdfs:subClassOf :Accessory .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SyntheticClothingMaterial
+
+:SyntheticClothingMaterial rdf:type owl:Class ;
+                           
+                           rdfs:label "Synthetic clothing material"^^xsd:string ;
+                           
+                           rdfs:subClassOf :ClothingMaterial .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#TShirt
+
+:TShirt rdf:type owl:Class ;
+        
+        rdfs:label "T-shirt"^^xsd:string ;
+        
+        rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Tie
+
+:Tie rdf:type owl:Class ;
+     
+     rdfs:label "Tie"^^xsd:string ;
+     
+     rdfs:subClassOf :Accessory .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Top
+
+:Top rdf:type owl:Class ;
+     
+     rdfs:label "Top"^^xsd:string ;
+     
+     rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Trousers
+
+:Trousers rdf:type owl:Class ;
+          
+          rdfs:label "Trousers"^^xsd:string ;
+          
+          rdfs:subClassOf dbr:Clothing ;
+          
+          owl:disjointUnionOf ( :RegularFitTrousers
+                                :SkinnyFitTrousers
+                                :SlimFitTrousers
+                              ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Umbrella
+
+:Umbrella rdf:type owl:Class ;
+          
+          rdfs:label "Umbrella"^^xsd:string ;
+          
+          rdfs:subClassOf :Accessory .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Underpants
+
+:Underpants rdf:type owl:Class ;
+            
+            rdfs:label "Underpants"^^xsd:string ;
+            
+            rdfs:subClassOf :Underwear .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Underwear
+
+:Underwear rdf:type owl:Class ;
+           
+           rdfs:label "Underwear"^^xsd:string ;
+           
+           rdfs:subClassOf dbr:Clothing ;
+           
+           owl:disjointUnionOf ( :Lingerie
+                                 :Socks
+                                 :Underpants
+                               ) .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#UnisexClothing
+
+:UnisexClothing rdf:type owl:Class ;
+                
+                rdfs:label "Unisex clothing"^^xsd:string ;
+                
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:intersectionOf ( :MensClothing
+                                                           :WomensClothing
+                                                         )
+                                    ] ;
+                
+                rdfs:subClassOf dbr:Clothing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wedding
+
+:Wedding rdf:type owl:Class ;
+         
+         rdfs:label "Wedding"^^xsd:string ;
+         
+         rdfs:subClassOf dbo:Event .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#WomensClothing
+
+:WomensClothing rdf:type owl:Class ;
+                
+                rdfs:label "Women's clothing"^^xsd:string ;
+                
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :isSuitableToBeDressedByGenre ;
+                                      owl:hasValue dbr:Female
+                                    ] ;
+                
+                rdfs:subClassOf dbr:Clothing .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://dbpedia.org/property/colour
+
+dbp:colour rdf:type owl:NamedIndividual ;
+           
+           owl:sameAs :hasColour .
+
+
+
+###  http://dbpedia.org/resource/Acrylic_fiber
+
+dbr:Acrylic_fiber rdf:type :SyntheticClothingMaterial ,
+                           owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Autumn
+
+dbr:Autumn rdf:type dbr:Season ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Black
+
+dbr:Black rdf:type owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Brassiere
+
+dbr:Brassiere rdf:type owl:NamedIndividual ;
+              
+              owl:sameAs :Bra .
+
+
+
+###  http://dbpedia.org/resource/Cashmere_wool
+
+dbr:Cashmere_wool rdf:type :NaturalClothingMaterial ,
+                           owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Casual
+
+dbr:Casual rdf:type dbr:Dress_code ,
+                    :ClothingStyle ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Clothing_sizes
+
+dbr:Clothing_sizes rdf:type :ClothingCharacteristic ,
+                            owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Cold
+
+dbr:Cold rdf:type dbr:Weather ,
+                  owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Color
+
+dbr:Color rdf:type :ClothingCharacteristic ,
+                   owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Cotton
+
+dbr:Cotton rdf:type :NaturalClothingMaterial ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Dress_code
+
+dbr:Dress_code rdf:type owl:NamedIndividual ;
+               
+               owl:sameAs :ClothingStyle .
+
+
+
+###  http://dbpedia.org/resource/Elastan
+
+dbr:Elastan rdf:type owl:NamedIndividual ;
+            
+            owl:sameAs dbr:Spandex .
+
+
+
+###  http://dbpedia.org/resource/Female
+
+dbr:Female rdf:type dbr:Genre ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Fur
+
+dbr:Fur rdf:type :NaturalClothingMaterial ,
+                 owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Lace
+
+dbr:Lace rdf:type :NaturalClothingMaterial ,
+                  owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Leather
+
+dbr:Leather rdf:type :NaturalClothingMaterial ,
+                     owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Linen
+
+dbr:Linen rdf:type :NaturalClothingMaterial ,
+                   owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Lycra
+
+dbr:Lycra rdf:type owl:NamedIndividual ;
+          
+          owl:sameAs dbr:Spandex .
+
+
+
+###  http://dbpedia.org/resource/Male
+
+dbr:Male rdf:type dbr:Genre ,
+                  owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Mohair
+
+dbr:Mohair rdf:type :NaturalClothingMaterial ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Nylon
+
+dbr:Nylon rdf:type :SyntheticClothingMaterial ,
+                   owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Polyester
+
+dbr:Polyester rdf:type :SyntheticClothingMaterial ,
+                       owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Red
+
+dbr:Red rdf:type owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Satin
+
+dbr:Satin rdf:type :SyntheticClothingMaterial ,
+                   owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Shoe_size
+
+dbr:Shoe_size rdf:type :ClothingCharacteristic ,
+                       owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Silk
+
+dbr:Silk rdf:type :NaturalClothingMaterial ,
+                  owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Spandex
+
+dbr:Spandex rdf:type :SyntheticClothingMaterial ,
+                     owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Spring
+
+dbr:Spring rdf:type dbr:Season ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Summer
+
+dbr:Summer rdf:type dbr:Season ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Winter
+
+dbr:Winter rdf:type dbr:Season ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Wool
+
+dbr:Wool rdf:type :NaturalClothingMaterial ,
+                  owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/cloudy
+
+dbr:cloudy rdf:type dbr:Weather ,
+                    owl:NamedIndividual ;
+           
+           rdfs:label "Cloudy"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Apple
+
+:Apple rdf:type :BodyShape ,
+                owl:NamedIndividual ;
+       
+       rdfs:label "Apple"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BodyShape
+
+:BodyShape rdf:type :ClothingCharacteristic ,
+                    owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bra
+
+:Bra rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Clear
+
+:Clear rdf:type dbr:Weather ,
+                owl:NamedIndividual ;
+       
+       rdfs:label "Clear"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingMaterial
+
+:ClothingMaterial rdf:type :ClothingCharacteristic ,
+                           owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingStyle
+
+:ClothingStyle rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Conservative
+
+:Conservative rdf:type dbr:Dress_code ,
+                       :ClothingStyle ,
+                       owl:NamedIndividual ;
+              
+              rdfs:label "Conservative dress code"^^xsd:string ;
+              
+              rdfs:comment "This individual specifies that a particular clothing item is suitable for the Conservative dressing code."^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dry
+
+:Dry rdf:type dbr:Weather ,
+              owl:NamedIndividual ;
+     
+     rdfs:label "Dry"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Funneral
+
+:Funneral rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Hot
+
+:Hot rdf:type dbr:Weather ,
+              owl:NamedIndividual ;
+     
      rdfs:label "Hot"^^xsd:string .
-					    
-:Wet a dbr:Weather ;
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Hourglass
+
+:Hourglass rdf:type :BodyShape ,
+                    owl:NamedIndividual ;
+           
+           rdfs:label "Hourglass"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Pear
+
+:Pear rdf:type :BodyShape ,
+               owl:NamedIndividual ;
+      
+      rdfs:label "Pear"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Rectangle
+
+:Rectangle rdf:type :BodyShape ,
+                    owl:NamedIndividual ;
+           
+           rdfs:label "Rectangle"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Rock
+
+:Rock rdf:type dbr:Dress_code ,
+               :ClothingStyle ,
+               owl:NamedIndividual ;
+      
+      rdfs:label "Rock dress code"^^xsd:string ;
+      
+      rdfs:comment "This individual specifies that a particular clothing item is suitable for the Rock dressing code."^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sport
+
+:Sport rdf:type dbr:Dress_code ,
+                :ClothingStyle ,
+                owl:NamedIndividual ;
+       
+       rdfs:label "Sport dress code"^^xsd:string ;
+       
+       rdfs:comment "This individual specifies that a particular clothing item is suitable for the Sport dressing code."^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wet
+
+:Wet rdf:type dbr:Weather ,
+              owl:NamedIndividual ;
+     
      rdfs:label "Wet"^^xsd:string .
 
-:Dry a dbr:Weather ;
-     rdfs:label "Dry"^^xsd:string .
-     
-:Clear a dbr:Weather ;
-       rdfs:label "Clear"^^xsd:string .
-       
-dbr:cloudy a dbr:Weather ;
-      	   rdfs:label "Cloudy"^^xsd:string .
-       
-
-# The genres
-dbr:Genre a owl:Class .
-
-dbr:Female a dbr:Genre .
-
-dbr:Male a dbr:Genre .
-
-dbr:Male owl:disjointWith dbr:Female .
-
-# Infering clothing types
-
-						   
-:UnisexClothing a owl:Class ;
-				rdfs:subClassOf :Clothing ;
-				owl:equivalentClass [ rdfs:subClassOf :Clothing ;
-									  owl:intersectionOf (:MensClothing :WomensClothing)
-									] ;
-									
-				rdfs:label "Unisex clothing"^^xsd:string .
-
-:WomensClothing a owl:Class ;
-				rdfs:subClassOf :Clothing ;
-				owl:equivalentClass [ a owl:Restriction ;
-									  owl:onProperty :isSuitableToBeDressedByGenre ;
-									  owl:hasValue dbr:Female 
-									] ;
-				rdfs:label "Women's clothing"^^xsd:string .
-				
-
-:MensClothing a owl:Class ;
-			  rdfs:subClassOf :Clothing ;
-			  owl:equivalentClass [ a owl:Restriction ;
-									  owl:onProperty :isSuitableToBeDressedByGenre ;
-									  owl:hasValue dbr:Male 
-								  ] ;
-				rdfs:label "Men's clothing"^^xsd:string .
-
-# Casual Sport Rock Conservative 
-
-:ClothingStyle a owl:Class ;
-			   owl:sameAs dbr:Dress_code;
-			   rdfs:label "Clothing style"^^xsd:string ;
-			   rdfs:comment "This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
-			   
-dbr:Casual a :ClothingStyle, dbr:Dress_code .
-
-:Sport a :ClothingStyle, dbr:Dress_code ;
-	   rdfs:label "Sport dress code"^^xsd:string ;
-	   rdfs:comment "This individual specifies that a particular clothing item is suitable for the Sport dressing code."^^xsd:string .
-
-:Rock a :ClothingStyle, dbr:Dress_code ;
-	   rdfs:label "Rock dress code"^^xsd:string ;
-	   rdfs:comment "This individual specifies that a particular clothing item is suitable for the Rock dressing code."^^xsd:string .
-
-:Conservative a :ClothingStyle, dbr:Dress_code ;
-	   rdfs:label "Conservative dress code"^^xsd:string ;
-	   rdfs:comment "This individual specifies that a particular clothing item is suitable for the Conservative dressing code."^^xsd:string .
-
-################## To be deleted
-rdfs:subClassOf a owl:TransitiveProperty .
 
 
-# The properties of the Semantic Clothing vocabulary
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour
 
-:hasTextileComposition a owl:ObjectProperty ;
-	            	   rdfs:subPropertyOf dbp:composition ;
-	            	   rdfs:domain :Clothing ;
-	            	   rdfs:range :ClothingMaterial ;
-	            	   rdfs:label "Has textile composition"^^xsd:string ;
-	            	   rdfs:comment "This property denotes the materials from which a clothing item is composed of."^^xsd:string .
-	            	   
-	            	   
-:hasColour a owl:ObjectProperty ;
-		   owl:sameAs dbp:colour ;
-    	   rdfs:domain :Clothing ;
-    	   rdfs:range :Color ;
-		   rdfs:label "Has colour"^^xsd:string ;
-		   rdfs:comment "This property specifies the color a particular clothing item has."^^xsd:string .
-
-# To consider making it an DatatypeProperty
-:hasSize a owl:ObjectProperty ;
-         rdfs:domain :Clothing ;
-	     rdfs:range :Clothing_sizes ;
-		 rdfs:label "Has size"^^xsd:string ;
-		 rdfs:comment "This property specifies the size of a particular clothing item."^^xsd:string .
-
-dbp:dressSize rdfs:subPropertyOf :hasSize ;
-			  rdfs:domain :Dress ;
-			  rdfs:range :Clothing_sizes ;
-			  rdfs:label "Dress size"^^xsd:string .
-
-:isSuitableToBeDressedByGenre a owl:ObjectProperty ;
-		             	      rdfs:domain :Clothing ;
-		             	      rdfs:range dbr:Genre ;
-							  rdfs:label "Is suitable to be dressed by genre"^^xsd:string ;
-							  rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes."^^xsd:string .
-
-:genreHasSuitableClothingForDressing a owl:ObjectProperty ;
-		             	      rdfs:domain :Genre ;
-		             	      rdfs:range dbr:Clothing ;
-							  rdfs:label "Genre has suitable clothing for dressing"^^xsd:string ;
-							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular genre."^^xsd:string .
-							  
-:isSuitableToBeDressedByGenre owl:inverseOf :genreHasSuitableClothingForDressing .							  
-
-:isSuitableToBeDressedAtEvent a owl:ObjectProperty ;
-             	    rdfs:domain :Clothing ;
-             	    rdfs:range dbo:Event ;
-					rdfs:label "Is suitable to be dressed at event"^^xsd:string ;
-					dbo:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
-
-:eventHasSuitableClothingForDressing a owl:ObjectProperty ;
-		             	      rdfs:domain :Event ;
-		             	      rdfs:range dbr:Clothing ;
-							  rdfs:label "Event has suitable clothing for dressing"^^xsd:string ;
-							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular event."^^xsd:string .
-
-:isSuitableToBeDressedAtEvent owl:inverseOf :eventHasSuitableClothingForDressing .							  
+:hasColour rdf:type owl:NamedIndividual ;
+           
+           rdfs:label "Has colour"^^xsd:string ;
+           
+           rdfs:comment "This property specifies the color a particular clothing item has."^^xsd:string .
 
 
-:isSuitableToBeDressedByBodyShape a owl:ObjectProperty ;
-								  dbo:domain :Clothing ;
-								  rdfs:range :BodyShape ;								  
-					              rdfs:label "Is suitable to be dressed by body shape"^^xsd:string ;
-					              rdfs:comment "Stipulates for which body shape a particular clothing item and/or class is/are suitable for."^^xsd:string .
 
-:bodyShapeHasSuitableClothingForDressing a owl:ObjectProperty ;
-		             	      rdfs:domain :BodyShape ;
-		             	      rdfs:range :Clothing ;
-							  rdfs:label "Body shape has suitable clothing for dressing"^^xsd:string ;
-							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular body shape."^^xsd:string .
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#pijamalePentruBarbatiSynthetic
 
-:isSuitableToBeDressedByBodyShape owl:inverseOf :bodyShapeHasSuitableClothingForDressing .							  
-
-
-:isSuitableToBeDressedInSeason a owl:ObjectProperty ;
-             	     		   rdfs:domain :Clothing ;
-			             	   rdfs:range dbr:Season ;
-   							   rdfs:label "Is suitable to be dressed in season"^^xsd:string ;
-   							   rdfs:comment "This property specifies the season for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
-
-:seasonHasSuitableClothingForDressing a owl:ObjectProperty ;
-		             	      rdfs:domain :Season ;
-		             	      rdfs:range dbr:Clothing ;
-							  rdfs:label "Season has suitable clothing for dressing"^^xsd:string ;
-							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular season."^^xsd:string .
-
-:isSuitableToBeDressedInSeason owl:inverseOf :seasonHasSuitableClothingForDressing .							  
+:pijamalePentruBarbatiSynthetic rdf:type :Pyjama ,
+                                         owl:NamedIndividual ;
+                                
+                                :hasTextileComposition dbr:Acrylic_fiber ;
+                                
+                                :isSuitableToBeDressedByGenre dbr:Male ;
+                                
+                                :hasTextileComposition dbr:Nylon ,
+                                                       dbr:Polyester ;
+                                
+                                :hasColour dbr:Red ;
+                                
+                                :hasTextileComposition dbr:Satin ,
+                                                       dbr:Spandex .
 
 
-:isSuitableToBeDressedOnWeather a owl:ObjectProperty ;
-								  rdfs:domain :Clothing ;
-								  rdfs:range :Weather ;						  
-								  rdfs:label "Is suitable to be dressed in weather conditions"^^xsd:string ;
-								  rdfs:comment "This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
 
-:weatherHasSuitableClothingForDressing a owl:ObjectProperty ;
-		             	      rdfs:domain :Weather ;
-		             	      rdfs:range dbr:Clothing ;
-							  rdfs:label "Weather has suitable clothing for dressing"^^xsd:string ;
-							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular weather condition."^^xsd:string .
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#pijamalePentruFemeiNatural
 
-:isSuitableToBeDressedOnWeather owl:inverseOf :weatherHasSuitableClothingForDressing .							  
+:pijamalePentruFemeiNatural rdf:type :Pyjama ,
+                                     owl:NamedIndividual ;
+                            
+                            :isSuitableToBeDressedByGenre dbr:Female ;
+                            
+                            :hasTextileComposition dbr:Mohair ,
+                                                   dbr:Silk .
 
 
-:isSuitableForDressingCode a owl:ObjectProperty ;
-								  rdfs:domain :Clothing ;
-								  rdfs:range :ClothingStyle, dbr:Dress_code ;						  
-								  rdfs:label "Is suitable for dressing code"^^xsd:string ;
-								  rdfs:comment "This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
 
-:dressingCodeHasSuitableClothingForDressing a owl:ObjectProperty ;
-		             	      rdfs:domain :ClothingStyle, dbr:Dress_code ;
-		             	      rdfs:range dbr:Clothing ;
-							  rdfs:label "Dressing code has suitable clothing for dressing"^^xsd:string ;
-							  rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular dressing code."^^xsd:string .
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#pijamaleUnisex
 
-:isSuitableForDressingCode owl:inverseOf :dressingCodeHasSuitableClothingForDressing .							  
+:pijamaleUnisex rdf:type :Pyjama ,
+                         owl:NamedIndividual ;
+                
+                :isSuitableToBeDressedByGenre dbr:Female ,
+                                              dbr:Male ;
+                
+                :hasTextileComposition dbr:Nylon ,
+                                       dbr:Silk .
+:funneralPyjama a :Pyjama ;
+					:isSuitableToBeDressedAtEvent :Funneral ;
+						:hasColour dbr:Black ;
+						:isSuitableToBeDressedByGenre dbr:Male .
 
-					    
-####################################################### ABox
-:pijamalePentruFemeiNatural a :Pyjama ;
-					 :isSuitableToBeDressedByGenre dbr:Female ;
-					 :hasTextileComposition dbr:Silk, dbr:Mohair.		
-					    
-:pijamalePentruBarbatiSynthetic a :Pyjama ;
-					 :isSuitableToBeDressedByGenre dbr:Male ;
-					 :hasTextileComposition dbr:Nylon, dbr:Acrylic_fiber, dbr:Polyester, dbr:Spandex, dbr:Satin.
 
-:pijamaleUnisex a :Pyjama ;
-			    :isSuitableToBeDressedByGenre dbr:Male, dbr:Female ;
-			    :hasTextileComposition dbr:Nylon, dbr:Silk .
-##############################################################
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:Class ;
+  rdfs:subClassOf dbr:Clothing ;
+  owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasColour ;
+                         owl:hasValue dbr:Black
+                       ]
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :isSuitableToBeDressedAtEvent ;
+                         owl:hasValue :Funneral
+                       ]
+                     )
+] .
+[ rdf:type owl:Class ;
+  rdfs:subClassOf dbr:Clothing ;
+  owl:intersectionOf ( :MensClothing
+                       :WomensClothing
+                     )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dbo:Event
+                dbr:Clothing
+                dbr:Clothing_sizes
+                dbr:Color
+                dbr:Genre
+                dbr:Raw_material
+                dbr:Season
+                dbr:Shape
+                dbr:Weather
+                :ClothingStyle
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+
