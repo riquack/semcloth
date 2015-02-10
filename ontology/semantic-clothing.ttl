@@ -1,5 +1,6 @@
 @prefix : <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
 @prefix sc: <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix dbp: <http://dbpedia.org/property/> .
@@ -8,7 +9,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix muto: <http://purl.org/muto/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
 @base <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl> .
 
@@ -41,15 +44,9 @@
 #################################################################
 
 
-###  http://dbpedia.org/ontology/comment
+###  http://dbpedia.org/ontology/thumbnail
 
-dbo:comment rdf:type owl:AnnotationProperty .
-
-
-
-###  http://dbpedia.org/ontology/domain
-
-dbo:domain rdf:type owl:AnnotationProperty .
+dbo:thumbnail rdf:type owl:AnnotationProperty .
 
 
 
@@ -62,6 +59,24 @@ dc:creator rdf:type owl:AnnotationProperty .
 ###  http://purl.org/dc/elements/1.1/date
 
 dc:date rdf:type owl:AnnotationProperty .
+
+
+
+###  http://rdfs.org/sioc/ns#note
+
+sioc:note rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/2000/01/rdf-schema#comment
+
+rdfs:comment rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/2000/01/rdf-schema#domain
+
+rdfs:domain rdf:type owl:AnnotationProperty .
 
 
 
@@ -167,7 +182,8 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasSize
 
-:hasSize rdf:type owl:ObjectProperty ;
+:hasSize rdf:type owl:FunctionalProperty ,
+                  owl:ObjectProperty ;
          
          rdfs:label "Has size"^^xsd:string ;
          
@@ -195,6 +211,32 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTexture
+
+:hasTexture rdf:type owl:ObjectProperty ;
+            
+            rdfs:comment "Specifies the texture of the clothing item."^^xsd:string ;
+            
+            rdfs:domain dbr:Clothing ;
+            
+            rdfs:range :ClothingTexture .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isManufacteredBy
+
+:isManufacteredBy rdf:type owl:AsymmetricProperty ,
+                           owl:FunctionalProperty ,
+                           owl:ObjectProperty ;
+                  
+                  rdfs:label "Is manufactured by"^^xsd:string ;
+                  
+                  rdfs:domain dbr:Clothing ;
+                  
+                  rdfs:range gr:BusinessEntity .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForDressingCode
 
 :isSuitableForDressingCode rdf:type owl:ObjectProperty ;
@@ -218,7 +260,7 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
                               
                               rdfs:label "Is suitable to be dressed at event"^^xsd:string ;
                               
-                              dbo:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                              rdfs:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
                               
                               rdfs:range dbo:Event ;
                               
@@ -236,7 +278,7 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
                                   
                                   rdfs:comment "Stipulates for which body shape a particular clothing item and/or class is/are suitable for."^^xsd:string ;
                                   
-                                  dbo:domain dbr:Clothing ;
+                                  rdfs:domain dbr:Clothing ;
                                   
                                   rdfs:range :BodyShape ;
                                   
@@ -317,13 +359,6 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
                                        rdfs:range dbr:Clothing ;
                                        
                                        rdfs:domain dbr:Weather .
-
-
-
-###  http://www.w3.org/2000/01/rdf-schema#subClassOf
-
-rdfs:subClassOf rdf:type owl:ObjectProperty ,
-                         owl:TransitiveProperty .
 
 
 
@@ -445,6 +480,12 @@ dbr:Weather rdf:type owl:Class ;
 
 
 
+###  http://purl.org/goodrelations/v1#BusinessEntity
+
+gr:BusinessEntity rdf:type owl:Class .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Accessory
 
 :Accessory rdf:type owl:Class ;
@@ -452,6 +493,8 @@ dbr:Weather rdf:type owl:Class ;
            rdfs:label "Accessory"^^xsd:string ;
            
            rdfs:subClassOf dbr:Clothing ;
+           
+           dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/accesory.png"^^xsd:anyURI ;
            
            owl:disjointUnionOf ( :Bag
                                  :Belt
@@ -471,7 +514,9 @@ dbr:Weather rdf:type owl:Class ;
             
             rdfs:label "Ankle boots"^^xsd:string ;
             
-            rdfs:subClassOf :Shoes .
+            rdfs:subClassOf :Shoes ;
+            
+            dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/ankle-boots.png"^^xsd:anyURI .
 
 
 
@@ -482,6 +527,8 @@ dbr:Weather rdf:type owl:Class ;
      rdfs:label "Bag"^^xsd:string ;
      
      rdfs:subClassOf :Accessory ;
+     
+     dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/bag.png"^^xsd:anyURI ;
      
      owl:disjointUnionOf ( :Handbag
                            :ShoulderBag
@@ -495,7 +542,9 @@ dbr:Weather rdf:type owl:Class ;
       
       rdfs:label "Belt"^^xsd:string ;
       
-      rdfs:subClassOf :Accessory .
+      rdfs:subClassOf :Accessory ;
+      
+      dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/belt.png"^^xsd:anyURI .
 
 
 
@@ -505,7 +554,9 @@ dbr:Weather rdf:type owl:Class ;
         
         rdfs:label "Blazer"^^xsd:string ;
         
-        rdfs:subClassOf dbr:Clothing .
+        rdfs:subClassOf dbr:Clothing ;
+        
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/blazer-1.png"^^xsd:anyURI .
 
 
 
@@ -527,7 +578,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Bodysuit"^^xsd:string ;
           
-          rdfs:subClassOf :Lingerie .
+          rdfs:subClassOf :Lingerie ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/bodysuit.png"^^xsd:anyURI .
 
 
 
@@ -537,7 +590,9 @@ dbr:Weather rdf:type owl:Class ;
        
        rdfs:label "Boots"^^xsd:string ;
        
-       rdfs:subClassOf :Shoes .
+       rdfs:subClassOf :Shoes ;
+       
+       dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/boots.png"^^xsd:anyURI .
 
 
 
@@ -548,6 +603,8 @@ dbr:Weather rdf:type owl:Class ;
      rdfs:label "Bra"^^xsd:string ;
      
      rdfs:subClassOf :Lingerie ;
+     
+     dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI ;
      
      owl:disjointUnionOf ( :PushUpBra
                            :ShapeLingerie
@@ -562,7 +619,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Bracelet"^^xsd:string ;
           
-          rdfs:subClassOf :Jewellery .
+          rdfs:subClassOf :Jewellery ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/bracelet.png"^^xsd:anyURI .
 
 
 
@@ -572,7 +631,9 @@ dbr:Weather rdf:type owl:Class ;
         
         rdfs:label "Briefs"^^xsd:string ;
         
-        rdfs:subClassOf :Lingerie .
+        rdfs:subClassOf :Lingerie ;
+        
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/briefs.png"^^xsd:anyURI .
 
 
 
@@ -597,6 +658,7 @@ dbr:Weather rdf:type owl:Class ;
                                               :BodyShape
                                               :ClothingMaterial
                                               :ClothingStyle
+                                              :ClothingTexture
                                             ) .
 
 
@@ -627,6 +689,14 @@ dbr:Weather rdf:type owl:Class ;
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingTexture
+
+:ClothingTexture rdf:type owl:Class ;
+                 
+                 rdfs:label "Clothing texture"^^xsd:string .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club
 
 :Club rdf:type owl:Class ;
@@ -643,7 +713,9 @@ dbr:Weather rdf:type owl:Class ;
       
       rdfs:label "Coat"^^xsd:string ;
       
-      rdfs:subClassOf dbr:Clothing .
+      rdfs:subClassOf dbr:Clothing ;
+      
+      dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/coat.png"^^xsd:anyURI .
 
 
 
@@ -657,13 +729,25 @@ dbr:Weather rdf:type owl:Class ;
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#DinnerParty
+
+:DinnerParty rdf:type owl:Class ;
+             
+             rdfs:label "Dinner party"^^xsd:string ;
+             
+             rdfs:subClassOf dbo:Event .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dress
 
 :Dress rdf:type owl:Class ;
        
        rdfs:label "Dress"^^xsd:string ;
        
-       rdfs:subClassOf dbr:Clothing .
+       rdfs:subClassOf dbr:Clothing ;
+       
+       dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/dress.png"^^xsd:anyURI .
 
 
 
@@ -673,7 +757,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Earrings"^^xsd:string ;
           
-          rdfs:subClassOf :Jewellery .
+          rdfs:subClassOf :Jewellery ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/earrings.png"^^xsd:anyURI .
 
 
 
@@ -727,7 +813,9 @@ dbr:Weather rdf:type owl:Class ;
         
         rdfs:label "Gloves"^^xsd:string ;
         
-        rdfs:subClassOf dbr:Clothing .
+        rdfs:subClassOf dbr:Clothing ;
+        
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/glovers.png"^^xsd:anyURI .
 
 
 
@@ -737,7 +825,9 @@ dbr:Weather rdf:type owl:Class ;
          
          rdfs:label "Handbag"^^xsd:string ;
          
-         rdfs:subClassOf :Bag .
+         rdfs:subClassOf :Bag ;
+         
+         dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/handbag.png"^^xsd:anyURI .
 
 
 
@@ -747,7 +837,9 @@ dbr:Weather rdf:type owl:Class ;
      
      rdfs:label "Hat"^^xsd:string ;
      
-     rdfs:subClassOf :Accessory .
+     rdfs:subClassOf :Accessory ;
+     
+     dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/hat.png"^^xsd:anyURI .
 
 
 
@@ -757,7 +849,9 @@ dbr:Weather rdf:type owl:Class ;
            
            rdfs:label "High-heels"^^xsd:string ;
            
-           rdfs:subClassOf :Shoes .
+           rdfs:subClassOf :Shoes ;
+           
+           dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/hight-heels.png"^^xsd:anyURI .
 
 
 
@@ -777,7 +871,9 @@ dbr:Weather rdf:type owl:Class ;
        
        rdfs:label "Jeans"^^xsd:string ;
        
-       rdfs:subClassOf dbr:Clothing .
+       rdfs:subClassOf dbr:Clothing ;
+       
+       dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/jeans.png"^^xsd:anyURI .
 
 
 
@@ -788,6 +884,8 @@ dbr:Weather rdf:type owl:Class ;
            rdfs:label "Jewellery"^^xsd:string ;
            
            rdfs:subClassOf :Accessory ;
+           
+           dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/jewellery.png"^^xsd:anyURI ;
            
            owl:disjointUnionOf ( :Bracelet
                                  :Earrings
@@ -803,7 +901,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Knickers"^^xsd:string ;
           
-          rdfs:subClassOf :Lingerie .
+          rdfs:subClassOf :Lingerie ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/knickers.png"^^xsd:anyURI .
 
 
 
@@ -814,6 +914,8 @@ dbr:Weather rdf:type owl:Class ;
           rdfs:label "Lingerie"^^xsd:string ;
           
           rdfs:subClassOf :Underwear ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/lingerie.png"^^xsd:anyURI ;
           
           owl:disjointUnionOf ( :Bodysuit
                                 :Bra
@@ -845,7 +947,9 @@ dbr:Weather rdf:type owl:Class ;
            
            rdfs:label "Mocassins"^^xsd:string ;
            
-           rdfs:subClassOf :Shoes .
+           rdfs:subClassOf :Shoes ;
+           
+           dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/mocassins.png"^^xsd:anyURI .
 
 
 
@@ -867,7 +971,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Necklace"^^xsd:string ;
           
-          rdfs:subClassOf :Jewellery .
+          rdfs:subClassOf :Jewellery ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/necklace.png"^^xsd:anyURI .
 
 
 
@@ -877,7 +983,9 @@ dbr:Weather rdf:type owl:Class ;
         
         rdfs:label "Nylons"^^xsd:string ;
         
-        rdfs:subClassOf :Lingerie .
+        rdfs:subClassOf :Lingerie ;
+        
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/nylons.png"^^xsd:anyURI .
 
 
 
@@ -887,7 +995,9 @@ dbr:Weather rdf:type owl:Class ;
            
            rdfs:label "Push-up bra"^^xsd:string ;
            
-           rdfs:subClassOf :Bra .
+           rdfs:subClassOf :Bra ;
+           
+           dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI .
 
 
 
@@ -897,7 +1007,9 @@ dbr:Weather rdf:type owl:Class ;
         
         rdfs:label "Pyjama"^^xsd:string ;
         
-        rdfs:subClassOf dbr:Clothing .
+        rdfs:subClassOf dbr:Clothing ;
+        
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/pyjama.png"^^xsd:anyURI .
 
 
 
@@ -917,7 +1029,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Raincoat"^^xsd:string ;
           
-          rdfs:subClassOf dbr:Clothing .
+          rdfs:subClassOf dbr:Clothing ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/raincoat.png"^^xsd:anyURI .
 
 
 
@@ -927,7 +1041,9 @@ dbr:Weather rdf:type owl:Class ;
                     
                     rdfs:label "Regular fit trousers"^^xsd:string ;
                     
-                    rdfs:subClassOf :Trousers .
+                    rdfs:subClassOf :Trousers ;
+                    
+                    dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/regular-fit-trousers.png"^^xsd:anyURI .
 
 
 
@@ -937,7 +1053,9 @@ dbr:Weather rdf:type owl:Class ;
       
       rdfs:label "Ring"^^xsd:string ;
       
-      rdfs:subClassOf :Jewellery .
+      rdfs:subClassOf :Jewellery ;
+      
+      dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/ring.png"^^xsd:anyURI .
 
 
 
@@ -957,7 +1075,9 @@ dbr:Weather rdf:type owl:Class ;
          
          rdfs:label "Sandals"^^xsd:string ;
          
-         rdfs:subClassOf :Shoes .
+         rdfs:subClassOf :Shoes ;
+         
+         dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sandals.png"^^xsd:anyURI .
 
 
 
@@ -967,7 +1087,9 @@ dbr:Weather rdf:type owl:Class ;
        
        rdfs:label "Scarf"^^xsd:string ;
        
-       rdfs:subClassOf :Accessory .
+       rdfs:subClassOf :Accessory ;
+       
+       dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/scarf.png"^^xsd:anyURI .
 
 
 
@@ -977,7 +1099,9 @@ dbr:Weather rdf:type owl:Class ;
                
                rdfs:label "Shape lingerie"^^xsd:string ;
                
-               rdfs:subClassOf :Bra .
+               rdfs:subClassOf :Bra ;
+               
+               dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI .
 
 
 
@@ -987,7 +1111,9 @@ dbr:Weather rdf:type owl:Class ;
        
        rdfs:label "Shirt"^^xsd:string ;
        
-       rdfs:subClassOf dbr:Clothing .
+       rdfs:subClassOf dbr:Clothing ;
+       
+       dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/shirt.png"^^xsd:anyURI .
 
 
 
@@ -998,6 +1124,8 @@ dbr:Weather rdf:type owl:Class ;
        rdfs:label "Shoes"^^xsd:string ;
        
        rdfs:subClassOf dbr:Clothing ;
+       
+       dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/shoes.png"^^xsd:anyURI ;
        
        owl:disjointUnionOf ( :AnkleBoots
                              :Boots
@@ -1016,7 +1144,9 @@ dbr:Weather rdf:type owl:Class ;
              
              rdfs:label "Shoulder bag"^^xsd:string ;
              
-             rdfs:subClassOf :Bag .
+             rdfs:subClassOf :Bag ;
+             
+             dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/shoulder-bag.png"^^xsd:anyURI .
 
 
 
@@ -1026,7 +1156,9 @@ dbr:Weather rdf:type owl:Class ;
                    
                    rdfs:label "Skinny fit trousers"^^xsd:string ;
                    
-                   rdfs:subClassOf :Trousers .
+                   rdfs:subClassOf :Trousers ;
+                   
+                   dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/skinny-fit-trousers.png"^^xsd:anyURI .
 
 
 
@@ -1036,7 +1168,9 @@ dbr:Weather rdf:type owl:Class ;
        
        rdfs:label "Skirt"^^xsd:string ;
        
-       rdfs:subClassOf dbr:Clothing .
+       rdfs:subClassOf dbr:Clothing ;
+       
+       dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/skirt.png"^^xsd:anyURI .
 
 
 
@@ -1046,7 +1180,9 @@ dbr:Weather rdf:type owl:Class ;
                  
                  rdfs:label "Slim fit trousers"^^xsd:string ;
                  
-                 rdfs:subClassOf :Trousers .
+                 rdfs:subClassOf :Trousers ;
+                 
+                 dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/slim-fit-trousers.png"^^xsd:anyURI .
 
 
 
@@ -1056,7 +1192,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Sneakers"^^xsd:string ;
           
-          rdfs:subClassOf :Shoes .
+          rdfs:subClassOf :Shoes ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sneakers.png"^^xsd:anyURI .
 
 
 
@@ -1066,7 +1204,9 @@ dbr:Weather rdf:type owl:Class ;
        
        rdfs:label "Socks"^^xsd:string ;
        
-       rdfs:subClassOf :Underwear .
+       rdfs:subClassOf :Underwear ;
+       
+       dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/socks.png"^^xsd:anyURI .
 
 
 
@@ -1076,7 +1216,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Sports bra"^^xsd:string ;
           
-          rdfs:subClassOf :Bra .
+          rdfs:subClassOf :Bra ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI .
 
 
 
@@ -1086,7 +1228,9 @@ dbr:Weather rdf:type owl:Class ;
       
       rdfs:label "Suit"^^xsd:string ;
       
-      rdfs:subClassOf dbr:Clothing .
+      rdfs:subClassOf dbr:Clothing ;
+      
+      dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/suit.png"^^xsd:anyURI .
 
 
 
@@ -1096,7 +1240,9 @@ dbr:Weather rdf:type owl:Class ;
             
             rdfs:label "Sunglasses"^^xsd:string ;
             
-            rdfs:subClassOf :Accessory .
+            rdfs:subClassOf :Accessory ;
+            
+            dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sunglasses.png"^^xsd:anyURI .
 
 
 
@@ -1116,7 +1262,9 @@ dbr:Weather rdf:type owl:Class ;
         
         rdfs:label "T-shirt"^^xsd:string ;
         
-        rdfs:subClassOf dbr:Clothing .
+        rdfs:subClassOf dbr:Clothing ;
+        
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/t-shirt.png"^^xsd:anyURI .
 
 
 
@@ -1126,7 +1274,9 @@ dbr:Weather rdf:type owl:Class ;
      
      rdfs:label "Tie"^^xsd:string ;
      
-     rdfs:subClassOf :Accessory .
+     rdfs:subClassOf :Accessory ;
+     
+     dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/tie.png"^^xsd:anyURI .
 
 
 
@@ -1136,7 +1286,9 @@ dbr:Weather rdf:type owl:Class ;
      
      rdfs:label "Top"^^xsd:string ;
      
-     rdfs:subClassOf dbr:Clothing .
+     rdfs:subClassOf dbr:Clothing ;
+     
+     dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/top.png"^^xsd:anyURI .
 
 
 
@@ -1147,6 +1299,8 @@ dbr:Weather rdf:type owl:Class ;
           rdfs:label "Trousers"^^xsd:string ;
           
           rdfs:subClassOf dbr:Clothing ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/trousers.png"^^xsd:anyURI ;
           
           owl:disjointUnionOf ( :RegularFitTrousers
                                 :SkinnyFitTrousers
@@ -1161,7 +1315,9 @@ dbr:Weather rdf:type owl:Class ;
           
           rdfs:label "Umbrella"^^xsd:string ;
           
-          rdfs:subClassOf :Accessory .
+          rdfs:subClassOf :Accessory ;
+          
+          dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/Umbrella.png"^^xsd:anyURI .
 
 
 
@@ -1171,7 +1327,9 @@ dbr:Weather rdf:type owl:Class ;
             
             rdfs:label "Underpants"^^xsd:string ;
             
-            rdfs:subClassOf :Underwear .
+            rdfs:subClassOf :Underwear ;
+            
+            dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/underpants.png"^^xsd:anyURI .
 
 
 
@@ -1182,6 +1340,8 @@ dbr:Weather rdf:type owl:Class ;
            rdfs:label "Underwear"^^xsd:string ;
            
            rdfs:subClassOf dbr:Clothing ;
+           
+           dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/underwear.png"^^xsd:anyURI ;
            
            owl:disjointUnionOf ( :Lingerie
                                  :Socks
@@ -1271,6 +1431,8 @@ dbr:Black rdf:type owl:NamedIndividual .
 ###  http://dbpedia.org/resource/Brassiere
 
 dbr:Brassiere rdf:type owl:NamedIndividual ;
+              
+              dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI ;
               
               owl:sameAs :Bra .
 
@@ -1477,12 +1639,37 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#AnkleBoots
+
+:AnkleBoots rdf:type owl:NamedIndividual ;
+            
+            :isSuitableToBeDressedInSeason dbr:Autumn ;
+            
+            :isSuitableToBeDressedByGenre dbr:Female ;
+            
+            :isSuitableToBeDressedInSeason dbr:Spring ,
+                                           dbr:Summer ;
+            
+            :isSuitableToBeDressedAtEvent :Club ,
+                                          :Date .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Apple
 
 :Apple rdf:type :BodyShape ,
                 owl:NamedIndividual ;
        
        rdfs:label "Apple"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bag
+
+:Bag rdf:type owl:NamedIndividual ;
+     
+     :isSuitableForDressingCode dbr:Casual ,
+                                :Conservative .
 
 
 
@@ -1493,9 +1680,27 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Boots
+
+:Boots rdf:type owl:NamedIndividual ;
+       
+       :isSuitableToBeDressedOnWeather dbr:Cold ;
+       
+       :isSuitableToBeDressedInSeason dbr:Winter .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bra
 
-:Bra rdf:type owl:NamedIndividual .
+:Bra rdf:type owl:NamedIndividual ;
+     
+     :isSuitableToBeDressedByGenre dbr:Female .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BusinessMeeting
+
+:BusinessMeeting rdf:type owl:NamedIndividual .
 
 
 
@@ -1521,6 +1726,33 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingTexture
+
+:ClothingTexture rdf:type :ClothingCharacteristic ,
+                          owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Cloudy
+
+:Cloudy rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club
+
+:Club rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Coat
+
+:Coat rdf:type owl:NamedIndividual ;
+      
+      :isSuitableToBeDressedInSeason dbr:Winter .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Conservative
 
 :Conservative rdf:type dbr:Dress_code ,
@@ -1533,6 +1765,44 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Date
+
+:Date rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#DinnerParty
+
+:DinnerParty rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dress
+
+:Dress rdf:type owl:NamedIndividual ;
+       
+       :isSuitableToBeDressedByGenre dbr:Female ;
+       
+       :isSuitableToBeDressedInSeason dbr:Spring ,
+                                      dbr:Summer ;
+       
+       :isSuitableToBeDressedAtEvent :BusinessMeeting ;
+       
+       :isSuitableToBeDressedOnWeather :Clear ;
+       
+       :isSuitableToBeDressedAtEvent :Club ;
+       
+       :isSuitableForDressingCode :Conservative ;
+       
+       :isSuitableToBeDressedAtEvent :Date ,
+                                     :DinnerParty ;
+       
+       :isSuitableToBeDressedOnWeather :Hot ;
+       
+       :isSuitableToBeDressedAtEvent :Wedding .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dry
 
 :Dry rdf:type dbr:Weather ,
@@ -1542,9 +1812,74 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Earrings
+
+:Earrings rdf:type owl:NamedIndividual ;
+          
+          :isSuitableToBeDressedByGenre dbr:Female .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flats
+
+:Flats rdf:type owl:NamedIndividual ;
+       
+       :isSuitableForDressingCode dbr:Casual ;
+       
+       :isSuitableToBeDressedByGenre dbr:Female ;
+       
+       :isSuitableToBeDressedInSeason dbr:Summer ;
+       
+       :isSuitableToBeDressedOnWeather :Hot .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Funneral
 
 :Funneral rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Gloves
+
+:Gloves rdf:type owl:NamedIndividual ;
+        
+        :isSuitableToBeDressedInSeason dbr:Autumn ;
+        
+        :isSuitableToBeDressedOnWeather dbr:Cold ;
+        
+        :isSuitableToBeDressedInSeason dbr:Winter .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Handbag
+
+:Handbag rdf:type owl:NamedIndividual ;
+         
+         :isSuitableToBeDressedByGenre dbr:Female ,
+                                       dbr:Male .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#HighHeels
+
+:HighHeels rdf:type owl:NamedIndividual ;
+           
+           :isSuitableToBeDressedByGenre dbr:Female ;
+           
+           :isSuitableToBeDressedInSeason dbr:Summer ;
+           
+           :isSuitableToBeDressedByBodyShape :Apple ;
+           
+           :isSuitableToBeDressedAtEvent :BusinessMeeting ,
+                                         :Club ,
+                                         :Date ,
+                                         :DinnerParty ;
+           
+           :isSuitableToBeDressedByBodyShape :Hourglass ,
+                                             :Rectangle ;
+           
+           :isSuitableToBeDressedAtEvent :Wedding .
 
 
 
@@ -1566,6 +1901,36 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Jewellery
+
+:Jewellery rdf:type owl:NamedIndividual ;
+           
+           :isSuitableToBeDressedAtEvent :Club ,
+                                         :Date ;
+           
+           :isSuitableForDressingCode :Rock .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Moccasins
+
+:Moccasins rdf:type owl:NamedIndividual ;
+           
+           :isSuitableToBeDressedInSeason dbr:Spring ,
+                                          dbr:Summer ;
+           
+           :isSuitableToBeDressedOnWeather :Clear .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Necklace
+
+:Necklace rdf:type owl:NamedIndividual ;
+          
+          :isSuitableToBeDressedByGenre dbr:Female .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Pear
 
 :Pear rdf:type :BodyShape ,
@@ -1575,12 +1940,29 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Raincoat
+
+:Raincoat rdf:type owl:NamedIndividual ;
+          
+          :isSuitableToBeDressedOnWeather :Cloudy ,
+                                          :Wet .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Rectangle
 
 :Rectangle rdf:type :BodyShape ,
                     owl:NamedIndividual ;
            
            rdfs:label "Rectangle"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#RegularFitTrousers
+
+:RegularFitTrousers rdf:type owl:NamedIndividual ;
+                    
+                    :isSuitableForDressingCode :Conservative .
 
 
 
@@ -1596,6 +1978,76 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sandals
+
+:Sandals rdf:type owl:NamedIndividual ;
+         
+         :isSuitableToBeDressedInSeason dbr:Summer ;
+         
+         :isSuitableToBeDressedOnWeather :Clear ,
+                                         :Dry .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Shirt
+
+:Shirt rdf:type owl:NamedIndividual ;
+       
+       :isSuitableForDressingCode dbr:Casual ;
+       
+       :isSuitableToBeDressedInSeason dbr:Summer ;
+       
+       :isSuitableForDressingCode :Sport .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ShoulderBag
+
+:ShoulderBag rdf:type owl:NamedIndividual ;
+             
+             :isSuitableToBeDressedByGenre dbr:Female .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Skirt
+
+:Skirt rdf:type owl:NamedIndividual ;
+       
+       :isSuitableToBeDressedByGenre dbr:Female ;
+       
+       :isSuitableToBeDressedInSeason dbr:Spring ,
+                                      dbr:Summer ;
+       
+       :isSuitableToBeDressedAtEvent :BusinessMeeting ;
+       
+       :isSuitableToBeDressedOnWeather :Clear ;
+       
+       :isSuitableToBeDressedAtEvent :Date ,
+                                     :DinnerParty ,
+                                     :Funneral ;
+       
+       :isSuitableToBeDressedOnWeather :Hot ;
+       
+       :isSuitableToBeDressedAtEvent :Wedding .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sneakers
+
+:Sneakers rdf:type owl:NamedIndividual ;
+          
+          :isSuitableToBeDressedInSeason dbr:Autumn ,
+                                         dbr:Spring ,
+                                         dbr:Summer ;
+          
+          :isSuitableToBeDressedOnWeather :Clear ;
+          
+          :isSuitableToBeDressedAtEvent :Club ;
+          
+          :isSuitableForDressingCode :Sport .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sport
 
 :Sport rdf:type dbr:Dress_code ,
@@ -1608,12 +2060,89 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Suit
+
+:Suit rdf:type owl:NamedIndividual ;
+      
+      :isSuitableToBeDressedByGenre dbr:Male ;
+      
+      :isSuitableToBeDressedAtEvent :BusinessMeeting ;
+      
+      :isSuitableForDressingCode :Conservative ;
+      
+      :isSuitableToBeDressedAtEvent :DinnerParty ,
+                                    :Funneral ,
+                                    :Wedding .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sunglasses
+
+:Sunglasses rdf:type owl:NamedIndividual ;
+            
+            :isSuitableToBeDressedInSeason dbr:Summer ;
+            
+            :isSuitableToBeDressedOnWeather :Clear ,
+                                            :Hot .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Tie
+
+:Tie rdf:type owl:NamedIndividual ;
+     
+     :isSuitableToBeDressedByGenre dbr:Male ;
+     
+     :isSuitableToBeDressedAtEvent :BusinessMeeting ,
+                                   :Date ,
+                                   :DinnerParty ,
+                                   :Funneral .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Trousers
+
+:Trousers rdf:type owl:NamedIndividual ;
+          
+          :isSuitableToBeDressedAtEvent :Club ,
+                                        :Date .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Umbrella
+
+:Umbrella rdf:type owl:NamedIndividual ;
+          
+          :isSuitableToBeDressedOnWeather :Cloudy ,
+                                          :Wet .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wedding
+
+:Wedding rdf:type owl:NamedIndividual .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wet
 
 :Wet rdf:type dbr:Weather ,
               owl:NamedIndividual ;
      
      rdfs:label "Wet"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#funneralPyjama
+
+:funneralPyjama rdf:type :Pyjama ,
+                         owl:NamedIndividual ;
+                
+                :hasColour dbr:Black ;
+                
+                :isSuitableToBeDressedByGenre dbr:Male ;
+                
+                :isSuitableToBeDressedAtEvent :Funneral .
 
 
 
@@ -1663,15 +2192,13 @@ dbr:cloudy rdf:type dbr:Weather ,
 :pijamaleUnisex rdf:type :Pyjama ,
                          owl:NamedIndividual ;
                 
+                sioc:note "Pyjama Unisex received as gift from father."^^xsd:string ;
+                
                 :isSuitableToBeDressedByGenre dbr:Female ,
                                               dbr:Male ;
                 
                 :hasTextileComposition dbr:Nylon ,
                                        dbr:Silk .
-:funneralPyjama a :Pyjama ;
-					:isSuitableToBeDressedAtEvent :Funneral ;
-						:hasColour dbr:Black ;
-						:isSuitableToBeDressedByGenre dbr:Male .
 
 
 
@@ -1696,12 +2223,6 @@ dbr:cloudy rdf:type dbr:Weather ,
                        ]
                      )
 ] .
-[ rdf:type owl:Class ;
-  rdfs:subClassOf dbr:Clothing ;
-  owl:intersectionOf ( :MensClothing
-                       :WomensClothing
-                     )
-] .
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( dbo:Event
                 dbr:Clothing
@@ -1714,6 +2235,12 @@ dbr:cloudy rdf:type dbr:Weather ,
                 dbr:Weather
                 :ClothingStyle
               )
+] .
+[ rdf:type owl:Class ;
+  rdfs:subClassOf dbr:Clothing ;
+  owl:intersectionOf ( :MensClothing
+                       :WomensClothing
+                     )
 ] .
 
 
