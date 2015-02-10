@@ -254,6 +254,22 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForDressingForReligion
+
+:isSuitableForDressingForReligion rdf:type owl:ObjectProperty ;
+                                  
+                                  rdfs:label "Is suitable for dressing for religion"^^xsd:string ;
+                                  
+                                  rdfs:comment "This property specifis the religion for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                                  
+                                  rdfs:domain dbr:Clothing ;
+                                  
+                                  rdfs:range dbr:Religion ;
+                                  
+                                  owl:inverseOf :religionHasSuitableClothingForDressing .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedAtEvent
 
 :isSuitableToBeDressedAtEvent rdf:type owl:ObjectProperty ;
@@ -331,6 +347,20 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
                                 rdfs:range dbr:Weather ;
                                 
                                 owl:inverseOf :weatherHasSuitableClothingForDressing .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#religionHasSuitableClothingForDressing
+
+:religionHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
+                                        
+                                        rdfs:label "Religion has suitable clothing for dressing"^^xsd:string ;
+                                        
+                                        rdfs:comment "This property specifis the clothing that is suitable for a particular religion."^^xsd:string ;
+                                        
+                                        rdfs:range dbr:Clothing ;
+                                        
+                                        rdfs:domain dbr:Religion .
 
 
 
@@ -457,6 +487,12 @@ dbr:Male rdf:type owl:Class .
 ###  http://dbpedia.org/resource/Raw_material
 
 dbr:Raw_material rdf:type owl:Class .
+
+
+
+###  http://dbpedia.org/resource/Religion
+
+dbr:Religion rdf:type owl:Class .
 
 
 
@@ -1453,6 +1489,15 @@ dbr:Casual rdf:type dbr:Dress_code ,
 
 
 
+###  http://dbpedia.org/resource/Catholicism
+
+dbr:Catholicism rdf:type dbr:Religion ,
+                         owl:NamedIndividual ;
+                
+                rdfs:label "Catholicism"^^xsd:string .
+
+
+
 ###  http://dbpedia.org/resource/Clothing_sizes
 
 dbr:Clothing_sizes rdf:type :ClothingCharacteristic ,
@@ -1489,6 +1534,15 @@ dbr:Dress_code rdf:type owl:NamedIndividual ;
 
 
 
+###  http://dbpedia.org/resource/Eastern_Orthodox_Church
+
+dbr:Eastern_Orthodox_Church rdf:type dbr:Religion ,
+                                     owl:NamedIndividual ;
+                            
+                            rdfs:label "Orthodoxism"^^xsd:string .
+
+
+
 ###  http://dbpedia.org/resource/Elastan
 
 dbr:Elastan rdf:type owl:NamedIndividual ;
@@ -1508,6 +1562,15 @@ dbr:Female rdf:type dbr:Genre ,
 
 dbr:Fur rdf:type :NaturalClothingMaterial ,
                  owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Hinduism
+
+dbr:Hinduism rdf:type dbr:Religion ,
+                      owl:NamedIndividual ;
+             
+             rdfs:label "Hinduism"^^xsd:string .
 
 
 
@@ -1551,6 +1614,22 @@ dbr:Male rdf:type dbr:Genre ,
 
 dbr:Mohair rdf:type :NaturalClothingMaterial ,
                     owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Muslim
+
+dbr:Muslim rdf:type dbr:Religion ,
+                    owl:NamedIndividual ;
+           
+           rdfs:label "Muslim"^^xsd:string ;
+           
+           :religionHasSuitableClothingForDressing :Belt ,
+                                                   :Coat ,
+                                                   :Scarf ,
+                                                   :Suit ,
+                                                   :Umbrella ,
+                                                   :Underwear .
 
 
 
@@ -1670,6 +1749,12 @@ dbr:cloudy rdf:type dbr:Weather ,
      
      :isSuitableForDressingCode dbr:Casual ,
                                 :Conservative .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Belt
+
+:Belt rdf:type owl:NamedIndividual .
 
 
 
@@ -1989,6 +2074,12 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Scarf
+
+:Scarf rdf:type owl:NamedIndividual .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Shirt
 
 :Shirt rdf:type owl:NamedIndividual ;
@@ -2118,6 +2209,12 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Underwear
+
+:Underwear rdf:type owl:NamedIndividual .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wedding
 
 :Wedding rdf:type owl:NamedIndividual .
@@ -2213,6 +2310,12 @@ dbr:cloudy rdf:type dbr:Weather ,
 
 [ rdf:type owl:Class ;
   rdfs:subClassOf dbr:Clothing ;
+  owl:intersectionOf ( :MensClothing
+                       :WomensClothing
+                     )
+] .
+[ rdf:type owl:Class ;
+  rdfs:subClassOf dbr:Clothing ;
   owl:intersectionOf ( [ rdf:type owl:Restriction ;
                          owl:onProperty :hasColour ;
                          owl:hasValue dbr:Black
@@ -2235,12 +2338,6 @@ dbr:cloudy rdf:type dbr:Weather ,
                 dbr:Weather
                 :ClothingStyle
               )
-] .
-[ rdf:type owl:Class ;
-  rdfs:subClassOf dbr:Clothing ;
-  owl:intersectionOf ( :MensClothing
-                       :WomensClothing
-                     )
 ] .
 
 
