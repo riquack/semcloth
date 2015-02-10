@@ -42,6 +42,143 @@ jQuery(document).ready(function(){
 		}
 	});
 
+	//religion
+	$('#religions').change(function() {
+		if(this.checked) {
+			$(".list-religions").fadeIn(300);	
+		}else {
+			$(".list-religions").fadeOut(300);
+		}
+	});
+
+
+	/*list-weatherConditions*/
+	$('#weatherConditions').change(function() {
+		if(this.checked) {
+			$(".list-weatherConditions").fadeIn(300);	
+		}else {
+			$(".list-weatherConditions").fadeOut(300);
+		}
+	});
+
+	/*----------------------------------------------------------------*/
+
+	/*Populare garderoba ---- events */
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/events.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		 $.each(data.results.bindings,  function(index) {
+		 	//console.log(this.label.value);
+		 	$("#grand-list-events").append("<input type='radio' name='events' value="+ this.event.value+">" + this.label.value + "<br/>" );
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+	/*Populare garderoba ---- clothingStyle */
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/clothingStyles.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		 $.each(data.results.bindings,  function(index) {
+		 	//console.log(this.label.value);
+		 	$("#grand-list-pref").append("<input type='radio' name='style-pref' value="+this.clothingStyle.value+">" + this.label.value + "<br/>" );
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+	/*------------------------------------------------------------------*/
+
+
+	/*Populare garderoba ----  religions*/
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/religions.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		 $.each(data.results.bindings,  function(index) {
+		 	//console.log(this.label.value);
+		 	$("#grand-list-religions").append("<input type='radio' name='religions' value="+this.religion.value+">" + this.label.value + "<br/>" );
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+	/*------------------------------------------------------------------*/
+
+	/*Populare garderoba ----   seasons*/
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/seasons.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		 $.each(data.results.bindings,  function(index) {
+		 	//console.log(this.label.value);
+		 	$("#grand-list-season").append("<input type='radio' name='season' value="+this.season.value+">" + this.season.value + "<br/>" );
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+	/*------------------------------------------------------------------*/
+
+	/*Populare garderoba ----   weatherConditions*/
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/weatherConditions.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		 $.each(data.results.bindings,  function(index) {
+		 	//console.log(this.label.value);
+		 	$("#grand-list-weatherConditions").append("<input type='radio' name='weatherConditions' value="+this.weatherCondition.value+">" + this.label.value + "<br/>" );
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+
+	/*Populare garderoba ----   clothingMaterials */
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/clothingMaterials.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		 $.each(data.results.bindings,  function(index) {
+		 	//console.log(this.label.value);
+		 	$("#grand-list-clothingMaterials").append("<input type='radio' name='clothingMaterials' value="+ this.clothingMaterial.value+">" + this.clothingMaterial.value + "<br/>" );
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+
+
 
 
 	//Colect all filters
@@ -110,6 +247,8 @@ jQuery(document).ready(function(){
 		}
 
 
+
+
 		/*Json Filter ---------------------------------------------------------------*/
 		var jsonResultFilter = {}; 
 
@@ -126,27 +265,38 @@ jQuery(document).ready(function(){
 */
 		var events ="no"; 
 		if($('#events').is(':checked')) { /*events*/
-			events = $('.list-events :radio:checked').val().toLowerCase();
+			events = $('.list-events :radio:checked').val();
 		} 
 
 		var pref = "no";
 		if($('#style').is(':checked')) {
-			 pref = $('.list-pref :radio:checked').val().toLowerCase();
+			 pref = $('.list-pref :radio:checked').val();
 		}
 		
 		var season = "no";
 		if($('#season').is(':checked')) { /*season*/
-			season = $('.list-season :radio:checked').val().toLowerCase();
+			season = $('.list-season :radio:checked').val();
 		}
 
 		var material = "no";
 		if($('#material').is(':checked')) {
-		  	material = $('.list-material :radio:checked').val().toLowerCase();
+		  	material = $('.list-material :radio:checked').val();
 		}
 
 		var weather = "no";
 		if($('#weather').is(':checked')) {
 			weather = "yes";
+		}
+
+		var religions = "no";
+		if($('#religions').is(':checked')) {
+		  	religions = $('.list-religions :radio:checked').val();
+		}
+
+		
+		var weatherConditions = "no";
+		if($('#weatherConditions').is(':checked')) {
+		  	weatherConditions = $('.list-weatherConditions :radio:checked').val();
 		}
 
 		var name = $("#name-profile").text();
@@ -166,18 +316,22 @@ jQuery(document).ready(function(){
 			jsonResultFilter.preferences.age = age;
 		if(birthday!=="")
 			jsonResultFilter.preferences.birthday = birthday;
-		if(religion!=="")
-			jsonResultFilter.preferences.religion = religion;
+		//if(religion!=="")
+		//	jsonResultFilter.preferences.religion = religion;
 		if(events!=="no")
-			jsonResultFilter.preferences.events = events;
+			jsonResultFilter.preferences.events = accLink(events);
 		if(pref!=="no")
-			jsonResultFilter.preferences.stylePref = pref;
+			jsonResultFilter.preferences.stylePref = accLink(pref);
 		if(weather!=="no")
-			jsonResultFilter.preferences.weather = weather;
+			jsonResultFilter.preferences.weather = accLink(weather);
 		if(season!=="no")
-			jsonResultFilter.preferences.season = season;
+			jsonResultFilter.preferences.season = accLink(season);
 		if(material!=="no")
-			jsonResultFilter.preferences.material = material;
+			jsonResultFilter.preferences.material = accLink(material);
+		if(religions!=="no")
+			jsonResultFilter.preferences.religions = accLink(religions);
+		if(weatherConditions!=="no")
+			jsonResultFilter.preferences.weatherConditions = accLink(weatherConditions);
 
 		console.log(jsonResultFilter);
 
@@ -302,3 +456,9 @@ jQuery(document).ready(function(){
 
 
 });
+
+
+function accLink(link){
+	var string_link = "<" +  link + ">";
+	return  string_link; 
+} 

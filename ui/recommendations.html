@@ -38,31 +38,15 @@
 							<!-- Filtru 1 -->
 							<div class="filters-item">
 								<input type="checkbox" name="events" value="Events" id="events">Events<br>
-								<div class="list-events">
-									<!--<input type="radio" name="events" value="diner">Diner<br>
-									<input type="radio" name="events" value="funeral">Funeral<br>
-									<input type="radio" name="events" value="interview">Interview<br>
-									<input type="radio" name="events" value="murder">Murder<br>
-									<input type="radio" name="events" value="gym">Gym<br>-->
-									<input type="radio" name="events" value="business meeting"> Business Meeting <br/>
-									<input type="radio" name="events" value="interview"> Interview <br/>
-									<input type="radio" name="events" value="wedding"> Wedding <br/>
-									<input type="radio" name="events" value="pyjama party"> Pyjama Party <br/>
-									<input type="radio" name="events" value="funneral"> Funneral <br/>
-									<input type="radio" name="events" value="date"> Date <br/>
-									<input type="radio" name="events" value="romantic date"> Romantic Date <br/>
-									<input type="radio" name="events" value="club"> Club <br/>
-									
+								<div id="grand-list-events" class="list-events"> <!-- Ajax Population -->
+									<!-- With Json	-->
 								</div>
 							</div>
 							<!-- Filtru 2 -->
 							<div class="filters-item">
 								<input type="checkbox" name="style-pref" value="Style" id="style">Style Preferences<br/>
-								<div class="list-pref">
-									<input type="radio" name="style-pref" value="casual">Casual<br/>
-									<input type="radio" name="style-pref" value="sport">Sport<br/>
-									<input type="radio" name="style-pref" value="rock">Rock<br/>
-									<input type="radio" name="style-pref" value="conservative">Conservative<br/>
+								<div id="grand-list-pref" class="list-pref">
+									<!-- With Json	-->
 								</div>
 							</div>
 							<!-- Filtru 3 -->
@@ -84,24 +68,30 @@
 							</div>
 								
 							<div class="filters-item">
-								<input type="checkbox" name="season" value="Season" id="season">Season<br/>
-								<div class="list-season">    
-									<input type="radio" name="season" value="spring">Spring<br/>
-									<input type="radio" name="season" value="summer">Summer<br/>
-									<input type="radio" name="season" value="autumn">Autumn<br/>
-									<input type="radio" name="season" value="winter">Winter<br/>
-
+								<input type="checkbox" name="weather" value="weather" id="weatherConditions">Weather Conditions<br/>
+								<div id="grand-list-weatherConditions" class="list-weatherConditions">    
+								<!-- With Json	-->
 								</div>
 							</div>
 
 							<div class="filters-item">
-								<input type="checkbox" name="material" value="Material" id="material">Material<br/>
-								<div class="list-material">    
-									<input type="radio" name="material" value="natural">Natural<br/>
-									<input type="radio" name="material" value="sinthetic">Sinthetic<br/>
-									<!--<input type="radio" name="season" value="autumn">Autumn<br/>
-									<input type="radio" name="season" value="winter">Winter<br/>-->
+								<input type="checkbox" name="season" value="Season" id="season">Season<br/>
+								<div id="grand-list-season" class="list-season">    
+									<!-- With Json	-->
+								</div>
+							</div>
 
+
+							<div class="filters-item">
+								<input type="checkbox" name="material" value="Material" id="material">Material<br/>
+								<div id="grand-list-clothingMaterials" class="list-material">    
+									<!-- With Json	-->
+								</div>
+							</div>
+							<div class="filters-item">
+								<input type="checkbox" name="season" value="Religions" id="religions">Religions<br/>
+								<div id="grand-list-religions" class="list-religions">    
+									<!-- With Json	-->
 								</div>
 							</div>
 

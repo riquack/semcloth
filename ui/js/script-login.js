@@ -10,7 +10,7 @@ jQuery(document).ready(function(){
 			var error_pass = $("#passwordStrength").text();
 			var error_email = $("#validationEmail").text();
 
-			console.log(email_add + " " + pass_add + " " + checkpass_add + " " + error_pass + " " + error_email    );
+			//console.log(email_add + " " + pass_add + " " + checkpass_add + " " + error_pass + " " + error_email    );
 
 			if(email_add!="" && pass_add != "" && checkpass_add !="" && error_pass == "Good Password!" && error_email == "Email is valid."  ){
 					//console.log("ok");

@@ -1,0 +1,68 @@
+{
+  "head" : {
+    "vars" : [ "event", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "event" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BusinessMeeting"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Business meeting"
+      }
+    }, {
+      "event" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Club"
+      }
+    }, {
+      "event" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Date"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Date"
+      }
+    }, {
+      "event" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Funneral"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Funneral"
+      }
+    }, {
+      "event" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#DinnerParty"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Dinner party"
+      }
+    }, {
+      "event" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wedding"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Wedding"
+      }
+    } ]
+  }
+}
