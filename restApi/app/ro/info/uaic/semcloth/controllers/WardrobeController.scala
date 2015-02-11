@@ -31,10 +31,11 @@ object WardrobeController extends Controller {
                |sc:${resource} a ${correctData.clothingType} ;
                |${asStringForSPARQL("sc:hasColour", correctData.colors)} ;
                |${asStringForSPARQL("sc:hasTextileComposition", correctData.fabrics)} ;
-               |sc:isSuitableToBeDressedByGenre ${correctData.genre} ;
+               |${asStringForSPARQL("sc:isSuitableToBeDressedByGenre", correctData.genres)} ;
                |sc:hasTexture ${asXSDString(correctData.texture)} ;
                |sc:hasSize ${asXSDString(correctData.size)} ;
-               |sioc:note ${asXSDString(correctData.note)} . }}""".stripMargin
+               |sioc:note ${asXSDString(correctData.note)} ;
+               |dbo:thumbnail ${asXSDString(correctData.thumbnail)}. }}""".stripMargin
 
           SimpleSPARQL.insert(queryString)
           Created(s"Item ${resource} was created!")
@@ -50,7 +51,7 @@ object WardrobeController extends Controller {
         s"""select * FROM NAMED ${OntologyHelpers.UserNamedGraphUri(userId)}
            |where { GRAPH ?src {<${OntologyConstants.SemclothNS + clothingId}> ?property ?object} }""".stripMargin
       )
-    )
+    ).as(JSON)
   }
 
   def allClothingItems(userId: String) = Action {
@@ -59,7 +60,7 @@ object WardrobeController extends Controller {
         s"""select ?subject FROM NAMED ${OntologyHelpers.UserNamedGraphUri(userId)}
            |where { GRAPH ?src  {?subject a dbr:Clothing} }""".stripMargin
       )
-    )
+    ).as(JSON)
   }
 
   def removeClothing(userId: String, clothingId: String) = Action {

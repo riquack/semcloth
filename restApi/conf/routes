@@ -6,16 +6,14 @@ GET           /events                                    ro.info.uaic.semcloth.c
 GET           /clothingTypes                             ro.info.uaic.semcloth.controllers.EntitiesController.clothingTypes
 GET           /clothingSizes                             ro.info.uaic.semcloth.controllers.EntitiesController.clothingSizes
 GET           /clothingStyles                            ro.info.uaic.semcloth.controllers.EntitiesController.clothingStyles
+GET           /clothingMaterials                         ro.info.uaic.semcloth.controllers.EntitiesController.clothingMaterials
+GET           /clothingTextures                          ro.info.uaic.semcloth.controllers.EntitiesController.clothingTextures
 GET           /religions                                 ro.info.uaic.semcloth.controllers.EntitiesController.religions
 GET           /seasons                                   ro.info.uaic.semcloth.controllers.EntitiesController.seasons
 GET           /weatherConditions                         ro.info.uaic.semcloth.controllers.EntitiesController.weatherConditions
-GET           /clothingMaterials                         ro.info.uaic.semcloth.controllers.EntitiesController.clothingMaterials
 GET           /colors                                    ro.info.uaic.semcloth.controllers.EntitiesController.colors
 
 POST          /users/:userId/wardrobe                    ro.info.uaic.semcloth.controllers.WardrobeController.newClothingItem(userId: String)
-GET           /users/:userId/wardrobe/                   ro.info.uaic.semcloth.controllers.WardrobeController.allClothingItems(userId: String)
+GET           /users/:userId/wardrobe                    ro.info.uaic.semcloth.controllers.WardrobeController.allClothingItems(userId: String)
 GET           /users/:userId/wardrobe/:clothingId        ro.info.uaic.semcloth.controllers.WardrobeController.clothingItem(userId: String, clothingId: String)
 DELETE        /users/:userId/wardrobe/:clothingId        ro.info.uaic.semcloth.controllers.WardrobeController.removeClothing(userId: String, clothingId: String)
-
-
-    

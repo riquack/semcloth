@@ -17,9 +17,11 @@ object SimpleSPARQL {
     val connection = ConnectionPool.reasoningConnection
 
     try{
+
       val query: SelectQuery = connection.select(queryString)
 
       val result = query.execute()
+
       try {
         val outputStream: ByteArrayOutputStream = new ByteArrayOutputStream()
         QueryResultIO.write(result, TupleQueryResultFormat.JSON, outputStream )
@@ -39,6 +41,7 @@ object SimpleSPARQL {
     val connection = ConnectionPool.reasoningConnection
 
     try{
+
       val query: UpdateQuery = connection.update(queryString)
 
       query.execute()
@@ -47,29 +50,6 @@ object SimpleSPARQL {
     finally {
       connection.close()
     }
-
-
-
-
-
-
-    /*val connection = ConnectionPool.reasoningConnection
-
-    val resource = Values.uri(OntologyConstants.SemclothNS, "unObiectInserat")
-    val uri = Values.uri(item.clothingType)
-
-
-    try{
-      connection.begin()
-
-      val adder: Adder = connection.add()
-
-      adder.statement(resource, RDF.TYPE, uri);
-      connection.commit()
-    }
-    finally {
-      connection.close()
-    }*/
   }
 
   def delete(queryString: String)  = {
