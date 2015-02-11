@@ -18,8 +18,8 @@ object EntitiesController extends Controller {
   def clothingTypes = Action {
     Ok(
       SimpleSPARQL.select(
-        """select ?clothing ?label
-          |where { ?clothing a dbr:Clothing; rdfs:label ?label . }""".stripMargin
+        """select ?clothing ?label ?thumbnail
+          |where { ?clothing a dbr:Clothing; rdfs:label ?label ; dbo:thumbnail ?thumbnail . }""".stripMargin
       )
     ).as{JSON}
   }
@@ -46,23 +46,36 @@ object EntitiesController extends Controller {
     }
   }
 
+  def clothingTextures = Action {
+    Ok(
+      SimpleSPARQL.select(
+        """select ?texture ?label
+          |where {?texture a sc:ClothingTexture;rdfs:label ?label . }""".stripMargin
+      )
+    ).as(JSON)
+  }
+
   def religions = Action {
     Ok(
       SimpleSPARQL.select(
-        """select ?religion ?label
-          |where { ?religion a dbr:Religion;rdfs:label ?label . }""".stripMargin
+        """select ?religion ?label ?comment
+          |where
+          |	{ ?religion a dbr:Religion;
+          |				rdfs:label ?label ;
+          |				rdfs:comment ?comment
+          |     			FILTER (lang(?label) = 'en' && lang(?comment) = 'en' ).
+          |	}""".stripMargin
       )
-    )
+    ).as(JSON)
   }
 
   def seasons = Action {
     Ok(
       SimpleSPARQL.select(
         """select ?season ?label ?comment where
-          | {?season a dbr:Season;
-          |            rdfs:label ?label ;
-          |            rdfs:comment ?comment
-          |          FILTER (lang(?label) = 'en' && lang(?comment) = 'en') . }""".stripMargin
+          |           {?season a dbr:Season;
+          |                      rdfs:label ?label.
+          |                     OPTIONAL {?season rdfs:comment ?comment. } }""".stripMargin
       )
     ).as(JSON)
   }
@@ -70,13 +83,18 @@ object EntitiesController extends Controller {
   def weatherConditions = Action {
     Ok(
       SimpleSPARQL.select(
-        """select ?weatherCondition ?label
-          |where { ?weatherCondition a dbr:Weather;rdfs:label ?label . }""".stripMargin
+        """select ?weatherCondition ?label ?comment
+          |where
+          |	{ ?weatherCondition a dbr:Weather;
+          |		rdfs:label ?label .
+          |		OPTIONAL {?weatherCondition rdfs:comment ?comment.}
+          |	}
+          |""".stripMargin
       )
-    )
+    ).as(JSON)
   }
 
-  def clothingMaterials = Action {
+  def clothingMaterials =  Action {
     Ok(
       SimpleSPARQL.select(
         """select ?clothingMaterial ?label ?comment

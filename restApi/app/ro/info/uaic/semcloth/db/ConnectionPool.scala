@@ -9,7 +9,7 @@ import com.complexible.stardog.reasoning.api.ReasoningType
 object ConnectionPool {
 
   private val conConfig: ConnectionConfiguration = ConnectionConfiguration
-    .to("semcloth")
+    .to("semclothDB")
     .server("http://localhost:5820")
     .credentials("admin", "admin")
     .reasoning(ReasoningType.SL);
