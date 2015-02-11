@@ -1486,7 +1486,8 @@ dbr:Cashmere_wool rdf:type :NaturalClothingMaterial ,
 
 dbr:Casual rdf:type dbr:Dress_code ,
                     :ClothingStyle ,
-                    owl:NamedIndividual .
+                    owl:NamedIndividual ;
+					rdfs:label "Casual dress code"@en .
 
 
 
@@ -1622,7 +1623,8 @@ dbr:Mohair rdf:type :NaturalClothingMaterial ,
 
 dbr:Muslim rdf:type dbr:Religion ,
                     owl:NamedIndividual ;
-           
+
+					
            rdfs:label "Muslim"^^xsd:string ;
            
            :religionHasSuitableClothingForDressing :Belt ,
@@ -1712,7 +1714,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 
 ###  http://dbpedia.org/resource/cloudy
 
-dbr:cloudy rdf:type dbr:Weather ,
+dbr:Cloudy rdf:type dbr:Weather ,
                     owl:NamedIndividual ;
            
            rdfs:label "Cloudy"^^xsd:string .

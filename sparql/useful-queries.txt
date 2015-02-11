@@ -3,6 +3,7 @@ INSERT DATA
  	GRAPH <http://semcloth/amariei> 
           {
           	sc:pijamaleDeCamin a sc:Pyjama;
+			
                               sc:hasColour dbr:Red ;
                                sc:hasTextileComposition dbr:Leather.
           }
@@ -24,8 +25,43 @@ SELECT ?c WHERE {
 }
 
 
-# REST API
-# Select all colors from dbpedia.
+//         REST API
+
+
+/events
+select ?event ?label where { ?event a dbo:Event;
+                                               rdfs:label ?label . }
+
+/clothingStyles
+select ?clothingStyle ?label where { ?clothingStyle a :ClothingStyle;
+                                                               rdfs:label ?label . } 
+											   
+		
+
+/religions
+select ?religion ?label where { ?religion a dbr:Religion;
+                                                     rdfs:label ?label . }		
+
+/seasons													 
+select ?season ?label ?comment where
+          | {?season a dbr:Season;
+          |            rdfs:label ?label ;
+          |            rdfs:comment ?comment
+          |          FILTER (lang(?label) = 'en' && lang(?comment) = 'en') . }													 
+													 
+													 
+/weatherConditions
+select ?weatherCondition ?label where { ?weatherCondition a dbr:Weather;
+                                                                      rdfs:label ?label . }
+
+
+/clothingMaterials
+select ?clothingMaterial ?label where { {?clothingMaterial a :ClothingMaterial.} UNION {?clothingMaterial a :ClothingMaterial;
+                                                                     rdfs:label ?label . }}																	  
+													 
+													 
+/colors
+
 PREFIX umbel: <http://umbel.org/umbel/rc/>
 
 SELECT ?color ?colourHexCode ?label ?comment 
@@ -37,3 +73,5 @@ SELECT ?color ?colourHexCode ?label ?comment
 
      FILTER(lang(?label) = "en" && lang(?comment) = "en")
   }
+  
+  
