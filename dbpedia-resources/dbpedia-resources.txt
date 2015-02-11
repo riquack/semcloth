@@ -1,0 +1,4 @@
+http://live.dbpedia.org/data/Autumn.ntriples
+http://live.dbpedia.org/data/Spring.ntriples
+http://live.dbpedia.org/data/Winter.ntriples
+http://live.dbpedia.org/data/Summer.ntriples
