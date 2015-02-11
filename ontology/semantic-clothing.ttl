@@ -969,13 +969,14 @@ gr:BusinessEntity rdf:type owl:Class .
               
               rdfs:label "Men's clothing"^^xsd:string ;
               
-              owl:equivalentClass [ rdf:type owl:Restriction ;
+              owl:equivalentClass [ rdf:type owl:Restriction, owl:Class ;
+									rdfs:subClassOf dbr:Clothing ;
+
                                     owl:onProperty :isSuitableToBeDressedByGenre ;
                                     owl:hasValue dbr:Male
-                                  ] ;
+                                  ] .
               
-              rdfs:subClassOf dbr:Clothing .
-
+ 
 
 
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Moccasins
@@ -1394,12 +1395,13 @@ gr:BusinessEntity rdf:type owl:Class .
                 rdfs:label "Unisex clothing"^^xsd:string ;
                 
                 owl:equivalentClass [ rdf:type owl:Class ;
+										rdfs:subClassOf dbr:Clothing ;
                                       owl:intersectionOf ( :MensClothing
                                                            :WomensClothing
                                                          )
-                                    ] ;
+                                    ] .
                 
-                rdfs:subClassOf dbr:Clothing .
+                
 
 
 
@@ -1420,11 +1422,12 @@ gr:BusinessEntity rdf:type owl:Class .
                 rdfs:label "Women's clothing"^^xsd:string ;
                 
                 owl:equivalentClass [ rdf:type owl:Restriction ;
+				rdfs:subClassOf dbr:Clothing;
                                       owl:onProperty :isSuitableToBeDressedByGenre ;
                                       owl:hasValue dbr:Female
-                                    ] ;
+                                    ] .
                 
-                rdfs:subClassOf dbr:Clothing .
+                
 
 
 
