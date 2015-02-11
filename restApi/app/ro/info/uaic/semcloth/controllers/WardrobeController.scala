@@ -67,7 +67,7 @@ object WardrobeController extends Controller {
       s"""DELETE DATA {
          |  GRAPH  ${OntologyHelpers.UserNamedGraphUri(userId)} {
          |  <${OntologyConstants.SemclothNS + clothingId}> ?predicate ?object. } }""".stripMargin)
-    
+
     if (result)
       Ok("Item removed")
     else
