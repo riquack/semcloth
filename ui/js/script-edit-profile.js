@@ -18,6 +18,28 @@ jQuery(document).ready(function(){
 		$("#years-profile").text("0");
 	}
 	
+	/*var gen_user = $("#gender-profile").text();
+	
+	if(gen_user==="fem"){
+		$("#your-prof-user").html('<i class="fa fa-female"></i>');
+		 
+	}else {
+		$("#your-prof-user").html('<i class="fa fa-male"></i>');
+		
+	}*/
+
+			$("#new-mas").click(function(){            
+           		 $("#new-mas").attr("checked", "checked");
+           		 $("#new-fem").removeAttr("checked");
+
+        	});
+
+			//new-fem
+			$("#new-fem").click(function(){            
+           		$("#new-fem").attr("checked", "checked");
+           		$("#new-mas").removeAttr("checked");
+        	});
+
  	 
 	$("#edit-profile").click(function() {
 		$("#profile-edit").fadeIn(500);//.css("display","block");
@@ -44,11 +66,13 @@ jQuery(document).ready(function(){
 			$('#gender-new').val(gender);
 
 
-			if(gender === "fem"){
+			/*gender --------------------------------------------- */
+
+			/*if(gender === "fem"){
 				$("#new-fem").attr('checked', 'checked');
 			}else {
 				$("#new-masc").attr('checked', 'checked');
-			}
+			}*/
 
 			var religion = $("#religion-profile").text();
 			//console.log(religion);
@@ -66,6 +90,7 @@ jQuery(document).ready(function(){
 			});
 
 
+
 			$("#done-edit").click(function() {
 				var name_new_value = $("#new-name").val();
 				$("#name-profile").text(name_new_value);
@@ -76,6 +101,8 @@ jQuery(document).ready(function(){
 				var religion_new_value = $("#new-religion").val();
 				$("#religion-profile").text(religion_new_value);
 
+
+				/*gender --------------------------------------------- */
 				var gender_new_value ="";
 				if($('#new-fem').is(':checked')){
 					gender_new_value = "fem";
@@ -128,17 +155,28 @@ jQuery(document).ready(function(){
 					    results[0].set('information', jsonValue);
 					    results[0].save();
 					   
-						 $("#profile-edit").fadeOut(500);//.css("display","none"); 
+						 $("#profile-edit").fadeIn(500);//.css("display","none"); 
 						 $('#update_info').removeClass().addClass('alert alert-success').html('Informations have been successfully updated.');
 						 $("#update_info").fadeOut(7000);
 
 					  },
 					  error: function(error) {
+					  	$("#update_info").fadeIn(7000);
 					    $('#update_info').removeClass().addClass('alert alert-error').html('Error');
-					     $("#update_info").fadeOut(7000);
+					    $("#update_info").fadeOut(7000);
 					  }
 				});
-
+						
+ 					 	var gen_user = $("#gender-profile").text();
+						
+						if(gen_user==="fem"){
+							$("#your-prof-user").html('<i class="fa fa-female"></i>');
+							 
+						}else {
+							$("#your-prof-user").html('<i class="fa fa-male"></i>');
+							
+						} 
+ 
 			//location.reload();
 		});
 	
@@ -146,6 +184,15 @@ jQuery(document).ready(function(){
 
 	});
 	
+ 				 	var gen_user = $("#gender-profile").text();
+						
+						if(gen_user==="fem"){
+							$("#your-prof-user").html('<i class="fa fa-female"></i>');
+							 
+						}else {
+							$("#your-prof-user").html('<i class="fa fa-male"></i>');
+							
+						} 
 	/*User information taked from parse ---------------------------------------------------------------------------------*/
 	var Users = Parse.Object.extend("Users");
 	var query = new Parse.Query(Users);

@@ -38,15 +38,15 @@
 							 
 								<h3><i class="fa fa-filter"></i>Filter by:</h3>
 								<!-- Filtru 1 -->
-								<div id="events-fi" class="filters-item">
-									<input type="checkbox" name="events" value="Events" id="events">Events<br>
+								<div id="events-fi" class="filters-item no-scroll">
+									<input type="checkbox" name="events" value="Events" id="events"><label for="events">Events</label>
 									<div id="grand-list-events" class="list-events ls-scoll"> <!-- Ajax Population -->
 										<!-- With Json	-->
 									</div>
 								</div>
 								<!-- Filtru 2 -->
 								<div id="style-fi" class="filters-item">
-									<input type="checkbox" name="style-pref" value="Style" id="style">Style Preferences<br/>
+									<input type="checkbox" name="style-pref" value="Style" id="style"><label for="style">Style Preferences</label>
 									<div id="grand-list-pref" class="list-pref ls-scoll">
 										<!-- With Json	-->
 									</div>
@@ -69,15 +69,15 @@
 									</div>
 								</div>-->
 									
-								<div id="weatherConditions-fi" class="filters-item">
-									<input type="checkbox" name="weather" value="weather" id="weatherConditions">Weather Conditions<br/>
+								<div id="weatherConditions-fi" class="filters-item no-scroll">
+									<input type="checkbox" name="weather" value="weather" id="weatherConditions"><label for="weatherConditions">Weather Conditions</label>
 									<div id="grand-list-weatherConditions" class="list-weatherConditions ls-scoll">    
 									<!-- With Json	-->
 									</div>
 								</div>
 
-								<div id="season-fi" class="filters-item">
-									<input type="checkbox" name="season" value="Season" id="season">Season<br/>
+								<div id="season-fi" class="filters-item no-scroll">
+									<input type="checkbox" name="season" value="Season" id="season"><label for="season">Season</label>
 									<div id="grand-list-season" class="list-season ls-scoll">    
 										<!-- With Json	-->
 									</div>
@@ -85,13 +85,13 @@
 
 
 								<div class="filters-item">
-									<input type="checkbox" name="material" value="Material" id="material">Material<br/>
+									<input type="checkbox" name="material" value="Material" id="material"><label for="material">Material</label>
 									<div id="grand-list-clothingMaterials" class="list-material ls-scoll">    
 										<!-- With Json	-->
 									</div>
 								</div>
-								<div class="filters-item">
-									<input type="checkbox" name="season" value="Religions" id="religions">Religions<br/>
+								<div class="filters-item no-scroll">
+									<input type="checkbox" name="season" value="Religions" id="religions"><label for="religions">Religions</label>
 									<div id="grand-list-religions" class="list-religions ls-scoll">    
 										<!-- With Json	-->
 									</div>
@@ -105,7 +105,7 @@
 					</div>
 					
 					<div class="col-sm-9">
-						<h3>Recomandations</h3>
+						<h3><i class="fa fa-cogs"></i>Recomandations</h3>
 					
 						<div id="container">
 							<div class="buttons">
@@ -123,8 +123,12 @@
 			
 		</section>
 		<footer>
-			<div class="content"> 
-				<div id="basic-info hidden-info"> 
+			<div class="cont-all">
+				<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licenţa Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">SEC - Wade Project</span> de <a xmlns:cc="http://creativecommons.org/ns#" href="#" property="cc:attributionName" rel="cc:attributionURL">Amariei Daniel, Iordan Rata, Gagea Oana</a> este licenţiat printr-o <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licenţă Creative Commons Atribuire 4.0 Internațional </a>.
+			</div>
+			<div class="content">
+				
+				<div id="basic-info hidden-info">  
 						<p id="update_info"></p>
 						<ul>
 							<li>Name: <span id="name-profile">...</span></li>

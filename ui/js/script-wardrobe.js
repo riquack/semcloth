@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 	/*Your wardrobe ---------------------------------------------------------------------------*/
-	/*Your wardrobe ---------------------------------------------------------------------------*/
+	 
 
 	$('button').on('click',function(e) {
 		if ($(this).hasClass('grid')) {
@@ -100,24 +100,16 @@ jQuery(document).ready(function(){
 	});
     
 
+ 
 
-	/*var items = [];
-	var items = ["Item1", "Item2", "Item3", "Item4", "Item5", "Item6", "Item7", "Item8", "Item9"];
-	
-	var i;
-	for (i = 0; i < items.length; i++) {
-		
-	}*/
+
 	
 
 	/*-------------------------------------------------------*/
 	/* Delete, Edit */ 
 	$('.delete-item').on('click',function(e) {
 			var contentPanelId = jQuery(this).attr("id");
-   			//alert(contentPanelId);
    			var div = document.getElementById(contentPanelId);
-			//div.parentNode.removeChild(div);
-			//div.parent().parent().removeChild(div)
 			var sub_str = contentPanelId.split('-');;
 			var name_remove = '#item-' + sub_str[2];
 			console.log(name_remove);
@@ -125,8 +117,8 @@ jQuery(document).ready(function(){
 			/*sterge si din fisier/vector...*/
 	});
 
-	/* Add new item ----------------------------------------------------------------- */
 
+	/* Add new item ----------------------------------------------------------------- */
 	$('#add-item').on('click',function(e) {	
 
 
@@ -242,12 +234,13 @@ jQuery(document).ready(function(){
 	    url: "http://localhost/wade-ui/clothingMaterials.json",//"http://riquack-n61vn:9000/events",
 	   	dateType: "json",
 	    success: function(data){
-		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		var datAsString = JSON.stringify(data); 
+		var clmatc =0; 
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
 		 	//$("#grand-list-clothingMaterials").append("<input type='radio' name='clothingMaterials' value="+ this.clothingMaterial.value+">" + this.clothingMaterial.value + "<br/>" );
-			$('#add-imaterial').append("<div class='item-mat'><input type='checkbox' name='material' value='"+this.clothingMaterial.value+"' > <label>"  + labelLink(this.clothingMaterial.value) + "</label></div>" );
-
+			$('#add-imaterial').append("<div class='item-mat'><input type='checkbox' name='material' id='clmatc-"+clmatc+"' value='"+this.clothingMaterial.value+"' > <label for='clmatc-"+clmatc+"'>"  + labelLink(this.clothingMaterial.value) + "</label></div>" );
+			clmatc++; 
 
 		 });
 	  },
@@ -268,7 +261,8 @@ jQuery(document).ready(function(){
 		 	
 			$('#add-icolor').append('<div class="item-col">'+ 
 											'<input type="checkbox" name="color" value="'+ this.color.value+'">'+
-											'<label title="'+this.comment.value+'"><span class="rectangle" style="background-color:#'+this.colourHexCode.value+'"></span>'+this.label.value+'</label>'
+											'<label title="'+this.comment.value+'"><span class="rectangle" style="background-color:#'+this.colourHexCode.value+'">'+
+											'</span>'+this.label.value+'</label>'
 									+'</div>');
 		 });
 	  },
@@ -312,6 +306,7 @@ jQuery(document).ready(function(){
 	    alert("An error occurred while processing XML file." + error);
 	  }
 	});
+
 
 
 

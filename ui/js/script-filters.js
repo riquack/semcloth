@@ -70,10 +70,11 @@ jQuery(document).ready(function(){
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		var ev = 0; 
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-events").append("<div><input type='radio' name='events' value="+ this.event.value+"><label>" + this.label.value + "</label></div>" );
-		 	// 
+		 	$("#grand-list-events").append("<div><input type='radio' name='events' id='ev-"+ev+"' value="+ this.event.value+"><label for='ev-"+ev+"'>" + this.label.value + "</label></div>" );
+		 	ev++;
 
 		 });
 	  },
@@ -89,10 +90,12 @@ jQuery(document).ready(function(){
 	    url: "http://localhost/wade-ui/clothingStyles.json",//"http://riquack-n61vn:9000/events",
 	   	dateType: "json",
 	    success: function(data){
-		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		var datAsString = JSON.stringify(data); 
+		var count_extra =0; 
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-pref").append("<div><input type='radio' name='style-pref' value="+this.dressingStyle.value+"><label  title='"+this.comment.value+"'>" + this.label.value + "</label></div>" );
+		 	$("#grand-list-pref").append("<div><input type='radio' name='style-pref' id='style-pref-"+count_extra+"' value="+this.dressingStyle.value+"><label for='style-pref-"+count_extra+"' title='"+this.comment.value+"'>" + this.label.value + "</label></div>" );
+		 	count_extra++;
 		 });
 	  },
 	  error: function(error) {
@@ -110,9 +113,11 @@ jQuery(document).ready(function(){
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		var count_rel = 0; 
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-religions").append("<div><input type='radio' name='religions' value="+this.religion.value+"><label>" + this.label.value + "</label></div>" );
+		 	$("#grand-list-religions").append("<div><input type='radio' name='religions' id='rel-"+count_rel+"' value="+this.religion.value+"><label for='rel-"+count_rel+"'>" + this.label.value + "</label></div>" );
+		 	count_rel++;
 		 });
 	  },
 	  error: function(error) {
@@ -129,9 +134,12 @@ jQuery(document).ready(function(){
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		var count_sea = 0; 
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-season").append("<div><input type='radio' name='season' value="+this.season.value+"><label>" + this.season.value + "</label></div>" );
+		 	$("#grand-list-season").append("<div><input type='radio' name='season' id='seas-"+count_sea+"' value="+this.season.value+"><label for='seas-"+count_sea+"'>" + this.season.value + "</label></div>" );
+			count_sea++;
+
 		 });
 	  },
 	  error: function(error) {
@@ -148,10 +156,14 @@ jQuery(document).ready(function(){
 	    url: "http://localhost/wade-ui/weatherConditions.json",//"http://riquack-n61vn:9000/events",
 	   	dateType: "json",
 	    success: function(data){
-		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		var datAsString = JSON.stringify(data);
+		var weather = 0 ;
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-weatherConditions").append("<div><input type='radio' name='weatherConditions' value="+this.weatherCondition.value+"><label>" + this.label.value + "</label></div>" );
+			
+		 	$("#grand-list-weatherConditions").append("<div><input type='radio' name='weatherConditions' id='wea-"+weather+"' value="+this.weatherCondition.value+"><label for='wea-"+weather+"'>" + this.label.value + "</label></div>" );
+			weather++;
+
 		 });
 	  },
 	  error: function(error) {
@@ -167,14 +179,13 @@ jQuery(document).ready(function(){
 	    url: "http://localhost/wade-ui/clothingMaterials.json",//"http://riquack-n61vn:9000/events",
 	   	dateType: "json",
 	    success: function(data){
-		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		var datAsString = JSON.stringify(data);
+		var clmat = 0;
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-clothingMaterials").append("<div><input type='radio' name='clothingMaterials' value="+ this.clothingMaterial.value+"><label>" + this.clothingMaterial.value + "</label></div>" );
-			//$('#add-imaterial').append("<input type='checkbox' name='material' value='"+this.clothingMaterial.value+"' > <label>"  + labelLink(this.clothingMaterial.value) + "</label>" );
-
-
-			 });
+		 	$("#grand-list-clothingMaterials").append("<div><input type='radio' name='clothingMaterials' id='cl-"+clmat+"' value="+ this.clothingMaterial.value+"><label for='cl-"+clmat+"'>" + this.clothingMaterial.value + "</label></div>" );
+			clmat++;
+		});
 	  },
 	  error: function(error) {
 	    alert("An error occurred while processing XML file." + error);

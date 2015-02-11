@@ -34,11 +34,11 @@
         <section class="body">
 			<div class="content"> 
 				<div class="profile-user">
-					<h3>Hello <span id="get_user_name"></span>,</h3> 
-					<h4>Your Profile: </h4>
+					<h3><i class="fa fa-user-secret"></i>Hello <span id="get_user_name"></span>,</h3> 
+					<h4><span id="your-prof-user"></span>Your Profile: </h4>
 					<div class="span6">
 						<div id="basic-info">
-							<p id="update_info"></p>
+							
 							<ul>
 								<li>Name: <span id="name-profile">...</span></li>
 								<li>Birthday/Age: <span id="age-profile">...</span> - <span id="years-profile">0</span> years</li>
@@ -47,7 +47,7 @@
 							</ul>
 							<button id="edit-profile" title="edit">Edit profile</button>
 							<button id="add-items-db" title="add-items">Add Items</button>
-						
+							<p id="update_info"></p>
 						<!--<div class="new-item-add">
 							<!--<div class="box-text lightbox">
 								<div class="close-button">x</div>-->
@@ -60,18 +60,19 @@
 											<div class="item-type">
 												<select id="item-options-type" name="item-list-type">
 													<option  value="none">none</option>
-													<option  value="pajamas">pajamas</option>
-													<option  value="blouse">blouse</option>
+													<!--<option  value="pajamas">pajamas</option>
+													<option  value="blouse">blouse</option>-->
 												</select>
 											</div>
-										 
-											<p><i class="fa fa-transgender"></i>Gender</p>
-											<div class="item-gender">
-												<select id="item-options-gender" name="item-list-gender">
-													<option  value="none">none</option>
-													<option  value="http://dbpedia.org/resource/Female">female</option>
-													<option  value="http://dbpedia.org/resource/Male">male</option> 
-												</select>
+										 	<div class="group-2-margin">
+												<p><i class="fa fa-transgender"></i>Gender</p>
+												<div class="item-gender">
+													<select id="item-options-gender" name="item-list-gender">
+														<option  value="none">none</option>
+														<option  value="http://dbpedia.org/resource/Female">female</option>
+														<option  value="http://dbpedia.org/resource/Male">male</option> 
+													</select>
+												</div>
 											</div>
 										</div>
 										<div class="group-33">
@@ -90,20 +91,21 @@
 											<p><i class="fa fa-arrows-alt"></i>Size</p>
 											<div class="item-size">
 												<select id="item-options-size" name="item-list-size">
-													<!--<option  value="none">none</option>
-													<option  value="L">L</option>
+													<option  value="none">none</option>
+													<!--<option  value="L">L</option>
 													<option  value="M">M</option>
 													<option  value="XL">XL</option>-->
 												</select>
 											</div>
-										 
-											<p><i class="fa fa-asterisk"></i>Texture</p>
-											<div class="item-texture">
-												<select id="item-options-texture" name="item-list-texture">
-													<option  value="none">none</option>
-													<option  value="knit">Knit</option>
-													
-												</select>
+											<div class="group-2-margin">
+												<p><i class="fa fa-asterisk"></i>Texture</p>
+												<div class="item-texture">
+													<select id="item-options-texture" name="item-list-texture">
+														<option  value="none">none</option>
+														<option  value="knit">Knit</option>
+														
+													</select>
+												</div>
 											</div>
 				 						</div>	
 				 						<div class="group-33  group-33-distinct">
@@ -156,9 +158,13 @@
 							<input type="text" id="datepicker">
 						</div>	
 						<div>
-							<label>Gender:</label>
-							<input type="radio" name="gender" value="mas" id="new-mas">mas<br>
-							<input type="radio" name="gender" value="fem" id="new-fem" >fem
+							<p>Gender:</p>
+							<div class="group50-row">
+									<input type="radio" name="gender" value="mas" id="new-mas"><label>mas</label>
+							</div>
+							<div  class="group50-row">
+								<input type="radio" name="gender" value="fem" id="new-fem" ><label>fem</label>
+							</div>
 						</div>
 						<div>
 							<label>Religion:</label>
@@ -192,6 +198,9 @@
 			
 		</section>
 		<footer>
+			<div class="cont-all">
+				<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licenţa Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">SEC - Wade Project</span> de <a xmlns:cc="http://creativecommons.org/ns#" href="#" property="cc:attributionName" rel="cc:attributionURL">Amariei Daniel, Iordan Rata, Gagea Oana</a> este licenţiat printr-o <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licenţă Creative Commons Atribuire 4.0 Internațional </a>.
+			</div>
 			<div class="content"> 
 			
 			</div>
