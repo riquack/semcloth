@@ -1,0 +1,19 @@
+# https://mailman.stanford.edu/pipermail/protege-owl/2008-November/008742.html
+# Not working due to open world assumption
+:NaturalMaterialClothing a owl:Class ;
+						 rdfs:subClassOf :Clothing ;
+						 owl:equivalentClass [ a owl:Restriction ; 
+ 											   owl:onProperty :hasTextileComposition ;
+											   owl:allValuesFrom :NaturalClothingMaterialEnum
+ 											 ] ;			         
+				 		 rdfs:label "Natural material clothing"^^xsd:string .
+
+:SyntheticMaterialClothing a owl:Class ;
+						   rdfs:subClassOf :Clothing ;
+						   owl:equivalentClass [ a owl:Restriction ; 
+ 											     owl:onProperty :hasTextileComposition ;
+											     owl:allValuesFrom :SyntheticClothingMaterial
+ 											   ] ;			         
+				 		   rdfs:label "Synthetic material clothing"^^xsd:string .
+
+:NaturalMaterialClothing owl:disjointWith :SyntheticMaterialClothing .						   

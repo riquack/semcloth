@@ -1,0 +1,39 @@
+INSERT DATA
+ {
+ 	GRAPH <http://semcloth/amariei> 
+          {
+          	sc:pijamaleDeCamin a sc:Pyjama;
+                              sc:hasColour dbr:Red ;
+                               sc:hasTextileComposition dbr:Leather.
+          }
+ }
+ 
+ 
+
+
+
+select * FROM NAMED <http://semcloth/amariei> 
+where { GRAPH ?src {?p a sc:Pyjama} }
+
+
+# Obtaining all the colors from dbpedia
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+SELECT ?c WHERE {
+?c rdf:type dbpedia-owl:Colour
+
+}
+
+
+# REST API
+# Select all colors from dbpedia.
+PREFIX umbel: <http://umbel.org/umbel/rc/>
+
+SELECT ?color ?colourHexCode ?label ?comment 
+  WHERE {
+     ?color a umbel:Color ;
+     dbpedia-owl:colourHexCode ?colourHexCode;
+     rdfs:label ?label;
+     rdfs:comment ?comment .
+
+     FILTER(lang(?label) = "en" && lang(?comment) = "en")
+  }
