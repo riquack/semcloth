@@ -176,7 +176,7 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
            
            rdfs:domain dbr:Clothing ;
            
-           rdfs:range dbr:Color .
+           rdfs:range dbo:Colour .
 
 
 
@@ -214,7 +214,7 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTexture
 
 :hasTexture rdf:type owl:ObjectProperty ;
-            
+            rdfs:label "Has texture" ;
             rdfs:comment "Specifies the texture of the clothing item."^^xsd:string ;
             
             rdfs:domain dbr:Clothing ;
@@ -450,7 +450,7 @@ dbr:Clothing_sizes rdf:type owl:Class .
 
 ###  http://dbpedia.org/resource/Color
 
-dbr:Color rdf:type owl:Class .
+dbo:Colour rdf:type owl:Class .
 
 
 
@@ -690,7 +690,7 @@ gr:BusinessEntity rdf:type owl:Class .
                         rdfs:label "Clothing characteristic"^^xsd:string ;
                         
                         owl:disjointUnionOf ( dbr:Clothing_sizes
-                                              dbr:Color
+                                              dbo:Colour
                                               :BodyShape
                                               :ClothingMaterial
                                               :ClothingStyle
@@ -734,8 +734,8 @@ gr:BusinessEntity rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club
-
 :Club rdf:type owl:Class ;
+
       
       rdfs:label "Club"^^xsd:string ;
       
@@ -1514,7 +1514,7 @@ dbr:Cold rdf:type dbr:Weather ,
 
 ###  http://dbpedia.org/resource/Color
 
-dbr:Color rdf:type :ClothingCharacteristic ,
+dbo:Colour rdf:type :ClothingCharacteristic ,
                    owl:NamedIndividual .
 
 
@@ -2330,7 +2330,7 @@ dbr:cloudy rdf:type dbr:Weather ,
   owl:members ( dbo:Event
                 dbr:Clothing
                 dbr:Clothing_sizes
-                dbr:Color
+                dbo:Colour
                 dbr:Genre
                 dbr:Raw_material
                 dbr:Season
