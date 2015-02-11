@@ -463,7 +463,7 @@ dbr:Dress_code rdf:type owl:Class .
 ###  http://dbpedia.org/resource/Female
 
 dbr:Female rdf:type owl:Class ;
-           
+           rdfs:label "Female"@en ;
            owl:disjointWith dbr:Male .
 
 
@@ -480,7 +480,8 @@ dbr:Genre rdf:type owl:Class ;
 
 ###  http://dbpedia.org/resource/Male
 
-dbr:Male rdf:type owl:Class .
+dbr:Male rdf:type owl:Class ;
+	rdfs:label "Male"@en .
 
 
 
@@ -2300,8 +2301,15 @@ dbr:Cloudy rdf:type dbr:Weather ,
                 :hasTextileComposition dbr:Nylon ,
                                        dbr:Silk .
 
+:S a dbr:Clothing_sizes ;
+	rdfs:label "s".
 
-
+:L a dbr:Clothing_sizes ;
+	rdfs:label "L".
+:M a dbr:Clothing_sizes ;
+	rdfs:label "M".
+:XL a dbr:Clothing_sizes ;
+	rdfs:label "XL".
 
 
 #################################################################

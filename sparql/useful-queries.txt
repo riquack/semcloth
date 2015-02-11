@@ -28,6 +28,11 @@ SELECT ?c WHERE {
 //         REST API
 
 
+/sizes
+select ?size ?label where { ?event a dbr:Clothing_sizes;
+                                               rdfs:label ?label . }
+
+
 /events
 select ?event ?label where { ?event a dbo:Event;
                                                rdfs:label ?label . }
