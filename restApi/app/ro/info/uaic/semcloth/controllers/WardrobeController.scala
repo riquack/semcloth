@@ -62,4 +62,18 @@ object WardrobeController extends Controller {
     )
   }
 
+  def removeClothing(userId: String, clothingId: String) = Action {
+    val result = SimpleSPARQL.delete(
+      s"""DELETE DATA {
+         |  GRAPH  ${OntologyHelpers.UserNamedGraphUri(userId)} {
+         |  <${OntologyConstants.SemclothNS + clothingId}> ?predicate ?object. } }""".stripMargin)
+    
+    if (result)
+      Ok("Item removed")
+    else
+      InternalServerError("Something went wrong. Item was not removed")
+
+
+  }
+
 }

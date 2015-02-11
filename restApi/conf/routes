@@ -13,6 +13,7 @@ GET        /colors                   ro.info.uaic.semcloth.controllers.EntitiesC
 POST        /users/:userId/wardrobe                     ro.info.uaic.semcloth.controllers.WardrobeController.newClothingItem(userId: String)
 GET         /users/:userId/wardrobe/                    ro.info.uaic.semcloth.controllers.WardrobeController.allClothingItems(userId: String)
 GET         /users/:userId/wardrobe/:clothingId         ro.info.uaic.semcloth.controllers.WardrobeController.clothingItem(userId: String, clothingId: String)
+DELETE      /users/:userId/wardrobe/:clothingId         ro.info.uaic.semcloth.controllers.WardrobeController.removeClothing(userId: String, clothingId: String)
 
 
     

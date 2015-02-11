@@ -72,4 +72,19 @@ object SimpleSPARQL {
     }*/
   }
 
+  def delete(queryString: String)  = {
+
+    val connection = ConnectionPool.reasoningConnection
+
+    try {
+      val query: UpdateQuery = connection.update(queryString)
+
+      query.execute()
+
+    }
+    finally {
+      connection.close()
+    }
+  }
+
 }
