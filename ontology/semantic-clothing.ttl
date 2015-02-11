@@ -1438,6 +1438,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 ###  http://dbpedia.org/property/colour
 
+
 dbp:colour rdf:type owl:NamedIndividual ;
            
            owl:sameAs :hasColour .
