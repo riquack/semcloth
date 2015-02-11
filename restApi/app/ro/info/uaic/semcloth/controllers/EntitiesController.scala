@@ -12,7 +12,7 @@ object EntitiesController extends Controller {
         """select ?event ?label
           |where { ?event a dbo:Event;rdfs:label ?label . }""".stripMargin
       )
-    )
+    ).as(JSON)
   }
 
   def clothingTypes = Action {
@@ -21,7 +21,7 @@ object EntitiesController extends Controller {
         """select ?clothing ?label
           |where { ?clothing a dbr:Clothing; rdfs:label ?label . }""".stripMargin
       )
-    )
+    ).as{JSON}
   }
 
   def clothingSizes = Action {
@@ -30,7 +30,7 @@ object EntitiesController extends Controller {
         """select ?size ?label
           |where { ?size a dbr:Clothing_sizes;rdfs:label ?label . }""".stripMargin
       )
-    )
+    ).as(JSON)
   }
 
   def clothingStyles = Action.async {
@@ -69,7 +69,7 @@ object EntitiesController extends Controller {
           |            rdfs:comment ?comment
           |          FILTER (lang(?label) = 'en' && lang(?comment) = 'en') . }""".stripMargin
       )
-    )
+    ).as(JSON)
   }
 
   def weatherConditions = Action {
