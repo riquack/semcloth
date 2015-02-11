@@ -33,8 +33,17 @@ select ?event ?label where { ?event a dbo:Event;
                                                rdfs:label ?label . }
 
 /clothingStyles
-select ?clothingStyle ?label where { ?clothingStyle a :ClothingStyle;
-                                                               rdfs:label ?label . } 
+PREFIX yago: <http://dbpedia.org/class/yago/>
+
+SELECT ?dressingStyle ?label ?comment 
+  WHERE {
+     ?dressingStyle a yago:FashionAesthetics ;
+     rdfs:label ?label;
+     rdfs:comment ?comment .
+
+     FILTER(lang(?label) = "en" && lang(?comment) = "en")
+  }
+
 											   
 		
 
