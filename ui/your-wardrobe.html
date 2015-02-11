@@ -10,8 +10,9 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="./css/style.css" type="text/css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,800,600,300' rel='stylesheet' type='text/css'>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+       
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -20,12 +21,12 @@
     	<header>
 			<div class="content"> 
 				<div class="title">
-					<h1>Sec - Your Wardrobe</h1>
+					<h1><i class="fa fa-gift"></i>Sec - Your Wardrobe</h1>
 				</div>
 				<div class="user-options">
 					<ul> 
-						<li><a href="./logout.html" title="logout" id="logout" >Logout</a></li>
-						<li><a href="./recommendations.html" title="recommendations">Recommendations</a></li>
+						<li><a href="./logout.html" title="logout" id="logout" ><i class="fa fa-sign-out"></i>Logout</a></li>
+						<li><a href="./recommendations.html" title="recommendations"><i class="fa fa-cogs"></i>Recommendations</a></li>
 					</ul>
 				</div>
 			</div>
@@ -47,78 +48,99 @@
 							<button id="edit-profile" title="edit">Edit profile</button>
 							<button id="add-items-db" title="add-items">Add Items</button>
 						
-						<div class="new-item-add">
-							<div class="box-text lightbox">
-								<div class="close-button">x</div>
-									<div class="box-50">
-										<p>Item type</p>
-										<div class="item-type">
-											<select id="item-options-type" name="item-list-type">
-												<option  value="none">none</option>
-												<option  value="pajamas">pajamas</option>
-												<option  value="blouse">blouse</option>
-											</select>
-										</div>
+						<!--<div class="new-item-add">
+							<!--<div class="box-text lightbox">
+								<div class="close-button">x</div>-->
+								<hr/>
+									<div class="box-custom"> <!-- box-50 -->
 
-										<p>Gender</p>
-										<div class="item-gender">
-											<select id="item-options-gender" name="item-list-gender">
-												<option  value="none">none</option>
-												<option  value="female">female</option>
-												<option  value="male">male</option>
-											</select>
-										</div>
-
-										<p>Material</p>
-										<div class="item-material">
-											<select id="item-options-material" name="item-list-material">
-												<option  value="none">none</option>
-												<option  value="natural">natural</option>
-												<option  value="sinthetic">sinthetic</option>
-											</select>
-										</div>
-
-										<p>Color</p>
-										<div class="item-color">
-												<select id="item-options-color" name="item-list-color">
+										<h2>Add new item: </h2>
+										 <div class="group-33">
+											<p><i class="fa fa-street-view"></i>Clothing types</p>
+											<div class="item-type">
+												<select id="item-options-type" name="item-list-type">
 													<option  value="none">none</option>
-													<option  value="rosu">rosu</option>
-													<option  value="verde">verde</option>
+													<option  value="pajamas">pajamas</option>
+													<option  value="blouse">blouse</option>
 												</select>
+											</div>
+										 
+											<p><i class="fa fa-transgender"></i>Gender</p>
+											<div class="item-gender">
+												<select id="item-options-gender" name="item-list-gender">
+													<option  value="none">none</option>
+													<option  value="http://dbpedia.org/resource/Female">female</option>
+													<option  value="http://dbpedia.org/resource/Male">male</option> 
+												</select>
+											</div>
 										</div>
-									</div>
+										<div class="group-33">
+											<p><i class="fa fa-connectdevelop"></i>Materials</p>
+											<div id="add-imaterial" class="item-material">
 
-									<div class="box-50">
+												<!--<select id="item-options-material" name="item-list-material">
+													<option  value="none">none</option>
+													<option  value="natural">natural</option>
+													<option  value="sinthetic">sinthetic</option>
+												</select>-->
+											</div>
+										</div>
 										
-
-										<p>Size</p>
-										<div class="item-size">
-											<select id="item-options-size" name="item-list-size">
-												<option  value="none">none</option>
-												<option  value="L">L</option>
-												<option  value="M">M</option>
-												<option  value="XL">XL</option>
-											</select>
+										<div class="group-33">
+											<p><i class="fa fa-arrows-alt"></i>Size</p>
+											<div class="item-size">
+												<select id="item-options-size" name="item-list-size">
+													<!--<option  value="none">none</option>
+													<option  value="L">L</option>
+													<option  value="M">M</option>
+													<option  value="XL">XL</option>-->
+												</select>
+											</div>
+										 
+											<p><i class="fa fa-asterisk"></i>Texture</p>
+											<div class="item-texture">
+												<select id="item-options-texture" name="item-list-texture">
+													<option  value="none">none</option>
+													<option  value="knit">Knit</option>
+													
+												</select>
+											</div>
+				 						</div>	
+				 						<div class="group-33  group-33-distinct">
+											<p><i class="fa fa-heart"></i>Color</p>
+											<div id="add-icolor" class="item-color">
+												<!--<div class="item-col">
+													<input type="checkbox" name="color" value="red">
+													<label>Red</label>
+												</div>  
+												<div class="item-col">
+													<input type="checkbox" name="color" value="blue">
+													<label>Blue</label>
+												</div>
+												<div class="item-col">
+													<input type="checkbox" name="color" value="white">
+													<label>White</label>
+												</div>-->
+													<!--<select id="item-options-color" name="item-list-color">
+														<option  value="none">none</option>
+														<option  value="rosu">rosu</option>
+														<option  value="verde">verde</option>
+													</select>-->
+											</div>
 										</div>
-
-										<p>Texture</p>
-										<div class="item-texture">
-											<select id="item-options-texture" name="item-list-texture">
-												<option  value="none">none</option>
-												<option  value="knit">Knit</option>
-												
-											</select>
+				 						<div class="group-33">
+												<p><i class="fa fa-magic"></i>Note</p>
+												<textarea placeholder="Note" id="item-note" cols="40" row="10"></textarea>
 										</div>
-			 
-										<p>Note</p>
-										<textarea placeholder="Note" id="item-note"></textarea>
+										<div class="finish-add">
+											<button type="submit" id="add-item" name="Add item">Add item</button>
+											<div id="success-error"></div>
+										</div>
 									</div>
-									<button id="add-item" name="Add item">Add item</button>
-									<div id="success-error"></div>
-							</div>
-						</div>
+							<!--</div>
+						</div> 
 						
-						</div>
+						</div>-->
 					</div>
 					<hr/>
 					<div id="profile-edit">
@@ -186,5 +208,6 @@
 		<script type="text/javascript" src="./js/script.js"></script>
 		<script type="text/javascript" src="./js/script-edit-profile.js"></script>
 		<script type="text/javascript" src="./js/script-wardrobe.js"></script>
+		<!--<script type="text/javascript" src="./js/script-filters.js"></script>-->
     </body>
 </html>

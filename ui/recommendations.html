@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="./css/style.css" type="text/css" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,700,800,600,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,12 +20,12 @@
     	<header>
 			<div class="content"> 
 				<div class="title">
-					<h1>Sec - Recomandation </h1>
+					<h1><i class="fa fa-gift"></i>Sec - Recomandation </h1>
 				</div>
 				<div class="user-options">
 					<ul> 
-						<li><a href="./logout.html" title="logout" id="logout" >Logout</a></li>
-						<li><a href="./your-wardrobe.html" title="your wardrobe">Your wardrobe</a></li>
+						<li><a href="./logout.html" title="logout" id="logout" ><i class="fa fa-sign-out"></i>Logout</a></li>
+						<li><a href="./your-wardrobe.html" title="your wardrobe"><i class="fa fa-leaf"></i>Your wardrobe</a></li>
 					</ul>
 				</div>
 			</div>
@@ -34,75 +35,77 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="filters">
-							<h3>Filter by:</h3>
-							<!-- Filtru 1 -->
-							<div class="filters-item">
-								<input type="checkbox" name="events" value="Events" id="events">Events<br>
-								<div id="grand-list-events" class="list-events"> <!-- Ajax Population -->
-									<!-- With Json	-->
-								</div>
-							</div>
-							<!-- Filtru 2 -->
-							<div class="filters-item">
-								<input type="checkbox" name="style-pref" value="Style" id="style">Style Preferences<br/>
-								<div id="grand-list-pref" class="list-pref">
-									<!-- With Json	-->
-								</div>
-							</div>
-							<!-- Filtru 3 -->
-							<div class="filters-item">
-								<input type="checkbox" name="ws-pref" value="weather and seasons" id="weather">Weather and seasons<br/>
-								<div class="ws-pref">
-									<!-- Detect Location -->
-									<div id="weather">
-										<ul id="scroller">
-											<!-- The forecast items will go here -->
-										</ul>
-										<!--<a href="#" class="arrow previous">Previous</a>
-										<a href="#" class="arrow next">Next</a>	-->		
+							 
+								<h3><i class="fa fa-filter"></i>Filter by:</h3>
+								<!-- Filtru 1 -->
+								<div id="events-fi" class="filters-item">
+									<input type="checkbox" name="events" value="Events" id="events">Events<br>
+									<div id="grand-list-events" class="list-events ls-scoll"> <!-- Ajax Population -->
+										<!-- With Json	-->
 									</div>
-											
-									<p class="location"></p>
-									<div id="clouds"></div>
 								</div>
-							</div>
-								
-							<div class="filters-item">
-								<input type="checkbox" name="weather" value="weather" id="weatherConditions">Weather Conditions<br/>
-								<div id="grand-list-weatherConditions" class="list-weatherConditions">    
-								<!-- With Json	-->
+								<!-- Filtru 2 -->
+								<div id="style-fi" class="filters-item">
+									<input type="checkbox" name="style-pref" value="Style" id="style">Style Preferences<br/>
+									<div id="grand-list-pref" class="list-pref ls-scoll">
+										<!-- With Json	-->
+									</div>
 								</div>
-							</div>
-
-							<div class="filters-item">
-								<input type="checkbox" name="season" value="Season" id="season">Season<br/>
-								<div id="grand-list-season" class="list-season">    
+								<!-- Filtru 3 -->
+								<!--<div id="weather-fi" class="filters-item">
+									<input type="checkbox" name="ws-pref" value="weather and seasons" id="weather">Weather and seasons<br/>
+									<div class="ws-pref">
+										<!-- Detect Location -->
+										<!--<div id="weather">
+											<ul id="scroller">
+												<!-- The forecast items will go here -->
+										<!---	</ul>
+											<!--<a href="#" class="arrow previous">Previous</a>
+											<a href="#" class="arrow next">Next</a>	-->		
+										<!--</div>
+												
+										<p class="location"></p>
+										<div id="clouds"></div>
+									</div>
+								</div>-->
+									
+								<div id="weatherConditions-fi" class="filters-item">
+									<input type="checkbox" name="weather" value="weather" id="weatherConditions">Weather Conditions<br/>
+									<div id="grand-list-weatherConditions" class="list-weatherConditions ls-scoll">    
 									<!-- With Json	-->
+									</div>
 								</div>
-							</div>
 
-
-							<div class="filters-item">
-								<input type="checkbox" name="material" value="Material" id="material">Material<br/>
-								<div id="grand-list-clothingMaterials" class="list-material">    
-									<!-- With Json	-->
+								<div id="season-fi" class="filters-item">
+									<input type="checkbox" name="season" value="Season" id="season">Season<br/>
+									<div id="grand-list-season" class="list-season ls-scoll">    
+										<!-- With Json	-->
+									</div>
 								</div>
-							</div>
-							<div class="filters-item">
-								<input type="checkbox" name="season" value="Religions" id="religions">Religions<br/>
-								<div id="grand-list-religions" class="list-religions">    
-									<!-- With Json	-->
+
+
+								<div class="filters-item">
+									<input type="checkbox" name="material" value="Material" id="material">Material<br/>
+									<div id="grand-list-clothingMaterials" class="list-material ls-scoll">    
+										<!-- With Json	-->
+									</div>
 								</div>
-							</div>
+								<div class="filters-item">
+									<input type="checkbox" name="season" value="Religions" id="religions">Religions<br/>
+									<div id="grand-list-religions" class="list-religions ls-scoll">    
+										<!-- With Json	-->
+									</div>
+								</div>
 
 
-							<button id="app-filters" class="b-filters">Search</button>
-							<button id="reset-filters" class="b-filters">Reset</button>
+								<button id="app-filters" class="b-filters">Search</button>
+								<button id="reset-filters" class="b-filters">Reset</button>
+							 
 						</div>
 					</div>
 					
 					<div class="col-sm-9">
-						<h3>Recomandation</h3>
+						<h3>Recomandations</h3>
 					
 						<div id="container">
 							<div class="buttons">
@@ -121,7 +124,7 @@
 		</section>
 		<footer>
 			<div class="content"> 
-				<div id="basic-info hidden-info">
+				<div id="basic-info hidden-info"> 
 						<p id="update_info"></p>
 						<ul>
 							<li>Name: <span id="name-profile">...</span></li>

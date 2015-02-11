@@ -128,26 +128,97 @@ jQuery(document).ready(function(){
 	/* Add new item ----------------------------------------------------------------- */
 
 	$('#add-item').on('click',function(e) {	
-		var type_type = $('#item-options-type').find(":selected").text();
-		var type_gender = $('#item-options-gender').find(":selected").text();
-		var type_material = $('#item-options-material').find(":selected").text();
-		var type_color = $('#item-options-color').find(":selected").text();
-		var type_size = $('#item-options-size').find(":selected").text();
+
+
+
+		var type_type = $('#item-options-type').find(":selected").val();
+		var type_gender = $('#item-options-gender').find(":selected").val();
+		//var type_material = $('#item-options-material').find(":selected").text();
+		//var type_color = $('#item-options-color').find(":selected").text(); // de modificat!!!!! 
+		var type_size = $('#item-options-size').find(":selected").val();
 		var type_texture = $('#item-options-texture').find(":selected").text();
 		var type_note = $("#item-note").val();
 
-		var new_item = { "item" : {}};
-		new_item.item.type = type_type;
-		new_item.item.material = type_material;
-		new_item.item.color = type_color;
-		new_item.item.size = type_size;
-		new_item.item.texture = type_texture;
-		new_item.item.note = type_note;
-		new_item.item.gender = type_gender;
+		var ok=0;
+		if(type_type === "none"){
+			ok=1;
+		}
 
-		console.log(new_item);
-		$("#success-error").removeClass().addClass('alert alert-success').html("Success");
-		$("#success-error").fadeOut(7000);
+		if(type_gender === "none"){
+			ok=1;
+		}
+
+
+		if(type_size === "none"){
+			ok=1;
+		}
+
+		if(type_texture === "none"){
+			ok=1;
+		}
+		
+		if(type_note === ""){ /*Pentru textarea*/
+			ok=1;
+		}
+
+		var count_mat = 0; 
+		var type_material = [];
+		$('#add-imaterial input:checked').each(function() {
+			    type_material.push(accLink($(this).attr('value')));
+			    count_mat++;
+		});
+
+		if(count_mat==0){
+			ok=1;
+		}
+
+		var count_color = 0; 
+		var type_color = [];
+		$('#add-icolor input:checked').each(function() {
+			    type_color.push(accLink($(this).attr('value')));
+			    count_color++;
+		});
+
+		if(count_color==0){
+			ok=1;
+		}
+
+
+		if( ok != 1)
+		{
+			 
+			var new_item = { "item" : {}};
+			new_item.item.type = accLink(type_type);
+
+			new_item.item.material = JSON.stringify(type_material);
+			new_item.item.color = JSON.stringify(type_color);
+			new_item.item.size = accLink(type_size);
+			new_item.item.texture = accLink(type_texture);
+			new_item.item.note = type_note; /*e vorva despre text area*/
+			new_item.item.gender = accLink(type_gender);
+
+			console.log(new_item);
+				$("#success-error").fadeIn(1000);
+				$("#success-error").removeClass().addClass('alert alert-success').html("Success");
+				$("#success-error").fadeOut(1000);
+
+				/*reset fields*/
+				/*$('#item-options-type').find(":selected").text();
+				$('#item-options-gender').find(":selected").text();
+				//var type_material = $('#item-options-material').find(":selected").text();
+				//var type_color = $('#item-options-color').find(":selected").text(); // de modificat!!!!! 
+				$('#item-options-size').find(":selected").text();
+				$('#item-options-texture').find(":selected").text();
+				$("#item-note").val();*/
+
+		} else {
+				$("#success-error").fadeIn(1000);
+				$("#success-error").removeClass().addClass('alert alert-error').html("Check all the fileds");
+				$("#success-error").fadeOut(1000);
+		}
+
+
+		
 
 	});
 
@@ -155,7 +226,7 @@ jQuery(document).ready(function(){
 	/*Popup add new item ------------------------------------------------------  */
 
 	$("#add-items-db").on('click',function() {	
-	 	$(".new-item-add").fadeIn(500);//.css("display","block"); 
+	 	$(".box-custom").slideToggle(500);//.css("display","block"); 
 	});
 
 
@@ -164,4 +235,96 @@ jQuery(document).ready(function(){
 		$("#register-box").fadeOut(500);//.css("display","none"); 
 	});	
 
+
+	/*Populare garderoba ----   clothingMaterials */
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/clothingMaterials.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		 $.each(data.results.bindings,  function(index) {
+		 	//console.log(this.label.value);
+		 	//$("#grand-list-clothingMaterials").append("<input type='radio' name='clothingMaterials' value="+ this.clothingMaterial.value+">" + this.clothingMaterial.value + "<br/>" );
+			$('#add-imaterial').append("<div class='item-mat'><input type='checkbox' name='material' value='"+this.clothingMaterial.value+"' > <label>"  + labelLink(this.clothingMaterial.value) + "</label></div>" );
+
+
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+	/*Populare garderoba ----   colors */
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/colors.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){ 
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		$.each(data.results.bindings,  function(index) {
+		 	
+			$('#add-icolor').append('<div class="item-col">'+ 
+											'<input type="checkbox" name="color" value="'+ this.color.value+'">'+
+											'<label title="'+this.comment.value+'"><span class="rectangle" style="background-color:#'+this.colourHexCode.value+'"></span>'+this.label.value+'</label>'
+									+'</div>');
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+	/*Populare graderoba -------- sizes - */
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/clothingSizes.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){ 
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		$.each(data.results.bindings,  function(index) {
+		 	
+			$('#item-options-size').append(' <option value="'+ this.size.value+'">'+this.label.value+'</option>');
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+	/*Populare graderoba -------- clothingTypes - */
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/clothingTypes.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){ 
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		$.each(data.results.bindings,  function(index) {
+		 	
+			$('#item-options-type').append(' <option value="'+ this.clothing.value+'">'+this.label.value+'</option>');
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+
 });
+
+
+function labelLink(link){
+	var string_link = link;
+	var arr_str = string_link.split("/");
+	return arr_str[arr_str.length-1];
+}
+
+function accLink(link){
+	var string_link = "<" +  link + ">";
+	return  string_link; 
+} 

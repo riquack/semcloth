@@ -72,7 +72,9 @@ jQuery(document).ready(function(){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-events").append("<input type='radio' name='events' value="+ this.event.value+">" + this.label.value + "<br/>" );
+		 	$("#grand-list-events").append("<div><input type='radio' name='events' value="+ this.event.value+"><label>" + this.label.value + "</label></div>" );
+		 	// 
+
 		 });
 	  },
 	  error: function(error) {
@@ -90,7 +92,7 @@ jQuery(document).ready(function(){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-pref").append("<input type='radio' name='style-pref' value="+this.clothingStyle.value+">" + this.label.value + "<br/>" );
+		 	$("#grand-list-pref").append("<div><input type='radio' name='style-pref' value="+this.dressingStyle.value+"><label  title='"+this.comment.value+"'>" + this.label.value + "</label></div>" );
 		 });
 	  },
 	  error: function(error) {
@@ -110,7 +112,7 @@ jQuery(document).ready(function(){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-religions").append("<input type='radio' name='religions' value="+this.religion.value+">" + this.label.value + "<br/>" );
+		 	$("#grand-list-religions").append("<div><input type='radio' name='religions' value="+this.religion.value+"><label>" + this.label.value + "</label></div>" );
 		 });
 	  },
 	  error: function(error) {
@@ -129,7 +131,7 @@ jQuery(document).ready(function(){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-season").append("<input type='radio' name='season' value="+this.season.value+">" + this.season.value + "<br/>" );
+		 	$("#grand-list-season").append("<div><input type='radio' name='season' value="+this.season.value+"><label>" + this.season.value + "</label></div>" );
 		 });
 	  },
 	  error: function(error) {
@@ -149,7 +151,7 @@ jQuery(document).ready(function(){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-weatherConditions").append("<input type='radio' name='weatherConditions' value="+this.weatherCondition.value+">" + this.label.value + "<br/>" );
+		 	$("#grand-list-weatherConditions").append("<div><input type='radio' name='weatherConditions' value="+this.weatherCondition.value+"><label>" + this.label.value + "</label></div>" );
 		 });
 	  },
 	  error: function(error) {
@@ -168,8 +170,11 @@ jQuery(document).ready(function(){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
-		 	$("#grand-list-clothingMaterials").append("<input type='radio' name='clothingMaterials' value="+ this.clothingMaterial.value+">" + this.clothingMaterial.value + "<br/>" );
-		 });
+		 	$("#grand-list-clothingMaterials").append("<div><input type='radio' name='clothingMaterials' value="+ this.clothingMaterial.value+"><label>" + this.clothingMaterial.value + "</label></div>" );
+			//$('#add-imaterial').append("<input type='checkbox' name='material' value='"+this.clothingMaterial.value+"' > <label>"  + labelLink(this.clothingMaterial.value) + "</label>" );
+
+
+			 });
 	  },
 	  error: function(error) {
 	    alert("An error occurred while processing XML file." + error);
@@ -178,7 +183,36 @@ jQuery(document).ready(function(){
 
 
 
+	/*
+	$( "#filters-group" ).submit(function( event ) {
 
+		var events_select = $('#events').is(':checked');  
+		var style_select = $('#style').is(':checked');  
+		var season_select = $('#season').is(':checked');  
+		var material_select = $('#material').is(':checked');
+		var weather	= $('#weather').is(':checked');
+		var religions = $('#religions').is(':checked');
+		var weatherConditions = $('#weatherConditions').is(':checked');
+	
+		if (events_select == true &&  style_select == true
+				 &&  season_select == true &&  material_select == true
+				 && weather == true && religions = true && weatherConditions == true) {
+			return;
+		}
+		
+		if (events_select == false ){
+			$("#manufacturer").css("border", "2px solid red");
+		}
+ 
+		
+		
+		event.preventDefault();
+
+
+
+		
+
+	});	*/
 
 
 	//Colect all filters
@@ -252,17 +286,6 @@ jQuery(document).ready(function(){
 		/*Json Filter ---------------------------------------------------------------*/
 		var jsonResultFilter = {}; 
 
-	/*	$( ".list-w li" ).each(function( index ) {
-							  	//item-events
-				var events = $('.list-events :radio:checked').val().toLowerCase();
-				var events_item =  $( this ).find(".item-events").text().toLowerCase();
-				if (events_item.toLowerCase().indexOf(events) >= 0){
-							  		//indexs.push(index);
-				} else {
-							$(this).fadeOut();
-				}
-		});	
-*/
 		var events ="no"; 
 		if($('#events').is(':checked')) { /*events*/
 			events = $('.list-events :radio:checked').val();
@@ -283,10 +306,10 @@ jQuery(document).ready(function(){
 		  	material = $('.list-material :radio:checked').val();
 		}
 
-		var weather = "no";
+		/*var weather = "no";
 		if($('#weather').is(':checked')) {
 			weather = "yes";
-		}
+		}*/
 
 		var religions = "no";
 		if($('#religions').is(':checked')) {
@@ -322,8 +345,8 @@ jQuery(document).ready(function(){
 			jsonResultFilter.preferences.events = accLink(events);
 		if(pref!=="no")
 			jsonResultFilter.preferences.stylePref = accLink(pref);
-		if(weather!=="no")
-			jsonResultFilter.preferences.weather = accLink(weather);
+		//if(weather!=="no")
+		//	jsonResultFilter.preferences.weather = accLink(weather);
 		if(season!=="no")
 			jsonResultFilter.preferences.season = accLink(season);
 		if(material!=="no")
@@ -340,107 +363,8 @@ jQuery(document).ready(function(){
 		//alert(result);
 		console.log(result);
 
-		/*
-
-				/*	"name": name,
-							"age": parseInt(age),
-							"birthday": birthday,
-							"gender": gender ,
-							"religion": religion,
-							"events": events,
-							"style-preferences": pref,
-							"weather": weather,
-							"season": season,
-							"material": material*/
-		
-		/* filtrez div-urile manual  ------------------------------------- */
-	/*	var count_item = 0 ; 
-		var values_results = result.split("|");
-		var indexs = [];
-
-		jQuery.each( values_results, function( i, val ) { 
-			var aux = values_results[i].split(":");
-			if(aux[1] !== "no") { 
-				console.log(aux[1]);
-
-				var temp = aux[0]; 
-				switch (temp) { 
-					case 'events': 
-					      $( ".list-w li" ).each(function( index ) {
-							  	//item-events
-							  	var events = $('.list-events :radio:checked').val().toLowerCase();
-							  	var events_item =  $( this ).find(".item-events").text().toLowerCase();
-							  	if (events_item.toLowerCase().indexOf(events) >= 0){
-							  		indexs.push(index);
-							  	} //else {
-							  	//	$(this).fadeOut();
-							  	//}
-							});	
-
-					        break;
-					case 'prototype': 
-					        alert('prototype Wins!');
-					        break;
-					case 'mootools': 
-					        alert('mootools Wins!');
-					        break;      
-					case 'season': 
-					        $( ".list-w li" ).each(function( index ) {
-							  	//item-events
-							  	var events = $('.list-season :radio:checked').val().toLowerCase();
-							  	var events_item =  $( this ).find(".item-season").text().toLowerCase();
-							  	if (events_item.toLowerCase().indexOf(events) >= 0){
-							  		indexs.push(index);
-							  	} //else {
-							  		//$(this).fadeOut();
-							  	//}
-							});	
-					        break;
-					case 'material':  
-					        $( ".list-w li" ).each(function( index ) {
-							  	//item-events
-							  	var events = $('.list-material :radio:checked').val().toLowerCase();
-							  	var events_item =  $( this ).find(".item-material").text().toLowerCase();
-							  	if (events_item.toLowerCase().indexOf(events) >= 0){
-							  		indexs.push(index);
-							  	} //else {
-							  	//	$(this).fadeOut();
-							  	//}
-							});	
-					        break;
-					}
-			
-				
-
-			}
-
-		});
-		*/
-		/* caut in vector doar valorile unice de atatea ori cate filtre am !!! ----------------------------- */
-		//jQuery.inArray( "John", arr )
-		/*jQuery.each( indexs, function( i, val ) { 
-			console.log(indexs[i]);
-		});
-*/
+	
 		console.log("--------------------------------------------");
-/*
-		jQuery.each( indexs, function( i, val ) { 
-				console.log(jQuery.inArray( 11, indexs ) + "  " + i + " " + indexs);
-		});
-		*/
-		
-		//$( ".list-w li" ).each(function( index ) {
-
-		//}
-
-
-		
-
-		//jQuery.each( indexs, function( i, val ) {  
-		//	 console.log(val);
-		//});
-
-
 
 	
 		
@@ -462,3 +386,11 @@ function accLink(link){
 	var string_link = "<" +  link + ">";
 	return  string_link; 
 } 
+
+
+
+function labelLink(link){
+	var string_link = link;
+	var arr_str = string_link.split("/");
+	return arr_str[arr_str.length-1];
+}

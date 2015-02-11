@@ -136,6 +136,7 @@ body {
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
+          margin-top: 10px;
 }
 
 .alert,
@@ -269,8 +270,167 @@ footer .content{
 }
 
 .box-50  p {
-	color: #fff;
+	color: #000;
 }
+
+.full-add {
+	width: 100%;
+	float: none;
+	overflow: hidden;
+}
+
+
+.user-options ul li {
+	float: right;
+	list-style: none;
+	margin-left: 35px;
+}
+
+.box-custom p {
+	font-weight: 700;
+	text-align: center;
+	margin: 20px 0px;
+	font-size: 20px;
+	color: #969696;
+	border: 1px solid;
+	width: 93%;
+}
+
+
+.box-custom p i{
+	margin-right: 15px;
+	font-size: 20px;
+}
+
+.group-33 {
+	width: 33%;
+	float: left;
+	border-bottom: 1px dotted #dfdfdf;
+	min-height: 280px;
+	border-right: 1px dotted #dfdfdf;
+	padding-left: 22px;
+	/* padding-bottom: 20px; */
+}
+
+.group-33-distinct{
+	width: 66%;
+}
+
+.item-mat {
+	width: 50%;
+	float: left;
+}
+
+#basic-info {
+	overflow: hidden;
+}
+.finish-add {
+	width: 100%;
+	float: none;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.box-custom {
+	background: #EDEDED;
+	overflow: hidden;
+	padding: 10px;
+	display: none;
+}
+
+.group-33 select{
+
+	width: 92%;
+}
+
+.group-33 textarea{
+	width: 95%;
+	height: 150px;
+}
+
+.item-col {
+	width:45%;
+	float: left;
+}
+
+#add-item {
+	width: 15%;
+	margin-left: 43%;
+}
+
+.box-custom h2 {
+	padding-left: 25px;
+	border-bottom: 1px dotted #dfdfdf;
+	padding-bottom: 20px;
+}
+
+.title h1 i, .filters h3 i {
+	margin-right: 15px;
+}
+
+
+#add-icolor {
+	overflow-y: scroll;
+	height: 200px;
+	border: 1px solid #BEBEBE;
+	padding: 20px;
+	width: 93%;
+}
+
+.rectangle{
+
+	height:10px; display:inline-block; margin-left:3px; margin-right:3px; width:10px; 
+}
+
+.item-col label {
+
+	vertical-align: middle;
+}
+
+.user-options li a i{
+	margin-right: 10px;
+}
+
+.ls-scoll {
+	overflow-y: scroll;
+	height: 200px;
+}
+
+
+
+h3{
+	border-bottom: 1px solid #dfdfdf;
+	padding-bottom: 10px;
+}
+
+@media  (max-width: 1200px) {
+	.content{
+		width: 1100px;
+	}
+}
+
+
+@media  (max-width: 1100px) {
+	.content{
+		width: 1000px;
+	}
+}
+
+@media  (max-width: 1020px) {
+	.content{
+		width: 90%;
+	}
+}
+
+	/*.item-material input{
+		width: 10px;
+	}
+
+ .item-material label {
+	width: 40%;
+	float: left;
+
+}*/
 
 /*
 
