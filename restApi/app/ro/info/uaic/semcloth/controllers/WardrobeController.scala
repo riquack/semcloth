@@ -1,14 +1,14 @@
 package ro.info.uaic.semcloth.controllers
 
 import play.api.mvc.{Action, Controller}
-import ro.info.uaic.semcloth.core.OntologyHelpers
+import ro.info.uaic.semcloth.core.{OntologyConstants, OntologyHelpers}
 import ro.info.uaic.semcloth.db.SimpleSPARQL
 import ro.info.uaic.semcloth.models.Clothing
 
-object WardrobeController extends Controller{
+object WardrobeController extends Controller {
 
 
-  def clothingItem(id: String) = Action(parse.json) {
+  def newClothingItem(id: String) = Action(parse.json) {
     def asStringForSPARQL(key: String, colors: Array[String]) = {
       colors.map{x => s"$key $x"}.mkString("; ")
     }
@@ -23,7 +23,7 @@ object WardrobeController extends Controller{
         error => BadRequest("Object is not formatted correctly"),
         valid = correctData => {
 
-          val resource = id + System.currentTimeMillis()
+          val resource = System.currentTimeMillis()
 
           val queryString =
             s"""INSERT DATA {
@@ -41,6 +41,25 @@ object WardrobeController extends Controller{
         }
       )
     }
+  }
+
+
+  def clothingItem(userId: String, clothingId: String) = Action {
+    Ok(
+      SimpleSPARQL.select(
+        s"""select * FROM NAMED ${OntologyHelpers.UserNamedGraphUri(userId)}
+           |where { GRAPH ?src {<${OntologyConstants.SemclothNS + clothingId}> ?property ?object} }""".stripMargin
+      )
+    )
+  }
+
+  def allClothingItems(userId: String) = Action {
+    Ok(
+      SimpleSPARQL.select(
+        s"""select ?subject FROM NAMED ${OntologyHelpers.UserNamedGraphUri(userId)}
+           |where { GRAPH ?src  {?subject a dbr:Clothing} }""".stripMargin
+      )
+    )
   }
 
 }

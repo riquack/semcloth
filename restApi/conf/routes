@@ -2,9 +2,6 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET        /                         controllers.Application.index
-
 GET        /events                   ro.info.uaic.semcloth.controllers.EntitiesController.events
 GET        /clothingStyles           ro.info.uaic.semcloth.controllers.EntitiesController.clothingStyles
 GET        /religions                ro.info.uaic.semcloth.controllers.EntitiesController.religions
@@ -14,10 +11,9 @@ GET        /clothingMaterials        ro.info.uaic.semcloth.controllers.EntitiesC
 #TODO add colors to ontology
 GET        /colors                   ro.info.uaic.semcloth.controllers.EntitiesController.colors
 
-POST        /users/:id/wardrobe                ro.info.uaic.semcloth.controllers.WardrobeController.clothingItem(id: String)
+POST        /users/:userId/wardrobe                     ro.info.uaic.semcloth.controllers.WardrobeController.newClothingItem(userId: String)
+GET         /users/:userId/wardrobe/                    ro.info.uaic.semcloth.controllers.WardrobeController.allClothingItems(userId: String)
+GET         /users/:userId/wardrobe/:clothingId         ro.info.uaic.semcloth.controllers.WardrobeController.clothingItem(userId: String, clothingId: String)
 
-
-# Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file             controllers.Assets.at(path="/public", file)
 
     

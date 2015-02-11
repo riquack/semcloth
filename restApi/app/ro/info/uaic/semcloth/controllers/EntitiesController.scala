@@ -35,9 +35,11 @@ object EntitiesController extends Controller {
   def seasons = Action {
     Ok(
       SimpleSPARQL.select(
-        """select ?season ?label where { {?season a dbr:Season.} UNION
-                                                {?season a dbr:Season;
-                                                         rdfs:label ?label} .}"""
+        """select ?season ?label ?comment where
+          | {?season a dbr:Season;
+          |            rdfs:label ?label ;
+          |            rdfs:comment ?comment
+          |          FILTER (lang(?label) = 'en' && lang(?comment) = 'en')}""".stripMargin
       )
     )
   }
