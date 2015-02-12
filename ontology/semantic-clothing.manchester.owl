@@ -1,0 +1,2161 @@
+Prefix: : <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#>
+Prefix: dc: <http://purl.org/dc/elements/1.1/>
+Prefix: gr: <http://purl.org/goodrelations/v1#>
+Prefix: sc: <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#>
+Prefix: dbo: <http://dbpedia.org/ontology/>
+Prefix: dbp: <http://dbpedia.org/property/>
+Prefix: dbr: <http://dbpedia.org/resource/>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: muto: <http://purl.org/muto/core#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: sioc: <http://rdfs.org/sioc/ns#>
+Prefix: owl2xml: <http://www.w3.org/2006/12/owl2-xml#>
+
+
+
+Ontology: <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl>
+
+
+Annotations: 
+    dc:bibliographicCitation "***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support)."@en,
+    dc:bibliographicCitation "***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the 'body shapes' part of the ontology)"@en,
+    rdfs:label "Semantic Clothing Ontology"@en,
+    dc:bibliographicCitation "***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"@en,
+    dc:date "2015-02"^^xsd:gYearMonth,
+    dc:contributor "Ioana Bîrsan"@en,
+    dc:bibliographicCitation "***, W3C, http://www.w3.org/2001/sw/"@en,
+    dc:contributor "Iordan Rață"@en,
+    dc:bibliographicCitation "*** H&M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)"@en,
+    dc:bibliographicCitation "***, flaticon, http://www.flaticon.com/ (Icons for the clothes)"@en,
+    dc:contributor "Oana Gagea"@en,
+    rdfs:label "A common vocabulary for clothing items."@en,
+    rdfs:comment "The purpose of this ontology is to create the common conceptual framwork for 'talking' about clothing or related concepts."@en,
+    dc:creator "Daniel Amariei"@en
+
+AnnotationProperty: dbo:thumbnail
+
+    
+AnnotationProperty: dc:contributor
+
+    
+AnnotationProperty: rdfs:label
+
+    
+AnnotationProperty: sioc:note
+
+    
+AnnotationProperty: dc:date
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+AnnotationProperty: dc:creator
+
+    
+AnnotationProperty: rdfs:domain
+
+    
+AnnotationProperty: dc:bibliographicCitation
+
+    
+Datatype: rdf:PlainLiteral
+
+    
+Datatype: xsd:anyURI
+
+    
+ObjectProperty: sc:isSuitableToBeDressedInSeason
+
+    Annotations: 
+        rdfs:label "Is suitable to be dressed in season"@en,
+        rdfs:comment "This property specifies the season for which a particular clothing item and/or class is/are suitable for."@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        dbr:Season
+    
+    InverseOf: 
+        sc:seasonHasSuitableClothingForDressing
+    
+    
+ObjectProperty: sc:hasTextileComposition
+
+    Annotations: 
+        rdfs:comment "This property denotes the materials from which a clothing item is composed of."@en,
+        rdfs:label "Has textile composition"@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        sc:ClothingMaterial
+    
+    SubPropertyOf: 
+        dbp:composition
+    
+    
+ObjectProperty: sc:seasonHasSuitableClothingForDressing
+
+    Annotations: 
+        rdfs:label "Season has suitable clothing for dressing"@en,
+        rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular season."@en
+    
+    Domain: 
+        dbr:Season
+    
+    Range: 
+        dbr:Clothing
+    
+    InverseOf: 
+        sc:isSuitableToBeDressedInSeason
+    
+    
+ObjectProperty: sc:isSuitableToBeDressedOnWeather
+
+    Annotations: 
+        rdfs:label "Is suitable to be dressed in weather conditions"@en,
+        rdfs:comment "This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for."@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        dbr:Weather
+    
+    InverseOf: 
+        sc:weatherHasSuitableClothingForDressing
+    
+    
+ObjectProperty: dbp:composition
+
+    
+ObjectProperty: sc:isManufacteredBy
+
+    Annotations: 
+        rdfs:label "Is manufactured by"@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        gr:BusinessEntity
+    
+    Characteristics: 
+        Functional,
+        Asymmetric
+    
+    
+ObjectProperty: sc:isSuitableForDressingForReligion
+
+    Annotations: 
+        rdfs:comment "This property specifis the religion for which a particular clothing item and/or class is/are suitable for."@en,
+        rdfs:label "Is suitable for dressing for religion"@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        dbr:Religion
+    
+    InverseOf: 
+        sc:religionHasSuitableClothingForDressing
+    
+    
+ObjectProperty: sc:religionHasSuitableClothingForDressing
+
+    Annotations: 
+        rdfs:comment "This property specifis the clothing that is suitable for a particular religion."@en,
+        rdfs:label "Religion has suitable clothing for dressing"@en
+    
+    Domain: 
+        dbr:Religion
+    
+    Range: 
+        dbr:Clothing
+    
+    InverseOf: 
+        sc:isSuitableForDressingForReligion
+    
+    
+ObjectProperty: dbp:dressSize
+
+    Annotations: 
+        rdfs:label "Dress size"@en
+    
+    Domain: 
+        sc:Dress
+    
+    Range: 
+        dbr:Clothing_sizes
+    
+    SubPropertyOf: 
+        sc:hasSize
+    
+    
+ObjectProperty: sc:hasColour
+
+    Annotations: 
+        rdfs:label "Has colour"@en,
+        rdfs:comment "This property specifies the color a particular clothing item has."@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        dbo:Colour
+    
+    
+ObjectProperty: sc:bodyShapeHasSuitableClothingForDressing
+
+    Annotations: 
+        rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular body shape."@en,
+        rdfs:label "Body shape has suitable clothing for dressing"@en
+    
+    Domain: 
+        sc:BodyShape
+    
+    Range: 
+        dbr:Clothing
+    
+    InverseOf: 
+        sc:isSuitableToBeDressedByBodyShape
+    
+    
+ObjectProperty: sc:eventHasSuitableClothingForDressing
+
+    Annotations: 
+        rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular event."@en,
+        rdfs:label "Event has suitable clothing for dressing"@en
+    
+    Domain: 
+        dbo:Event
+    
+    Range: 
+        dbr:Clothing
+    
+    InverseOf: 
+        sc:isSuitableToBeDressedAtEvent
+    
+    
+ObjectProperty: sc:isSuitableToBeDressedByGenre
+
+    Annotations: 
+        rdfs:label "Is suitable to be dressed by genre"@en,
+        rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes."@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        dbr:Genre
+    
+    InverseOf: 
+        sc:genreHasSuitableClothingForDressing
+    
+    
+ObjectProperty: sc:genreHasSuitableClothingForDressing
+
+    Annotations: 
+        rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular genre."@en,
+        rdfs:label "Genre has suitable clothing for dressing"@en
+    
+    Domain: 
+        dbr:Genre
+    
+    Range: 
+        dbr:Clothing
+    
+    InverseOf: 
+        sc:isSuitableToBeDressedByGenre
+    
+    
+ObjectProperty: sc:isSuitableToBeDressedAtEvent
+
+    Annotations: 
+        rdfs:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."@en,
+        rdfs:label "Is suitable to be dressed at event"@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        dbo:Event
+    
+    InverseOf: 
+        sc:eventHasSuitableClothingForDressing
+    
+    
+ObjectProperty: sc:dressingCodeHasSuitableClothingForDressing
+
+    Annotations: 
+        rdfs:label "Dressing code has suitable clothing for dressing"@en,
+        rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular dressing code."@en
+    
+    Domain: 
+        dbr:Dress_code,
+        sc:ClothingStyle
+    
+    Range: 
+        dbr:Clothing
+    
+    InverseOf: 
+        sc:isSuitableForDressingCode
+    
+    
+ObjectProperty: sc:isSuitableForDressingCode
+
+    Annotations: 
+        rdfs:comment "This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for."@en,
+        rdfs:label "Is suitable for dressing code"@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        sc:ClothingStyle,
+        dbr:Dress_code
+    
+    InverseOf: 
+        sc:dressingCodeHasSuitableClothingForDressing
+    
+    
+ObjectProperty: sc:hasTexture
+
+    Annotations: 
+        rdfs:comment "Specifies the texture of the clothing item."@en,
+        rdfs:label "Has texture"
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        sc:ClothingTexture
+    
+    
+ObjectProperty: sc:isSuitableToBeDressedByBodyShape
+
+    Annotations: 
+        rdfs:label "Is suitable to be dressed by body shape"@en,
+        rdfs:comment "Stipulates for which body shape a particular clothing item and/or class is/are suitable for."@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        sc:BodyShape
+    
+    InverseOf: 
+        sc:bodyShapeHasSuitableClothingForDressing
+    
+    
+ObjectProperty: sc:weatherHasSuitableClothingForDressing
+
+    Annotations: 
+        rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular weather condition."@en,
+        rdfs:label "Weather has suitable clothing for dressing"@en
+    
+    Domain: 
+        dbr:Weather
+    
+    Range: 
+        dbr:Clothing
+    
+    InverseOf: 
+        sc:isSuitableToBeDressedOnWeather
+    
+    
+ObjectProperty: sc:hasSize
+
+    Annotations: 
+        rdfs:comment "This property specifies the size of a particular clothing item."@en,
+        rdfs:label "Has size"@en
+    
+    Domain: 
+        dbr:Clothing
+    
+    Range: 
+        dbr:Clothing_sizes
+    
+    Characteristics: 
+        Functional
+    
+    
+Class: sc:Blazer
+
+    Annotations: 
+        rdfs:label "Blazer"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/blazer-1.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: owl:Thing
+
+    
+Class: sc:Boots
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/boots.png"^^xsd:anyURI,
+        rdfs:label "Boots"@en
+    
+    SubClassOf: 
+        sc:Shoes
+    
+    
+Class: dbr:Season
+
+    
+Class: sc:SlimFitTrousers
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/slim-fit-trousers.png"^^xsd:anyURI,
+        rdfs:label "Slim fit trousers"@en
+    
+    SubClassOf: 
+        sc:Trousers
+    
+    
+Class: sc:Socks
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/socks.png"^^xsd:anyURI,
+        rdfs:label "Socks"@en
+    
+    SubClassOf: 
+        sc:Underwear
+    
+    
+Class: dbo:Colour
+
+    
+Class: sc:AnkleBoots
+
+    Annotations: 
+        rdfs:label "Ankle boots"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/ankle-boots.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Shoes
+    
+    
+Class: sc:Funneral
+
+    Annotations: 
+        rdfs:label "Funneral"@en
+    
+    SubClassOf: 
+        dbo:Event
+    
+    
+Class: sc:Lingerie
+
+    Annotations: 
+        rdfs:label "Lingerie"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/lingerie.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Underwear
+    
+    DisjointUnionOf: 
+        sc:Bodysuit, sc:Bra, sc:Briefs, sc:Knickers, sc:Nylons
+    
+    
+Class: sc:ClothingTexture
+
+    Annotations: 
+        rdfs:label "Clothing texture"@en
+    
+    
+Class: sc:RomanticDate
+
+    Annotations: 
+        rdfs:label "Romantic date"@en
+    
+    SubClassOf: 
+        sc:Date
+    
+    
+Class: dbr:Religion
+
+    
+Class: sc:Earrings
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/earrings.png"^^xsd:anyURI,
+        rdfs:label "Earrings"@en
+    
+    SubClassOf: 
+        sc:Jewellery
+    
+    
+Class: sc:Knickers
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/knickers.png"^^xsd:anyURI,
+        rdfs:label "Knickers"@en
+    
+    SubClassOf: 
+        sc:Lingerie
+    
+    
+Class: sc:Briefs
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/briefs.png"^^xsd:anyURI,
+        rdfs:label "Briefs"@en
+    
+    SubClassOf: 
+        sc:Lingerie
+    
+    
+Class: sc:FunneralClothing
+
+    Annotations: 
+        rdfs:label "Funneral clothing"@en,
+        rdfs:comment "Clothing that is suitable for a funneral."@en
+    
+    EquivalentTo: 
+        (sc:hasColour value dbr:Black)
+         and (sc:isSuitableToBeDressedAtEvent value sc:Funneral)
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:RegularFitTrousers
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/regular-fit-trousers.png"^^xsd:anyURI,
+        rdfs:label "Regular fit trousers"@en
+    
+    SubClassOf: 
+        sc:Trousers
+    
+    
+Class: dbr:Female
+
+    Annotations: 
+        rdfs:label "Female"@en
+    
+    DisjointWith: 
+        dbr:Male
+    
+    
+Class: sc:ShapeLingerie
+
+    Annotations: 
+        rdfs:label "Shape lingerie"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Bra
+    
+    
+Class: sc:Bag
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/bag.png"^^xsd:anyURI,
+        rdfs:label "Bag"@en
+    
+    SubClassOf: 
+        sc:Accessory
+    
+    DisjointUnionOf: 
+        sc:Handbag, sc:ShoulderBag
+    
+    
+Class: sc:PushUpBra
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI,
+        rdfs:label "Push-up bra"@en
+    
+    SubClassOf: 
+        sc:Bra
+    
+    
+Class: sc:Jeans
+
+    Annotations: 
+        rdfs:label "Jeans"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/jeans.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:Skirt
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/skirt.png"^^xsd:anyURI,
+        rdfs:label "Skirt"@en
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:Bracelet
+
+    Annotations: 
+        rdfs:label "Bracelet"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/bracelet.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Jewellery
+    
+    
+Class: sc:Top
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/top.png"^^xsd:anyURI,
+        rdfs:label "Top"@en
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:Bodysuit
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/bodysuit.png"^^xsd:anyURI,
+        rdfs:label "Bodysuit"@en
+    
+    SubClassOf: 
+        sc:Lingerie
+    
+    
+Class: sc:Umbrella
+
+    Annotations: 
+        rdfs:label "Umbrella"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/Umbrella.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Accessory
+    
+    
+Class: sc:SportBra
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI,
+        rdfs:label "Sports bra"@en
+    
+    SubClassOf: 
+        sc:Bra
+    
+    
+Class: dbr:Raw_material
+
+    
+Class: sc:Sneakers
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sneakers.png"^^xsd:anyURI,
+        rdfs:label "Sneakers"@en
+    
+    SubClassOf: 
+        sc:Shoes
+    
+    
+Class: sc:Moccasins
+
+    Annotations: 
+        rdfs:label "Mocassins"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/mocassins.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Shoes
+    
+    
+Class: sc:Suit
+
+    Annotations: 
+        rdfs:label "Suit"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/suit.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:Jewellery
+
+    Annotations: 
+        rdfs:label "Jewellery"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/jewellery.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Accessory
+    
+    DisjointUnionOf: 
+        sc:Bracelet, sc:Earrings, sc:Necklace, sc:Ring
+    
+    
+Class: sc:Belt
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/belt.png"^^xsd:anyURI,
+        rdfs:label "Belt"@en
+    
+    SubClassOf: 
+        sc:Accessory
+    
+    
+Class: sc:ClothingCharacteristic
+
+    Annotations: 
+        rdfs:label "Clothing characteristic"@en
+    
+    DisjointUnionOf: 
+        dbo:Colour, dbr:Clothing_sizes, sc:BodyShape, sc:ClothingMaterial, sc:ClothingStyle, sc:ClothingTexture
+    
+    
+Class: sc:Interview
+
+    Annotations: 
+        rdfs:label "Interview"@en
+    
+    SubClassOf: 
+        sc:BusinessMeeting
+    
+    
+Class: sc:Sunglasses
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sunglasses.png"^^xsd:anyURI,
+        rdfs:label "Sunglasses"@en
+    
+    SubClassOf: 
+        sc:Accessory
+    
+    
+Class: dbr:Dress_code
+
+    
+Class: dbr:Genre
+
+    DisjointUnionOf: 
+        dbr:Female, dbr:Male
+    
+    
+Class: dbr:Weather
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: sc:Accessory
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/accesory.png"^^xsd:anyURI,
+        rdfs:label "Accessory"@en
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    DisjointUnionOf: 
+        sc:Bag, sc:Belt, sc:Hat, sc:Jewellery, sc:Scarf, sc:Sunglasses, sc:Tie, sc:Umbrella
+    
+    
+Class: sc:Raincoat
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/raincoat.png"^^xsd:anyURI,
+        rdfs:label "Raincoat"@en
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:BodyShape
+
+    Annotations: 
+        rdfs:label "Body shape"@en,
+        rdfs:comment "The class of body shapes a person can have."@en
+    
+    SubClassOf: 
+        dbr:Shape
+    
+    
+Class: sc:Gloves
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/glovers.png"^^xsd:anyURI,
+        rdfs:label "Gloves"@en
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:Shirt
+
+    Annotations: 
+        rdfs:label "Shirt"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/shirt.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:HighHeels
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/hight-heels.png"^^xsd:anyURI,
+        rdfs:label "High-heels"@en
+    
+    SubClassOf: 
+        sc:Shoes
+    
+    
+Class: sc:ShoulderBag
+
+    Annotations: 
+        rdfs:label "Shoulder bag"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/shoulder-bag.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Bag
+    
+    
+Class: sc:BusinessMeeting
+
+    Annotations: 
+        rdfs:label "Business meeting"@en
+    
+    SubClassOf: 
+        dbo:Event
+    
+    
+Class: sc:WomensClothing
+
+    Annotations: 
+        rdfs:label "Women's clothing"@en
+    
+    EquivalentTo: 
+        sc:isSuitableToBeDressedByGenre value dbr:Female
+    
+    
+Class: sc:UnisexClothing
+
+    Annotations: 
+        rdfs:label "Unisex clothing"@en
+    
+    EquivalentTo: 
+        sc:MensClothing
+         and sc:WomensClothing
+    
+    
+Class: sc:NaturalClothingMaterial
+
+    Annotations: 
+        rdfs:label "Natural clothing material"@en
+    
+    SubClassOf: 
+        sc:ClothingMaterial
+    
+    DisjointWith: 
+        sc:SyntheticClothingMaterial
+    
+    
+Class: sc:Handbag
+
+    Annotations: 
+        rdfs:label "Handbag"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/handbag.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Bag
+    
+    
+Class: sc:SyntheticClothingMaterial
+
+    Annotations: 
+        rdfs:label "Synthetic clothing material"@en
+    
+    SubClassOf: 
+        sc:ClothingMaterial
+    
+    DisjointWith: 
+        sc:NaturalClothingMaterial
+    
+    
+Class: sc:Coat
+
+    Annotations: 
+        rdfs:label "Coat"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/coat.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:Nylons
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/nylons.png"^^xsd:anyURI,
+        rdfs:label "Nylons"@en
+    
+    SubClassOf: 
+        sc:Lingerie
+    
+    
+Class: dbo:Event
+
+    DisjointUnionOf: 
+        sc:BusinessMeeting, sc:Club, sc:Date, sc:Funneral, sc:PyjamaParty
+    
+    
+Class: sc:ClothingStyle
+
+    Annotations: 
+        rdfs:comment "This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for."@en,
+        rdfs:label "Clothing style"@en
+    
+    
+Class: sc:MensClothing
+
+    Annotations: 
+        rdfs:label "Men's clothing"@en
+    
+    EquivalentTo: 
+        sc:isSuitableToBeDressedByGenre value dbr:Male
+    
+    
+Class: dbr:Clothing_sizes
+
+    
+Class: sc:Scarf
+
+    Annotations: 
+        rdfs:label "Scarf"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/scarf.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Accessory
+    
+    
+Class: sc:Sandals
+
+    Annotations: 
+        rdfs:label "Sandals"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sandals.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Shoes
+    
+    
+Class: sc:Date
+
+    Annotations: 
+        rdfs:label "Date"@en
+    
+    SubClassOf: 
+        dbo:Event
+    
+    
+Class: sc:DinnerParty
+
+    Annotations: 
+        rdfs:label "Dinner party"@en
+    
+    SubClassOf: 
+        dbo:Event
+    
+    
+Class: sc:Bra
+
+    Annotations: 
+        rdfs:label "Bra"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Lingerie
+    
+    DisjointUnionOf: 
+        sc:PushUpBra, sc:ShapeLingerie, sc:SportBra
+    
+    
+Class: sc:Tie
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/tie.png"^^xsd:anyURI,
+        rdfs:label "Tie"@en
+    
+    SubClassOf: 
+        sc:Accessory
+    
+    
+Class: sc:Underpants
+
+    Annotations: 
+        rdfs:label "Underpants"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/underpants.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Underwear
+    
+    
+Class: sc:ClothingMaterial
+
+    Annotations: 
+        rdfs:label "Clothing material"@en,
+        rdfs:comment "The basic materials from which clothes are made of."@en
+    
+    SubClassOf: 
+        dbr:Raw_material
+    
+    DisjointUnionOf: 
+        sc:NaturalClothingMaterial, sc:SyntheticClothingMaterial
+    
+    
+Class: sc:Flats
+
+    Annotations: 
+        rdfs:label "Flats"@en
+    
+    SubClassOf: 
+        sc:Shoes
+    
+    
+Class: sc:Club
+
+    Annotations: 
+        rdfs:label "Club"@en
+    
+    SubClassOf: 
+        dbo:Event
+    
+    
+Class: sc:Ring
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/ring.png"^^xsd:anyURI,
+        rdfs:label "Ring"@en
+    
+    SubClassOf: 
+        sc:Jewellery
+    
+    
+Class: dbr:Male
+
+    Annotations: 
+        rdfs:label "Male"@en
+    
+    DisjointWith: 
+        dbr:Female
+    
+    
+Class: dbr:Shape
+
+    
+Class: sc:Underwear
+
+    Annotations: 
+        rdfs:label "Underwear"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/underwear.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    DisjointUnionOf: 
+        sc:Lingerie, sc:Socks, sc:Underpants
+    
+    
+Class: sc:TShirt
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/t-shirt.png"^^xsd:anyURI,
+        rdfs:label "T-shirt"@en
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:Wedding
+
+    Annotations: 
+        rdfs:label "Wedding"@en
+    
+    SubClassOf: 
+        dbo:Event
+    
+    
+Class: sc:Hat
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/hat.png"^^xsd:anyURI,
+        rdfs:label "Hat"@en
+    
+    SubClassOf: 
+        sc:Accessory
+    
+    
+Class: sc:SkinnyFitTrousers
+
+    Annotations: 
+        rdfs:label "Skinny fit trousers"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/skinny-fit-trousers.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Trousers
+    
+    
+Class: sc:Trousers
+
+    Annotations: 
+        rdfs:label "Trousers"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/trousers.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    DisjointUnionOf: 
+        sc:RegularFitTrousers, sc:SkinnyFitTrousers, sc:SlimFitTrousers
+    
+    
+Class: gr:BusinessEntity
+
+    
+Class: sc:Shoes
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/shoes.png"^^xsd:anyURI,
+        rdfs:label "Shoes"@en
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    DisjointUnionOf: 
+        sc:AnkleBoots, sc:Boots, sc:Flats, sc:HighHeels, sc:Moccasins, sc:Sandals, sc:Sneakers
+    
+    
+Class: sc:Pyjama
+
+    Annotations: 
+        rdfs:label "Pyjama"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/pyjama.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:PyjamaParty
+
+    Annotations: 
+        rdfs:label "Pyjama party"@en
+    
+    SubClassOf: 
+        dbo:Event
+    
+    
+Class: dbr:Clothing
+
+    Annotations: 
+        rdfs:label "Clothing"@en,
+        rdfs:comment "Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items."@en
+    
+    DisjointUnionOf: 
+        sc:Accessory, sc:Blazer, sc:Coat, sc:Dress, sc:Gloves, sc:Jeans, sc:Pyjama, sc:Raincoat, sc:Shirt, sc:Shoes, sc:Skirt, sc:Suit, sc:TShirt, sc:Top, sc:Trousers, sc:Underwear
+    
+    
+Class: sc:Dress
+
+    Annotations: 
+        rdfs:label "Dress"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/dress.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        dbr:Clothing
+    
+    
+Class: sc:Necklace
+
+    Annotations: 
+        rdfs:label "Necklace"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/necklace.png"^^xsd:anyURI
+    
+    SubClassOf: 
+        sc:Jewellery
+    
+    
+Individual: sc:Sport
+
+    Annotations: 
+        rdfs:label "Sport dress code"@en,
+        rdfs:comment "This individual specifies that a particular clothing item is suitable for the Sport dressing code."@en
+    
+    Types: 
+        dbr:Dress_code,
+        sc:ClothingStyle
+    
+    
+Individual: sc:Raincoat
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/raincoat.png"^^xsd:anyURI,
+        rdfs:label "Raincoat"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  sc:Wet,
+     sc:isSuitableToBeDressedOnWeather  sc:Cloudy
+    
+    
+Individual: dbr:Fur
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: sc:BodyShape
+
+    Annotations: 
+        rdfs:label "Body shape"@en,
+        rdfs:comment "The class of body shapes a person can have."@en
+    
+    Types: 
+        sc:ClothingCharacteristic
+    
+    
+Individual: sc:Handbag
+
+    Annotations: 
+        rdfs:label "Handbag"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/handbag.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedByGenre  dbr:Female,
+     sc:isSuitableToBeDressedByGenre  dbr:Male
+    
+    
+Individual: dbr:Methodism
+
+    Types: 
+        dbr:Religion
+    
+    
+Individual: sc:Cloudy
+
+    
+Individual: dbr:Clothing_sizes
+
+    Types: 
+        sc:ClothingCharacteristic
+    
+    
+Individual: dbr:Winter
+
+    Types: 
+        dbr:Season
+    
+    
+Individual: sc:ClothingStyle
+
+    Annotations: 
+        rdfs:comment "This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for."@en,
+        rdfs:label "Clothing style"@en
+    
+    SameAs: 
+        dbr:Dress_code
+    
+    
+Individual: sc:Coat
+
+    Annotations: 
+        rdfs:label "Coat"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/coat.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedInSeason  dbr:Winter
+    
+    
+Individual: sc:pijamaleUnisex
+
+    Annotations: 
+        sioc:note "Pyjama Unisex received as gift from father."@en
+    
+    Types: 
+        sc:Pyjama
+    
+    Facts:  
+     sc:isSuitableToBeDressedByGenre  dbr:Female,
+     sc:hasTextileComposition  dbr:Nylon,
+     sc:hasTextileComposition  dbr:Silk,
+     sc:isSuitableToBeDressedByGenre  dbr:Male
+    
+    
+Individual: dbr:Silk
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: sc:DinnerParty
+
+    Annotations: 
+        rdfs:label "Dinner party"@en
+    
+    
+Individual: sc:Date
+
+    Annotations: 
+        rdfs:label "Date"@en
+    
+    
+Individual: sc:Tie
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/tie.png"^^xsd:anyURI,
+        rdfs:label "Tie"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedAtEvent  sc:BusinessMeeting,
+     sc:isSuitableToBeDressedAtEvent  sc:Date,
+     sc:isSuitableToBeDressedAtEvent  sc:DinnerParty,
+     sc:isSuitableToBeDressedByGenre  dbr:Male,
+     sc:isSuitableToBeDressedAtEvent  sc:Funneral
+    
+    
+Individual: dbp:colour
+
+    SameAs: 
+        sc:hasColour
+    
+    
+Individual: sc:Apple
+
+    Annotations: 
+        rdfs:label "Apple"@en
+    
+    Types: 
+        sc:BodyShape
+    
+    
+Individual: dbr:Cashmere_wool
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: sc:Club
+
+    Annotations: 
+        rdfs:label "Club"@en
+    
+    
+Individual: sc:Hourglass
+
+    Annotations: 
+        rdfs:label "Hourglass"@en
+    
+    Types: 
+        sc:BodyShape
+    
+    
+Individual: dbr:Nestorianism
+
+    Types: 
+        dbr:Religion
+    
+    
+Individual: dbr:Eastern_Orthodox_Church
+
+    Annotations: 
+        rdfs:label "Orthodoxism"@en
+    
+    Types: 
+        dbr:Religion
+    
+    
+Individual: sc:Trousers
+
+    Annotations: 
+        rdfs:label "Trousers"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/trousers.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedAtEvent  sc:Date,
+     sc:isSuitableToBeDressedAtEvent  sc:Club
+    
+    
+Individual: dbr:Acrylic_fiber
+
+    Types: 
+        sc:SyntheticClothingMaterial
+    
+    
+Individual: sc:IMVU
+
+    Annotations: 
+        rdfs:label "IMVU"@en
+    
+    Types: 
+        sc:ClothingTexture
+    
+    
+Individual: dbr:Linen
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: sc:Dry
+
+    Annotations: 
+        rdfs:label "Dry"@en
+    
+    Types: 
+        dbr:Weather
+    
+    
+Individual: dbr:Autumn
+
+    Types: 
+        dbr:Season
+    
+    
+Individual: dbo:Colour
+
+    Types: 
+        sc:ClothingCharacteristic
+    
+    
+Individual: sc:M
+
+    Annotations: 
+        rdfs:label "M"
+    
+    Types: 
+        dbr:Clothing_sizes
+    
+    
+Individual: sc:Boots
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/boots.png"^^xsd:anyURI,
+        rdfs:label "Boots"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  dbr:Cold,
+     sc:isSuitableToBeDressedInSeason  dbr:Winter
+    
+    
+Individual: sc:Clear
+
+    Annotations: 
+        rdfs:label "Clear"@en
+    
+    Types: 
+        dbr:Weather
+    
+    
+Individual: sc:size40EUu
+
+    Annotations: 
+        rdfs:label "40 EU"
+    
+    Types: 
+        dbr:Clothing_sizes
+    
+    
+Individual: sc:S
+
+    Annotations: 
+        rdfs:label "s"
+    
+    Types: 
+        dbr:Clothing_sizes
+    
+    
+Individual: dbr:Satin
+
+    Types: 
+        sc:SyntheticClothingMaterial
+    
+    
+Individual: dbr:Spring
+
+    Types: 
+        dbr:Season
+    
+    
+Individual: sc:hasColour
+
+    Annotations: 
+        rdfs:label "Has colour"@en,
+        rdfs:comment "This property specifies the color a particular clothing item has."@en
+    
+    SameAs: 
+        dbp:colour
+    
+    
+Individual: sc:ClothingTexture
+
+    Annotations: 
+        rdfs:label "Clothing texture"@en
+    
+    Types: 
+        sc:ClothingCharacteristic
+    
+    SameAs: 
+        dbr:Surface_finish
+    
+    
+Individual: dbr:Lace
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: sc:RegularFitTrousers
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/regular-fit-trousers.png"^^xsd:anyURI,
+        rdfs:label "Regular fit trousers"@en
+    
+    Facts:  
+     sc:isSuitableForDressingCode  sc:Conservative
+    
+    
+Individual: sc:funneralPyjama
+
+    Types: 
+        sc:Pyjama
+    
+    Facts:  
+     sc:isSuitableToBeDressedByGenre  dbr:Male,
+     sc:isSuitableToBeDressedAtEvent  sc:Funneral,
+     sc:hasColour  dbr:Black
+    
+    
+Individual: dbr:Summer
+
+    Types: 
+        dbr:Season
+    
+    
+Individual: sc:Pear
+
+    Annotations: 
+        rdfs:label "Pear"@en
+    
+    Types: 
+        sc:BodyShape
+    
+    
+Individual: sc:Hot
+
+    Annotations: 
+        rdfs:label "Hot"@en
+    
+    Types: 
+        dbr:Weather
+    
+    
+Individual: dbr:Nylon
+
+    Types: 
+        sc:SyntheticClothingMaterial
+    
+    
+Individual: sc:pijamalePentruBarbatiSynthetic
+
+    Types: 
+        sc:Pyjama
+    
+    Facts:  
+     sc:isSuitableToBeDressedByGenre  dbr:Male,
+     sc:hasTextileComposition  dbr:Acrylic_fiber,
+     sc:hasTextileComposition  dbr:Nylon,
+     sc:hasColour  dbr:Red,
+     sc:hasTextileComposition  dbr:Polyester,
+     sc:hasTextileComposition  dbr:Spandex,
+     sc:hasTextileComposition  dbr:Satin
+    
+    
+Individual: sc:Jewellery
+
+    Annotations: 
+        rdfs:label "Jewellery"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/jewellery.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedAtEvent  sc:Club,
+     sc:isSuitableToBeDressedAtEvent  sc:Date,
+     sc:isSuitableForDressingCode  sc:Rock
+    
+    
+Individual: dbr:Wool
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: dbr:Catholicism
+
+    Annotations: 
+        rdfs:label "Catholicism"@en
+    
+    Types: 
+        dbr:Religion
+    
+    
+Individual: dbr:Shoe_size
+
+    Types: 
+        sc:ClothingCharacteristic
+    
+    
+Individual: sc:Wet
+
+    Annotations: 
+        rdfs:label "Wet"@en
+    
+    Types: 
+        dbr:Weather
+    
+    
+Individual: dbr:Dress_code
+
+    SameAs: 
+        sc:ClothingStyle
+    
+    
+Individual: sc:Belt
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/belt.png"^^xsd:anyURI,
+        rdfs:label "Belt"@en
+    
+    
+Individual: sc:L
+
+    Annotations: 
+        rdfs:label "L"
+    
+    Types: 
+        dbr:Clothing_sizes
+    
+    
+Individual: dbr:Cold
+
+    Types: 
+        dbr:Weather
+    
+    
+Individual: dbr:Surface_finish
+
+    SameAs: 
+        sc:ClothingTexture
+    
+    
+Individual: dbr:Polyester
+
+    Types: 
+        sc:SyntheticClothingMaterial
+    
+    
+Individual: sc:Gloves
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/glovers.png"^^xsd:anyURI,
+        rdfs:label "Gloves"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  dbr:Cold,
+     sc:isSuitableToBeDressedInSeason  dbr:Winter,
+     sc:isSuitableToBeDressedInSeason  dbr:Autumn
+    
+    
+Individual: sc:BusinessMeeting
+
+    Annotations: 
+        rdfs:label "Business meeting"@en
+    
+    
+Individual: dbr:Elastan
+
+    SameAs: 
+        dbr:Spandex
+    
+    
+Individual: sc:ShoulderBag
+
+    Annotations: 
+        rdfs:label "Shoulder bag"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/shoulder-bag.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedByGenre  dbr:Female
+    
+    
+Individual: sc:Plaid
+
+    Annotations: 
+        rdfs:label "Plaid"@en
+    
+    Types: 
+        sc:ClothingTexture
+    
+    
+Individual: sc:Suit
+
+    Annotations: 
+        rdfs:label "Suit"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/suit.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedAtEvent  sc:Funneral,
+     sc:isSuitableForDressingCode  sc:Conservative,
+     sc:isSuitableToBeDressedByGenre  dbr:Male,
+     sc:isSuitableToBeDressedAtEvent  sc:Wedding,
+     sc:isSuitableToBeDressedAtEvent  sc:BusinessMeeting,
+     sc:isSuitableToBeDressedAtEvent  sc:DinnerParty
+    
+    
+Individual: sc:Rectangle
+
+    Annotations: 
+        rdfs:label "Rectangle"@en
+    
+    Types: 
+        sc:BodyShape
+    
+    
+Individual: sc:Shirt
+
+    Annotations: 
+        rdfs:label "Shirt"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/shirt.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedInSeason  dbr:Summer,
+     sc:isSuitableForDressingCode  sc:Sport,
+     sc:isSuitableForDressingCode  dbr:Casual
+    
+    
+Individual: dbr:Brassiere
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI
+    
+    SameAs: 
+        sc:Bra
+    
+    
+Individual: dbr:Pentecostalism
+
+    Types: 
+        dbr:Religion
+    
+    
+Individual: dbr:Muslim
+
+    Annotations: 
+        rdfs:label "Muslim"@en
+    
+    Types: 
+        dbr:Religion
+    
+    Facts:  
+     sc:religionHasSuitableClothingForDressing  sc:Scarf,
+     sc:religionHasSuitableClothingForDressing  sc:Suit,
+     sc:religionHasSuitableClothingForDressing  sc:Belt,
+     sc:religionHasSuitableClothingForDressing  sc:Umbrella,
+     sc:religionHasSuitableClothingForDressing  sc:Coat,
+     sc:religionHasSuitableClothingForDressing  sc:Underwear
+    
+    
+Individual: sc:Scarf
+
+    Annotations: 
+        rdfs:label "Scarf"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/scarf.png"^^xsd:anyURI
+    
+    
+Individual: dbr:Mohair
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: sc:Sandals
+
+    Annotations: 
+        rdfs:label "Sandals"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sandals.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  sc:Dry,
+     sc:isSuitableToBeDressedOnWeather  sc:Clear,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer
+    
+    
+Individual: sc:Flats
+
+    Annotations: 
+        rdfs:label "Flats"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  sc:Hot,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer,
+     sc:isSuitableForDressingCode  dbr:Casual,
+     sc:isSuitableToBeDressedByGenre  dbr:Female
+    
+    
+Individual: dbr:Baptism
+
+    Types: 
+        dbr:Religion
+    
+    
+Individual: dbr:Male
+
+    Annotations: 
+        rdfs:label "Male"@en
+    
+    Types: 
+        dbr:Genre
+    
+    
+Individual: sc:Bra
+
+    Annotations: 
+        rdfs:label "Bra"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedByGenre  dbr:Female
+    
+    SameAs: 
+        dbr:Brassiere
+    
+    
+Individual: sc:XL
+
+    Annotations: 
+        rdfs:label "XL"
+    
+    Types: 
+        dbr:Clothing_sizes
+    
+    
+Individual: sc:ClothingMaterial
+
+    Annotations: 
+        rdfs:label "Clothing material"@en,
+        rdfs:comment "The basic materials from which clothes are made of."@en
+    
+    Types: 
+        sc:ClothingCharacteristic
+    
+    
+Individual: sc:Underwear
+
+    Annotations: 
+        rdfs:label "Underwear"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/underwear.png"^^xsd:anyURI
+    
+    
+Individual: dbr:Leather
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: sc:Wedding
+
+    Annotations: 
+        rdfs:label "Wedding"@en
+    
+    
+Individual: sc:Necklace
+
+    Annotations: 
+        rdfs:label "Necklace"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/necklace.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedByGenre  dbr:Female
+    
+    
+Individual: dbr:Hinduism
+
+    Annotations: 
+        rdfs:label "Hinduism"@en
+    
+    Types: 
+        dbr:Religion
+    
+    
+Individual: dbr:Black
+
+    
+Individual: dbr:Spandex
+
+    Types: 
+        sc:SyntheticClothingMaterial
+    
+    SameAs: 
+        dbr:Elastan,
+        dbr:Lycra
+    
+    
+Individual: sc:Conservative
+
+    Annotations: 
+        rdfs:label "Conservative dress code"@en,
+        rdfs:comment "This individual specifies that a particular clothing item is suitable for the Conservative dressing code."@en
+    
+    Types: 
+        sc:ClothingStyle,
+        dbr:Dress_code
+    
+    
+Individual: sc:Dress
+
+    Annotations: 
+        rdfs:label "Dress"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/dress.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  sc:Clear,
+     sc:isSuitableForDressingCode  sc:Conservative,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer,
+     sc:isSuitableToBeDressedOnWeather  sc:Hot,
+     sc:isSuitableToBeDressedByGenre  dbr:Female,
+     sc:isSuitableToBeDressedAtEvent  sc:DinnerParty,
+     sc:isSuitableToBeDressedInSeason  dbr:Spring,
+     sc:isSuitableToBeDressedAtEvent  sc:Wedding,
+     sc:isSuitableToBeDressedAtEvent  sc:Date,
+     sc:isSuitableToBeDressedAtEvent  sc:Club,
+     sc:isSuitableToBeDressedAtEvent  sc:BusinessMeeting
+    
+    
+Individual: sc:AnkleBoots
+
+    Annotations: 
+        rdfs:label "Ankle boots"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/ankle-boots.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedAtEvent  sc:Date,
+     sc:isSuitableToBeDressedInSeason  dbr:Autumn,
+     sc:isSuitableToBeDressedAtEvent  sc:Club,
+     sc:isSuitableToBeDressedInSeason  dbr:Spring,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer,
+     sc:isSuitableToBeDressedByGenre  dbr:Female
+    
+    
+Individual: sc:Flowe
+
+    Annotations: 
+        rdfs:label "Flowe"@en
+    
+    Types: 
+        sc:ClothingTexture
+    
+    
+Individual: sc:Funneral
+
+    Annotations: 
+        rdfs:label "Funneral"@en
+    
+    
+Individual: dbr:Casual
+
+    Annotations: 
+        rdfs:label "Casual dress code"@en
+    
+    Types: 
+        dbr:Dress_code,
+        sc:ClothingStyle
+    
+    
+Individual: dbr:Lycra
+
+    SameAs: 
+        dbr:Spandex
+    
+    
+Individual: dbr:Paganism
+
+    Types: 
+        dbr:Religion
+    
+    
+Individual: sc:pijamalePentruFemeiNatural
+
+    Types: 
+        sc:Pyjama
+    
+    Facts:  
+     sc:hasTextileComposition  dbr:Silk,
+     sc:hasTextileComposition  dbr:Mohair,
+     sc:isSuitableToBeDressedByGenre  dbr:Female
+    
+    
+Individual: sc:size42EU
+
+    Annotations: 
+        rdfs:label "42 EU"
+    
+    Types: 
+        dbr:Clothing_sizes
+    
+    
+Individual: sc:Rock
+
+    Annotations: 
+        rdfs:comment "This individual specifies that a particular clothing item is suitable for the Rock dressing code."@en,
+        rdfs:label "Rock dress code"@en
+    
+    Types: 
+        sc:ClothingStyle,
+        dbr:Dress_code
+    
+    
+Individual: dbr:Female
+
+    Annotations: 
+        rdfs:label "Female"@en
+    
+    Types: 
+        dbr:Genre
+    
+    
+Individual: sc:Bag
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/bag.png"^^xsd:anyURI,
+        rdfs:label "Bag"@en
+    
+    Facts:  
+     sc:isSuitableForDressingCode  dbr:Casual,
+     sc:isSuitableForDressingCode  sc:Conservative
+    
+    
+Individual: dbr:Cotton
+
+    Types: 
+        sc:NaturalClothingMaterial
+    
+    
+Individual: sc:Skirt
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/skirt.png"^^xsd:anyURI,
+        rdfs:label "Skirt"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedAtEvent  sc:BusinessMeeting,
+     sc:isSuitableToBeDressedAtEvent  sc:Date,
+     sc:isSuitableToBeDressedInSeason  dbr:Spring,
+     sc:isSuitableToBeDressedByGenre  dbr:Female,
+     sc:isSuitableToBeDressedAtEvent  sc:DinnerParty,
+     sc:isSuitableToBeDressedAtEvent  sc:Wedding,
+     sc:isSuitableToBeDressedOnWeather  sc:Hot,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer,
+     sc:isSuitableToBeDressedOnWeather  sc:Clear,
+     sc:isSuitableToBeDressedAtEvent  sc:Funneral
+    
+    
+Individual: sc:Sunglasses
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sunglasses.png"^^xsd:anyURI,
+        rdfs:label "Sunglasses"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  sc:Clear,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer,
+     sc:isSuitableToBeDressedOnWeather  sc:Hot
+    
+    
+Individual: dbr:Cloudy
+
+    Annotations: 
+        rdfs:label "Cloudy"@en
+    
+    Types: 
+        dbr:Weather
+    
+    
+Individual: sc:Umbrella
+
+    Annotations: 
+        rdfs:label "Umbrella"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/Umbrella.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  sc:Cloudy,
+     sc:isSuitableToBeDressedOnWeather  sc:Wet
+    
+    
+Individual: sc:Earrings
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/earrings.png"^^xsd:anyURI,
+        rdfs:label "Earrings"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedByGenre  dbr:Female
+    
+    
+Individual: sc:Moccasins
+
+    Annotations: 
+        rdfs:label "Mocassins"@en,
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/mocassins.png"^^xsd:anyURI
+    
+    Facts:  
+     sc:isSuitableToBeDressedOnWeather  sc:Clear,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer,
+     sc:isSuitableToBeDressedInSeason  dbr:Spring
+    
+    
+Individual: dbr:Red
+
+    
+Individual: sc:Sneakers
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/sneakers.png"^^xsd:anyURI,
+        rdfs:label "Sneakers"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedInSeason  dbr:Autumn,
+     sc:isSuitableToBeDressedInSeason  dbr:Spring,
+     sc:isSuitableToBeDressedAtEvent  sc:Club,
+     sc:isSuitableToBeDressedOnWeather  sc:Clear,
+     sc:isSuitableForDressingCode  sc:Sport,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer
+    
+    
+Individual: sc:HighHeels
+
+    Annotations: 
+        dbo:thumbnail "http://students.info.uaic.ro/~oana.gagea/images-wade/hight-heels.png"^^xsd:anyURI,
+        rdfs:label "High-heels"@en
+    
+    Facts:  
+     sc:isSuitableToBeDressedAtEvent  sc:Date,
+     sc:isSuitableToBeDressedAtEvent  sc:Club,
+     sc:isSuitableToBeDressedByBodyShape  sc:Rectangle,
+     sc:isSuitableToBeDressedByGenre  dbr:Female,
+     sc:isSuitableToBeDressedByBodyShape  sc:Hourglass,
+     sc:isSuitableToBeDressedInSeason  dbr:Summer,
+     sc:isSuitableToBeDressedAtEvent  sc:DinnerParty,
+     sc:isSuitableToBeDressedAtEvent  sc:Wedding,
+     sc:isSuitableToBeDressedAtEvent  sc:BusinessMeeting,
+     sc:isSuitableToBeDressedByBodyShape  sc:Apple
+    
+    
+DisjointClasses: 
+    dbo:Colour, dbo:Event, dbr:Clothing, dbr:Clothing_sizes, dbr:Genre, dbr:Raw_material, dbr:Season, dbr:Shape, dbr:Weather, sc:ClothingStyle
+

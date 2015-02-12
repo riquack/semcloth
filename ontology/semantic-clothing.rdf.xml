@@ -2,11 +2,14 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY sioc "http://rdfs.org/sioc/ns#" >
+    <!ENTITY muto "http://purl.org/muto/core#" >
     <!ENTITY dbo "http://dbpedia.org/ontology/" >
     <!ENTITY dbr "http://dbpedia.org/resource/" >
     <!ENTITY dbp "http://dbpedia.org/property/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY gr "http://purl.org/goodrelations/v1#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
@@ -18,22 +21,35 @@
 
 <rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#"
      xml:base="http://www.semanticweb.org/ontologies/2015/02/semcloth.owl"
-     xmlns:sc="http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#"
-     xmlns:dbo="http://dbpedia.org/ontology/"
-     xmlns:dbp="http://dbpedia.org/property/"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:dbr="http://dbpedia.org/resource/"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:gr="http://purl.org/goodrelations/v1#"
+     xmlns:sc="http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#"
+     xmlns:dbo="http://dbpedia.org/ontology/"
+     xmlns:muto="http://purl.org/muto/core#"
+     xmlns:dbp="http://dbpedia.org/property/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:dbr="http://dbpedia.org/resource/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:sioc="http://rdfs.org/sioc/ns#">
     <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/2015/02/semcloth.owl">
-        <rdfs:label rdf:datatype="&xsd;string">A common vocabular for clothing items.</rdfs:label>
-        <rdfs:label rdf:datatype="&xsd;string">Semantic Clothing Ontology</rdfs:label>
-        <dc:date rdf:datatype="&xsd;dateTime">2015</dc:date>
-        <dc:creator rdf:datatype="&xsd;string">Daniel Amariei, Oana Gagea, Iordan Rață.</dc:creator>
+        <rdfs:label xml:lang="en">A common vocabulary for clothing items.</rdfs:label>
+        <rdfs:label xml:lang="en">Semantic Clothing Ontology</rdfs:label>
+        <dc:date rdf:datatype="&xsd;gYearMonth">2015-02</dc:date>
+        <dc:bibliographicCitation xml:lang="en">*** H&amp;M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)</dc:bibliographicCitation>
+        <dc:bibliographicCitation xml:lang="en">***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support).</dc:bibliographicCitation>
+        <dc:bibliographicCitation xml:lang="en">***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the &apos;body shapes&apos; part of the ontology)</dc:bibliographicCitation>
+        <dc:bibliographicCitation xml:lang="en">***, W3C, http://www.w3.org/2001/sw/</dc:bibliographicCitation>
+        <dc:bibliographicCitation xml:lang="en">***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)</dc:bibliographicCitation>
+        <dc:bibliographicCitation xml:lang="en">***, flaticon, http://www.flaticon.com/ (Icons for the clothes)</dc:bibliographicCitation>
+        <dc:creator xml:lang="en">Daniel Amariei</dc:creator>
+        <dc:contributor xml:lang="en">Ioana Bîrsan</dc:contributor>
+        <dc:contributor xml:lang="en">Iordan Rață</dc:contributor>
+        <dc:contributor xml:lang="en">Oana Gagea</dc:contributor>
+        <rdfs:comment xml:lang="en">The purpose of this ontology is to create the common conceptual framwork for &apos;talking&apos; about clothing or related concepts.</rdfs:comment>
     </owl:Ontology>
     
 
@@ -49,6 +65,12 @@
     
 
 
+    <!-- http://dbpedia.org/ontology/thumbnail -->
+
+    <owl:AnnotationProperty rdf:about="&dbo;thumbnail"/>
+    
+
+
     <!-- http://purl.org/dc/elements/1.1/creator -->
 
     <owl:AnnotationProperty rdf:about="&dc;creator"/>
@@ -58,6 +80,24 @@
     <!-- http://purl.org/dc/elements/1.1/date -->
 
     <owl:AnnotationProperty rdf:about="&dc;date"/>
+    
+
+
+    <!-- http://rdfs.org/sioc/ns#note -->
+
+    <owl:AnnotationProperty rdf:about="&sioc;note"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#domain -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;domain"/>
     
 
 
@@ -81,7 +121,55 @@
     <!-- http://dbpedia.org/property/dressSize -->
 
     <owl:ObjectProperty rdf:about="&dbp;dressSize">
+        <rdfs:label xml:lang="en">Dress size</rdfs:label>
+        <rdfs:range rdf:resource="&dbr;Clothing_sizes"/>
+        <rdfs:domain rdf:resource="&sc;Dress"/>
         <rdfs:subPropertyOf rdf:resource="&sc;hasSize"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#bodyShapeHasSuitableClothingForDressing -->
+
+    <owl:ObjectProperty rdf:about="&sc;bodyShapeHasSuitableClothingForDressing">
+        <rdfs:label xml:lang="en">Body shape has suitable clothing for dressing</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the clothing item(s) that is/are suitable for a particular body shape.</rdfs:comment>
+        <rdfs:range rdf:resource="&dbr;Clothing"/>
+        <rdfs:domain rdf:resource="&sc;BodyShape"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#dressingCodeHasSuitableClothingForDressing -->
+
+    <owl:ObjectProperty rdf:about="&sc;dressingCodeHasSuitableClothingForDressing">
+        <rdfs:label xml:lang="en">Dressing code has suitable clothing for dressing</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the clothing item(s) that is/are suitable for a particular dressing code.</rdfs:comment>
+        <rdfs:range rdf:resource="&dbr;Clothing"/>
+        <rdfs:domain rdf:resource="&dbr;Dress_code"/>
+        <rdfs:domain rdf:resource="&sc;ClothingStyle"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#eventHasSuitableClothingForDressing -->
+
+    <owl:ObjectProperty rdf:about="&sc;eventHasSuitableClothingForDressing">
+        <rdfs:label xml:lang="en">Event has suitable clothing for dressing</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the clothing item(s) that is/are suitable for a particular event.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbo;Event"/>
+        <rdfs:range rdf:resource="&dbr;Clothing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#genreHasSuitableClothingForDressing -->
+
+    <owl:ObjectProperty rdf:about="&sc;genreHasSuitableClothingForDressing">
+        <rdfs:label xml:lang="en">Genre has suitable clothing for dressing</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the clothing item(s) that is/are suitable for a particular genre.</rdfs:comment>
+        <rdfs:range rdf:resource="&dbr;Clothing"/>
+        <rdfs:domain rdf:resource="&dbr;Genre"/>
     </owl:ObjectProperty>
     
 
@@ -89,9 +177,10 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour -->
 
     <owl:ObjectProperty rdf:about="&sc;hasColour">
-        <rdfs:label rdf:datatype="&xsd;string">Has colour</rdfs:label>
-        <rdfs:range rdf:resource="&dbr;Color"/>
-        <rdfs:domain rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Has colour</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the color a particular clothing item has.</rdfs:comment>
+        <rdfs:range rdf:resource="&dbo;Colour"/>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
     </owl:ObjectProperty>
     
 
@@ -99,11 +188,11 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasSize -->
 
     <owl:ObjectProperty rdf:about="&sc;hasSize">
-        <rdfs:label rdf:datatype="&xsd;string">Has size</rdfs:label>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has size</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the size of a particular clothing item.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
         <rdfs:range rdf:resource="&dbr;Clothing_sizes"/>
-        <rdfs:range rdf:resource="&dbr;Shoe_size"/>
-        <rdfs:domain rdf:resource="&sc;Clothing"/>
-        <rdfs:domain rdf:resource="&sc;Shoes"/>
     </owl:ObjectProperty>
     
 
@@ -111,60 +200,152 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTextileComposition -->
 
     <owl:ObjectProperty rdf:about="&sc;hasTextileComposition">
-        <rdfs:label rdf:datatype="&xsd;string">Has textile composition</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">This property denotes the materials from which a clothing item is composed of.</rdfs:comment>
+        <rdfs:label xml:lang="en">Has textile composition</rdfs:label>
+        <rdfs:comment xml:lang="en">This property denotes the materials from which a clothing item is composed of.</rdfs:comment>
         <rdfs:subPropertyOf rdf:resource="&dbp;composition"/>
-        <rdfs:domain rdf:resource="&sc;Clothing"/>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
         <rdfs:range rdf:resource="&sc;ClothingMaterial"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForBodyShape -->
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTexture -->
 
-    <owl:ObjectProperty rdf:about="&sc;isSuitableForBodyShape">
-        <rdfs:label rdf:datatype="&xsd;string">Is suitable for body shape</rdfs:label>
+    <owl:ObjectProperty rdf:about="&sc;hasTexture">
+        <rdfs:label>Has texture</rdfs:label>
+        <rdfs:comment xml:lang="en">Specifies the texture of the clothing item.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
+        <rdfs:range rdf:resource="&sc;ClothingTexture"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForEvent -->
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isManufacteredBy -->
 
-    <owl:ObjectProperty rdf:about="&sc;isSuitableForEvent">
-        <rdfs:label rdf:datatype="&xsd;string">Is suitable for event</rdfs:label>
+    <owl:ObjectProperty rdf:about="&sc;isManufacteredBy">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Is manufactured by</rdfs:label>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
+        <rdfs:range rdf:resource="&gr;BusinessEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForDressingCode -->
+
+    <owl:ObjectProperty rdf:about="&sc;isSuitableForDressingCode">
+        <rdfs:label xml:lang="en">Is suitable for dressing code</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
+        <rdfs:range rdf:resource="&dbr;Dress_code"/>
+        <rdfs:range rdf:resource="&sc;ClothingStyle"/>
+        <owl:inverseOf rdf:resource="&sc;dressingCodeHasSuitableClothingForDressing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForDressingForReligion -->
+
+    <owl:ObjectProperty rdf:about="&sc;isSuitableForDressingForReligion">
+        <rdfs:label xml:lang="en">Is suitable for dressing for religion</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifis the religion for which a particular clothing item and/or class is/are suitable for.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
+        <rdfs:range rdf:resource="&dbr;Religion"/>
+        <owl:inverseOf rdf:resource="&sc;religionHasSuitableClothingForDressing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedAtEvent -->
+
+    <owl:ObjectProperty rdf:about="&sc;isSuitableToBeDressedAtEvent">
+        <rdfs:label xml:lang="en">Is suitable to be dressed at event</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the Event for which a particular clothing item and/or class is/are suitable for.</rdfs:comment>
         <rdfs:range rdf:resource="&dbo;Event"/>
-        <rdfs:domain rdf:resource="&sc;Clothing"/>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
+        <owl:inverseOf rdf:resource="&sc;eventHasSuitableClothingForDressing"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForGenre -->
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByBodyShape -->
 
-    <owl:ObjectProperty rdf:about="&sc;isSuitableForGenre">
-        <rdfs:label rdf:datatype="&xsd;string">Is suitable for genre</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes</rdfs:comment>
+    <owl:ObjectProperty rdf:about="&sc;isSuitableToBeDressedByBodyShape">
+        <rdfs:label xml:lang="en">Is suitable to be dressed by body shape</rdfs:label>
+        <rdfs:comment xml:lang="en">Stipulates for which body shape a particular clothing item and/or class is/are suitable for.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
+        <rdfs:range rdf:resource="&sc;BodyShape"/>
+        <owl:inverseOf rdf:resource="&sc;bodyShapeHasSuitableClothingForDressing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByGenre -->
+
+    <owl:ObjectProperty rdf:about="&sc;isSuitableToBeDressedByGenre">
+        <rdfs:label xml:lang="en">Is suitable to be dressed by genre</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
         <rdfs:range rdf:resource="&dbr;Genre"/>
-        <rdfs:domain rdf:resource="&sc;Clothing"/>
+        <owl:inverseOf rdf:resource="&sc;genreHasSuitableClothingForDressing"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForSeason -->
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedInSeason -->
 
-    <owl:ObjectProperty rdf:about="&sc;isSuitableForSeason">
-        <rdfs:label rdf:datatype="&xsd;string">Is suitable for season</rdfs:label>
+    <owl:ObjectProperty rdf:about="&sc;isSuitableToBeDressedInSeason">
+        <rdfs:label xml:lang="en">Is suitable to be dressed in season</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the season for which a particular clothing item and/or class is/are suitable for.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
         <rdfs:range rdf:resource="&dbr;Season"/>
-        <rdfs:domain rdf:resource="&sc;Clothing"/>
+        <owl:inverseOf rdf:resource="&sc;seasonHasSuitableClothingForDressing"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableForWeather -->
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedOnWeather -->
 
-    <owl:ObjectProperty rdf:about="&sc;isSuitableForWeather">
-        <rdfs:label rdf:datatype="&xsd;string">Is suitable for weather conditions</rdfs:label>
+    <owl:ObjectProperty rdf:about="&sc;isSuitableToBeDressedOnWeather">
+        <rdfs:label xml:lang="en">Is suitable to be dressed in weather conditions</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for.</rdfs:comment>
+        <rdfs:domain rdf:resource="&dbr;Clothing"/>
         <rdfs:range rdf:resource="&dbr;Weather"/>
-        <rdfs:domain rdf:resource="&sc;Clothing"/>
+        <owl:inverseOf rdf:resource="&sc;weatherHasSuitableClothingForDressing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#religionHasSuitableClothingForDressing -->
+
+    <owl:ObjectProperty rdf:about="&sc;religionHasSuitableClothingForDressing">
+        <rdfs:label xml:lang="en">Religion has suitable clothing for dressing</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifis the clothing that is suitable for a particular religion.</rdfs:comment>
+        <rdfs:range rdf:resource="&dbr;Clothing"/>
+        <rdfs:domain rdf:resource="&dbr;Religion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#seasonHasSuitableClothingForDressing -->
+
+    <owl:ObjectProperty rdf:about="&sc;seasonHasSuitableClothingForDressing">
+        <rdfs:label xml:lang="en">Season has suitable clothing for dressing</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the clothing item(s) that is/are suitable for a particular season.</rdfs:comment>
+        <rdfs:range rdf:resource="&dbr;Clothing"/>
+        <rdfs:domain rdf:resource="&dbr;Season"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#weatherHasSuitableClothingForDressing -->
+
+    <owl:ObjectProperty rdf:about="&sc;weatherHasSuitableClothingForDressing">
+        <rdfs:label xml:lang="en">Weather has suitable clothing for dressing</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the clothing item(s) that is/are suitable for a particular weather condition.</rdfs:comment>
+        <rdfs:range rdf:resource="&dbr;Clothing"/>
+        <rdfs:domain rdf:resource="&dbr;Weather"/>
     </owl:ObjectProperty>
     
 
@@ -180,9 +361,50 @@
     
 
 
+    <!-- http://dbpedia.org/ontology/Colour -->
+
+    <owl:Class rdf:about="&dbo;Colour"/>
+    
+
+
     <!-- http://dbpedia.org/ontology/Event -->
 
-    <owl:Class rdf:about="&dbo;Event"/>
+    <owl:Class rdf:about="&dbo;Event">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;BusinessMeeting"/>
+            <rdf:Description rdf:about="&sc;Club"/>
+            <rdf:Description rdf:about="&sc;Date"/>
+            <rdf:Description rdf:about="&sc;Funneral"/>
+            <rdf:Description rdf:about="&sc;PyjamaParty"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/resource/Clothing -->
+
+    <owl:Class rdf:about="&dbr;Clothing">
+        <rdfs:label xml:lang="en">Clothing</rdfs:label>
+        <rdfs:comment xml:lang="en">Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items.</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;Accessory"/>
+            <rdf:Description rdf:about="&sc;Blazer"/>
+            <rdf:Description rdf:about="&sc;Coat"/>
+            <rdf:Description rdf:about="&sc;Dress"/>
+            <rdf:Description rdf:about="&sc;Gloves"/>
+            <rdf:Description rdf:about="&sc;Jeans"/>
+            <rdf:Description rdf:about="&sc;Pyjama"/>
+            <rdf:Description rdf:about="&sc;Raincoat"/>
+            <rdf:Description rdf:about="&sc;Shirt"/>
+            <rdf:Description rdf:about="&sc;Shoes"/>
+            <rdf:Description rdf:about="&sc;Skirt"/>
+            <rdf:Description rdf:about="&sc;Suit"/>
+            <rdf:Description rdf:about="&sc;TShirt"/>
+            <rdf:Description rdf:about="&sc;Top"/>
+            <rdf:Description rdf:about="&sc;Trousers"/>
+            <rdf:Description rdf:about="&sc;Underwear"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
     
 
 
@@ -192,15 +414,37 @@
     
 
 
-    <!-- http://dbpedia.org/resource/Color -->
+    <!-- http://dbpedia.org/resource/Dress_code -->
 
-    <owl:Class rdf:about="&dbr;Color"/>
+    <owl:Class rdf:about="&dbr;Dress_code"/>
+    
+
+
+    <!-- http://dbpedia.org/resource/Female -->
+
+    <owl:Class rdf:about="&dbr;Female">
+        <rdfs:label xml:lang="en">Female</rdfs:label>
+        <owl:disjointWith rdf:resource="&dbr;Male"/>
+    </owl:Class>
     
 
 
     <!-- http://dbpedia.org/resource/Genre -->
 
-    <owl:Class rdf:about="&dbr;Genre"/>
+    <owl:Class rdf:about="&dbr;Genre">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&dbr;Female"/>
+            <rdf:Description rdf:about="&dbr;Male"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/resource/Male -->
+
+    <owl:Class rdf:about="&dbr;Male">
+        <rdfs:label xml:lang="en">Male</rdfs:label>
+    </owl:Class>
     
 
 
@@ -210,15 +454,21 @@
     
 
 
+    <!-- http://dbpedia.org/resource/Religion -->
+
+    <owl:Class rdf:about="&dbr;Religion"/>
+    
+
+
     <!-- http://dbpedia.org/resource/Season -->
 
     <owl:Class rdf:about="&dbr;Season"/>
     
 
 
-    <!-- http://dbpedia.org/resource/Shoe_size -->
+    <!-- http://dbpedia.org/resource/Shape -->
 
-    <owl:Class rdf:about="&dbr;Shoe_size"/>
+    <owl:Class rdf:about="&dbr;Shape"/>
     
 
 
@@ -230,11 +480,28 @@
     
 
 
+    <!-- http://purl.org/goodrelations/v1#BusinessEntity -->
+
+    <owl:Class rdf:about="&gr;BusinessEntity"/>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Accessory -->
 
     <owl:Class rdf:about="&sc;Accessory">
-        <rdfs:label rdf:datatype="&xsd;string">Accessory</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Accessory</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/accesory.png</dbo:thumbnail>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;Bag"/>
+            <rdf:Description rdf:about="&sc;Belt"/>
+            <rdf:Description rdf:about="&sc;Hat"/>
+            <rdf:Description rdf:about="&sc;Jewellery"/>
+            <rdf:Description rdf:about="&sc;Scarf"/>
+            <rdf:Description rdf:about="&sc;Sunglasses"/>
+            <rdf:Description rdf:about="&sc;Tie"/>
+            <rdf:Description rdf:about="&sc;Umbrella"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -242,8 +509,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#AnkleBoots -->
 
     <owl:Class rdf:about="&sc;AnkleBoots">
-        <rdfs:label rdf:datatype="&xsd;string">Ankle boots</rdfs:label>
+        <rdfs:label xml:lang="en">Ankle boots</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Shoes"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/ankle-boots.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -251,8 +519,13 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bag -->
 
     <owl:Class rdf:about="&sc;Bag">
-        <rdfs:label rdf:datatype="&xsd;string">Bag</rdfs:label>
+        <rdfs:label xml:lang="en">Bag</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Accessory"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/bag.png</dbo:thumbnail>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;Handbag"/>
+            <rdf:Description rdf:about="&sc;ShoulderBag"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -260,8 +533,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Belt -->
 
     <owl:Class rdf:about="&sc;Belt">
-        <rdfs:label rdf:datatype="&xsd;string">Belt</rdfs:label>
+        <rdfs:label xml:lang="en">Belt</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Accessory"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/belt.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -269,8 +543,19 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Blazer -->
 
     <owl:Class rdf:about="&sc;Blazer">
-        <rdfs:label rdf:datatype="&xsd;string">Blazer</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Blazer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/blazer-1.png</dbo:thumbnail>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BodyShape -->
+
+    <owl:Class rdf:about="&sc;BodyShape">
+        <rdfs:label xml:lang="en">Body shape</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Shape"/>
+        <rdfs:comment xml:lang="en">The class of body shapes a person can have.</rdfs:comment>
     </owl:Class>
     
 
@@ -278,8 +563,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bodysuit -->
 
     <owl:Class rdf:about="&sc;Bodysuit">
-        <rdfs:label rdf:datatype="&xsd;string">Bodysuit</rdfs:label>
+        <rdfs:label xml:lang="en">Bodysuit</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Lingerie"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/bodysuit.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -287,8 +573,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Boots -->
 
     <owl:Class rdf:about="&sc;Boots">
-        <rdfs:label rdf:datatype="&xsd;string">Boots</rdfs:label>
+        <rdfs:label xml:lang="en">Boots</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Shoes"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/boots.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -296,8 +583,14 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bra -->
 
     <owl:Class rdf:about="&sc;Bra">
-        <rdfs:label rdf:datatype="&xsd;string">Bra</rdfs:label>
+        <rdfs:label xml:lang="en">Bra</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Lingerie"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</dbo:thumbnail>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;PushUpBra"/>
+            <rdf:Description rdf:about="&sc;ShapeLingerie"/>
+            <rdf:Description rdf:about="&sc;SportBra"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -305,8 +598,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bracelet -->
 
     <owl:Class rdf:about="&sc;Bracelet">
-        <rdfs:label rdf:datatype="&xsd;string">Bracelet</rdfs:label>
+        <rdfs:label xml:lang="en">Bracelet</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Jewellery"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/bracelet.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -314,8 +608,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Briefs -->
 
     <owl:Class rdf:about="&sc;Briefs">
-        <rdfs:label rdf:datatype="&xsd;string">Briefs</rdfs:label>
+        <rdfs:label xml:lang="en">Briefs</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Lingerie"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/briefs.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -323,17 +618,8 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BusinessMeeting -->
 
     <owl:Class rdf:about="&sc;BusinessMeeting">
-        <rdfs:label rdf:datatype="&xsd;string">Business meeting</rdfs:label>
+        <rdfs:label xml:lang="en">Business meeting</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dbo;Event"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Clothing -->
-
-    <owl:Class rdf:about="&sc;Clothing">
-        <rdfs:label rdf:datatype="&xsd;string">Clothing</rdfs:label>
-        <rdfs:comment rdf:datatype="&xsd;string">Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items.</rdfs:comment>
     </owl:Class>
     
 
@@ -341,7 +627,15 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingCharacteristic -->
 
     <owl:Class rdf:about="&sc;ClothingCharacteristic">
-        <rdfs:label rdf:datatype="&xsd;string">Clothing characteristic</rdfs:label>
+        <rdfs:label xml:lang="en">Clothing characteristic</rdfs:label>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&dbo;Colour"/>
+            <rdf:Description rdf:about="&dbr;Clothing_sizes"/>
+            <rdf:Description rdf:about="&sc;BodyShape"/>
+            <rdf:Description rdf:about="&sc;ClothingMaterial"/>
+            <rdf:Description rdf:about="&sc;ClothingStyle"/>
+            <rdf:Description rdf:about="&sc;ClothingTexture"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -349,69 +643,30 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingMaterial -->
 
     <owl:Class rdf:about="&sc;ClothingMaterial">
-        <rdfs:label rdf:datatype="&xsd;string">Clothing material</rdfs:label>
+        <rdfs:label xml:lang="en">Clothing material</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dbr;Raw_material"/>
-        <rdfs:comment rdf:datatype="&xsd;string">The basic materials from which clothes are made of.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The basic materials from which clothes are made of.</rdfs:comment>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;NaturalClothingMaterial"/>
+            <rdf:Description rdf:about="&sc;SyntheticClothingMaterial"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingsWithAllNaturalMaterials -->
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingStyle -->
 
-    <owl:Class rdf:about="&sc;ClothingsWithAllNaturalMaterials">
-        <rdfs:label>Clothings with all natural materials.</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&sc;hasTextileComposition"/>
-                <owl:allValuesFrom rdf:resource="&sc;NaturalClothingMaterial"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+    <owl:Class rdf:about="&sc;ClothingStyle">
+        <rdfs:label xml:lang="en">Clothing style</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for.</rdfs:comment>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingsWithAllSyntheticMaterials -->
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingTexture -->
 
-    <owl:Class rdf:about="&sc;ClothingsWithAllSyntheticMaterials">
-        <rdfs:label>Clothings with all syntetic materials.</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&sc;hasTextileComposition"/>
-                <owl:allValuesFrom rdf:resource="&sc;SyntheticClothingMaterial"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingsWithAtLeastOneNaturalMaterial -->
-
-    <owl:Class rdf:about="&sc;ClothingsWithAtLeastOneNaturalMaterial">
-        <rdfs:label>Clothings with at least one natural material.</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&sc;hasTextileComposition"/>
-                <owl:someValuesFrom rdf:resource="&sc;NaturalClothingMaterial"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingsWithAtLeastOneSyntheticMaterial -->
-
-    <owl:Class rdf:about="&sc;ClothingsWithAtLeastOneSyntheticMaterial">
-        <rdfs:label>Clothings with at least one synthetic material.</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&sc;hasTextileComposition"/>
-                <owl:someValuesFrom rdf:resource="&sc;SyntheticClothingMaterial"/>
-            </owl:Restriction>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+    <owl:Class rdf:about="&sc;ClothingTexture">
+        <rdfs:label xml:lang="en">Clothing texture</rdfs:label>
     </owl:Class>
     
 
@@ -419,7 +674,7 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club -->
 
     <owl:Class rdf:about="&sc;Club">
-        <rdfs:label rdf:datatype="&xsd;string">Club</rdfs:label>
+        <rdfs:label xml:lang="en">Club</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dbo;Event"/>
     </owl:Class>
     
@@ -428,8 +683,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Coat -->
 
     <owl:Class rdf:about="&sc;Coat">
-        <rdfs:label rdf:datatype="&xsd;string">Coat</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Coat</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/coat.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -437,7 +693,16 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Date -->
 
     <owl:Class rdf:about="&sc;Date">
-        <rdfs:label rdf:datatype="&xsd;string">Date</rdfs:label>
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbo;Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#DinnerParty -->
+
+    <owl:Class rdf:about="&sc;DinnerParty">
+        <rdfs:label xml:lang="en">Dinner party</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dbo;Event"/>
     </owl:Class>
     
@@ -446,8 +711,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dress -->
 
     <owl:Class rdf:about="&sc;Dress">
-        <rdfs:label rdf:datatype="&xsd;string">Dress</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Dress</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/dress.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -455,8 +721,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Earrings -->
 
     <owl:Class rdf:about="&sc;Earrings">
-        <rdfs:label rdf:datatype="&xsd;string">Earrings</rdfs:label>
+        <rdfs:label xml:lang="en">Earrings</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Jewellery"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/earrings.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -464,7 +731,7 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flats -->
 
     <owl:Class rdf:about="&sc;Flats">
-        <rdfs:label rdf:datatype="&xsd;string">Flats</rdfs:label>
+        <rdfs:label xml:lang="en">Flats</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Shoes"/>
     </owl:Class>
     
@@ -473,8 +740,32 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Funneral -->
 
     <owl:Class rdf:about="&sc;Funneral">
-        <rdfs:label rdf:datatype="&xsd;string">Funneral</rdfs:label>
+        <rdfs:label xml:lang="en">Funneral</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dbo;Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#FunneralClothing -->
+
+    <owl:Class rdf:about="&sc;FunneralClothing">
+        <rdfs:label xml:lang="en">Funneral clothing</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&sc;hasColour"/>
+                        <owl:hasValue rdf:resource="&dbr;Black"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&sc;isSuitableToBeDressedAtEvent"/>
+                        <owl:hasValue rdf:resource="&sc;Funneral"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <rdfs:comment xml:lang="en">Clothing that is suitable for a funneral.</rdfs:comment>
     </owl:Class>
     
 
@@ -482,8 +773,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Gloves -->
 
     <owl:Class rdf:about="&sc;Gloves">
-        <rdfs:label rdf:datatype="&xsd;string">Gloves</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Gloves</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/glovers.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -491,8 +783,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Handbag -->
 
     <owl:Class rdf:about="&sc;Handbag">
-        <rdfs:label rdf:datatype="&xsd;string">Handbag</rdfs:label>
+        <rdfs:label xml:lang="en">Handbag</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Bag"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/handbag.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -500,8 +793,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Hat -->
 
     <owl:Class rdf:about="&sc;Hat">
-        <rdfs:label rdf:datatype="&xsd;string">Hat</rdfs:label>
+        <rdfs:label xml:lang="en">Hat</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Accessory"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/hat.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -509,8 +803,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#HighHeels -->
 
     <owl:Class rdf:about="&sc;HighHeels">
-        <rdfs:label rdf:datatype="&xsd;string">High-heels</rdfs:label>
+        <rdfs:label xml:lang="en">High-heels</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Shoes"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/hight-heels.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -518,7 +813,7 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Interview -->
 
     <owl:Class rdf:about="&sc;Interview">
-        <rdfs:label rdf:datatype="&xsd;string">Interview</rdfs:label>
+        <rdfs:label xml:lang="en">Interview</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;BusinessMeeting"/>
     </owl:Class>
     
@@ -527,8 +822,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Jeans -->
 
     <owl:Class rdf:about="&sc;Jeans">
-        <rdfs:label rdf:datatype="&xsd;string">Jeans</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Jeans</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/jeans.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -536,8 +832,15 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Jewellery -->
 
     <owl:Class rdf:about="&sc;Jewellery">
-        <rdfs:label rdf:datatype="&xsd;string">Jewellery</rdfs:label>
+        <rdfs:label xml:lang="en">Jewellery</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Accessory"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/jewellery.png</dbo:thumbnail>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;Bracelet"/>
+            <rdf:Description rdf:about="&sc;Earrings"/>
+            <rdf:Description rdf:about="&sc;Necklace"/>
+            <rdf:Description rdf:about="&sc;Ring"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -545,8 +848,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Knickers -->
 
     <owl:Class rdf:about="&sc;Knickers">
-        <rdfs:label rdf:datatype="&xsd;string">Knickers</rdfs:label>
+        <rdfs:label xml:lang="en">Knickers</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Lingerie"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/knickers.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -554,8 +858,16 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Lingerie -->
 
     <owl:Class rdf:about="&sc;Lingerie">
-        <rdfs:label rdf:datatype="&xsd;string">Lingerie</rdfs:label>
+        <rdfs:label xml:lang="en">Lingerie</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Underwear"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/lingerie.png</dbo:thumbnail>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;Bodysuit"/>
+            <rdf:Description rdf:about="&sc;Bra"/>
+            <rdf:Description rdf:about="&sc;Briefs"/>
+            <rdf:Description rdf:about="&sc;Knickers"/>
+            <rdf:Description rdf:about="&sc;Nylons"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -563,14 +875,13 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#MensClothing -->
 
     <owl:Class rdf:about="&sc;MensClothing">
-        <rdfs:label rdf:datatype="&xsd;string">Men&apos;s clothing</rdfs:label>
+        <rdfs:label xml:lang="en">Men&apos;s clothing</rdfs:label>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&sc;isSuitableForGenre"/>
+                <owl:onProperty rdf:resource="&sc;isSuitableToBeDressedByGenre"/>
                 <owl:hasValue rdf:resource="&dbr;Male"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
     </owl:Class>
     
 
@@ -578,8 +889,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Moccasins -->
 
     <owl:Class rdf:about="&sc;Moccasins">
-        <rdfs:label rdf:datatype="&xsd;string">Mocassins</rdfs:label>
+        <rdfs:label xml:lang="en">Mocassins</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Shoes"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/mocassins.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -587,25 +899,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#NaturalClothingMaterial -->
 
     <owl:Class rdf:about="&sc;NaturalClothingMaterial">
-        <rdfs:label rdf:datatype="&xsd;string">Natural clothing material</rdfs:label>
+        <rdfs:label xml:lang="en">Natural clothing material</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;ClothingMaterial"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#NaturalMaterialClothing -->
-
-    <owl:Class rdf:about="&sc;NaturalMaterialClothing">
-        <rdfs:label rdf:datatype="&xsd;string">Natural material clothing</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&sc;ClothingsWithAllNaturalMaterials"/>
-                    <rdf:Description rdf:about="&sc;ClothingsWithAtLeastOneNaturalMaterial"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <owl:disjointWith rdf:resource="&sc;SyntheticClothingMaterial"/>
     </owl:Class>
     
 
@@ -613,8 +909,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Necklace -->
 
     <owl:Class rdf:about="&sc;Necklace">
-        <rdfs:label rdf:datatype="&xsd;string">Necklace</rdfs:label>
+        <rdfs:label xml:lang="en">Necklace</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Jewellery"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/necklace.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -622,8 +919,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Nylons -->
 
     <owl:Class rdf:about="&sc;Nylons">
-        <rdfs:label rdf:datatype="&xsd;string">Nylons</rdfs:label>
+        <rdfs:label xml:lang="en">Nylons</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Lingerie"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/nylons.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -631,8 +929,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#PushUpBra -->
 
     <owl:Class rdf:about="&sc;PushUpBra">
-        <rdfs:label rdf:datatype="&xsd;string">Push-up bra</rdfs:label>
+        <rdfs:label xml:lang="en">Push-up bra</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Bra"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -640,8 +939,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Pyjama -->
 
     <owl:Class rdf:about="&sc;Pyjama">
-        <rdfs:label rdf:datatype="&xsd;string">Pyjama</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Pyjama</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/pyjama.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -649,7 +949,7 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#PyjamaParty -->
 
     <owl:Class rdf:about="&sc;PyjamaParty">
-        <rdfs:label rdf:datatype="&xsd;string">Pyjama party</rdfs:label>
+        <rdfs:label xml:lang="en">Pyjama party</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dbo;Event"/>
     </owl:Class>
     
@@ -658,8 +958,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Raincoat -->
 
     <owl:Class rdf:about="&sc;Raincoat">
-        <rdfs:label rdf:datatype="&xsd;string">Raincoat</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Raincoat</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/raincoat.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -667,8 +968,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#RegularFitTrousers -->
 
     <owl:Class rdf:about="&sc;RegularFitTrousers">
-        <rdfs:label rdf:datatype="&xsd;string">Regular fit trousers</rdfs:label>
+        <rdfs:label xml:lang="en">Regular fit trousers</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Trousers"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/regular-fit-trousers.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -676,8 +978,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Ring -->
 
     <owl:Class rdf:about="&sc;Ring">
-        <rdfs:label rdf:datatype="&xsd;string">Ring</rdfs:label>
+        <rdfs:label xml:lang="en">Ring</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Jewellery"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/ring.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -685,7 +988,7 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#RomanticDate -->
 
     <owl:Class rdf:about="&sc;RomanticDate">
-        <rdfs:label rdf:datatype="&xsd;string">Romantic date</rdfs:label>
+        <rdfs:label xml:lang="en">Romantic date</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Date"/>
     </owl:Class>
     
@@ -694,8 +997,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sandals -->
 
     <owl:Class rdf:about="&sc;Sandals">
-        <rdfs:label rdf:datatype="&xsd;string">Sandals</rdfs:label>
+        <rdfs:label xml:lang="en">Sandals</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Shoes"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/sandals.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -703,8 +1007,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Scarf -->
 
     <owl:Class rdf:about="&sc;Scarf">
-        <rdfs:label rdf:datatype="&xsd;string">Scarf</rdfs:label>
+        <rdfs:label xml:lang="en">Scarf</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Accessory"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/scarf.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -712,8 +1017,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ShapeLingerie -->
 
     <owl:Class rdf:about="&sc;ShapeLingerie">
-        <rdfs:label rdf:datatype="&xsd;string">Shape lingerie</rdfs:label>
+        <rdfs:label xml:lang="en">Shape lingerie</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Bra"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -721,8 +1027,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Shirt -->
 
     <owl:Class rdf:about="&sc;Shirt">
-        <rdfs:label rdf:datatype="&xsd;string">Shirt</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Shirt</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/shirt.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -730,8 +1037,18 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Shoes -->
 
     <owl:Class rdf:about="&sc;Shoes">
-        <rdfs:label rdf:datatype="&xsd;string">Shoes</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Shoes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/shoes.png</dbo:thumbnail>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;AnkleBoots"/>
+            <rdf:Description rdf:about="&sc;Boots"/>
+            <rdf:Description rdf:about="&sc;Flats"/>
+            <rdf:Description rdf:about="&sc;HighHeels"/>
+            <rdf:Description rdf:about="&sc;Moccasins"/>
+            <rdf:Description rdf:about="&sc;Sandals"/>
+            <rdf:Description rdf:about="&sc;Sneakers"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -739,8 +1056,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ShoulderBag -->
 
     <owl:Class rdf:about="&sc;ShoulderBag">
-        <rdfs:label rdf:datatype="&xsd;string">Shoulder bag</rdfs:label>
+        <rdfs:label xml:lang="en">Shoulder bag</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Bag"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/shoulder-bag.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -748,8 +1066,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SkinnyFitTrousers -->
 
     <owl:Class rdf:about="&sc;SkinnyFitTrousers">
-        <rdfs:label rdf:datatype="&xsd;string">Skinny fit trousers</rdfs:label>
+        <rdfs:label xml:lang="en">Skinny fit trousers</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Trousers"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/skinny-fit-trousers.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -757,8 +1076,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Skirt -->
 
     <owl:Class rdf:about="&sc;Skirt">
-        <rdfs:label rdf:datatype="&xsd;string">Skirt</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Skirt</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/skirt.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -766,8 +1086,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SlimFitTrousers -->
 
     <owl:Class rdf:about="&sc;SlimFitTrousers">
-        <rdfs:label rdf:datatype="&xsd;string">Slim fit trousers</rdfs:label>
+        <rdfs:label xml:lang="en">Slim fit trousers</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Trousers"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/slim-fit-trousers.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -775,8 +1096,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sneakers -->
 
     <owl:Class rdf:about="&sc;Sneakers">
-        <rdfs:label rdf:datatype="&xsd;string">Sneakers</rdfs:label>
+        <rdfs:label xml:lang="en">Sneakers</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Shoes"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/sneakers.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -784,8 +1106,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Socks -->
 
     <owl:Class rdf:about="&sc;Socks">
-        <rdfs:label rdf:datatype="&xsd;string">Socks</rdfs:label>
+        <rdfs:label xml:lang="en">Socks</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Underwear"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/socks.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -793,8 +1116,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SportBra -->
 
     <owl:Class rdf:about="&sc;SportBra">
-        <rdfs:label rdf:datatype="&xsd;string">Sports bra</rdfs:label>
+        <rdfs:label xml:lang="en">Sports bra</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Bra"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -802,8 +1126,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Suit -->
 
     <owl:Class rdf:about="&sc;Suit">
-        <rdfs:label rdf:datatype="&xsd;string">Suit</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Suit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/suit.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -811,8 +1136,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sunglasses -->
 
     <owl:Class rdf:about="&sc;Sunglasses">
-        <rdfs:label rdf:datatype="&xsd;string">Sunglasses</rdfs:label>
+        <rdfs:label xml:lang="en">Sunglasses</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Accessory"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/sunglasses.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -820,25 +1146,8 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SyntheticClothingMaterial -->
 
     <owl:Class rdf:about="&sc;SyntheticClothingMaterial">
-        <rdfs:label rdf:datatype="&xsd;string">Synthetic clothing material</rdfs:label>
+        <rdfs:label xml:lang="en">Synthetic clothing material</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;ClothingMaterial"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#SyntheticMaterialClothing -->
-
-    <owl:Class rdf:about="&sc;SyntheticMaterialClothing">
-        <rdfs:label rdf:datatype="&xsd;string">Synthetic material clothing</rdfs:label>
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&sc;ClothingsWithAllSyntheticMaterials"/>
-                    <rdf:Description rdf:about="&sc;ClothingsWithAtLeastOneSyntheticMaterial"/>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
     </owl:Class>
     
 
@@ -846,8 +1155,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#TShirt -->
 
     <owl:Class rdf:about="&sc;TShirt">
-        <rdfs:label rdf:datatype="&xsd;string">T-shirt</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">T-shirt</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/t-shirt.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -855,8 +1165,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Tie -->
 
     <owl:Class rdf:about="&sc;Tie">
-        <rdfs:label rdf:datatype="&xsd;string">Tie</rdfs:label>
+        <rdfs:label xml:lang="en">Tie</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Accessory"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/tie.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -864,8 +1175,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Top -->
 
     <owl:Class rdf:about="&sc;Top">
-        <rdfs:label rdf:datatype="&xsd;string">Top</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Top</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/top.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -873,8 +1185,14 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Trousers -->
 
     <owl:Class rdf:about="&sc;Trousers">
-        <rdfs:label rdf:datatype="&xsd;string">Trousers</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Trousers</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/trousers.png</dbo:thumbnail>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;RegularFitTrousers"/>
+            <rdf:Description rdf:about="&sc;SkinnyFitTrousers"/>
+            <rdf:Description rdf:about="&sc;SlimFitTrousers"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -882,8 +1200,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Umbrella -->
 
     <owl:Class rdf:about="&sc;Umbrella">
-        <rdfs:label rdf:datatype="&xsd;string">Umbrella</rdfs:label>
+        <rdfs:label xml:lang="en">Umbrella</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Accessory"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/Umbrella.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -891,8 +1210,9 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Underpants -->
 
     <owl:Class rdf:about="&sc;Underpants">
-        <rdfs:label rdf:datatype="&xsd;string">Underpants</rdfs:label>
+        <rdfs:label xml:lang="en">Underpants</rdfs:label>
         <rdfs:subClassOf rdf:resource="&sc;Underwear"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/underpants.png</dbo:thumbnail>
     </owl:Class>
     
 
@@ -900,8 +1220,14 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Underwear -->
 
     <owl:Class rdf:about="&sc;Underwear">
-        <rdfs:label rdf:datatype="&xsd;string">Underwear</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:label xml:lang="en">Underwear</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/underwear.png</dbo:thumbnail>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&sc;Lingerie"/>
+            <rdf:Description rdf:about="&sc;Socks"/>
+            <rdf:Description rdf:about="&sc;Underpants"/>
+        </owl:disjointUnionOf>
     </owl:Class>
     
 
@@ -909,7 +1235,7 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#UnisexClothing -->
 
     <owl:Class rdf:about="&sc;UnisexClothing">
-        <rdfs:label rdf:datatype="&xsd;string">Unisex clothing</rdfs:label>
+        <rdfs:label xml:lang="en">Unisex clothing</rdfs:label>
         <owl:equivalentClass>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -918,7 +1244,6 @@
                 </owl:intersectionOf>
             </owl:Class>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
     </owl:Class>
     
 
@@ -926,7 +1251,7 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wedding -->
 
     <owl:Class rdf:about="&sc;Wedding">
-        <rdfs:label rdf:datatype="&xsd;string">Wedding</rdfs:label>
+        <rdfs:label xml:lang="en">Wedding</rdfs:label>
         <rdfs:subClassOf rdf:resource="&dbo;Event"/>
     </owl:Class>
     
@@ -935,14 +1260,13 @@
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#WomensClothing -->
 
     <owl:Class rdf:about="&sc;WomensClothing">
-        <rdfs:label rdf:datatype="&xsd;string">Women&apos;s clothing</rdfs:label>
+        <rdfs:label xml:lang="en">Women&apos;s clothing</rdfs:label>
         <owl:equivalentClass>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&sc;isSuitableForGenre"/>
+                <owl:onProperty rdf:resource="&sc;isSuitableToBeDressedByGenre"/>
                 <owl:hasValue rdf:resource="&dbr;Female"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
     </owl:Class>
     
 
@@ -955,6 +1279,22 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://dbpedia.org/ontology/Colour -->
+
+    <owl:NamedIndividual rdf:about="&dbo;Colour">
+        <rdf:type rdf:resource="&sc;ClothingCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/property/colour -->
+
+    <owl:NamedIndividual rdf:about="&dbp;colour">
+        <owl:sameAs rdf:resource="&sc;hasColour"/>
+    </owl:NamedIndividual>
     
 
 
@@ -974,10 +1314,52 @@
     
 
 
+    <!-- http://dbpedia.org/resource/Baptism -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Baptism">
+        <rdf:type rdf:resource="&dbr;Religion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Black -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Black"/>
+    
+
+
+    <!-- http://dbpedia.org/resource/Brassiere -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Brassiere">
+        <dbo:thumbnail rdf:datatype="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</dbo:thumbnail>
+        <owl:sameAs rdf:resource="&sc;Bra"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://dbpedia.org/resource/Cashmere_wool -->
 
     <owl:NamedIndividual rdf:about="&dbr;Cashmere_wool">
         <rdf:type rdf:resource="&sc;NaturalClothingMaterial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Casual -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Casual">
+        <rdf:type rdf:resource="&dbr;Dress_code"/>
+        <rdf:type rdf:resource="&sc;ClothingStyle"/>
+        <rdfs:label xml:lang="en">Casual dress code</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Catholicism -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Catholicism">
+        <rdf:type rdf:resource="&dbr;Religion"/>
+        <rdfs:label xml:lang="en">Catholicism</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -990,6 +1372,15 @@
     
 
 
+    <!-- http://dbpedia.org/resource/Cloudy -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Cloudy">
+        <rdf:type rdf:resource="&dbr;Weather"/>
+        <rdfs:label xml:lang="en">Cloudy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://dbpedia.org/resource/Cold -->
 
     <owl:NamedIndividual rdf:about="&dbr;Cold">
@@ -998,18 +1389,27 @@
     
 
 
-    <!-- http://dbpedia.org/resource/Color -->
-
-    <owl:NamedIndividual rdf:about="&dbr;Color">
-        <rdf:type rdf:resource="&sc;ClothingCharacteristic"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://dbpedia.org/resource/Cotton -->
 
     <owl:NamedIndividual rdf:about="&dbr;Cotton">
         <rdf:type rdf:resource="&sc;NaturalClothingMaterial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Dress_code -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Dress_code">
+        <owl:sameAs rdf:resource="&sc;ClothingStyle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Eastern_Orthodox_Church -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Eastern_Orthodox_Church">
+        <rdf:type rdf:resource="&dbr;Religion"/>
+        <rdfs:label xml:lang="en">Orthodoxism</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1034,6 +1434,15 @@
 
     <owl:NamedIndividual rdf:about="&dbr;Fur">
         <rdf:type rdf:resource="&sc;NaturalClothingMaterial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Hinduism -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Hinduism">
+        <rdf:type rdf:resource="&dbr;Religion"/>
+        <rdfs:label xml:lang="en">Hinduism</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1078,10 +1487,41 @@
     
 
 
+    <!-- http://dbpedia.org/resource/Methodism -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Methodism">
+        <rdf:type rdf:resource="&dbr;Religion"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://dbpedia.org/resource/Mohair -->
 
     <owl:NamedIndividual rdf:about="&dbr;Mohair">
         <rdf:type rdf:resource="&sc;NaturalClothingMaterial"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Muslim -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Muslim">
+        <rdf:type rdf:resource="&dbr;Religion"/>
+        <rdfs:label xml:lang="en">Muslim</rdfs:label>
+        <religionHasSuitableClothingForDressing rdf:resource="&sc;Belt"/>
+        <religionHasSuitableClothingForDressing rdf:resource="&sc;Coat"/>
+        <religionHasSuitableClothingForDressing rdf:resource="&sc;Scarf"/>
+        <religionHasSuitableClothingForDressing rdf:resource="&sc;Suit"/>
+        <religionHasSuitableClothingForDressing rdf:resource="&sc;Umbrella"/>
+        <religionHasSuitableClothingForDressing rdf:resource="&sc;Underwear"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Nestorianism -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Nestorianism">
+        <rdf:type rdf:resource="&dbr;Religion"/>
     </owl:NamedIndividual>
     
 
@@ -1094,11 +1534,33 @@
     
 
 
+    <!-- http://dbpedia.org/resource/Paganism -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Paganism">
+        <rdf:type rdf:resource="&dbr;Religion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Pentecostalism -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Pentecostalism">
+        <rdf:type rdf:resource="&dbr;Religion"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://dbpedia.org/resource/Polyester -->
 
     <owl:NamedIndividual rdf:about="&dbr;Polyester">
         <rdf:type rdf:resource="&sc;SyntheticClothingMaterial"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Red -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Red"/>
     
 
 
@@ -1150,6 +1612,14 @@
     
 
 
+    <!-- http://dbpedia.org/resource/Surface_finish -->
+
+    <owl:NamedIndividual rdf:about="&dbr;Surface_finish">
+        <owl:sameAs rdf:resource="&sc;ClothingTexture"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://dbpedia.org/resource/Winter -->
 
     <owl:NamedIndividual rdf:about="&dbr;Winter">
@@ -1166,12 +1636,71 @@
     
 
 
-    <!-- http://dbpedia.org/resource/cloudy -->
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#AnkleBoots -->
 
-    <owl:NamedIndividual rdf:about="&dbr;cloudy">
-        <rdf:type rdf:resource="&dbr;Weather"/>
-        <rdfs:label rdf:datatype="&xsd;string">Cloudy</rdfs:label>
+    <owl:NamedIndividual rdf:about="&sc;AnkleBoots">
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Autumn"/>
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Spring"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Club"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Date"/>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Apple -->
+
+    <owl:NamedIndividual rdf:about="&sc;Apple">
+        <rdf:type rdf:resource="&sc;BodyShape"/>
+        <rdfs:label xml:lang="en">Apple</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bag -->
+
+    <owl:NamedIndividual rdf:about="&sc;Bag">
+        <isSuitableForDressingCode rdf:resource="&dbr;Casual"/>
+        <isSuitableForDressingCode rdf:resource="&sc;Conservative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Belt -->
+
+    <owl:NamedIndividual rdf:about="&sc;Belt"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BodyShape -->
+
+    <owl:NamedIndividual rdf:about="&sc;BodyShape">
+        <rdf:type rdf:resource="&sc;ClothingCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Boots -->
+
+    <owl:NamedIndividual rdf:about="&sc;Boots">
+        <isSuitableToBeDressedOnWeather rdf:resource="&dbr;Cold"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Winter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bra -->
+
+    <owl:NamedIndividual rdf:about="&sc;Bra">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BusinessMeeting -->
+
+    <owl:NamedIndividual rdf:about="&sc;BusinessMeeting"/>
     
 
 
@@ -1179,7 +1708,7 @@
 
     <owl:NamedIndividual rdf:about="&sc;Clear">
         <rdf:type rdf:resource="&dbr;Weather"/>
-        <rdfs:label rdf:datatype="&xsd;string">Clear</rdfs:label>
+        <rdfs:label xml:lang="en">Clear</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1192,11 +1721,156 @@
     
 
 
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingStyle -->
+
+    <owl:NamedIndividual rdf:about="&sc;ClothingStyle"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ClothingTexture -->
+
+    <owl:NamedIndividual rdf:about="&sc;ClothingTexture">
+        <rdf:type rdf:resource="&sc;ClothingCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Cloudy -->
+
+    <owl:NamedIndividual rdf:about="&sc;Cloudy"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club -->
+
+    <owl:NamedIndividual rdf:about="&sc;Club"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Coat -->
+
+    <owl:NamedIndividual rdf:about="&sc;Coat">
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Winter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Conservative -->
+
+    <owl:NamedIndividual rdf:about="&sc;Conservative">
+        <rdf:type rdf:resource="&dbr;Dress_code"/>
+        <rdf:type rdf:resource="&sc;ClothingStyle"/>
+        <rdfs:label xml:lang="en">Conservative dress code</rdfs:label>
+        <rdfs:comment xml:lang="en">This individual specifies that a particular clothing item is suitable for the Conservative dressing code.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Date -->
+
+    <owl:NamedIndividual rdf:about="&sc;Date"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#DinnerParty -->
+
+    <owl:NamedIndividual rdf:about="&sc;DinnerParty"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dress -->
+
+    <owl:NamedIndividual rdf:about="&sc;Dress">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Spring"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;BusinessMeeting"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Clear"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Club"/>
+        <isSuitableForDressingCode rdf:resource="&sc;Conservative"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Date"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;DinnerParty"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Hot"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Wedding"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dry -->
 
     <owl:NamedIndividual rdf:about="&sc;Dry">
         <rdf:type rdf:resource="&dbr;Weather"/>
-        <rdfs:label rdf:datatype="&xsd;string">Dry</rdfs:label>
+        <rdfs:label xml:lang="en">Dry</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Earrings -->
+
+    <owl:NamedIndividual rdf:about="&sc;Earrings">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flats -->
+
+    <owl:NamedIndividual rdf:about="&sc;Flats">
+        <isSuitableForDressingCode rdf:resource="&dbr;Casual"/>
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Hot"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flowe -->
+
+    <owl:NamedIndividual rdf:about="&sc;Flowe">
+        <rdf:type rdf:resource="&sc;ClothingTexture"/>
+        <rdfs:label xml:lang="en">Flowe</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Funneral -->
+
+    <owl:NamedIndividual rdf:about="&sc;Funneral"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Gloves -->
+
+    <owl:NamedIndividual rdf:about="&sc;Gloves">
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Autumn"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&dbr;Cold"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Winter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Handbag -->
+
+    <owl:NamedIndividual rdf:about="&sc;Handbag">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Male"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#HighHeels -->
+
+    <owl:NamedIndividual rdf:about="&sc;HighHeels">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedByBodyShape rdf:resource="&sc;Apple"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;BusinessMeeting"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Club"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Date"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;DinnerParty"/>
+        <isSuitableToBeDressedByBodyShape rdf:resource="&sc;Hourglass"/>
+        <isSuitableToBeDressedByBodyShape rdf:resource="&sc;Rectangle"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Wedding"/>
     </owl:NamedIndividual>
     
 
@@ -1205,8 +1879,276 @@
 
     <owl:NamedIndividual rdf:about="&sc;Hot">
         <rdf:type rdf:resource="&dbr;Weather"/>
-        <rdfs:label rdf:datatype="&xsd;string">Hot</rdfs:label>
+        <rdfs:label xml:lang="en">Hot</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Hourglass -->
+
+    <owl:NamedIndividual rdf:about="&sc;Hourglass">
+        <rdf:type rdf:resource="&sc;BodyShape"/>
+        <rdfs:label xml:lang="en">Hourglass</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#IMVU -->
+
+    <owl:NamedIndividual rdf:about="&sc;IMVU">
+        <rdf:type rdf:resource="&sc;ClothingTexture"/>
+        <rdfs:label xml:lang="en">IMVU</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Jewellery -->
+
+    <owl:NamedIndividual rdf:about="&sc;Jewellery">
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Club"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Date"/>
+        <isSuitableForDressingCode rdf:resource="&sc;Rock"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#L -->
+
+    <owl:NamedIndividual rdf:about="&sc;L">
+        <rdf:type rdf:resource="&dbr;Clothing_sizes"/>
+        <rdfs:label>L</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#M -->
+
+    <owl:NamedIndividual rdf:about="&sc;M">
+        <rdf:type rdf:resource="&dbr;Clothing_sizes"/>
+        <rdfs:label>M</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Moccasins -->
+
+    <owl:NamedIndividual rdf:about="&sc;Moccasins">
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Spring"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Clear"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Necklace -->
+
+    <owl:NamedIndividual rdf:about="&sc;Necklace">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Pear -->
+
+    <owl:NamedIndividual rdf:about="&sc;Pear">
+        <rdf:type rdf:resource="&sc;BodyShape"/>
+        <rdfs:label xml:lang="en">Pear</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Plaid -->
+
+    <owl:NamedIndividual rdf:about="&sc;Plaid">
+        <rdf:type rdf:resource="&sc;ClothingTexture"/>
+        <rdfs:label xml:lang="en">Plaid</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Raincoat -->
+
+    <owl:NamedIndividual rdf:about="&sc;Raincoat">
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Cloudy"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Wet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Rectangle -->
+
+    <owl:NamedIndividual rdf:about="&sc;Rectangle">
+        <rdf:type rdf:resource="&sc;BodyShape"/>
+        <rdfs:label xml:lang="en">Rectangle</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#RegularFitTrousers -->
+
+    <owl:NamedIndividual rdf:about="&sc;RegularFitTrousers">
+        <isSuitableForDressingCode rdf:resource="&sc;Conservative"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Rock -->
+
+    <owl:NamedIndividual rdf:about="&sc;Rock">
+        <rdf:type rdf:resource="&dbr;Dress_code"/>
+        <rdf:type rdf:resource="&sc;ClothingStyle"/>
+        <rdfs:label xml:lang="en">Rock dress code</rdfs:label>
+        <rdfs:comment xml:lang="en">This individual specifies that a particular clothing item is suitable for the Rock dressing code.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#S -->
+
+    <owl:NamedIndividual rdf:about="&sc;S">
+        <rdf:type rdf:resource="&dbr;Clothing_sizes"/>
+        <rdfs:label>s</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sandals -->
+
+    <owl:NamedIndividual rdf:about="&sc;Sandals">
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Clear"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Dry"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Scarf -->
+
+    <owl:NamedIndividual rdf:about="&sc;Scarf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Shirt -->
+
+    <owl:NamedIndividual rdf:about="&sc;Shirt">
+        <isSuitableForDressingCode rdf:resource="&dbr;Casual"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableForDressingCode rdf:resource="&sc;Sport"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ShoulderBag -->
+
+    <owl:NamedIndividual rdf:about="&sc;ShoulderBag">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Skirt -->
+
+    <owl:NamedIndividual rdf:about="&sc;Skirt">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Spring"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;BusinessMeeting"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Clear"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Date"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;DinnerParty"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Funneral"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Hot"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Wedding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sneakers -->
+
+    <owl:NamedIndividual rdf:about="&sc;Sneakers">
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Autumn"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Spring"/>
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Clear"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Club"/>
+        <isSuitableForDressingCode rdf:resource="&sc;Sport"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sport -->
+
+    <owl:NamedIndividual rdf:about="&sc;Sport">
+        <rdf:type rdf:resource="&dbr;Dress_code"/>
+        <rdf:type rdf:resource="&sc;ClothingStyle"/>
+        <rdfs:label xml:lang="en">Sport dress code</rdfs:label>
+        <rdfs:comment xml:lang="en">This individual specifies that a particular clothing item is suitable for the Sport dressing code.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Suit -->
+
+    <owl:NamedIndividual rdf:about="&sc;Suit">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Male"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;BusinessMeeting"/>
+        <isSuitableForDressingCode rdf:resource="&sc;Conservative"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;DinnerParty"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Funneral"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Wedding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sunglasses -->
+
+    <owl:NamedIndividual rdf:about="&sc;Sunglasses">
+        <isSuitableToBeDressedInSeason rdf:resource="&dbr;Summer"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Clear"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Hot"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Tie -->
+
+    <owl:NamedIndividual rdf:about="&sc;Tie">
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Male"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;BusinessMeeting"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Date"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;DinnerParty"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Funneral"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Trousers -->
+
+    <owl:NamedIndividual rdf:about="&sc;Trousers">
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Club"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Date"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Umbrella -->
+
+    <owl:NamedIndividual rdf:about="&sc;Umbrella">
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Cloudy"/>
+        <isSuitableToBeDressedOnWeather rdf:resource="&sc;Wet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Underwear -->
+
+    <owl:NamedIndividual rdf:about="&sc;Underwear"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wedding -->
+
+    <owl:NamedIndividual rdf:about="&sc;Wedding"/>
     
 
 
@@ -1214,7 +2156,36 @@
 
     <owl:NamedIndividual rdf:about="&sc;Wet">
         <rdf:type rdf:resource="&dbr;Weather"/>
-        <rdfs:label rdf:datatype="&xsd;string">Wet</rdfs:label>
+        <rdfs:label xml:lang="en">Wet</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#XL -->
+
+    <owl:NamedIndividual rdf:about="&sc;XL">
+        <rdf:type rdf:resource="&dbr;Clothing_sizes"/>
+        <rdfs:label>XL</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#funneralPyjama -->
+
+    <owl:NamedIndividual rdf:about="&sc;funneralPyjama">
+        <rdf:type rdf:resource="&sc;Pyjama"/>
+        <hasColour rdf:resource="&dbr;Black"/>
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Male"/>
+        <isSuitableToBeDressedAtEvent rdf:resource="&sc;Funneral"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour -->
+
+    <owl:NamedIndividual rdf:about="&sc;hasColour">
+        <rdfs:label xml:lang="en">Has colour</rdfs:label>
+        <rdfs:comment xml:lang="en">This property specifies the color a particular clothing item has.</rdfs:comment>
     </owl:NamedIndividual>
     
 
@@ -1224,9 +2195,10 @@
     <owl:NamedIndividual rdf:about="&sc;pijamalePentruBarbatiSynthetic">
         <rdf:type rdf:resource="&sc;Pyjama"/>
         <hasTextileComposition rdf:resource="&dbr;Acrylic_fiber"/>
-        <isSuitableForGenre rdf:resource="&dbr;Male"/>
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Male"/>
         <hasTextileComposition rdf:resource="&dbr;Nylon"/>
         <hasTextileComposition rdf:resource="&dbr;Polyester"/>
+        <hasColour rdf:resource="&dbr;Red"/>
         <hasTextileComposition rdf:resource="&dbr;Satin"/>
         <hasTextileComposition rdf:resource="&dbr;Spandex"/>
     </owl:NamedIndividual>
@@ -1237,7 +2209,7 @@
 
     <owl:NamedIndividual rdf:about="&sc;pijamalePentruFemeiNatural">
         <rdf:type rdf:resource="&sc;Pyjama"/>
-        <isSuitableForGenre rdf:resource="&dbr;Female"/>
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
         <hasTextileComposition rdf:resource="&dbr;Mohair"/>
         <hasTextileComposition rdf:resource="&dbr;Silk"/>
     </owl:NamedIndividual>
@@ -1248,10 +2220,29 @@
 
     <owl:NamedIndividual rdf:about="&sc;pijamaleUnisex">
         <rdf:type rdf:resource="&sc;Pyjama"/>
-        <isSuitableForGenre rdf:resource="&dbr;Female"/>
-        <isSuitableForGenre rdf:resource="&dbr;Male"/>
+        <sioc:note xml:lang="en">Pyjama Unisex received as gift from father.</sioc:note>
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Female"/>
+        <isSuitableToBeDressedByGenre rdf:resource="&dbr;Male"/>
         <hasTextileComposition rdf:resource="&dbr;Nylon"/>
         <hasTextileComposition rdf:resource="&dbr;Silk"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#size40EUu -->
+
+    <owl:NamedIndividual rdf:about="&sc;size40EUu">
+        <rdf:type rdf:resource="&dbr;Clothing_sizes"/>
+        <rdfs:label>40 EU</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#size42EU -->
+
+    <owl:NamedIndividual rdf:about="&sc;size42EU">
+        <rdf:type rdf:resource="&dbr;Clothing_sizes"/>
+        <rdfs:label>42 EU</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1264,13 +2255,51 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <owl:onProperty rdf:resource="&sc;isSuitableToBeDressedByGenre"/>
+        <owl:hasValue rdf:resource="&dbr;Female"/>
+    </owl:Restriction>
     <owl:Class>
-        <rdfs:subClassOf rdf:resource="&sc;Clothing"/>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="&sc;MensClothing"/>
             <rdf:Description rdf:about="&sc;WomensClothing"/>
         </owl:intersectionOf>
     </owl:Class>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&dbo;Colour"/>
+            <rdf:Description rdf:about="&dbo;Event"/>
+            <rdf:Description rdf:about="&dbr;Clothing"/>
+            <rdf:Description rdf:about="&dbr;Clothing_sizes"/>
+            <rdf:Description rdf:about="&dbr;Genre"/>
+            <rdf:Description rdf:about="&dbr;Raw_material"/>
+            <rdf:Description rdf:about="&dbr;Season"/>
+            <rdf:Description rdf:about="&dbr;Shape"/>
+            <rdf:Description rdf:about="&dbr;Weather"/>
+            <rdf:Description rdf:about="&sc;ClothingStyle"/>
+        </owl:members>
+    </rdf:Description>
+    <owl:Class>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <owl:intersectionOf rdf:parseType="Collection">
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&sc;hasColour"/>
+                <owl:hasValue rdf:resource="&dbr;Black"/>
+            </owl:Restriction>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&sc;isSuitableToBeDressedAtEvent"/>
+                <owl:hasValue rdf:resource="&sc;Funneral"/>
+            </owl:Restriction>
+        </owl:intersectionOf>
+    </owl:Class>
+    <owl:Restriction>
+        <rdfs:subClassOf rdf:resource="&dbr;Clothing"/>
+        <owl:onProperty rdf:resource="&sc;isSuitableToBeDressedByGenre"/>
+        <owl:hasValue rdf:resource="&dbr;Male"/>
+    </owl:Restriction>
 </rdf:RDF>
 
 
