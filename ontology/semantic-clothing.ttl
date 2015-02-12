@@ -17,25 +17,25 @@
 
 <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl> rdf:type owl:Ontology ;
                                                              
-                                                             rdfs:label "A common vocabulary for clothing items."^^xsd:string ,
-                                                                        "Semantic Clothing Ontology"^^xsd:string ;
+                                                             rdfs:label "A common vocabulary for clothing items."@en ,
+                                                                        "Semantic Clothing Ontology"@en ;
                                                              
-                                                             dc:bibliographicCitation "*** H&M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)"^^xsd:string ,
-                                                                                      "***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support)."^^xsd:string ,
-                                                                                      "***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the 'body shapes' part of the ontology)"^^xsd:string ,
-                                                                                      "***, W3C, http://www.w3.org/2001/sw/"^^xsd:string ,
-                                                                                      "***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"^^xsd:string ;
-                                                                                      "***, flaticon, http://www.flaticon.com/ (Icons for the clothes);
+                                                             dc:bibliographicCitation "*** H&M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)"@en ,
+                                                                                      "***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support)."@en ,
+                                                                                      "***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the 'body shapes' part of the ontology)"@en ,
+                                                                                      "***, W3C, http://www.w3.org/2001/sw/"@en ,
+                                                                                      "***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"@en ,
+                                                                                      "***, flaticon, http://www.flaticon.com/ (Icons for the clothes)"@en ;
                                                              
                                                              dc:date "2015-02"^^xsd:gYearMonth ;
                                                              
-                                                             dc:creator "Daniel Amariei"^^xsd:string ;
+                                                             dc:creator "Daniel Amariei"@en ;
                                                              
-                                                             dc:contributor "Ioana Bîrsan"^^xsd:string ,
-                                                                            "Iordan Rață"^^xsd:string ,
-                                                                            "Oana Gagea"^^xsd:string ;
+                                                             dc:contributor "Ioana Bîrsan"@en ,
+                                                                            "Iordan Rață"@en ,
+                                                                            "Oana Gagea"@en ;
                                                              
-                                                             rdfs:comment "The purpose of this ontology is to create the common conceptual framwork for 'talking' about clothing or related concepts."^^xsd:string .
+                                                             rdfs:comment "The purpose of this ontology is to create the common conceptual framwork for 'talking' about clothing or related concepts."@en .
 
 
 #################################################################
@@ -100,7 +100,7 @@ dbp:composition rdf:type owl:ObjectProperty .
 
 dbp:dressSize rdf:type owl:ObjectProperty ;
               
-              rdfs:label "Dress size"^^xsd:string ;
+              rdfs:label "Dress size"@en ;
               
               rdfs:range dbr:Clothing_sizes ;
               
@@ -114,9 +114,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :bodyShapeHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
                                          
-                                         rdfs:label "Body shape has suitable clothing for dressing"^^xsd:string ;
+                                         rdfs:label "Body shape has suitable clothing for dressing"@en ;
                                          
-                                         rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular body shape."^^xsd:string ;
+                                         rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular body shape."@en ;
                                          
                                          rdfs:range dbr:Clothing ;
                                          
@@ -128,9 +128,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :dressingCodeHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
                                             
-                                            rdfs:label "Dressing code has suitable clothing for dressing"^^xsd:string ;
+                                            rdfs:label "Dressing code has suitable clothing for dressing"@en ;
                                             
-                                            rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular dressing code."^^xsd:string ;
+                                            rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular dressing code."@en ;
                                             
                                             rdfs:range dbr:Clothing ;
                                             
@@ -143,9 +143,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :eventHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
                                      
-                                     rdfs:label "Event has suitable clothing for dressing"^^xsd:string ;
+                                     rdfs:label "Event has suitable clothing for dressing"@en ;
                                      
-                                     rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular event."^^xsd:string ;
+                                     rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular event."@en ;
                                      
                                      rdfs:domain dbo:Event ;
                                      
@@ -157,9 +157,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :genreHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
                                      
-                                     rdfs:label "Genre has suitable clothing for dressing"^^xsd:string ;
+                                     rdfs:label "Genre has suitable clothing for dressing"@en ;
                                      
-                                     rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular genre."^^xsd:string ;
+                                     rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular genre."@en ;
                                      
                                      rdfs:range dbr:Clothing ;
                                      
@@ -171,9 +171,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :hasColour rdf:type owl:ObjectProperty ;
            
-           rdfs:label "Has colour"^^xsd:string ;
+           rdfs:label "Has colour"@en ;
            
-           rdfs:comment "This property specifies the color a particular clothing item has."^^xsd:string ;
+           rdfs:comment "This property specifies the color a particular clothing item has."@en ;
            
            rdfs:range dbo:Colour ;
            
@@ -186,9 +186,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 :hasSize rdf:type owl:FunctionalProperty ,
                   owl:ObjectProperty ;
          
-         rdfs:label "Has size"^^xsd:string ;
+         rdfs:label "Has size"@en ;
          
-         rdfs:comment "This property specifies the size of a particular clothing item."^^xsd:string ;
+         rdfs:comment "This property specifies the size of a particular clothing item."@en ;
          
          rdfs:domain dbr:Clothing ;
          
@@ -200,9 +200,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :hasTextileComposition rdf:type owl:ObjectProperty ;
                        
-                       rdfs:label "Has textile composition"^^xsd:string ;
+                       rdfs:label "Has textile composition"@en ;
                        
-                       rdfs:comment "This property denotes the materials from which a clothing item is composed of."^^xsd:string ;
+                       rdfs:comment "This property denotes the materials from which a clothing item is composed of."@en ;
                        
                        rdfs:subPropertyOf dbp:composition ;
                        
@@ -218,7 +218,7 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
             
             rdfs:label "Has texture" ;
             
-            rdfs:comment "Specifies the texture of the clothing item."^^xsd:string ;
+            rdfs:comment "Specifies the texture of the clothing item."@en ;
             
             rdfs:domain dbr:Clothing ;
             
@@ -232,7 +232,7 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
                            owl:FunctionalProperty ,
                            owl:ObjectProperty ;
                   
-                  rdfs:label "Is manufactured by"^^xsd:string ;
+                  rdfs:label "Is manufactured by"@en ;
                   
                   rdfs:domain dbr:Clothing ;
                   
@@ -244,9 +244,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :isSuitableForDressingCode rdf:type owl:ObjectProperty ;
                            
-                           rdfs:label "Is suitable for dressing code"^^xsd:string ;
+                           rdfs:label "Is suitable for dressing code"@en ;
                            
-                           rdfs:comment "This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                           rdfs:comment "This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for."@en ;
                            
                            rdfs:domain dbr:Clothing ;
                            
@@ -261,9 +261,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :isSuitableForDressingForReligion rdf:type owl:ObjectProperty ;
                                   
-                                  rdfs:label "Is suitable for dressing for religion"^^xsd:string ;
+                                  rdfs:label "Is suitable for dressing for religion"@en ;
                                   
-                                  rdfs:comment "This property specifis the religion for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                                  rdfs:comment "This property specifis the religion for which a particular clothing item and/or class is/are suitable for."@en ;
                                   
                                   rdfs:domain dbr:Clothing ;
                                   
@@ -277,9 +277,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :isSuitableToBeDressedAtEvent rdf:type owl:ObjectProperty ;
                               
-                              rdfs:label "Is suitable to be dressed at event"^^xsd:string ;
+                              rdfs:label "Is suitable to be dressed at event"@en ;
                               
-                              rdfs:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                              rdfs:comment "This property specifies the Event for which a particular clothing item and/or class is/are suitable for."@en ;
                               
                               rdfs:range dbo:Event ;
                               
@@ -293,9 +293,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :isSuitableToBeDressedByBodyShape rdf:type owl:ObjectProperty ;
                                   
-                                  rdfs:label "Is suitable to be dressed by body shape"^^xsd:string ;
+                                  rdfs:label "Is suitable to be dressed by body shape"@en ;
                                   
-                                  rdfs:comment "Stipulates for which body shape a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                                  rdfs:comment "Stipulates for which body shape a particular clothing item and/or class is/are suitable for."@en ;
                                   
                                   rdfs:domain dbr:Clothing ;
                                   
@@ -309,9 +309,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :isSuitableToBeDressedByGenre rdf:type owl:ObjectProperty ;
                               
-                              rdfs:label "Is suitable to be dressed by genre"^^xsd:string ;
+                              rdfs:label "Is suitable to be dressed by genre"@en ;
                               
-                              rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes."^^xsd:string ;
+                              rdfs:comment "This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes."@en ;
                               
                               rdfs:domain dbr:Clothing ;
                               
@@ -325,9 +325,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :isSuitableToBeDressedInSeason rdf:type owl:ObjectProperty ;
                                
-                               rdfs:label "Is suitable to be dressed in season"^^xsd:string ;
+                               rdfs:label "Is suitable to be dressed in season"@en ;
                                
-                               rdfs:comment "This property specifies the season for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                               rdfs:comment "This property specifies the season for which a particular clothing item and/or class is/are suitable for."@en ;
                                
                                rdfs:domain dbr:Clothing ;
                                
@@ -341,9 +341,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :isSuitableToBeDressedOnWeather rdf:type owl:ObjectProperty ;
                                 
-                                rdfs:label "Is suitable to be dressed in weather conditions"^^xsd:string ;
+                                rdfs:label "Is suitable to be dressed in weather conditions"@en ;
                                 
-                                rdfs:comment "This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for."^^xsd:string ;
+                                rdfs:comment "This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for."@en ;
                                 
                                 rdfs:domain dbr:Clothing ;
                                 
@@ -357,9 +357,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :religionHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
                                         
-                                        rdfs:label "Religion has suitable clothing for dressing"^^xsd:string ;
+                                        rdfs:label "Religion has suitable clothing for dressing"@en ;
                                         
-                                        rdfs:comment "This property specifis the clothing that is suitable for a particular religion."^^xsd:string ;
+                                        rdfs:comment "This property specifis the clothing that is suitable for a particular religion."@en ;
                                         
                                         rdfs:range dbr:Clothing ;
                                         
@@ -371,9 +371,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :seasonHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
                                       
-                                      rdfs:label "Season has suitable clothing for dressing"^^xsd:string ;
+                                      rdfs:label "Season has suitable clothing for dressing"@en ;
                                       
-                                      rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular season."^^xsd:string ;
+                                      rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular season."@en ;
                                       
                                       rdfs:range dbr:Clothing ;
                                       
@@ -385,9 +385,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 
 :weatherHasSuitableClothingForDressing rdf:type owl:ObjectProperty ;
                                        
-                                       rdfs:label "Weather has suitable clothing for dressing"^^xsd:string ;
+                                       rdfs:label "Weather has suitable clothing for dressing"@en ;
                                        
-                                       rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular weather condition."^^xsd:string ;
+                                       rdfs:comment "This property specifies the clothing item(s) that is/are suitable for a particular weather condition."@en ;
                                        
                                        rdfs:range dbr:Clothing ;
                                        
@@ -427,9 +427,9 @@ dbo:Event rdf:type owl:Class ;
 
 dbr:Clothing rdf:type owl:Class ;
              
-             rdfs:label "Clothing"^^xsd:string ;
+             rdfs:label "Clothing"@en ;
              
-             rdfs:comment "Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items."^^xsd:string ;
+             rdfs:comment "Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items."@en ;
              
              owl:disjointUnionOf ( :Accessory
                                    :Blazer
@@ -533,7 +533,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Accessory rdf:type owl:Class ;
            
-           rdfs:label "Accessory"^^xsd:string ;
+           rdfs:label "Accessory"@en ;
            
            rdfs:subClassOf dbr:Clothing ;
            
@@ -555,7 +555,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :AnkleBoots rdf:type owl:Class ;
             
-            rdfs:label "Ankle boots"^^xsd:string ;
+            rdfs:label "Ankle boots"@en ;
             
             rdfs:subClassOf :Shoes ;
             
@@ -567,7 +567,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Bag rdf:type owl:Class ;
      
-     rdfs:label "Bag"^^xsd:string ;
+     rdfs:label "Bag"@en ;
      
      rdfs:subClassOf :Accessory ;
      
@@ -583,7 +583,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Belt rdf:type owl:Class ;
       
-      rdfs:label "Belt"^^xsd:string ;
+      rdfs:label "Belt"@en ;
       
       rdfs:subClassOf :Accessory ;
       
@@ -595,7 +595,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Blazer rdf:type owl:Class ;
         
-        rdfs:label "Blazer"^^xsd:string ;
+        rdfs:label "Blazer"@en ;
         
         rdfs:subClassOf dbr:Clothing ;
         
@@ -607,11 +607,11 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :BodyShape rdf:type owl:Class ;
            
-           rdfs:label "Body shape"^^xsd:string ;
+           rdfs:label "Body shape"@en ;
            
            rdfs:subClassOf dbr:Shape ;
            
-           rdfs:comment "The class of body shapes a person can have."^^xsd:string .
+           rdfs:comment "The class of body shapes a person can have."@en .
 
 
 
@@ -619,7 +619,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Bodysuit rdf:type owl:Class ;
           
-          rdfs:label "Bodysuit"^^xsd:string ;
+          rdfs:label "Bodysuit"@en ;
           
           rdfs:subClassOf :Lingerie ;
           
@@ -631,7 +631,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Boots rdf:type owl:Class ;
        
-       rdfs:label "Boots"^^xsd:string ;
+       rdfs:label "Boots"@en ;
        
        rdfs:subClassOf :Shoes ;
        
@@ -643,7 +643,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Bra rdf:type owl:Class ;
      
-     rdfs:label "Bra"^^xsd:string ;
+     rdfs:label "Bra"@en ;
      
      rdfs:subClassOf :Lingerie ;
      
@@ -660,7 +660,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Bracelet rdf:type owl:Class ;
           
-          rdfs:label "Bracelet"^^xsd:string ;
+          rdfs:label "Bracelet"@en ;
           
           rdfs:subClassOf :Jewellery ;
           
@@ -672,7 +672,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Briefs rdf:type owl:Class ;
         
-        rdfs:label "Briefs"^^xsd:string ;
+        rdfs:label "Briefs"@en ;
         
         rdfs:subClassOf :Lingerie ;
         
@@ -684,7 +684,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :BusinessMeeting rdf:type owl:Class ;
                  
-                 rdfs:label "Business meeting"^^xsd:string ;
+                 rdfs:label "Business meeting"@en ;
                  
                  rdfs:subClassOf dbo:Event .
 
@@ -694,7 +694,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :ClothingCharacteristic rdf:type owl:Class ;
                         
-                        rdfs:label "Clothing characteristic"^^xsd:string ;
+                        rdfs:label "Clothing characteristic"@en ;
                         
                         owl:disjointUnionOf ( dbo:Colour
                                               dbr:Clothing_sizes
@@ -710,11 +710,11 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :ClothingMaterial rdf:type owl:Class ;
                   
-                  rdfs:label "Clothing material"^^xsd:string ;
+                  rdfs:label "Clothing material"@en ;
                   
                   rdfs:subClassOf dbr:Raw_material ;
                   
-                  rdfs:comment "The basic materials from which clothes are made of."^^xsd:string ;
+                  rdfs:comment "The basic materials from which clothes are made of."@en ;
                   
                   owl:disjointUnionOf ( :NaturalClothingMaterial
                                         :SyntheticClothingMaterial
@@ -726,9 +726,9 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :ClothingStyle rdf:type owl:Class ;
                
-               rdfs:label "Clothing style"^^xsd:string ;
+               rdfs:label "Clothing style"@en ;
                
-               rdfs:comment "This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for."^^xsd:string .
+               rdfs:comment "This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for."@en .
 
 
 
@@ -736,7 +736,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :ClothingTexture rdf:type owl:Class ;
                  
-                 rdfs:label "Clothing texture"^^xsd:string .
+                 rdfs:label "Clothing texture"@en .
 
 
 
@@ -744,7 +744,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Club rdf:type owl:Class ;
       
-      rdfs:label "Club"^^xsd:string ;
+      rdfs:label "Club"@en ;
       
       rdfs:subClassOf dbo:Event .
 
@@ -754,7 +754,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Coat rdf:type owl:Class ;
       
-      rdfs:label "Coat"^^xsd:string ;
+      rdfs:label "Coat"@en ;
       
       rdfs:subClassOf dbr:Clothing ;
       
@@ -766,7 +766,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Date rdf:type owl:Class ;
       
-      rdfs:label "Date"^^xsd:string ;
+      rdfs:label "Date"@en ;
       
       rdfs:subClassOf dbo:Event .
 
@@ -776,7 +776,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :DinnerParty rdf:type owl:Class ;
              
-             rdfs:label "Dinner party"^^xsd:string ;
+             rdfs:label "Dinner party"@en ;
              
              rdfs:subClassOf dbo:Event .
 
@@ -786,7 +786,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Dress rdf:type owl:Class ;
        
-       rdfs:label "Dress"^^xsd:string ;
+       rdfs:label "Dress"@en ;
        
        rdfs:subClassOf dbr:Clothing ;
        
@@ -798,7 +798,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Earrings rdf:type owl:Class ;
           
-          rdfs:label "Earrings"^^xsd:string ;
+          rdfs:label "Earrings"@en ;
           
           rdfs:subClassOf :Jewellery ;
           
@@ -810,7 +810,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Flats rdf:type owl:Class ;
        
-       rdfs:label "Flats"^^xsd:string ;
+       rdfs:label "Flats"@en ;
        
        rdfs:subClassOf :Shoes .
 
@@ -820,7 +820,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Funneral rdf:type owl:Class ;
           
-          rdfs:label "Funneral"^^xsd:string ;
+          rdfs:label "Funneral"@en ;
           
           rdfs:subClassOf dbo:Event .
 
@@ -830,7 +830,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :FunneralClothing rdf:type owl:Class ;
                   
-                  rdfs:label "Funneral clothing"^^xsd:string ;
+                  rdfs:label "Funneral clothing"@en ;
                   
                   owl:equivalentClass [ rdf:type owl:Class ;
                                         owl:intersectionOf ( [ rdf:type owl:Restriction ;
@@ -846,7 +846,7 @@ gr:BusinessEntity rdf:type owl:Class .
                   
                   rdfs:subClassOf dbr:Clothing ;
                   
-                  rdfs:comment "Clothing that is suitable for a funneral."^^xsd:string .
+                  rdfs:comment "Clothing that is suitable for a funneral."@en .
 
 
 
@@ -854,7 +854,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Gloves rdf:type owl:Class ;
         
-        rdfs:label "Gloves"^^xsd:string ;
+        rdfs:label "Gloves"@en ;
         
         rdfs:subClassOf dbr:Clothing ;
         
@@ -866,7 +866,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Handbag rdf:type owl:Class ;
          
-         rdfs:label "Handbag"^^xsd:string ;
+         rdfs:label "Handbag"@en ;
          
          rdfs:subClassOf :Bag ;
          
@@ -878,7 +878,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Hat rdf:type owl:Class ;
      
-     rdfs:label "Hat"^^xsd:string ;
+     rdfs:label "Hat"@en ;
      
      rdfs:subClassOf :Accessory ;
      
@@ -890,7 +890,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :HighHeels rdf:type owl:Class ;
            
-           rdfs:label "High-heels"^^xsd:string ;
+           rdfs:label "High-heels"@en ;
            
            rdfs:subClassOf :Shoes ;
            
@@ -902,7 +902,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Interview rdf:type owl:Class ;
            
-           rdfs:label "Interview"^^xsd:string ;
+           rdfs:label "Interview"@en ;
            
            rdfs:subClassOf :BusinessMeeting .
 
@@ -912,7 +912,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Jeans rdf:type owl:Class ;
        
-       rdfs:label "Jeans"^^xsd:string ;
+       rdfs:label "Jeans"@en ;
        
        rdfs:subClassOf dbr:Clothing ;
        
@@ -924,7 +924,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Jewellery rdf:type owl:Class ;
            
-           rdfs:label "Jewellery"^^xsd:string ;
+           rdfs:label "Jewellery"@en ;
            
            rdfs:subClassOf :Accessory ;
            
@@ -942,7 +942,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Knickers rdf:type owl:Class ;
           
-          rdfs:label "Knickers"^^xsd:string ;
+          rdfs:label "Knickers"@en ;
           
           rdfs:subClassOf :Lingerie ;
           
@@ -954,7 +954,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Lingerie rdf:type owl:Class ;
           
-          rdfs:label "Lingerie"^^xsd:string ;
+          rdfs:label "Lingerie"@en ;
           
           rdfs:subClassOf :Underwear ;
           
@@ -973,7 +973,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :MensClothing rdf:type owl:Class ;
               
-              rdfs:label "Men's clothing"^^xsd:string ;
+              rdfs:label "Men's clothing"@en ;
               
               owl:equivalentClass [ rdf:type owl:Restriction ;
                                     owl:onProperty :isSuitableToBeDressedByGenre ;
@@ -986,7 +986,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Moccasins rdf:type owl:Class ;
            
-           rdfs:label "Mocassins"^^xsd:string ;
+           rdfs:label "Mocassins"@en ;
            
            rdfs:subClassOf :Shoes ;
            
@@ -998,7 +998,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :NaturalClothingMaterial rdf:type owl:Class ;
                          
-                         rdfs:label "Natural clothing material"^^xsd:string ;
+                         rdfs:label "Natural clothing material"@en ;
                          
                          rdfs:subClassOf :ClothingMaterial ;
                          
@@ -1010,7 +1010,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Necklace rdf:type owl:Class ;
           
-          rdfs:label "Necklace"^^xsd:string ;
+          rdfs:label "Necklace"@en ;
           
           rdfs:subClassOf :Jewellery ;
           
@@ -1022,7 +1022,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Nylons rdf:type owl:Class ;
         
-        rdfs:label "Nylons"^^xsd:string ;
+        rdfs:label "Nylons"@en ;
         
         rdfs:subClassOf :Lingerie ;
         
@@ -1034,7 +1034,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :PushUpBra rdf:type owl:Class ;
            
-           rdfs:label "Push-up bra"^^xsd:string ;
+           rdfs:label "Push-up bra"@en ;
            
            rdfs:subClassOf :Bra ;
            
@@ -1046,7 +1046,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Pyjama rdf:type owl:Class ;
         
-        rdfs:label "Pyjama"^^xsd:string ;
+        rdfs:label "Pyjama"@en ;
         
         rdfs:subClassOf dbr:Clothing ;
         
@@ -1058,7 +1058,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :PyjamaParty rdf:type owl:Class ;
              
-             rdfs:label "Pyjama party"^^xsd:string ;
+             rdfs:label "Pyjama party"@en ;
              
              rdfs:subClassOf dbo:Event .
 
@@ -1068,7 +1068,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Raincoat rdf:type owl:Class ;
           
-          rdfs:label "Raincoat"^^xsd:string ;
+          rdfs:label "Raincoat"@en ;
           
           rdfs:subClassOf dbr:Clothing ;
           
@@ -1080,7 +1080,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :RegularFitTrousers rdf:type owl:Class ;
                     
-                    rdfs:label "Regular fit trousers"^^xsd:string ;
+                    rdfs:label "Regular fit trousers"@en ;
                     
                     rdfs:subClassOf :Trousers ;
                     
@@ -1092,7 +1092,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Ring rdf:type owl:Class ;
       
-      rdfs:label "Ring"^^xsd:string ;
+      rdfs:label "Ring"@en ;
       
       rdfs:subClassOf :Jewellery ;
       
@@ -1104,7 +1104,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :RomanticDate rdf:type owl:Class ;
               
-              rdfs:label "Romantic date"^^xsd:string ;
+              rdfs:label "Romantic date"@en ;
               
               rdfs:subClassOf :Date .
 
@@ -1114,7 +1114,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Sandals rdf:type owl:Class ;
          
-         rdfs:label "Sandals"^^xsd:string ;
+         rdfs:label "Sandals"@en ;
          
          rdfs:subClassOf :Shoes ;
          
@@ -1126,7 +1126,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Scarf rdf:type owl:Class ;
        
-       rdfs:label "Scarf"^^xsd:string ;
+       rdfs:label "Scarf"@en ;
        
        rdfs:subClassOf :Accessory ;
        
@@ -1138,7 +1138,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :ShapeLingerie rdf:type owl:Class ;
                
-               rdfs:label "Shape lingerie"^^xsd:string ;
+               rdfs:label "Shape lingerie"@en ;
                
                rdfs:subClassOf :Bra ;
                
@@ -1150,7 +1150,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Shirt rdf:type owl:Class ;
        
-       rdfs:label "Shirt"^^xsd:string ;
+       rdfs:label "Shirt"@en ;
        
        rdfs:subClassOf dbr:Clothing ;
        
@@ -1162,7 +1162,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Shoes rdf:type owl:Class ;
        
-       rdfs:label "Shoes"^^xsd:string ;
+       rdfs:label "Shoes"@en ;
        
        rdfs:subClassOf dbr:Clothing ;
        
@@ -1183,7 +1183,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :ShoulderBag rdf:type owl:Class ;
              
-             rdfs:label "Shoulder bag"^^xsd:string ;
+             rdfs:label "Shoulder bag"@en ;
              
              rdfs:subClassOf :Bag ;
              
@@ -1195,7 +1195,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :SkinnyFitTrousers rdf:type owl:Class ;
                    
-                   rdfs:label "Skinny fit trousers"^^xsd:string ;
+                   rdfs:label "Skinny fit trousers"@en ;
                    
                    rdfs:subClassOf :Trousers ;
                    
@@ -1207,7 +1207,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Skirt rdf:type owl:Class ;
        
-       rdfs:label "Skirt"^^xsd:string ;
+       rdfs:label "Skirt"@en ;
        
        rdfs:subClassOf dbr:Clothing ;
        
@@ -1219,7 +1219,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :SlimFitTrousers rdf:type owl:Class ;
                  
-                 rdfs:label "Slim fit trousers"^^xsd:string ;
+                 rdfs:label "Slim fit trousers"@en ;
                  
                  rdfs:subClassOf :Trousers ;
                  
@@ -1231,7 +1231,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Sneakers rdf:type owl:Class ;
           
-          rdfs:label "Sneakers"^^xsd:string ;
+          rdfs:label "Sneakers"@en ;
           
           rdfs:subClassOf :Shoes ;
           
@@ -1243,7 +1243,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Socks rdf:type owl:Class ;
        
-       rdfs:label "Socks"^^xsd:string ;
+       rdfs:label "Socks"@en ;
        
        rdfs:subClassOf :Underwear ;
        
@@ -1255,7 +1255,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :SportBra rdf:type owl:Class ;
           
-          rdfs:label "Sports bra"^^xsd:string ;
+          rdfs:label "Sports bra"@en ;
           
           rdfs:subClassOf :Bra ;
           
@@ -1267,7 +1267,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Suit rdf:type owl:Class ;
       
-      rdfs:label "Suit"^^xsd:string ;
+      rdfs:label "Suit"@en ;
       
       rdfs:subClassOf dbr:Clothing ;
       
@@ -1279,7 +1279,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Sunglasses rdf:type owl:Class ;
             
-            rdfs:label "Sunglasses"^^xsd:string ;
+            rdfs:label "Sunglasses"@en ;
             
             rdfs:subClassOf :Accessory ;
             
@@ -1291,7 +1291,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :SyntheticClothingMaterial rdf:type owl:Class ;
                            
-                           rdfs:label "Synthetic clothing material"^^xsd:string ;
+                           rdfs:label "Synthetic clothing material"@en ;
                            
                            rdfs:subClassOf :ClothingMaterial .
 
@@ -1301,7 +1301,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :TShirt rdf:type owl:Class ;
         
-        rdfs:label "T-shirt"^^xsd:string ;
+        rdfs:label "T-shirt"@en ;
         
         rdfs:subClassOf dbr:Clothing ;
         
@@ -1313,7 +1313,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Tie rdf:type owl:Class ;
      
-     rdfs:label "Tie"^^xsd:string ;
+     rdfs:label "Tie"@en ;
      
      rdfs:subClassOf :Accessory ;
      
@@ -1325,7 +1325,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Top rdf:type owl:Class ;
      
-     rdfs:label "Top"^^xsd:string ;
+     rdfs:label "Top"@en ;
      
      rdfs:subClassOf dbr:Clothing ;
      
@@ -1337,7 +1337,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Trousers rdf:type owl:Class ;
           
-          rdfs:label "Trousers"^^xsd:string ;
+          rdfs:label "Trousers"@en ;
           
           rdfs:subClassOf dbr:Clothing ;
           
@@ -1354,7 +1354,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Umbrella rdf:type owl:Class ;
           
-          rdfs:label "Umbrella"^^xsd:string ;
+          rdfs:label "Umbrella"@en ;
           
           rdfs:subClassOf :Accessory ;
           
@@ -1366,7 +1366,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Underpants rdf:type owl:Class ;
             
-            rdfs:label "Underpants"^^xsd:string ;
+            rdfs:label "Underpants"@en ;
             
             rdfs:subClassOf :Underwear ;
             
@@ -1378,7 +1378,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Underwear rdf:type owl:Class ;
            
-           rdfs:label "Underwear"^^xsd:string ;
+           rdfs:label "Underwear"@en ;
            
            rdfs:subClassOf dbr:Clothing ;
            
@@ -1395,7 +1395,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :UnisexClothing rdf:type owl:Class ;
                 
-                rdfs:label "Unisex clothing"^^xsd:string ;
+                rdfs:label "Unisex clothing"@en ;
                 
                 owl:equivalentClass [ rdf:type owl:Class ;
                                       owl:intersectionOf ( :MensClothing
@@ -1409,7 +1409,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :Wedding rdf:type owl:Class ;
          
-         rdfs:label "Wedding"^^xsd:string ;
+         rdfs:label "Wedding"@en ;
          
          rdfs:subClassOf dbo:Event .
 
@@ -1419,7 +1419,7 @@ gr:BusinessEntity rdf:type owl:Class .
 
 :WomensClothing rdf:type owl:Class ;
                 
-                rdfs:label "Women's clothing"^^xsd:string ;
+                rdfs:label "Women's clothing"@en ;
                 
                 owl:equivalentClass [ rdf:type owl:Restriction ;
                                       owl:onProperty :isSuitableToBeDressedByGenre ;
@@ -1511,7 +1511,7 @@ dbr:Casual rdf:type dbr:Dress_code ,
 dbr:Catholicism rdf:type dbr:Religion ,
                          owl:NamedIndividual ;
                 
-                rdfs:label "Catholicism"^^xsd:string .
+                rdfs:label "Catholicism"@en .
 
 
 
@@ -1527,7 +1527,7 @@ dbr:Clothing_sizes rdf:type :ClothingCharacteristic ,
 dbr:Cloudy rdf:type dbr:Weather ,
                     owl:NamedIndividual ;
            
-           rdfs:label "Cloudy"^^xsd:string .
+           rdfs:label "Cloudy"@en .
 
 
 
@@ -1558,7 +1558,7 @@ dbr:Dress_code rdf:type owl:NamedIndividual ;
 dbr:Eastern_Orthodox_Church rdf:type dbr:Religion ,
                                      owl:NamedIndividual ;
                             
-                            rdfs:label "Orthodoxism"^^xsd:string .
+                            rdfs:label "Orthodoxism"@en .
 
 
 
@@ -1589,7 +1589,7 @@ dbr:Fur rdf:type :NaturalClothingMaterial ,
 dbr:Hinduism rdf:type dbr:Religion ,
                       owl:NamedIndividual ;
              
-             rdfs:label "Hinduism"^^xsd:string .
+             rdfs:label "Hinduism"@en .
 
 
 
@@ -1648,7 +1648,7 @@ dbr:Mohair rdf:type :NaturalClothingMaterial ,
 dbr:Muslim rdf:type dbr:Religion ,
                     owl:NamedIndividual ;
            
-           rdfs:label "Muslim"^^xsd:string ;
+           rdfs:label "Muslim"@en ;
            
            :religionHasSuitableClothingForDressing :Belt ,
                                                    :Coat ,
@@ -1785,7 +1785,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :Apple rdf:type :BodyShape ,
                 owl:NamedIndividual ;
        
-       rdfs:label "Apple"^^xsd:string .
+       rdfs:label "Apple"@en .
 
 
 
@@ -1840,7 +1840,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :Clear rdf:type dbr:Weather ,
                 owl:NamedIndividual ;
        
-       rdfs:label "Clear"^^xsd:string .
+       rdfs:label "Clear"@en .
 
 
 
@@ -1890,9 +1890,9 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
                        :ClothingStyle ,
                        owl:NamedIndividual ;
               
-              rdfs:label "Conservative dress code"^^xsd:string ;
+              rdfs:label "Conservative dress code"@en ;
               
-              rdfs:comment "This individual specifies that a particular clothing item is suitable for the Conservative dressing code."^^xsd:string .
+              rdfs:comment "This individual specifies that a particular clothing item is suitable for the Conservative dressing code."@en .
 
 
 
@@ -1939,7 +1939,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :Dry rdf:type dbr:Weather ,
               owl:NamedIndividual ;
      
-     rdfs:label "Dry"^^xsd:string .
+     rdfs:label "Dry"@en .
 
 
 
@@ -2026,7 +2026,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :Hot rdf:type dbr:Weather ,
               owl:NamedIndividual ;
      
-     rdfs:label "Hot"^^xsd:string .
+     rdfs:label "Hot"@en .
 
 
 
@@ -2035,7 +2035,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :Hourglass rdf:type :BodyShape ,
                     owl:NamedIndividual ;
            
-           rdfs:label "Hourglass"^^xsd:string .
+           rdfs:label "Hourglass"@en .
 
 
 
@@ -2099,7 +2099,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :Pear rdf:type :BodyShape ,
                owl:NamedIndividual ;
       
-      rdfs:label "Pear"^^xsd:string .
+      rdfs:label "Pear"@en .
 
 
 
@@ -2124,7 +2124,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :Rectangle rdf:type :BodyShape ,
                     owl:NamedIndividual ;
            
-           rdfs:label "Rectangle"^^xsd:string .
+           rdfs:label "Rectangle"@en .
 
 
 
@@ -2142,9 +2142,9 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
                :ClothingStyle ,
                owl:NamedIndividual ;
       
-      rdfs:label "Rock dress code"^^xsd:string ;
+      rdfs:label "Rock dress code"@en ;
       
-      rdfs:comment "This individual specifies that a particular clothing item is suitable for the Rock dressing code."^^xsd:string .
+      rdfs:comment "This individual specifies that a particular clothing item is suitable for the Rock dressing code."@en .
 
 
 
@@ -2239,9 +2239,9 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
                 :ClothingStyle ,
                 owl:NamedIndividual ;
        
-       rdfs:label "Sport dress code"^^xsd:string ;
+       rdfs:label "Sport dress code"@en ;
        
-       rdfs:comment "This individual specifies that a particular clothing item is suitable for the Sport dressing code."^^xsd:string .
+       rdfs:comment "This individual specifies that a particular clothing item is suitable for the Sport dressing code."@en .
 
 
 
@@ -2320,7 +2320,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :Wet rdf:type dbr:Weather ,
               owl:NamedIndividual ;
      
-     rdfs:label "Wet"^^xsd:string .
+     rdfs:label "Wet"@en .
 
 
 
@@ -2350,9 +2350,9 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 
 :hasColour rdf:type owl:NamedIndividual ;
            
-           rdfs:label "Has colour"^^xsd:string ;
+           rdfs:label "Has colour"@en ;
            
-           rdfs:comment "This property specifies the color a particular clothing item has."^^xsd:string .
+           rdfs:comment "This property specifies the color a particular clothing item has."@en .
 
 
 
@@ -2392,7 +2392,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :pijamaleUnisex rdf:type :Pyjama ,
                          owl:NamedIndividual ;
                 
-                sioc:note "Pyjama Unisex received as gift from father."^^xsd:string ;
+                sioc:note "Pyjama Unisex received as gift from father."@en ;
                 
                 :isSuitableToBeDressedByGenre dbr:Female ,
                                               dbr:Male ;
