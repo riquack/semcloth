@@ -2,16 +2,29 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET           /events                                    ro.info.uaic.semcloth.controllers.EntitiesController.events
 GET           /clothingTypes                             ro.info.uaic.semcloth.controllers.EntitiesController.clothingTypes
+GET           /clothing/types                            ro.info.uaic.semcloth.controllers.EntitiesController.clothingTypes
+
 GET           /clothingSizes                             ro.info.uaic.semcloth.controllers.EntitiesController.clothingSizes
+GET           /clothing/sizes                            ro.info.uaic.semcloth.controllers.EntitiesController.clothingSizes
+
 GET           /clothingStyles                            ro.info.uaic.semcloth.controllers.EntitiesController.clothingStyles
+GET           /clothing/styles                           ro.info.uaic.semcloth.controllers.EntitiesController.clothingStyles
+
 GET           /clothingMaterials                         ro.info.uaic.semcloth.controllers.EntitiesController.clothingMaterials
+GET           /clothing/materials                        ro.info.uaic.semcloth.controllers.EntitiesController.clothingMaterials
+
 GET           /clothingTextures                          ro.info.uaic.semcloth.controllers.EntitiesController.clothingTextures
+GET           /clothing/textures                         ro.info.uaic.semcloth.controllers.EntitiesController.clothingTextures
+
+GET           /events                                    ro.info.uaic.semcloth.controllers.EntitiesController.events
 GET           /religions                                 ro.info.uaic.semcloth.controllers.EntitiesController.religions
 GET           /seasons                                   ro.info.uaic.semcloth.controllers.EntitiesController.seasons
 GET           /weatherConditions                         ro.info.uaic.semcloth.controllers.EntitiesController.weatherConditions
 GET           /colors                                    ro.info.uaic.semcloth.controllers.EntitiesController.colors
+
+
+
 
 POST          /users/:userId/wardrobe                    ro.info.uaic.semcloth.controllers.WardrobeController.newClothingItem(userId: String)
 GET           /users/:userId/wardrobe                    ro.info.uaic.semcloth.controllers.WardrobeController.allClothingItems(userId: String)
