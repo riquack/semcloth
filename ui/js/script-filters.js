@@ -394,6 +394,7 @@ var gmat= [];
 				jsonResultFilter = { 	// toate datele si filtere
 					"preferences":  { }
 				};
+				var queryData = "";
 
 				if(name!="")
 					jsonResultFilter.preferences.name = name;
@@ -403,32 +404,153 @@ var gmat= [];
 					jsonResultFilter.preferences.birthday = birthday;
 				//if(religion!=="")
 				//	jsonResultFilter.preferences.religion = religion;
-				if(events!=="no")
+				if(events!=="no") {
 					jsonResultFilter.preferences.events = accLink(events);
-				if(pref!=="no")
+						    queryData = queryData + "events="+event + "&";		
+				}
+				if(pref!=="no") {
 					jsonResultFilter.preferences.stylePref = accLink(pref);
-				//if(weather!=="no")
+				    queryData = queryData + "style="+ jsonResultFilter.preferences.stylePref + "&";		
+				}//if(weather!=="no")
 				//	jsonResultFilter.preferences.weather = accLink(weather);
-				if(season!=="no")
+				if(season!=="no") {
 					jsonResultFilter.preferences.season = accLink(season);
-				
+				    queryData = queryData + "season="+jsonResultFilter.preferences.season + "&";		
+
+				}
 				if(material!=="no"){
-					jsonResultFilter.preferences.material = JSON.stringify(smat); //accLink(material);
+					jsonResultFilter.preferences.material = smat; //accLink(material);
+					$.each(jsonResultFilter.preferences.material, function (index, material) {
+						    queryData = queryData + "materials="+material + "&";		
+					});
 				}
 					
-				if(religions!=="no")
+				if(religions!=="no") {
 					jsonResultFilter.preferences.religions = accLink(religions);
-				
-				if(weatherConditions!=="no")
+				    querData = queryData + "religion="+jsonResultFilter.preferences.religions + "&";		
+				}
+				if(weatherConditions!=="no") {
 					jsonResultFilter.preferences.weatherConditions = accLink(weatherConditions);
+				    queryData = queryData + "weather="+jsonResultFilter.preferences.weatherConditions + "&";		
 
-
+				}
 				if(gender!=="no"){
-					jsonResultFilter.preferences.gender = JSON.stringify(gmat); //accLink(material);
+					jsonResultFilter.preferences.gender = gmat; //accLink(material);
+					$.each(jsonResultFilter.preferences.gender, function (index, gender) {
+						    queryData = queryData + "genders="+gender + "&";		
+					});
+
 				}
 					
-
+	var user_name_from_chookie = $.cookie('email');
+	//console.log(user_name_from_chookie);
+	var usr = user_name_from_chookie.split("@");
 				console.log(jsonResultFilter);
+
+				/*trimit filtrele---------------------------------------------*/
+				var testUrl = "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=recommendations&userId="+usr[0]+queryData;
+				alert(testUrl);
+				$.ajax({
+						type: "GET",
+						url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=recommendations&userId="+usr[0]+queryData,//"http://riquack-n61vn:9000/events",
+						dataType: "text",
+						success: function(data){
+							//	console.log(data);
+							//var jresult = $.parseJSON(data);
+
+
+						},
+						 error: function(error, ob, message) {
+								alert("[Get items]: " + message.toString());
+						 }
+				});
+
+
+
+
+				/*Primesc rezulate */
+				/*
+	$.ajax({
+			type: "GET",
+			url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=wardrobe&userId="+usr[0],//"http://riquack-n61vn:9000/events",
+			dataType: "text",
+			success: function(data){
+				//	console.log(data);
+				var jresult = $.parseJSON(data);
+
+				//console.log(jresult);
+				// console.log(jresult.toSource());
+				//console.log("before for");
+				$.each(jresult.results.bindings, function(i, value) {
+					
+					//console.log(this);
+					var id_item = this.subject.value.split("#");
+					//console.log(id_item[1]);
+					//console.log("before get item details");
+ 
+					$.ajax({
+						type: "GET",
+						url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=wardrobeItem&userId="+usr[0] + "&clothingId="+id_item[1],//"http://riquack-n61vn:9000/events",
+						dataType: "text",
+						success: function(data){
+
+								//console.log(data);
+								var jresult_item = $.parseJSON(data);
+
+							var values = ["http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByGenre", 
+							"http://rdfs.org/sioc/ns#note", 
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTextileComposition", 
+							"http://semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour", 
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasSize", 
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTexture", 
+							"http://dbpedia.org/ontology/thumbnail"]; 
+							var data = {};
+							$.each(jresult_item.results.bindings, function(index, value1) {
+									
+									var prop = this.property.value;
+									data[prop] = this.object.value;	
+
+									//console.log(prop + " " + this.object.value );
+
+
+							});
+							//console.log(data[values[3]] + " " + index);
+
+		var aux = '<li id="item-'+i+'"><div class="t-item"><h3>' +'</h3>'
+		   			 	+ '<div class="r-80">'//<p class="item-events"><b>Events:</b> '+ events +'</p>'
+	    				//+ '<p class="item-season"><b>Season:</b> '+ season +'</p>'
+	    				//+ '<p class="item-styles"><b>Styles:</b> '+ styles +'</p>' 
+	    				+ '<p class="item-material"><b>Material:</b> '+ data[values[2]].split("/")[data[values[2]].split("/").length-1].replace("_", " " ) +'</p>'
+	    				+ '<p class="item-material"><b>Note:</b> '+ data[values[1]]+'</p>'
+	    				+ '<p class="item-material"><b>Texture:</b> '+ data[values[5]]+'</p>'
+	    				+ '<p class="item-material"><b>Size:</b> '+ data[values[4]].split("#")[1].replace(">", "")+'</p>'
+	    				+ '<p class="item-material"><b>Colors:</b> '+ data[values[3]]+'</p>'
+	    				+ '<button id="iditem-'+i+'" class="delete-item-list"><i class="fa fa-trash-o"></i>Delete Item</button> </div>' 
+	    				+ '<div class="r-20"><img src="'+ data[values[6]]+'"></div>'
+	    				+ '</div>'
+		   				//+'<div class="e-item"> <button id="item-e-'+i+'" class="options edit-item">Edit</button> '
+		   				//+'<button id="item-d-'+i+'" class="options delete-item">Delete</button> </div>';
+		   				+ '</li>';
+			$( ".list-w" ).append( aux);
+		
+							
+
+
+						},
+						 error: function(error, ob, message) {
+								alert("[Get props each item]: " + message.toString());
+						 }
+					});
+
+			
+				});
+
+			},
+			 error: function(error, ob, message) {
+					alert("[Get items]: " + message.toString());
+			 }
+	});
+*/
 
 
 

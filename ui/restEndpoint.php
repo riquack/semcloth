@@ -17,6 +17,7 @@
 		"weatherConditions" => "http://riquack-n61vn:9000/weatherConditions",
 		"clothingMaterials" => "http://riquack-n61vn:9000/clothingMaterials",
 		"wardrobe" => "http://riquack-n61vn:9000/users/" . $userId . "/wardrobe",
+		"recommendations" => "http://riquack-n61vn:9000/users/" . $userId . "/wardrobe/recommendations",
 		"wardrobeItem" => "http://riquack-n61vn:9000/users/" . $userId . "/wardrobe/" . $clothingId
 		];
 		

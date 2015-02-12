@@ -552,6 +552,11 @@ button.grid:before {
 	float: right;
 }
 
+.r-20 img {
+	width: 80%;
+}
+
+
 h3{
 	border-bottom: 1px solid #dfdfdf;
 	padding-bottom: 10px;
