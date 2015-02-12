@@ -1968,7 +1968,8 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flowe
 
 :Flowe rdf:type :ClothingTexture ,
-                owl:NamedIndividual .
+                owl:NamedIndividual ;
+				rdfs:label "Flowe"@en .
 
 
 
@@ -2042,7 +2043,8 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#IMVU
 
 :IMVU rdf:type :ClothingTexture ,
-               owl:NamedIndividual .
+               owl:NamedIndividual ;
+			   rdfs:label "IMVU"@en .
 
 
 
@@ -2106,7 +2108,8 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Plaid
 
 :Plaid rdf:type :ClothingTexture ,
-                owl:NamedIndividual .
+                owl:NamedIndividual ;
+				rdfs:label "Plaid"@en.
 
 
 
