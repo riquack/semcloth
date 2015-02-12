@@ -1,0 +1,78 @@
+{
+  "head" : {
+    "vars" : [ "clothingMaterial", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Acrylic_fiber"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Cashmere_wool"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Cotton"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Spandex"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Fur"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Lace"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Leather"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Linen"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Mohair"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Nylon"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Polyester"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Satin"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Silk"
+      }
+    }, {
+      "clothingMaterial" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Wool"
+      }
+    } ]
+  }
+}

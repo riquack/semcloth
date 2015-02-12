@@ -29,33 +29,66 @@ SELECT ?c WHERE {
 
 
 /sizes
-select ?size ?label where { ?event a dbr:Clothing_sizes;
-                                               rdfs:label ?label . }
+select ?size ?label 
+where 
+	{ ?event rdfs:subClassOf 
+			dbr:Clothing_sizes;
+			rdfs:label ?label .
+	}
 
 
 /events
-select ?event ?label where { ?event a dbo:Event;
-                                               rdfs:label ?label . }
+select ?event ?label 
+where 
+	{ ?event a dbo:Event;
+	         rdfs:label ?label . 
+	}
+
+/religions
+select ?religion ?label ?comment 
+where 
+	{ ?religion a dbr:Religion;
+				rdfs:label ?label ;
+				rdfs:comment ?comment .
+	}
+											
+											
 
 /clothingStyles
 PREFIX yago: <http://dbpedia.org/class/yago/>
 
 SELECT ?dressingStyle ?label ?comment 
-  WHERE {
+  WHERE 
+	{
      ?dressingStyle a yago:FashionAesthetics ;
      rdfs:label ?label;
      rdfs:comment ?comment .
 
      FILTER(lang(?label) = "en" && lang(?comment) = "en")
-  }
+   }
 
-											   
-		
+											   	
 
 /religions
-select ?religion ?label where { ?religion a dbr:Religion;
-                                                     rdfs:label ?label . }		
+select ?religion ?label 
+where 
+	{ ?religion a dbr:Religion;
+				rdfs:label ?label . 
+	}		
 
+/clothingMaterials
+select ?clothingMaterial ?label 
+where 
+	{ ?clothingMaterial a :ClothingMaterial
+                        rdfs:label ?label; 
+						rdfs:comment ?comment . 
+	}		
+
+/clothingMaterials (absolete)
+select ?clothingMaterial ?label where { {?clothingMaterial a :ClothingMaterial.} UNION {?clothingMaterial a :ClothingMaterial;
+                                                                     rdfs:label ?label . }}																	  
+	
+	
 /seasons													 
 select ?season ?label ?comment where
           | {?season a dbr:Season;
@@ -65,15 +98,16 @@ select ?season ?label ?comment where
 													 
 													 
 /weatherConditions
-select ?weatherCondition ?label where { ?weatherCondition a dbr:Weather;
-                                                                      rdfs:label ?label . }
+select ?weatherCondition ?label ?comment
+where 
+	{ ?weatherCondition a dbr:Weather;
+		rdfs:label ?label . 
+		OPTIONAL {?weatherCondition rdfs:comment ?comment.}
+	}
 
 
-/clothingMaterials
-select ?clothingMaterial ?label where { {?clothingMaterial a :ClothingMaterial.} UNION {?clothingMaterial a :ClothingMaterial;
-                                                                     rdfs:label ?label . }}																	  
 													 
-													 
+													
 /colors
 
 PREFIX umbel: <http://umbel.org/umbel/rc/>

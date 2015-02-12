@@ -174,9 +174,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
            
            rdfs:comment "This property specifies the color a particular clothing item has."^^xsd:string ;
            
-           rdfs:domain dbr:Clothing ;
+           rdfs:range dbo:Colour ;
            
-           rdfs:range dbo:Colour .
+           rdfs:domain dbr:Clothing .
 
 
 
@@ -214,7 +214,9 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTexture
 
 :hasTexture rdf:type owl:ObjectProperty ;
+            
             rdfs:label "Has texture" ;
+            
             rdfs:comment "Specifies the texture of the clothing item."^^xsd:string ;
             
             rdfs:domain dbr:Clothing ;
@@ -401,6 +403,12 @@ dbp:dressSize rdf:type owl:ObjectProperty ;
 #################################################################
 
 
+###  http://dbpedia.org/ontology/Colour
+
+dbo:Colour rdf:type owl:Class .
+
+
+
 ###  http://dbpedia.org/ontology/Event
 
 dbo:Event rdf:type owl:Class ;
@@ -448,12 +456,6 @@ dbr:Clothing_sizes rdf:type owl:Class .
 
 
 
-###  http://dbpedia.org/resource/Color
-
-dbo:Colour rdf:type owl:Class .
-
-
-
 ###  http://dbpedia.org/resource/Dress_code
 
 dbr:Dress_code rdf:type owl:Class .
@@ -463,7 +465,9 @@ dbr:Dress_code rdf:type owl:Class .
 ###  http://dbpedia.org/resource/Female
 
 dbr:Female rdf:type owl:Class ;
+           
            rdfs:label "Female"@en ;
+           
            owl:disjointWith dbr:Male .
 
 
@@ -481,7 +485,8 @@ dbr:Genre rdf:type owl:Class ;
 ###  http://dbpedia.org/resource/Male
 
 dbr:Male rdf:type owl:Class ;
-	rdfs:label "Male"@en .
+         
+         rdfs:label "Male"@en .
 
 
 
@@ -690,8 +695,8 @@ gr:BusinessEntity rdf:type owl:Class .
                         
                         rdfs:label "Clothing characteristic"^^xsd:string ;
                         
-                        owl:disjointUnionOf ( dbr:Clothing_sizes
-                                              dbo:Colour
+                        owl:disjointUnionOf ( dbo:Colour
+                                              dbr:Clothing_sizes
                                               :BodyShape
                                               :ClothingMaterial
                                               :ClothingStyle
@@ -735,8 +740,8 @@ gr:BusinessEntity rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club
-:Club rdf:type owl:Class ;
 
+:Club rdf:type owl:Class ;
       
       rdfs:label "Club"^^xsd:string ;
       
@@ -969,14 +974,11 @@ gr:BusinessEntity rdf:type owl:Class .
               
               rdfs:label "Men's clothing"^^xsd:string ;
               
-              owl:equivalentClass [ rdf:type owl:Restriction, owl:Class ;
-									rdfs:subClassOf dbr:Clothing ;
-
+              owl:equivalentClass [ rdf:type owl:Restriction ;
                                     owl:onProperty :isSuitableToBeDressedByGenre ;
                                     owl:hasValue dbr:Male
                                   ] .
-              
- 
+
 
 
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Moccasins
@@ -1395,13 +1397,10 @@ gr:BusinessEntity rdf:type owl:Class .
                 rdfs:label "Unisex clothing"^^xsd:string ;
                 
                 owl:equivalentClass [ rdf:type owl:Class ;
-										rdfs:subClassOf dbr:Clothing ;
                                       owl:intersectionOf ( :MensClothing
                                                            :WomensClothing
                                                          )
                                     ] .
-                
-                
 
 
 
@@ -1422,12 +1421,9 @@ gr:BusinessEntity rdf:type owl:Class .
                 rdfs:label "Women's clothing"^^xsd:string ;
                 
                 owl:equivalentClass [ rdf:type owl:Restriction ;
-				rdfs:subClassOf dbr:Clothing;
                                       owl:onProperty :isSuitableToBeDressedByGenre ;
                                       owl:hasValue dbr:Female
                                     ] .
-                
-                
 
 
 
@@ -1440,8 +1436,14 @@ gr:BusinessEntity rdf:type owl:Class .
 #################################################################
 
 
-###  http://dbpedia.org/property/colour
+###  http://dbpedia.org/ontology/Colour
 
+dbo:Colour rdf:type :ClothingCharacteristic ,
+                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/property/colour
 
 dbp:colour rdf:type owl:NamedIndividual ;
            
@@ -1460,6 +1462,13 @@ dbr:Acrylic_fiber rdf:type :SyntheticClothingMaterial ,
 
 dbr:Autumn rdf:type dbr:Season ,
                     owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Baptism
+
+dbr:Baptism rdf:type dbr:Religion ,
+                     owl:NamedIndividual .
 
 
 
@@ -1491,7 +1500,8 @@ dbr:Cashmere_wool rdf:type :NaturalClothingMaterial ,
 dbr:Casual rdf:type dbr:Dress_code ,
                     :ClothingStyle ,
                     owl:NamedIndividual ;
-					rdfs:label "Casual dress code"@en .
+           
+           rdfs:label "Casual dress code"@en .
 
 
 
@@ -1511,17 +1521,19 @@ dbr:Clothing_sizes rdf:type :ClothingCharacteristic ,
 
 
 
+###  http://dbpedia.org/resource/Cloudy
+
+dbr:Cloudy rdf:type dbr:Weather ,
+                    owl:NamedIndividual ;
+           
+           rdfs:label "Cloudy"^^xsd:string .
+
+
+
 ###  http://dbpedia.org/resource/Cold
 
 dbr:Cold rdf:type dbr:Weather ,
                   owl:NamedIndividual .
-
-
-
-###  http://dbpedia.org/resource/Color
-
-dbo:Colour rdf:type :ClothingCharacteristic ,
-                   owl:NamedIndividual .
 
 
 
@@ -1616,6 +1628,13 @@ dbr:Male rdf:type dbr:Genre ,
 
 
 
+###  http://dbpedia.org/resource/Methodism
+
+dbr:Methodism rdf:type dbr:Religion ,
+                       owl:NamedIndividual .
+
+
+
 ###  http://dbpedia.org/resource/Mohair
 
 dbr:Mohair rdf:type :NaturalClothingMaterial ,
@@ -1627,8 +1646,7 @@ dbr:Mohair rdf:type :NaturalClothingMaterial ,
 
 dbr:Muslim rdf:type dbr:Religion ,
                     owl:NamedIndividual ;
-
-					
+           
            rdfs:label "Muslim"^^xsd:string ;
            
            :religionHasSuitableClothingForDressing :Belt ,
@@ -1640,10 +1658,31 @@ dbr:Muslim rdf:type dbr:Religion ,
 
 
 
+###  http://dbpedia.org/resource/Nestorianism
+
+dbr:Nestorianism rdf:type dbr:Religion ,
+                          owl:NamedIndividual .
+
+
+
 ###  http://dbpedia.org/resource/Nylon
 
 dbr:Nylon rdf:type :SyntheticClothingMaterial ,
                    owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Paganism
+
+dbr:Paganism rdf:type dbr:Religion ,
+                      owl:NamedIndividual .
+
+
+
+###  http://dbpedia.org/resource/Pentecostalism
+
+dbr:Pentecostalism rdf:type dbr:Religion ,
+                            owl:NamedIndividual .
 
 
 
@@ -1702,6 +1741,14 @@ dbr:Summer rdf:type dbr:Season ,
 
 
 
+###  http://dbpedia.org/resource/Surface_finish
+
+dbr:Surface_finish rdf:type owl:NamedIndividual ;
+                   
+                   owl:sameAs :ClothingTexture .
+
+
+
 ###  http://dbpedia.org/resource/Winter
 
 dbr:Winter rdf:type dbr:Season ,
@@ -1713,15 +1760,6 @@ dbr:Winter rdf:type dbr:Season ,
 
 dbr:Wool rdf:type :NaturalClothingMaterial ,
                   owl:NamedIndividual .
-
-
-
-###  http://dbpedia.org/resource/cloudy
-
-dbr:Cloudy rdf:type dbr:Weather ,
-                    owl:NamedIndividual ;
-           
-           rdfs:label "Cloudy"^^xsd:string .
 
 
 
@@ -1926,6 +1964,13 @@ dbr:Cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flowe
+
+:Flowe rdf:type :ClothingTexture ,
+                owl:NamedIndividual .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Funneral
 
 :Funneral rdf:type owl:NamedIndividual .
@@ -1993,6 +2038,13 @@ dbr:Cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#IMVU
+
+:IMVU rdf:type :ClothingTexture ,
+               owl:NamedIndividual .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Jewellery
 
 :Jewellery rdf:type owl:NamedIndividual ;
@@ -2001,6 +2053,24 @@ dbr:Cloudy rdf:type dbr:Weather ,
                                          :Date ;
            
            :isSuitableForDressingCode :Rock .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#L
+
+:L rdf:type dbr:Clothing_sizes ,
+            owl:NamedIndividual ;
+   
+   rdfs:label "L" .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#M
+
+:M rdf:type dbr:Clothing_sizes ,
+            owl:NamedIndividual ;
+   
+   rdfs:label "M" .
 
 
 
@@ -2029,6 +2099,13 @@ dbr:Cloudy rdf:type dbr:Weather ,
                owl:NamedIndividual ;
       
       rdfs:label "Pear"^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Plaid
+
+:Plaid rdf:type :ClothingTexture ,
+                owl:NamedIndividual .
 
 
 
@@ -2067,6 +2144,15 @@ dbr:Cloudy rdf:type dbr:Weather ,
       rdfs:label "Rock dress code"^^xsd:string ;
       
       rdfs:comment "This individual specifies that a particular clothing item is suitable for the Rock dressing code."^^xsd:string .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#S
+
+:S rdf:type dbr:Clothing_sizes ,
+            owl:NamedIndividual ;
+   
+   rdfs:label "s" .
 
 
 
@@ -2237,6 +2323,15 @@ dbr:Cloudy rdf:type dbr:Weather ,
 
 
 
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#XL
+
+:XL rdf:type dbr:Clothing_sizes ,
+             owl:NamedIndividual ;
+    
+    rdfs:label "XL" .
+
+
+
 ###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#funneralPyjama
 
 :funneralPyjama rdf:type :Pyjama ,
@@ -2304,15 +2399,26 @@ dbr:Cloudy rdf:type dbr:Weather ,
                 :hasTextileComposition dbr:Nylon ,
                                        dbr:Silk .
 
-:S a dbr:Clothing_sizes ;
-	rdfs:label "s".
 
-:L a dbr:Clothing_sizes ;
-	rdfs:label "L".
-:M a dbr:Clothing_sizes ;
-	rdfs:label "M".
-:XL a dbr:Clothing_sizes ;
-	rdfs:label "XL".
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#size40EUu
+
+:size40EUu rdf:type dbr:Clothing_sizes ,
+                    owl:NamedIndividual ;
+           
+           rdfs:label "40 EU" .
+
+
+
+###  http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#size42EU
+
+:size42EU rdf:type dbr:Clothing_sizes ,
+                   owl:NamedIndividual ;
+          
+          rdfs:label "42 EU" .
+
+
+
 
 
 #################################################################
@@ -2322,11 +2428,23 @@ dbr:Cloudy rdf:type dbr:Weather ,
 #################################################################
 
 
-[ rdf:type owl:Class ;
+[ rdf:type owl:Restriction ;
   rdfs:subClassOf dbr:Clothing ;
-  owl:intersectionOf ( :MensClothing
-                       :WomensClothing
-                     )
+  owl:onProperty :isSuitableToBeDressedByGenre ;
+  owl:hasValue dbr:Male
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( dbo:Colour
+                dbo:Event
+                dbr:Clothing
+                dbr:Clothing_sizes
+                dbr:Genre
+                dbr:Raw_material
+                dbr:Season
+                dbr:Shape
+                dbr:Weather
+                :ClothingStyle
+              )
 ] .
 [ rdf:type owl:Class ;
   rdfs:subClassOf dbr:Clothing ;
@@ -2340,18 +2458,16 @@ dbr:Cloudy rdf:type dbr:Weather ,
                        ]
                      )
 ] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( dbo:Event
-                dbr:Clothing
-                dbr:Clothing_sizes
-                dbo:Colour
-                dbr:Genre
-                dbr:Raw_material
-                dbr:Season
-                dbr:Shape
-                dbr:Weather
-                :ClothingStyle
-              )
+[ rdf:type owl:Restriction ;
+  rdfs:subClassOf dbr:Clothing ;
+  owl:onProperty :isSuitableToBeDressedByGenre ;
+  owl:hasValue dbr:Female
+] .
+[ rdf:type owl:Class ;
+  rdfs:subClassOf dbr:Clothing ;
+  owl:intersectionOf ( :MensClothing
+                       :WomensClothing
+                     )
 ] .
 
 
