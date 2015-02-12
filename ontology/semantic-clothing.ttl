@@ -25,6 +25,7 @@
                                                                                       "***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the 'body shapes' part of the ontology)"^^xsd:string ,
                                                                                       "***, W3C, http://www.w3.org/2001/sw/"^^xsd:string ,
                                                                                       "***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"^^xsd:string ;
+                                                                                      "***, flaticon, http://www.flaticon.com/ (Icons for the clothes);
                                                              
                                                              dc:date "2015-02"^^xsd:gYearMonth ;
                                                              
