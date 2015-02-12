@@ -10,6 +10,7 @@
 		"events" => "http://riquack-n61vn:9000/events",
 		"clothingTypes" => "http://riquack-n61vn:9000/clothingTypes",
 		"clothingSizes" => "http://riquack-n61vn:9000/clothingSizes",
+		"clothingTextures" => "http://riquack-n61vn:9000/clothingTextures",
 		"clothingStyles" => "http://riquack-n61vn:9000/clothingStyles",
 		"religions" => "http://riquack-n61vn:9000/religions",
 		"seasons" => "http://riquack-n61vn:9000/seasons",
