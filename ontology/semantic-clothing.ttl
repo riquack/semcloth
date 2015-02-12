@@ -20,14 +20,14 @@
                                                              rdfs:label "A common vocabulary for clothing items."@en ,
                                                                         "Semantic Clothing Ontology"@en ;
                                                              
+                                                             dc:date "2015-02"^^xsd:gYearMonth ;
+                                                             
                                                              dc:bibliographicCitation "*** H&M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)"@en ,
                                                                                       "***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support)."@en ,
                                                                                       "***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the 'body shapes' part of the ontology)"@en ,
                                                                                       "***, W3C, http://www.w3.org/2001/sw/"@en ,
                                                                                       "***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)"@en ,
                                                                                       "***, flaticon, http://www.flaticon.com/ (Icons for the clothes)"@en ;
-                                                             
-                                                             dc:date "2015-02"^^xsd:gYearMonth ;
                                                              
                                                              dc:creator "Daniel Amariei"@en ;
                                                              
@@ -1969,7 +1969,8 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 
 :Flowe rdf:type :ClothingTexture ,
                 owl:NamedIndividual ;
-				rdfs:label "Flowe"@en .
+       
+       rdfs:label "Flowe"@en .
 
 
 
@@ -2044,7 +2045,8 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 
 :IMVU rdf:type :ClothingTexture ,
                owl:NamedIndividual ;
-			   rdfs:label "IMVU"@en .
+      
+      rdfs:label "IMVU"@en .
 
 
 
@@ -2109,7 +2111,8 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 
 :Plaid rdf:type :ClothingTexture ,
                 owl:NamedIndividual ;
-				rdfs:label "Plaid"@en.
+       
+       rdfs:label "Plaid"@en .
 
 
 
@@ -2435,7 +2438,13 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 [ rdf:type owl:Restriction ;
   rdfs:subClassOf dbr:Clothing ;
   owl:onProperty :isSuitableToBeDressedByGenre ;
-  owl:hasValue dbr:Male
+  owl:hasValue dbr:Female
+] .
+[ rdf:type owl:Class ;
+  rdfs:subClassOf dbr:Clothing ;
+  owl:intersectionOf ( :MensClothing
+                       :WomensClothing
+                     )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( dbo:Colour
@@ -2465,13 +2474,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 [ rdf:type owl:Restriction ;
   rdfs:subClassOf dbr:Clothing ;
   owl:onProperty :isSuitableToBeDressedByGenre ;
-  owl:hasValue dbr:Female
-] .
-[ rdf:type owl:Class ;
-  rdfs:subClassOf dbr:Clothing ;
-  owl:intersectionOf ( :MensClothing
-                       :WomensClothing
-                     )
+  owl:hasValue dbr:Male
 ] .
 
 

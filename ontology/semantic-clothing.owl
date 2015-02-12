@@ -33,56 +33,63 @@
     <Prefix name="owl2xml" IRI="http://www.w3.org/2006/12/owl2-xml#"/>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:bibliographicCitation"/>
-        <Literal datatypeIRI="&xsd;string">***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the &apos;body shapes&apos; part of the ontology)</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <Literal datatypeIRI="&xsd;string">Semantic Clothing Ontology</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support).</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:bibliographicCitation"/>
-        <Literal datatypeIRI="&xsd;string">*** H&amp;M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">***, Haine Grasute, http://hainegrasute.blogspot.ro/2013/05/cum-sa-te-imbraci-avantajos-in-functie.html (provided support for modelling the &apos;body shapes&apos; part of the ontology)</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty abbreviatedIRI="dc:creator"/>
-        <Literal datatypeIRI="&xsd;string">Daniel Amariei</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Semantic Clothing Ontology</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:bibliographicCitation"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:date"/>
-        <Literal datatypeIRI="&xsd;dateTime">2015</Literal>
+        <Literal datatypeIRI="&xsd;gYearMonth">2015-02</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Ioana Bîrsan</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:bibliographicCitation"/>
-        <Literal datatypeIRI="&xsd;string">***, ZARA, http://www.zara.com/ro/en/ (provided support for serveral concepts used in this ontology)</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">***, W3C, http://www.w3.org/2001/sw/</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Iordan Rață</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:bibliographicCitation"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">*** H&amp;M, http://www.hm.com/ro/ (provided support for a few of the concepts used in this ontology)</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:bibliographicCitation"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">***, flaticon, http://www.flaticon.com/ (Icons for the clothes)</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Oana Gagea</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <Literal datatypeIRI="&xsd;string">A common vocabulary for clothing items.</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
-        <Literal datatypeIRI="&xsd;string">Iordan Rață</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dc:bibliographicCitation"/>
-        <Literal datatypeIRI="&xsd;string">***, W3C, http://www.w3.org/2001/sw/</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
-        <Literal datatypeIRI="&xsd;string">Oana Gagea</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
-        <Literal datatypeIRI="&xsd;string">Ioana Bîrsan</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A common vocabulary for clothing items.</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <Literal datatypeIRI="&xsd;string">The purpose of this ontology is to create the common conceptual framwork for &apos;talking&apos; about clothing or related concepts.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The purpose of this ontology is to create the common conceptual framwork for &apos;talking&apos; about clothing or related concepts.</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty abbreviatedIRI="dc:bibliographicCitation"/>
-        <Literal datatypeIRI="&xsd;string">***, Dr. Sabin-Corneliu Buraga, Web Applications Development (Fall 2014), (RO) http://profs.info.uaic.ro/~busaco/teach/courses/wade/index.html, UAIC, FII (this resource provided serveral useful examples from which this ontolgy was modeled after, together with theoretical support).</Literal>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Daniel Amariei</Literal>
     </Annotation>
+    <Declaration>
+        <Class abbreviatedIRI="dbo:Colour"/>
+    </Declaration>
     <Declaration>
         <Class abbreviatedIRI="dbo:Event"/>
     </Declaration>
@@ -91,9 +98,6 @@
     </Declaration>
     <Declaration>
         <Class abbreviatedIRI="dbr:Clothing_sizes"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="dbr:Color"/>
     </Declaration>
     <Declaration>
         <Class abbreviatedIRI="dbr:Dress_code"/>
@@ -109,6 +113,9 @@
     </Declaration>
     <Declaration>
         <Class abbreviatedIRI="dbr:Raw_material"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="dbr:Religion"/>
     </Declaration>
     <Declaration>
         <Class abbreviatedIRI="dbr:Season"/>
@@ -372,6 +379,9 @@
         <ObjectProperty IRI="#isSuitableForDressingCode"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#isSuitableForDressingForReligion"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
     </Declaration>
     <Declaration>
@@ -387,10 +397,16 @@
         <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#seasonHasSuitableClothingForDressing"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#weatherHasSuitableClothingForDressing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="dbo:Colour"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbp:colour"/>
@@ -400,6 +416,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Autumn"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Baptism"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Black"/>
@@ -414,19 +433,25 @@
         <NamedIndividual abbreviatedIRI="dbr:Casual"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Catholicism"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Clothing_sizes"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="dbr:Cold"/>
+        <NamedIndividual abbreviatedIRI="dbr:Cloudy"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="dbr:Color"/>
+        <NamedIndividual abbreviatedIRI="dbr:Cold"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Cotton"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Dress_code"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Eastern_Orthodox_Church"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Elastan"/>
@@ -436,6 +461,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Fur"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Hinduism"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Lace"/>
@@ -453,10 +481,25 @@
         <NamedIndividual abbreviatedIRI="dbr:Male"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Methodism"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Mohair"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Muslim"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Nestorianism"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Nylon"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Paganism"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Pentecostalism"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Polyester"/>
@@ -483,13 +526,16 @@
         <NamedIndividual abbreviatedIRI="dbr:Summer"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual abbreviatedIRI="dbr:Surface_finish"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Winter"/>
     </Declaration>
     <Declaration>
         <NamedIndividual abbreviatedIRI="dbr:Wool"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual abbreviatedIRI="dbr:cloudy"/>
+        <NamedIndividual IRI="#AnkleBoots"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Apple"/>
@@ -498,7 +544,13 @@
         <NamedIndividual IRI="#Bag"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Belt"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#BodyShape"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Boots"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Bra"/>
@@ -537,16 +589,31 @@
         <NamedIndividual IRI="#DinnerParty"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Dress"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Dry"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Earrings"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Flats"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Flowe"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Funneral"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Gloves"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Handbag"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#HighHeels"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Hot"/>
@@ -555,7 +622,19 @@
         <NamedIndividual IRI="#Hourglass"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#IMVU"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Jewellery"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#L"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#M"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Moccasins"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Necklace"/>
@@ -564,16 +643,46 @@
         <NamedIndividual IRI="#Pear"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Plaid"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Raincoat"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Rectangle"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RegularFitTrousers"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Rock"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#S"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sandals"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Scarf"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Shirt"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#ShoulderBag"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Skirt"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Sneakers"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Sport"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Suit"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Sunglasses"/>
@@ -582,10 +691,22 @@
         <NamedIndividual IRI="#Tie"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Trousers"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Umbrella"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Underwear"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Wedding"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Wet"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#XL"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#funneralPyjama"/>
@@ -601,6 +722,15 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#pijamaleUnisex"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#size40EUu"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#size42EU"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
@@ -780,10 +910,6 @@
         <Class IRI="#Underwear"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#MensClothing"/>
-        <Class abbreviatedIRI="dbr:Clothing"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Moccasins"/>
         <Class IRI="#Shoes"/>
     </SubClassOf>
@@ -916,16 +1042,8 @@
         <Class abbreviatedIRI="dbr:Clothing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#UnisexClothing"/>
-        <Class abbreviatedIRI="dbr:Clothing"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Wedding"/>
         <Class abbreviatedIRI="dbo:Event"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#WomensClothing"/>
-        <Class abbreviatedIRI="dbr:Clothing"/>
     </SubClassOf>
     <SubClassOf>
         <ObjectIntersectionOf>
@@ -947,11 +1065,25 @@
         </ObjectIntersectionOf>
         <Class abbreviatedIRI="dbr:Clothing"/>
     </SubClassOf>
+    <SubClassOf>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
+            <NamedIndividual abbreviatedIRI="dbr:Female"/>
+        </ObjectHasValue>
+        <Class abbreviatedIRI="dbr:Clothing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
+            <NamedIndividual abbreviatedIRI="dbr:Male"/>
+        </ObjectHasValue>
+        <Class abbreviatedIRI="dbr:Clothing"/>
+    </SubClassOf>
     <DisjointClasses>
+        <Class abbreviatedIRI="dbo:Colour"/>
         <Class abbreviatedIRI="dbo:Event"/>
         <Class abbreviatedIRI="dbr:Clothing"/>
         <Class abbreviatedIRI="dbr:Clothing_sizes"/>
-        <Class abbreviatedIRI="dbr:Color"/>
         <Class abbreviatedIRI="dbr:Genre"/>
         <Class abbreviatedIRI="dbr:Raw_material"/>
         <Class abbreviatedIRI="dbr:Season"/>
@@ -1023,8 +1155,8 @@
     </DisjointUnion>
     <DisjointUnion>
         <Class IRI="#ClothingCharacteristic"/>
+        <Class abbreviatedIRI="dbo:Colour"/>
         <Class abbreviatedIRI="dbr:Clothing_sizes"/>
-        <Class abbreviatedIRI="dbr:Color"/>
         <Class IRI="#BodyShape"/>
         <Class IRI="#ClothingMaterial"/>
         <Class IRI="#ClothingStyle"/>
@@ -1073,12 +1205,20 @@
         <Class IRI="#Underpants"/>
     </DisjointUnion>
     <ClassAssertion>
+        <Class IRI="#ClothingCharacteristic"/>
+        <NamedIndividual abbreviatedIRI="dbo:Colour"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SyntheticClothingMaterial"/>
         <NamedIndividual abbreviatedIRI="dbr:Acrylic_fiber"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI="dbr:Season"/>
         <NamedIndividual abbreviatedIRI="dbr:Autumn"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Baptism"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#NaturalClothingMaterial"/>
@@ -1093,20 +1233,28 @@
         <NamedIndividual abbreviatedIRI="dbr:Casual"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Catholicism"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#ClothingCharacteristic"/>
         <NamedIndividual abbreviatedIRI="dbr:Clothing_sizes"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Weather"/>
+        <NamedIndividual abbreviatedIRI="dbr:Cloudy"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI="dbr:Weather"/>
         <NamedIndividual abbreviatedIRI="dbr:Cold"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#ClothingCharacteristic"/>
-        <NamedIndividual abbreviatedIRI="dbr:Color"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#NaturalClothingMaterial"/>
         <NamedIndividual abbreviatedIRI="dbr:Cotton"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Eastern_Orthodox_Church"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI="dbr:Genre"/>
@@ -1115,6 +1263,10 @@
     <ClassAssertion>
         <Class IRI="#NaturalClothingMaterial"/>
         <NamedIndividual abbreviatedIRI="dbr:Fur"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Hinduism"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#NaturalClothingMaterial"/>
@@ -1133,12 +1285,32 @@
         <NamedIndividual abbreviatedIRI="dbr:Male"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Methodism"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#NaturalClothingMaterial"/>
         <NamedIndividual abbreviatedIRI="dbr:Mohair"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Muslim"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Nestorianism"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#SyntheticClothingMaterial"/>
         <NamedIndividual abbreviatedIRI="dbr:Nylon"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Paganism"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Religion"/>
+        <NamedIndividual abbreviatedIRI="dbr:Pentecostalism"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#SyntheticClothingMaterial"/>
@@ -1177,10 +1349,6 @@
         <NamedIndividual abbreviatedIRI="dbr:Wool"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class abbreviatedIRI="dbr:Weather"/>
-        <NamedIndividual abbreviatedIRI="dbr:cloudy"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#BodyShape"/>
         <NamedIndividual IRI="#Apple"/>
     </ClassAssertion>
@@ -1213,6 +1381,10 @@
         <NamedIndividual IRI="#Dry"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#ClothingTexture"/>
+        <NamedIndividual IRI="#Flowe"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class abbreviatedIRI="dbr:Weather"/>
         <NamedIndividual IRI="#Hot"/>
     </ClassAssertion>
@@ -1221,8 +1393,24 @@
         <NamedIndividual IRI="#Hourglass"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#ClothingTexture"/>
+        <NamedIndividual IRI="#IMVU"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Clothing_sizes"/>
+        <NamedIndividual IRI="#L"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Clothing_sizes"/>
+        <NamedIndividual IRI="#M"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#BodyShape"/>
         <NamedIndividual IRI="#Pear"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ClothingTexture"/>
+        <NamedIndividual IRI="#Plaid"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#BodyShape"/>
@@ -1237,6 +1425,10 @@
         <NamedIndividual IRI="#Rock"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Clothing_sizes"/>
+        <NamedIndividual IRI="#S"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class abbreviatedIRI="dbr:Dress_code"/>
         <NamedIndividual IRI="#Sport"/>
     </ClassAssertion>
@@ -1247,6 +1439,10 @@
     <ClassAssertion>
         <Class abbreviatedIRI="dbr:Weather"/>
         <NamedIndividual IRI="#Wet"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Clothing_sizes"/>
+        <NamedIndividual IRI="#XL"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Pyjama"/>
@@ -1263,6 +1459,14 @@
     <ClassAssertion>
         <Class IRI="#Pyjama"/>
         <NamedIndividual IRI="#pijamaleUnisex"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Clothing_sizes"/>
+        <NamedIndividual IRI="#size40EUu"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="dbr:Clothing_sizes"/>
+        <NamedIndividual IRI="#size42EU"/>
     </ClassAssertion>
     <SameIndividual>
         <NamedIndividual abbreviatedIRI="dbp:colour"/>
@@ -1284,6 +1488,70 @@
         <NamedIndividual abbreviatedIRI="dbr:Lycra"/>
         <NamedIndividual abbreviatedIRI="dbr:Spandex"/>
     </SameIndividual>
+    <SameIndividual>
+        <NamedIndividual abbreviatedIRI="dbr:Surface_finish"/>
+        <NamedIndividual IRI="#ClothingTexture"/>
+    </SameIndividual>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+        <NamedIndividual abbreviatedIRI="dbr:Muslim"/>
+        <NamedIndividual IRI="#Belt"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+        <NamedIndividual abbreviatedIRI="dbr:Muslim"/>
+        <NamedIndividual IRI="#Scarf"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+        <NamedIndividual abbreviatedIRI="dbr:Muslim"/>
+        <NamedIndividual IRI="#Suit"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+        <NamedIndividual abbreviatedIRI="dbr:Muslim"/>
+        <NamedIndividual IRI="#Coat"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+        <NamedIndividual abbreviatedIRI="dbr:Muslim"/>
+        <NamedIndividual IRI="#Umbrella"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+        <NamedIndividual abbreviatedIRI="dbr:Muslim"/>
+        <NamedIndividual IRI="#Underwear"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#AnkleBoots"/>
+        <NamedIndividual IRI="#Club"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#AnkleBoots"/>
+        <NamedIndividual IRI="#Date"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
+        <NamedIndividual IRI="#AnkleBoots"/>
+        <NamedIndividual abbreviatedIRI="dbr:Female"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#AnkleBoots"/>
+        <NamedIndividual abbreviatedIRI="dbr:Autumn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#AnkleBoots"/>
+        <NamedIndividual abbreviatedIRI="dbr:Spring"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#AnkleBoots"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
+    </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableForDressingCode"/>
         <NamedIndividual IRI="#Bag"/>
@@ -1295,6 +1563,16 @@
         <NamedIndividual IRI="#Conservative"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Boots"/>
+        <NamedIndividual abbreviatedIRI="dbr:Winter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Boots"/>
+        <NamedIndividual abbreviatedIRI="dbr:Cold"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
         <NamedIndividual IRI="#Bra"/>
         <NamedIndividual abbreviatedIRI="dbr:Female"/>
@@ -1303,6 +1581,11 @@
         <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
         <NamedIndividual IRI="#Coat"/>
         <NamedIndividual abbreviatedIRI="dbr:Winter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableForDressingCode"/>
+        <NamedIndividual IRI="#Dress"/>
+        <NamedIndividual IRI="#Conservative"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
@@ -1335,9 +1618,64 @@
         <NamedIndividual abbreviatedIRI="dbr:Female"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Dress"/>
+        <NamedIndividual abbreviatedIRI="dbr:Spring"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Dress"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Dress"/>
+        <NamedIndividual IRI="#Hot"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Dress"/>
+        <NamedIndividual IRI="#Clear"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
         <NamedIndividual IRI="#Earrings"/>
         <NamedIndividual abbreviatedIRI="dbr:Female"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableForDressingCode"/>
+        <NamedIndividual IRI="#Flats"/>
+        <NamedIndividual abbreviatedIRI="dbr:Casual"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
+        <NamedIndividual IRI="#Flats"/>
+        <NamedIndividual abbreviatedIRI="dbr:Female"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Flats"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Flats"/>
+        <NamedIndividual IRI="#Hot"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Gloves"/>
+        <NamedIndividual abbreviatedIRI="dbr:Winter"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Gloves"/>
+        <NamedIndividual abbreviatedIRI="dbr:Autumn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Gloves"/>
+        <NamedIndividual abbreviatedIRI="dbr:Cold"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
@@ -1348,6 +1686,56 @@
         <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
         <NamedIndividual IRI="#Handbag"/>
         <NamedIndividual abbreviatedIRI="dbr:Female"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual IRI="#Date"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual IRI="#DinnerParty"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual IRI="#BusinessMeeting"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual IRI="#Wedding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual IRI="#Club"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedByBodyShape"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual IRI="#Hourglass"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedByBodyShape"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual IRI="#Apple"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedByBodyShape"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual IRI="#Rectangle"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual abbreviatedIRI="dbr:Female"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#HighHeels"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableForDressingCode"/>
@@ -1365,14 +1753,184 @@
         <NamedIndividual IRI="#Date"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Moccasins"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Moccasins"/>
+        <NamedIndividual abbreviatedIRI="dbr:Spring"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Moccasins"/>
+        <NamedIndividual IRI="#Clear"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
         <NamedIndividual IRI="#Necklace"/>
         <NamedIndividual abbreviatedIRI="dbr:Female"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Raincoat"/>
+        <NamedIndividual IRI="#Wet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Raincoat"/>
+        <NamedIndividual IRI="#Cloudy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableForDressingCode"/>
+        <NamedIndividual IRI="#RegularFitTrousers"/>
+        <NamedIndividual IRI="#Conservative"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Sandals"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Sandals"/>
+        <NamedIndividual IRI="#Clear"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Sandals"/>
+        <NamedIndividual IRI="#Dry"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableForDressingCode"/>
+        <NamedIndividual IRI="#Shirt"/>
+        <NamedIndividual abbreviatedIRI="dbr:Casual"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableForDressingCode"/>
+        <NamedIndividual IRI="#Shirt"/>
+        <NamedIndividual IRI="#Sport"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Shirt"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
         <NamedIndividual IRI="#ShoulderBag"/>
         <NamedIndividual abbreviatedIRI="dbr:Female"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual IRI="#BusinessMeeting"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual IRI="#Date"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual IRI="#Funneral"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual IRI="#Wedding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual IRI="#DinnerParty"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual abbreviatedIRI="dbr:Female"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual abbreviatedIRI="dbr:Spring"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual IRI="#Clear"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Skirt"/>
+        <NamedIndividual IRI="#Hot"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableForDressingCode"/>
+        <NamedIndividual IRI="#Sneakers"/>
+        <NamedIndividual IRI="#Sport"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Sneakers"/>
+        <NamedIndividual IRI="#Club"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Sneakers"/>
+        <NamedIndividual abbreviatedIRI="dbr:Summer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Sneakers"/>
+        <NamedIndividual abbreviatedIRI="dbr:Spring"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
+        <NamedIndividual IRI="#Sneakers"/>
+        <NamedIndividual abbreviatedIRI="dbr:Autumn"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
+        <NamedIndividual IRI="#Sneakers"/>
+        <NamedIndividual IRI="#Clear"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableForDressingCode"/>
+        <NamedIndividual IRI="#Suit"/>
+        <NamedIndividual IRI="#Conservative"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Suit"/>
+        <NamedIndividual IRI="#Wedding"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Suit"/>
+        <NamedIndividual IRI="#Funneral"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Suit"/>
+        <NamedIndividual IRI="#BusinessMeeting"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Suit"/>
+        <NamedIndividual IRI="#DinnerParty"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
+        <NamedIndividual IRI="#Suit"/>
+        <NamedIndividual abbreviatedIRI="dbr:Male"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
@@ -1413,6 +1971,16 @@
         <ObjectProperty IRI="#isSuitableToBeDressedByGenre"/>
         <NamedIndividual IRI="#Tie"/>
         <NamedIndividual abbreviatedIRI="dbr:Male"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Trousers"/>
+        <NamedIndividual IRI="#Club"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
+        <NamedIndividual IRI="#Trousers"/>
+        <NamedIndividual IRI="#Date"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
@@ -1534,6 +2102,10 @@
         <ObjectProperty IRI="#genreHasSuitableClothingForDressing"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#isSuitableForDressingForReligion"/>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#isSuitableToBeDressedInSeason"/>
         <ObjectProperty IRI="#seasonHasSuitableClothingForDressing"/>
     </InverseObjectProperties>
@@ -1599,6 +2171,10 @@
         <Class abbreviatedIRI="dbr:Clothing"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isSuitableForDressingForReligion"/>
+        <Class abbreviatedIRI="dbr:Clothing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
         <Class abbreviatedIRI="dbr:Clothing"/>
     </ObjectPropertyDomain>
@@ -1617,6 +2193,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#isSuitableToBeDressedOnWeather"/>
         <Class abbreviatedIRI="dbr:Clothing"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+        <Class abbreviatedIRI="dbr:Religion"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#seasonHasSuitableClothingForDressing"/>
@@ -1648,7 +2228,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasColour"/>
-        <Class abbreviatedIRI="dbr:Color"/>
+        <Class abbreviatedIRI="dbo:Colour"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasSize"/>
@@ -1675,6 +2255,10 @@
         <Class IRI="#ClothingStyle"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#isSuitableForDressingForReligion"/>
+        <Class abbreviatedIRI="dbr:Religion"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#isSuitableToBeDressedAtEvent"/>
         <Class abbreviatedIRI="dbo:Event"/>
     </ObjectPropertyRange>
@@ -1695,6 +2279,10 @@
         <Class abbreviatedIRI="dbr:Weather"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#religionHasSuitableClothingForDressing"/>
+        <Class abbreviatedIRI="dbr:Clothing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#seasonHasSuitableClothingForDressing"/>
         <Class abbreviatedIRI="dbr:Clothing"/>
     </ObjectPropertyRange>
@@ -1705,632 +2293,992 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <AbbreviatedIRI>dbp:dressSize</AbbreviatedIRI>
-        <Literal datatypeIRI="&xsd;string">Dress size</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dress size</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <AbbreviatedIRI>dbr:Brassiere</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dbr:Casual</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Casual dress code</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dbr:Catholicism</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Catholicism</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <AbbreviatedIRI>dbr:Clothing</AbbreviatedIRI>
-        <Literal datatypeIRI="&xsd;string">Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Represents a clothing item (e.g. Skirt, Jeans, Shoes, etc.) or a collection of clothing items (e.g. a suit -- which is formed from multiple items.). We need to abstract the posibility that a clothing item can be formed from one or multiple clothing items.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <AbbreviatedIRI>dbr:Clothing</AbbreviatedIRI>
-        <Literal datatypeIRI="&xsd;string">Clothing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clothing</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>dbr:cloudy</AbbreviatedIRI>
-        <Literal datatypeIRI="&xsd;string">Cloudy</Literal>
+        <AbbreviatedIRI>dbr:Cloudy</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Cloudy</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dbr:Eastern_Orthodox_Church</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Orthodoxism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dbr:Female</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Female</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dbr:Hinduism</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Hinduism</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dbr:Male</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Male</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>dbr:Muslim</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Muslim</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Accessory</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/accesory.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Accessory</IRI>
-        <Literal datatypeIRI="&xsd;string">Accessory</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Accessory</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#AnkleBoots</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/ankle-boots.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AnkleBoots</IRI>
-        <Literal datatypeIRI="&xsd;string">Ankle boots</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Ankle boots</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Apple</IRI>
-        <Literal datatypeIRI="&xsd;string">Apple</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Apple</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Bag</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/bag.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bag</IRI>
-        <Literal datatypeIRI="&xsd;string">Bag</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Bag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Belt</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/belt.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Belt</IRI>
-        <Literal datatypeIRI="&xsd;string">Belt</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Belt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Blazer</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/blazer-1.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Blazer</IRI>
-        <Literal datatypeIRI="&xsd;string">Blazer</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Blazer</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#BodyShape</IRI>
-        <Literal datatypeIRI="&xsd;string">The class of body shapes a person can have.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The class of body shapes a person can have.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#BodyShape</IRI>
-        <Literal datatypeIRI="&xsd;string">Body shape</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Body shape</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Bodysuit</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/bodysuit.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bodysuit</IRI>
-        <Literal datatypeIRI="&xsd;string">Bodysuit</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Bodysuit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Boots</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/boots.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Boots</IRI>
-        <Literal datatypeIRI="&xsd;string">Boots</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Boots</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Bra</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bra</IRI>
-        <Literal datatypeIRI="&xsd;string">Bra</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Bra</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Bracelet</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/bracelet.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Bracelet</IRI>
-        <Literal datatypeIRI="&xsd;string">Bracelet</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Bracelet</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Briefs</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/briefs.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Briefs</IRI>
-        <Literal datatypeIRI="&xsd;string">Briefs</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Briefs</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#BusinessMeeting</IRI>
-        <Literal datatypeIRI="&xsd;string">Business meeting</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Business meeting</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Clear</IRI>
-        <Literal datatypeIRI="&xsd;string">Clear</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clear</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ClothingCharacteristic</IRI>
-        <Literal datatypeIRI="&xsd;string">Clothing characteristic</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clothing characteristic</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ClothingMaterial</IRI>
-        <Literal datatypeIRI="&xsd;string">The basic materials from which clothes are made of.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The basic materials from which clothes are made of.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ClothingMaterial</IRI>
-        <Literal datatypeIRI="&xsd;string">Clothing material</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clothing material</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#ClothingStyle</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the clothing style for which a particular clothing item and/or class is/are suitable for.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ClothingStyle</IRI>
-        <Literal datatypeIRI="&xsd;string">Clothing style</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clothing style</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ClothingTexture</IRI>
-        <Literal datatypeIRI="&xsd;string">Clothing texture</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clothing texture</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Club</IRI>
-        <Literal datatypeIRI="&xsd;string">Club</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Club</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Coat</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/coat.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Coat</IRI>
-        <Literal datatypeIRI="&xsd;string">Coat</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Coat</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Conservative</IRI>
-        <Literal datatypeIRI="&xsd;string">This individual specifies that a particular clothing item is suitable for the Conservative dressing code.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This individual specifies that a particular clothing item is suitable for the Conservative dressing code.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Conservative</IRI>
-        <Literal datatypeIRI="&xsd;string">Conservative dress code</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Conservative dress code</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Date</IRI>
-        <Literal datatypeIRI="&xsd;string">Date</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Date</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#DinnerParty</IRI>
-        <Literal datatypeIRI="&xsd;string">Dinner party</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dinner party</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Dress</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/dress.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Dress</IRI>
-        <Literal datatypeIRI="&xsd;string">Dress</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dress</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Dry</IRI>
-        <Literal datatypeIRI="&xsd;string">Dry</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dry</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Earrings</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/earrings.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Earrings</IRI>
-        <Literal datatypeIRI="&xsd;string">Earrings</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Earrings</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Flats</IRI>
-        <Literal datatypeIRI="&xsd;string">Flats</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Flats</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Flowe</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Flowe</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Funneral</IRI>
-        <Literal datatypeIRI="&xsd;string">Funneral</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Funneral</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#FunneralClothing</IRI>
-        <Literal datatypeIRI="&xsd;string">Clothing that is suitable for a funneral.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clothing that is suitable for a funneral.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#FunneralClothing</IRI>
-        <Literal datatypeIRI="&xsd;string">Funneral clothing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Funneral clothing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Gloves</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/glovers.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Gloves</IRI>
-        <Literal datatypeIRI="&xsd;string">Gloves</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Gloves</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Handbag</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/handbag.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Handbag</IRI>
-        <Literal datatypeIRI="&xsd;string">Handbag</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Handbag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Hat</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/hat.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Hat</IRI>
-        <Literal datatypeIRI="&xsd;string">Hat</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Hat</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#HighHeels</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/hight-heels.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#HighHeels</IRI>
-        <Literal datatypeIRI="&xsd;string">High-heels</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">High-heels</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Hot</IRI>
-        <Literal datatypeIRI="&xsd;string">Hot</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Hot</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Hourglass</IRI>
-        <Literal datatypeIRI="&xsd;string">Hourglass</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Hourglass</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#IMVU</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">IMVU</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Interview</IRI>
-        <Literal datatypeIRI="&xsd;string">Interview</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Interview</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Jeans</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/jeans.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Jeans</IRI>
-        <Literal datatypeIRI="&xsd;string">Jeans</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Jeans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Jewellery</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/jewellery.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Jewellery</IRI>
-        <Literal datatypeIRI="&xsd;string">Jewellery</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Jewellery</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Knickers</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/knickers.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Knickers</IRI>
-        <Literal datatypeIRI="&xsd;string">Knickers</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Knickers</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#L</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">L</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Lingerie</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/lingerie.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Lingerie</IRI>
-        <Literal datatypeIRI="&xsd;string">Lingerie</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Lingerie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#M</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">M</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MensClothing</IRI>
-        <Literal datatypeIRI="&xsd;string">Men&apos;s clothing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Men&apos;s clothing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Moccasins</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/mocassins.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Moccasins</IRI>
-        <Literal datatypeIRI="&xsd;string">Mocassins</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Mocassins</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#NaturalClothingMaterial</IRI>
-        <Literal datatypeIRI="&xsd;string">Natural clothing material</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Natural clothing material</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Necklace</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/necklace.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Necklace</IRI>
-        <Literal datatypeIRI="&xsd;string">Necklace</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Necklace</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Nylons</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/nylons.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Nylons</IRI>
-        <Literal datatypeIRI="&xsd;string">Nylons</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Nylons</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Pear</IRI>
-        <Literal datatypeIRI="&xsd;string">Pear</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Pear</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Plaid</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Plaid</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#PushUpBra</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#PushUpBra</IRI>
-        <Literal datatypeIRI="&xsd;string">Push-up bra</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Push-up bra</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Pyjama</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/pyjama.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Pyjama</IRI>
-        <Literal datatypeIRI="&xsd;string">Pyjama</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Pyjama</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#PyjamaParty</IRI>
-        <Literal datatypeIRI="&xsd;string">Pyjama party</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Pyjama party</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Raincoat</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/raincoat.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Raincoat</IRI>
-        <Literal datatypeIRI="&xsd;string">Raincoat</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Raincoat</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Rectangle</IRI>
-        <Literal datatypeIRI="&xsd;string">Rectangle</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Rectangle</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#RegularFitTrousers</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/regular-fit-trousers.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RegularFitTrousers</IRI>
-        <Literal datatypeIRI="&xsd;string">Regular fit trousers</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Regular fit trousers</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Ring</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/ring.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Ring</IRI>
-        <Literal datatypeIRI="&xsd;string">Ring</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Ring</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Rock</IRI>
-        <Literal datatypeIRI="&xsd;string">This individual specifies that a particular clothing item is suitable for the Rock dressing code.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This individual specifies that a particular clothing item is suitable for the Rock dressing code.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Rock</IRI>
-        <Literal datatypeIRI="&xsd;string">Rock dress code</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Rock dress code</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#RomanticDate</IRI>
-        <Literal datatypeIRI="&xsd;string">Romantic date</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Romantic date</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#S</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">s</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Sandals</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/sandals.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Sandals</IRI>
-        <Literal datatypeIRI="&xsd;string">Sandals</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Sandals</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Scarf</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/scarf.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Scarf</IRI>
-        <Literal datatypeIRI="&xsd;string">Scarf</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Scarf</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#ShapeLingerie</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ShapeLingerie</IRI>
-        <Literal datatypeIRI="&xsd;string">Shape lingerie</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Shape lingerie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Shirt</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/shirt.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Shirt</IRI>
-        <Literal datatypeIRI="&xsd;string">Shirt</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Shirt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Shoes</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/shoes.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Shoes</IRI>
-        <Literal datatypeIRI="&xsd;string">Shoes</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Shoes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#ShoulderBag</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/shoulder-bag.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ShoulderBag</IRI>
-        <Literal datatypeIRI="&xsd;string">Shoulder bag</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Shoulder bag</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#SkinnyFitTrousers</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/skinny-fit-trousers.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SkinnyFitTrousers</IRI>
-        <Literal datatypeIRI="&xsd;string">Skinny fit trousers</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Skinny fit trousers</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Skirt</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/skirt.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Skirt</IRI>
-        <Literal datatypeIRI="&xsd;string">Skirt</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Skirt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#SlimFitTrousers</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/slim-fit-trousers.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SlimFitTrousers</IRI>
-        <Literal datatypeIRI="&xsd;string">Slim fit trousers</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Slim fit trousers</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Sneakers</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/sneakers.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Sneakers</IRI>
-        <Literal datatypeIRI="&xsd;string">Sneakers</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Sneakers</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Socks</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/socks.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Socks</IRI>
-        <Literal datatypeIRI="&xsd;string">Socks</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Socks</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Sport</IRI>
-        <Literal datatypeIRI="&xsd;string">This individual specifies that a particular clothing item is suitable for the Sport dressing code.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This individual specifies that a particular clothing item is suitable for the Sport dressing code.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Sport</IRI>
-        <Literal datatypeIRI="&xsd;string">Sport dress code</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Sport dress code</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#SportBra</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/push-up-bra.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SportBra</IRI>
-        <Literal datatypeIRI="&xsd;string">Sports bra</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Sports bra</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Suit</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/suit.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Suit</IRI>
-        <Literal datatypeIRI="&xsd;string">Suit</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Suit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Sunglasses</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/sunglasses.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Sunglasses</IRI>
-        <Literal datatypeIRI="&xsd;string">Sunglasses</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Sunglasses</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#SyntheticClothingMaterial</IRI>
-        <Literal datatypeIRI="&xsd;string">Synthetic clothing material</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Synthetic clothing material</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#TShirt</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/t-shirt.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#TShirt</IRI>
-        <Literal datatypeIRI="&xsd;string">T-shirt</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">T-shirt</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Tie</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/tie.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Tie</IRI>
-        <Literal datatypeIRI="&xsd;string">Tie</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Tie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Top</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/top.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Top</IRI>
-        <Literal datatypeIRI="&xsd;string">Top</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Top</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Trousers</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/trousers.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Trousers</IRI>
-        <Literal datatypeIRI="&xsd;string">Trousers</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Trousers</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Umbrella</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/Umbrella.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Umbrella</IRI>
-        <Literal datatypeIRI="&xsd;string">Umbrella</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Umbrella</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Underpants</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/underpants.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Underpants</IRI>
-        <Literal datatypeIRI="&xsd;string">Underpants</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Underpants</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="dbo:thumbnail"/>
+        <IRI>#Underwear</IRI>
+        <Literal datatypeIRI="&xsd;anyURI">http://students.info.uaic.ro/~oana.gagea/images-wade/underwear.png</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Underwear</IRI>
-        <Literal datatypeIRI="&xsd;string">Underwear</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Underwear</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#UnisexClothing</IRI>
-        <Literal datatypeIRI="&xsd;string">Unisex clothing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Unisex clothing</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Wedding</IRI>
-        <Literal datatypeIRI="&xsd;string">Wedding</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Wedding</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Wet</IRI>
-        <Literal datatypeIRI="&xsd;string">Wet</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Wet</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#WomensClothing</IRI>
-        <Literal datatypeIRI="&xsd;string">Women&apos;s clothing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Women&apos;s clothing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#XL</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">XL</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#bodyShapeHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the clothing item(s) that is/are suitable for a particular body shape.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the clothing item(s) that is/are suitable for a particular body shape.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#bodyShapeHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">Body shape has suitable clothing for dressing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Body shape has suitable clothing for dressing</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#dressingCodeHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the clothing item(s) that is/are suitable for a particular dressing code.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the clothing item(s) that is/are suitable for a particular dressing code.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#dressingCodeHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">Dressing code has suitable clothing for dressing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Dressing code has suitable clothing for dressing</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#eventHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the clothing item(s) that is/are suitable for a particular event.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the clothing item(s) that is/are suitable for a particular event.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#eventHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">Event has suitable clothing for dressing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Event has suitable clothing for dressing</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#genreHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the clothing item(s) that is/are suitable for a particular genre.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the clothing item(s) that is/are suitable for a particular genre.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#genreHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">Genre has suitable clothing for dressing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Genre has suitable clothing for dressing</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasColour</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the color a particular clothing item has.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the color a particular clothing item has.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasColour</IRI>
-        <Literal datatypeIRI="&xsd;string">Has colour</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Has colour</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasSize</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the size of a particular clothing item.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the size of a particular clothing item.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasSize</IRI>
-        <Literal datatypeIRI="&xsd;string">Has size</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Has size</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasTextileComposition</IRI>
-        <Literal datatypeIRI="&xsd;string">This property denotes the materials from which a clothing item is composed of.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property denotes the materials from which a clothing item is composed of.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasTextileComposition</IRI>
-        <Literal datatypeIRI="&xsd;string">Has textile composition</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Has textile composition</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#hasTexture</IRI>
-        <Literal datatypeIRI="&xsd;string">Specifies the texture of the clothing item.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Specifies the texture of the clothing item.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#hasTexture</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Has texture</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isManufacteredBy</IRI>
-        <Literal datatypeIRI="&xsd;string">Is manufactured by</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Is manufactured by</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isSuitableForDressingCode</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifis the dressing code for which a particular clothing item and/or class is/are suitable for.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isSuitableForDressingCode</IRI>
-        <Literal datatypeIRI="&xsd;string">Is suitable for dressing code</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Is suitable for dressing code</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#isSuitableForDressingForReligion</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifis the religion for which a particular clothing item and/or class is/are suitable for.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#isSuitableForDressingForReligion</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Is suitable for dressing for religion</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isSuitableToBeDressedAtEvent</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the Event for which a particular clothing item and/or class is/are suitable for.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the Event for which a particular clothing item and/or class is/are suitable for.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isSuitableToBeDressedAtEvent</IRI>
-        <Literal datatypeIRI="&xsd;string">Is suitable to be dressed at event</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Is suitable to be dressed at event</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isSuitableToBeDressedByBodyShape</IRI>
-        <Literal datatypeIRI="&xsd;string">Stipulates for which body shape a particular clothing item and/or class is/are suitable for.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Stipulates for which body shape a particular clothing item and/or class is/are suitable for.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isSuitableToBeDressedByBodyShape</IRI>
-        <Literal datatypeIRI="&xsd;string">Is suitable to be dressed by body shape</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Is suitable to be dressed by body shape</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isSuitableToBeDressedByGenre</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the genre(s) for which a clothing item is suitable for. We need to make this general enough since some clothing items can be suitable for both sexes.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isSuitableToBeDressedByGenre</IRI>
-        <Literal datatypeIRI="&xsd;string">Is suitable to be dressed by genre</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Is suitable to be dressed by genre</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isSuitableToBeDressedInSeason</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the season for which a particular clothing item and/or class is/are suitable for.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the season for which a particular clothing item and/or class is/are suitable for.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isSuitableToBeDressedInSeason</IRI>
-        <Literal datatypeIRI="&xsd;string">Is suitable to be dressed in season</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Is suitable to be dressed in season</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#isSuitableToBeDressedOnWeather</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifis the weather conditions for which a particular clothing item and/or class is/are suitable for.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isSuitableToBeDressedOnWeather</IRI>
-        <Literal datatypeIRI="&xsd;string">Is suitable to be dressed in weather conditions</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Is suitable to be dressed in weather conditions</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="sioc:note"/>
         <IRI>#pijamaleUnisex</IRI>
-        <Literal datatypeIRI="&xsd;string">Pyjama Unisex received as gift from father.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Pyjama Unisex received as gift from father.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#religionHasSuitableClothingForDressing</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifis the clothing that is suitable for a particular religion.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#religionHasSuitableClothingForDressing</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Religion has suitable clothing for dressing</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#seasonHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the clothing item(s) that is/are suitable for a particular season.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the clothing item(s) that is/are suitable for a particular season.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#seasonHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">Season has suitable clothing for dressing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Season has suitable clothing for dressing</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#size40EUu</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">40 EU</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#size42EU</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">42 EU</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#weatherHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">This property specifies the clothing item(s) that is/are suitable for a particular weather condition.</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This property specifies the clothing item(s) that is/are suitable for a particular weather condition.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#weatherHasSuitableClothingForDressing</IRI>
-        <Literal datatypeIRI="&xsd;string">Weather has suitable clothing for dressing</Literal>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Weather has suitable clothing for dressing</Literal>
     </AnnotationAssertion>
 </Ontology>
 
