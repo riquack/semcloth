@@ -201,12 +201,12 @@ jQuery(document).ready(function(){
 			new_item.clothingType = type_type; //JSON.stringify(new_type_type);
 			new_item.thumbnail = type_type1;
 
-			new_item.fabrics = JSON.stringify(type_material);
-			new_item.colors = JSON.stringify(type_color);
+			new_item.fabrics = type_material;
+			new_item.colors = type_color;
 			new_item.size = accLink(type_size);
 			new_item.texture = type_texture;
 			new_item.note = type_note; /*e vorva despre text area*/
-			new_item.genres = JSON.stringify(type_gender);
+			new_item.genres = type_gender;
 
 			console.log(new_item);
 
@@ -216,7 +216,7 @@ jQuery(document).ready(function(){
 
 				$.ajax({
 				    type: "POST",
-				    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=wardrobe&method=POST&userId="+usr[0],//"http://riquack-n61vn:9000/events",
+				    url: "http://localhost/wade-ui/createItem.php?userId="+usr[0],//"http://riquack-n61vn:9000/events",
 				   	dateType: "json",
 				   	data: new_item,
 				    success: function(data){
