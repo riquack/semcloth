@@ -91,15 +91,28 @@
 									</div>
 								</div>
 								<div class="filters-item no-scroll">
-									<input type="checkbox" name="season" value="Religions" id="religions"><label for="religions">Religions</label>
+									<input type="checkbox" name="religions" value="Religions" id="religions"><label for="religions">Religions</label>
 									<div id="grand-list-religions" class="list-religions ls-scoll">    
 										<!-- With Json	-->
 									</div>
 								</div>
 
+								<div class="filters-item no-scroll">
+									<input type="checkbox" name="gender" value="Gender" id="gender"><label for="gender">Gender</label>
+									<div id="grand-list-gerder" class="list-gender ls-scoll">    
+										<input type="checkbox" id="female" value="http://dbpedia.org/resource/Female" > 
+										<label for="female">Female</label> </br/> 
+
+										<input type="checkbox" id="male" value="http://dbpedia.org/resource/Male" > 
+										<label for="male">Male</label>
+									</div>
+								</div> 
+
+
 
 								<button id="app-filters" class="b-filters">Search</button>
 								<button id="reset-filters" class="b-filters">Reset</button>
+								<p id="error-filters"></p>
 							 
 						</div>
 					</div>

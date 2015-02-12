@@ -35,19 +35,21 @@
 			<div class="content"> 
 				<div class="profile-user">
 					<h3><i class="fa fa-user-secret"></i>Hello <span id="get_user_name"></span>,</h3> 
-					<h4><span id="your-prof-user"></span>Your Profile: </h4>
+					
 					<div class="span6">
 						<div id="basic-info">
-							
-							<ul>
-								<li>Name: <span id="name-profile">...</span></li>
-								<li>Birthday/Age: <span id="age-profile">...</span> - <span id="years-profile">0</span> years</li>
-								<li>Gender: <span id="gender-profile">...</span> </li>
-								<li>Religion: <span id="religion-profile">...</span></li>
-							</ul>
-							<button id="edit-profile" title="edit">Edit profile</button>
-							<button id="add-items-db" title="add-items">Add Items</button>
-							<p id="update_info"></p>
+							<div class="bs-profile">
+								<h4>Your Profile: </h4>
+								<ul>
+									<li><i class="fa fa-credit-card"></i>Name: <span id="name-profile">...</span></li>
+									<li><i class="fa fa-calendar"></i>Birthday/Age: <span id="age-profile">...</span> - <span id="years-profile">0</span> years</li>
+									<li><span id="your-prof-user"></span>Gender: <span id="gender-profile">...</span> </li>
+									<li><i class="fa fa-university"></i>Religion: <span id="religion-profile">...</span></li>
+								</ul>
+								<button id="edit-profile" title="edit" class="buttons-s"><i class="fa fa-pencil"></i>Edit profile</button>
+								<button id="add-items-db" title="add-items" class="buttons-s"><i class="fa fa-plus"></i>Add Items</button>
+								<p id="update_info"></p>
+							</div>
 						<!--<div class="new-item-add">
 							<!--<div class="box-text lightbox">
 								<div class="close-button">x</div>-->
@@ -67,11 +69,18 @@
 										 	<div class="group-2-margin">
 												<p><i class="fa fa-transgender"></i>Gender</p>
 												<div class="item-gender">
-													<select id="item-options-gender" name="item-list-gender">
+													<!--<select id="item-options-gender" name="item-list-gender">
 														<option  value="none">none</option>
 														<option  value="http://dbpedia.org/resource/Female">female</option>
 														<option  value="http://dbpedia.org/resource/Male">male</option> 
-													</select>
+													</select>-->
+													<input type="checkbox" id="female" value="http://dbpedia.org/resource/Female" > 
+													<label for="female">Female</label> </br/> 
+
+													<input type="checkbox" id="male" value="http://dbpedia.org/resource/Male" > 
+													<label for="male">Male</label>
+
+
 												</div>
 											</div>
 										</div>
@@ -102,7 +111,7 @@
 												<div class="item-texture">
 													<select id="item-options-texture" name="item-list-texture">
 														<option  value="none">none</option>
-														<option  value="knit">Knit</option>
+														<!--<option  value="knit">Knit</option>-->
 														
 													</select>
 												</div>
@@ -135,6 +144,7 @@
 												<textarea placeholder="Note" id="item-note" cols="40" row="10"></textarea>
 										</div>
 										<div class="finish-add">
+
 											<button type="submit" id="add-item" name="Add item">Add item</button>
 											<div id="success-error"></div>
 										</div>
@@ -169,10 +179,7 @@
 						<div>
 							<label>Religion:</label>
 								<select id="new-religion">
-								  <option value="orthodox">orthodox</option>
-								  <option value="musulman">musulman</option>
-								  <option value="adventist">adventist</option>
-								  <option value="catholic">catholic</option>
+								 
 								</select>
 						</div>
 						<button id="done-edit" title="Edit">Edit</button>
@@ -183,6 +190,7 @@
 
 				<div id="container">
 					<div class="buttons">
+						<h4>Your Wardrobe:</h4>
 						<button class="grid">Grid View</button>
 						<button class="list">List View</button>
 					</div>

@@ -86,11 +86,13 @@ jQuery(document).ready(function(){
 
 	   // $("#ProfileList" ).append('<li>' +name+ ' - ' +events+ '</li>');
 	    var aux = '<li id="item-'+i+'"><div class="t-item"><h3>'+ name +'</h3>'
-	   			 	+ '<p class="item-events"><b>Events:</b> '+ events +'</p>'
+	   			 	+ '<div class="r-80"><p class="item-events"><b>Events:</b> '+ events +'</p>'
     				+ '<p class="item-season"><b>Season:</b> '+ season +'</p>'
     				+ '<p class="item-styles"><b>Styles:</b> '+ styles +'</p>' 
     				+ '<p class="item-material"><b>Material:</b> '+ material +'</p>'
     				+ '<p class="item-material"><b>Note:</b> .... </p>'
+    				+ '<button id="iditem-'+i+'" class="delete-item-list"><i class="fa fa-trash-o"></i>Delete Item</button> </div>' 
+    				+ '<div class="r-20"><img src="http://localhost/wade-ui/images/dress.png"></div>'
     				+ '</div>'
 	   				//+'<div class="e-item"> <button id="item-e-'+i+'" class="options edit-item">Edit</button> '
 	   				//+'<button id="item-d-'+i+'" class="options delete-item">Delete</button> </div>';
@@ -101,20 +103,19 @@ jQuery(document).ready(function(){
     
 
  
-
-
-	
-
+	/*Delete item from list*/
 	/*-------------------------------------------------------*/
 	/* Delete, Edit */ 
-	$('.delete-item').on('click',function(e) {
+	$('.delete-item-list').on('click',function(e) {
 			var contentPanelId = jQuery(this).attr("id");
    			var div = document.getElementById(contentPanelId);
 			var sub_str = contentPanelId.split('-');;
-			var name_remove = '#item-' + sub_str[2];
+			var name_remove = '#item-' + sub_str[1];
 			console.log(name_remove);
 			$(name_remove).fadeOut();
-			/*sterge si din fisier/vector...*/
+			/*sterge si din ...................
+
+			...*/
 	});
 
 
@@ -123,8 +124,19 @@ jQuery(document).ready(function(){
 
 
 
-		var type_type = $('#item-options-type').find(":selected").val();
+		var type_type_vec = $('#item-options-type').find(":selected").val().split("|");
+		var type_type = accLink(type_type_vec[0]);
+		var type_type1 = type_type_vec[1];
+
+		//var new_type_type   = [];
+		//new_type_type.push(type_type);
+		//new_type_type.push(type_type1);
+		//va
+
 		var type_gender = $('#item-options-gender').find(":selected").val();
+
+
+
 		//var type_material = $('#item-options-material').find(":selected").text();
 		//var type_color = $('#item-options-color').find(":selected").text(); // de modificat!!!!! 
 		var type_size = $('#item-options-size').find(":selected").val();
@@ -136,9 +148,15 @@ jQuery(document).ready(function(){
 			ok=1;
 		}
 
-		if(type_gender === "none"){
+		/*if(type_gender === "none"){
 			ok=1;
-		}
+		}*/
+		var count_gender =0 ;
+		var type_gender = [];
+		$('.item-gender input:checked').each(function() {
+			    type_gender.push(accLink($(this).attr('value')));
+			    count_gender++;
+		});
 
 
 		if(type_size === "none"){
@@ -179,20 +197,44 @@ jQuery(document).ready(function(){
 		if( ok != 1)
 		{
 			 
-			var new_item = { "item" : {}};
-			new_item.item.type = accLink(type_type);
+			var new_item = {};
+			new_item.clothingType = type_type; //JSON.stringify(new_type_type);
+			new_item.thumbnail = type_type1;
 
-			new_item.item.material = JSON.stringify(type_material);
-			new_item.item.color = JSON.stringify(type_color);
-			new_item.item.size = accLink(type_size);
-			new_item.item.texture = accLink(type_texture);
-			new_item.item.note = type_note; /*e vorva despre text area*/
-			new_item.item.gender = accLink(type_gender);
+			new_item.fabrics = JSON.stringify(type_material);
+			new_item.colors = JSON.stringify(type_color);
+			new_item.size = accLink(type_size);
+			new_item.texture = type_texture;
+			new_item.note = type_note; /*e vorva despre text area*/
+			new_item.genres = JSON.stringify(type_gender);
 
 			console.log(new_item);
-				$("#success-error").fadeIn(1000);
+
+			var usr = user_name_from_chookie.split("@");
+
+			//$('#get_user_name').text(usr[0]);
+
+				$.ajax({
+				    type: "POST",
+				    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=wardrobe&method=POST&userId="+usr[0],//"http://riquack-n61vn:9000/events",
+				   	dateType: "json",
+				   	data: new_item,
+				    success: function(data){
+						//... ]
+						alert("succes add");
+
+				  	},
+					  error: function(error, ob, message) {
+					    alert("[Create new item]: " + message.toString());
+					  }
+				});
+
+
+
+
+				$("#success-error").fadeIn(5000);
 				$("#success-error").removeClass().addClass('alert alert-success').html("Success");
-				$("#success-error").fadeOut(1000);
+				$("#success-error").fadeOut(5000);
 
 				/*reset fields*/
 				/*$('#item-options-type').find(":selected").text();
@@ -204,9 +246,9 @@ jQuery(document).ready(function(){
 				$("#item-note").val();*/
 
 		} else {
-				$("#success-error").fadeIn(1000);
+				$("#success-error").fadeIn(5000);
 				$("#success-error").removeClass().addClass('alert alert-error').html("Check all the fileds");
-				$("#success-error").fadeOut(1000);
+				$("#success-error").fadeOut(5000);
 		}
 
 
@@ -231,7 +273,8 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----   clothingMaterials */
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/clothingMaterials.json",//"http://riquack-n61vn:9000/events",
+	    // url: "http://localhost/wade-ui/clothingMaterials.json",
+	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingMaterials&method=GET",//"http://riquack-n61vn:9000/events",
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data); 
@@ -239,7 +282,7 @@ jQuery(document).ready(function(){
 		 $.each(data.results.bindings,  function(index) {
 		 	//console.log(this.label.value);
 		 	//$("#grand-list-clothingMaterials").append("<input type='radio' name='clothingMaterials' value="+ this.clothingMaterial.value+">" + this.clothingMaterial.value + "<br/>" );
-			$('#add-imaterial').append("<div class='item-mat'><input type='checkbox' name='material' id='clmatc-"+clmatc+"' value='"+this.clothingMaterial.value+"' > <label for='clmatc-"+clmatc+"'>"  + labelLink(this.clothingMaterial.value) + "</label></div>" );
+			$('#add-imaterial').append("<div class='item-mat'><input type='checkbox' name='material' id='clmatc-"+clmatc+"' value='"+this.clothingMaterial.value+"' > <label for='clmatc-"+clmatc+"'>"  + labelLink(this.label.value) + "</label></div>" );
 			clmatc++; 
 
 		 });
@@ -253,17 +296,23 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----   colors */
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/colors.json",//"http://riquack-n61vn:9000/events",
+	   // url: "http://localhost/wade-ui/restEndpoint.php?endpoint=colors&method=GET",//"http://riquack-n61vn:9000/events",
+	   	url:  "http://localhost/wade-ui/colors.json",
 	   	dateType: "json",
 	    success: function(data){ 
-		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+
+		var datAsString = JSON.stringify(data); 
+		var idcol=0;
+
+
 		$.each(data.results.bindings,  function(index) {
 		 	
 			$('#add-icolor').append('<div class="item-col">'+ 
-											'<input type="checkbox" name="color" value="'+ this.color.value+'">'+
-											'<label title="'+this.comment.value+'"><span class="rectangle" style="background-color:#'+this.colourHexCode.value+'">'+
+											'<input type="checkbox" name="color" value="'+ this.color.value+'" id="'+idcol+'">'+
+											'<label for="'+idcol+'" title="'+this.comment.value+'"><span class="rectangle" style="background-color:#'+this.colourHexCode.value+'">'+
 											'</span>'+this.label.value+'</label>'
 									+'</div>');
+			idcol++; 
 		 });
 	  },
 	  error: function(error) {
@@ -275,7 +324,8 @@ jQuery(document).ready(function(){
 	/*Populare graderoba -------- sizes - */
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/clothingSizes.json",//"http://riquack-n61vn:9000/events",
+	    // url: "http://localhost/wade-ui/clothingSizes.json",
+	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingSizes&method=GET",//"http://riquack-n61vn:9000/events",
 	   	dateType: "json",
 	    success: function(data){ 
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
@@ -293,13 +343,32 @@ jQuery(document).ready(function(){
 	/*Populare graderoba -------- clothingTypes - */
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/clothingTypes.json",//"http://riquack-n61vn:9000/events",
+	    // url: "http://localhost/wade-ui/clothingTypes.json", 
+	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingTypes&method=GET",//"http://riquack-n61vn:9000/events",
 	   	dateType: "json",
 	    success: function(data){ 
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
 		$.each(data.results.bindings,  function(index) {
 		 	
-			$('#item-options-type').append(' <option value="'+ this.clothing.value+'">'+this.label.value+'</option>');
+			$('#item-options-type').append(' <option value="'+ this.clothing.value + "|" + this.thumbnail.value+'">'+this.label.value+'</option>');
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
+
+
+	/*Populare graderoba -------- texture - */
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingTextures&method=GET",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){ 
+		var datAsString = JSON.stringify(data);
+		$.each(data.results.bindings,  function(index) {
+		 	//....
+			$('#item-options-texture').append(' <option value="'+ this.texture.value +'">'+this.label.value+'</option>');
 		 });
 	  },
 	  error: function(error) {

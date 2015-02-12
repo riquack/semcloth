@@ -75,16 +75,21 @@ jQuery(document).ready(function(){
 			}*/
 
 			var religion = $("#religion-profile").text();
-			//console.log(religion);
+			//console.log(religion+"------");
 			var true_religion ="";
 			$("#new-religion").find('option').each(function()
 			{
 			    // add $(this).val() to your list
-			    if($(this).val() === religion){
+			    if($(this).text() === religion){
 			    	//console.log($(this).val()+"---- "+ religion);
-			    	$("#new-religion").val(religion);
+			    	//$("#new-religion option:selected").text(religion);
+			    	//if($("#new-religion option").text() === religion)
+			    		$("#new-religion option").attr('selected','selected');
+
 			    	
 			    	true_religion =  religion; 
+			    }else {
+			    	$("#new-religion option").removeAttr('selected');
 			    }
 			    	
 			});
@@ -98,7 +103,8 @@ jQuery(document).ready(function(){
 				var birthday_new_value= $("#datepicker").datepicker().val();
 				$("#age-profile").text(birthday_new_value);
 
-				var religion_new_value = $("#new-religion").val();
+				//var religion_new_value = $("#new-religion").text();
+				var religion_new_value = $('#new-religion').find(":selected").text();
 				$("#religion-profile").text(religion_new_value);
 
 
@@ -138,7 +144,7 @@ jQuery(document).ready(function(){
 						'birthday' : birthday_new_value,
 						'age':  dif,
 						'gender' : gender_new_value,
-						'religion' : $("#new-religion").val() 
+						'religion' : $("#new-religion option:selected").text()  // accLink($("#new-religion").val() )
 
 				};
 				//console.log(jsonValue);
@@ -230,5 +236,30 @@ jQuery(document).ready(function(){
 		
 	});
 	
+	/*Populare garderoba ----  religions*/
+	$.ajax({
+	    type: "GET",
+	    url: "http://localhost/wade-ui/religions.json",//"http://riquack-n61vn:9000/events",
+	   	dateType: "json",
+	    success: function(data){
+		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
+		var count_rel = 0; 
+		 $.each(data.results.bindings,  function(index) {
+		 	//console.log(this.label.value);
+		 	//$("#grand-list-religions").append("<div><input type='radio' name='religions' id='rel-"+count_rel+"' value="+this.religion.value+"><label for='rel-"+count_rel+"'>" + this.label.value + "</label></div>" );
+		 	$("#new-religion").append("<option value='"+this.religion.value+"'>"+this.label.value +"</option>");
 
+		 	count_rel++;
+		 });
+	  },
+	  error: function(error) {
+	    alert("An error occurred while processing XML file." + error);
+	  }
+	});
 });	
+
+
+function accLink(link){
+	var string_link = "<" +  link + ">";
+	return  string_link; 
+} 
