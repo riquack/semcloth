@@ -38,12 +38,7 @@ object EntitiesController extends Controller {
     import scala.concurrent.ExecutionContext.Implicits.global
 
     val result = WS.url(
-      """http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org
-        |&query=PREFIX+yago%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fclass%2Fyago%2F%3E%0D%0A%0D%0ASELECT+%3F
-        |dressingStyle+%3Flabel+%3Fcomment+%0D%0A++WHERE+%7B%0D%0A+++++%3FdressingStyle+a+yago%3AFashionAesthetics
-        |+%3B%0D%0A+++++rdfs%3Alabel+%3Flabel%3B%0D%0A+++++rdfs%3Acomment+%3Fcomment+.%0D%0A%0D%0A+++++FILTER%28
-        |lang%28%3Flabel%29+%3D+%22en%22+%26%26+lang%28%3Fcomment%29+%3D+%22en%22%29%0D%0A++%7D
-        |&format=application%2Fsparql-results%2Bjson&timeout=30000""".stripMargin.replace("\n", ""))
+      """http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+yago%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fclass%2Fyago%2F%3E%0D%0A%0D%0ASELECT+%3FdressingStyle+%3Flabel+%3Fcomment+%0D%0A++WHERE+%0D%0A%09%7B%0D%0A+++++%3FdressingStyle+a+yago%3AFashionAesthetics+%3B%0D%0A+++++rdfs%3Alabel+%3Flabel%3B%0D%0A+++++rdfs%3Acomment+%3Fcomment+.%0D%0A%0D%0A+++++FILTER%28lang%28%3Flabel%29+%3D+%22en%22+%26%26+lang%28%3Fcomment%29+%3D+%22en%22%29%0D%0A+++%7D&format=application%2Fsparql-results%2Bjson&timeout=30000""")
 
     result.get().map{
       response =>
@@ -84,10 +79,14 @@ object EntitiesController extends Controller {
   def clothingMaterials = Action {
     Ok(
       SimpleSPARQL.select(
-        """select ?clothingMaterial ?label where { {?clothingMaterial a :ClothingMaterial.} UNION {?clothingMaterial a :ClothingMaterial;
-                                                                     rdfs:label ?label . }}"""
+        """select ?clothingMaterial ?label ?comment
+          |where
+          |	{ ?clothingMaterial a sc:ClothingMaterial;
+          |                        rdfs:label ?label;
+          |						rdfs:comment ?comment .
+          |	}	""".stripMargin
       )
-    )
+    ).as(JSON)
   }
 
   def colors = Action.async {
@@ -95,13 +94,7 @@ object EntitiesController extends Controller {
     import play.api.Play.current
     import scala.concurrent.ExecutionContext.Implicits.global
     val x = WS.url(
-      """http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org
-        |&query=PREFIX+umbel%3A+%3Chttp%3A%2F%2Fumbel.org%2Fumbel%2Frc%2F%3E%0D%0A%0D%0ASELECT+%3F
-        |color+%3FcolourHexCode+%3Flabel+%3Fcomment+%0D%0A++WHERE+%7B%0D%0A+++++%3Fcolor+a+umbel%3A
-        |Color+%3B%0D%0A+++++dbpedia-owl%3AcolourHexCode+%3FcolourHexCode%3B%0D%0A+++++rdfs%3Alabel+%3F
-        |label%3B%0D%0A+++++rdfs%3Acomment+%3Fcomment+.%0D%0A%0D%0A+++++FILTER%28lang%28%3F
-        |label%29+%3D+%22en%22+%26%26+lang%28%3Fcomment%29+%3D+%22en%22%29%0D%0A++%7D
-        |&format=application%2Fsparql-results%2Bjson&timeout=30000""".stripMargin.replace("\n", ""))
+      """http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+umbel%3A+%3Chttp%3A%2F%2Fumbel.org%2Fumbel%2Frc%2F%3E%0D%0A%0D%0ASELECT+%3Fcolor+%3FcolourHexCode+%3Flabel+%3Fcomment+%0D%0A++WHERE+%7B%0D%0A+++++%3Fcolor+a+umbel%3AColor+%3B%0D%0A+++++dbpedia-owl%3AcolourHexCode+%3FcolourHexCode%3B%0D%0A+++++rdfs%3Alabel+%3Flabel%3B%0D%0A+++++rdfs%3Acomment+%3Fcomment+.%0D%0A%0D%0A+++++FILTER%28lang%28%3Flabel%29+%3D+%22en%22+%26%26+lang%28%3Fcomment%29+%3D+%22en%22%29%0D%0A++%7D&format=application%2Fsparql-results%2Bjson&timeout=30000""")
     x.get().map {
       response =>
         Ok(response.json)
