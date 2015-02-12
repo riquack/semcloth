@@ -1,5 +1,8 @@
 <?php
-	$endpoints = [
+		header("Content-Type: application/json; charset=utf-8");
+		echo "";
+		
+		$endpoints = [
 		"events" => "http://riquack-n61vn:9000/events",
 		"clothingTypes" => "http://riquack-n61vn:9000/clothingTypes",
 		"clothingSizes" => "http://riquack-n61vn:9000/clothingSizes",
@@ -24,5 +27,5 @@
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
 		$response = curl_exec($curl);
 		
-		echo $response;
+		echo json_encode($response);
 ?>
