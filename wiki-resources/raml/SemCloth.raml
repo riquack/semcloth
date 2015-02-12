@@ -1,7 +1,7 @@
 #%RAML 0.8
 title: SemCloth
 version: v1
-baseUri: www.api.semcloth.org/{version}/
+baseUri: http://localhost:9000
 securitySchemes:
   - oauth_2_0:
       description: |
@@ -586,12 +586,10 @@ traits:
               }                    
       
 /users/{id}:
-  displayName: Users
-  type: collection
+  displayName: Current user
   /wardrobe:
     displayName: Wardrobe
     type: collection
-    is: [ paginable, sortable, filtrable ]
     get:
       description: List clothing items of a users wardrobe.
       responses:
@@ -755,30 +753,68 @@ traits:
                     }
                   }
                   
-      delete:
-        description: Remove a wardrobe item.
+      #delete:
+        #description: Remove a wardrobe item.
       
   
-    /recommendations:
-      displayName: Recommendatinos
-      type: collection
-      is: [ paginable, sortable ]
-      get:
-        description:
-        queryParameters:
-          event:
-            description: Type of event for which the user wants recommandation
-            type: string
-            required: true
-          style:
-            description: Types of fashion styles that a users preffers
-            type: string
-            required: true
-          weather:
-            description: Take into account weather consitions
-            type: string
-            required: false
-          trends: 
-            description: Take into consideration current fashion trends
-            type: string
-            required: false
+  /recommendations:
+    displayName: Recommendatinos
+    type: collection
+    get:
+      description:
+      queryParameters:
+        event:
+          description: Type of event for which the user wants recommendations.
+          type: string
+          required: false
+          default: http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BusinessMeeting
+        style:
+          description: Types of fashion styles that a users preferrs.
+          type: string
+          required: false
+          default: http://dbpedia.org/resource/Swenkas
+        weather:
+          description: Take into account weather consitions.
+          type: string
+          required: false
+        genres:
+          description: Which clothing genre must be taken into consideration.
+          type: string
+          required: false
+          default: <http://dbpedia.org/resource/Male>
+        materials:
+          description: Fabrics that are used for the clothings.
+          type: string
+          required: false
+          default: <http://dbpedia.org/resource/Cashmere_wool>
+        religion:
+          description: Take into account religious considerations. 
+          type: string
+          required: false
+        season:
+          description: Season for which the clothing is best suited.
+          type: string
+          required: false
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "head": {
+                      "vars": [
+                          "subject"
+                      ]
+                  },
+                  "results": {
+                      "bindings": [
+                          {
+                              "subject": {
+                                  "type": "uri",
+                                  "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#1423700478847"
+                              }
+                          }
+                      ]
+                  }
+                }
+                  
