@@ -225,6 +225,7 @@ button#done-edit {
 	border-bottom: 1px dotted #CCC; 
 	margin-bottom: 10px; 
 	padding-bottom: 10px; 
+	overflow: hidden;
 }
 
 #container .grid li { 
@@ -234,6 +235,7 @@ button#done-edit {
 	border-right: 1px dotted #CCC; 
 	border-bottom: 1px dotted #CCC;
 	padding: 20px; 
+
 }
 
 .grid {
@@ -256,8 +258,8 @@ button#done-edit {
 	width: 50%!important;
 }
 
-.lightbox input[type="text"], .lightbox select {
-	color: #000;
+.lightbox input[type="text"], .lightbox select, .lightbox input, button#register {
+	color: #000!important;
 }
 
 
@@ -496,7 +498,7 @@ button.list:before, button.grid:before, .b-filters:before {
 	padding-right: 0.5em;
 	position: absolute;
 	top: 2px;
-	left: 4px;
+	left: 13px;
 }
 
 button.grid:before {
@@ -505,7 +507,7 @@ button.grid:before {
 
 .b-filters:before {
 	content: "\f002";
-	margin-left: 18px;
+	margin-left: 15px;
 }	
 
 
@@ -549,6 +551,11 @@ button.grid:before {
 	width: 40%;
 	float: right;
 }
+
+.r-20 img {
+	width: 80%;
+}
+
 
 h3{
 	border-bottom: 1px solid #dfdfdf;

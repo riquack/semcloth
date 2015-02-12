@@ -74,138 +74,711 @@ traits:
         category:
           description: Filter to return results only from specific categories.
           type: string
-      
-/users:
-  displayName: Users
-  type: collection
-  post:
-    description: Create a new user in the system
-    body:
-      application/json:
-        example: |
-          {
-            "email": "John Doe",
-            "password": "passwordIuseEverywere",
-            "birthday": "01-01-1979"
-            "sex": "male",
-            "nationality": "american"
-            "current_country": "UK"
-            "skin_tone": "light"
-            "eye_color": "blue"
-            "height": 180
-            "height_scale": "cm"
-            "weight": 80
-            "weight_scale": "kg"
-          }
-    
-        
-    responses: 
-      201:
-        description: User successfully registered.
-      400:
-        description: |
-          There is a problem with the information you have supplied
-  /{id}:
-    type: item
-    get:
-      description: Retrive information about a user.
-      responses:
-        403:
-          description: You don't have access to that information.
-    patch:
-      description: Update information about a user.
           
-/wardrobe:
-  displayName: Wardrobe
+
+/clothing:
+  description: Clothing
+  /types:
+    displayName: Clothing types
+    type: collection
+    get:
+      description: Retrieve a list of clothing types from the underlying ontology and inferred properties for these types.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                    "head": {
+                        "vars": [
+                            "clothing",
+                            "label",
+                            "thumbnail"
+                        ]
+                    },
+                    "results": {
+                        "bindings": {
+                            "clothing": {
+                                "type": "uri",
+                                "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dress"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literl",
+                                "value": "Dress"
+                            },
+                            "thumbnail": {
+                                "datatype": "http: //www.w3.org/2001/XMLSchema#anyURI",
+                                "type": "literal",
+                                "value": "http: //students.info.uaic.ro/~oana.gagea/images-wade/dress.png"
+                            }
+                        }
+                    }
+                }
+              
+  /sizes:
+    displayName: Clothing sizes
+    type: collection
+    get:
+      description: Retrieve a list of clothing sizes from the underlying ontology.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "head": {
+                      "vars": [
+                          "size",
+                          "label"
+                      ]
+                  },
+                  "results": {
+                      "bindings": [
+                          {
+                              "size": {
+                                  "type": "uri",
+                                  "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#L"
+                              },
+                              "label": {
+                                  "type": "literal",
+                                  "value": "L"
+                              }
+                          },
+                          {
+                              "size": {
+                                  "type": "uri",
+                                  "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#M"
+                              },
+                              "label": {
+                                  "type": "literal",
+                                  "value": "M"
+                              }
+                          },
+                          {
+                              "size": {
+                                  "type": "uri",
+                                  "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#S"
+                              },
+                              "label": {
+                                  "type": "literal",
+                                  "value": "s"
+                              }
+                          }
+                      ]
+                  }
+                }
+              
+  /styles:
+    displayName: Clothing styles
+    type: collection
+    get:
+      description: Retrieve a collection of clothing styles based on dbpedia.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "head": {
+                      "link": [],
+                      "vars": [
+                          "dressingStyle",
+                          "label",
+                          "comment"
+                      ]
+                  },
+                  "results": {
+                      "distinct": false,
+                      "ordered": true,
+                      "bindings": [
+                          {
+                              "dressingStyle": {
+                                  "type": "uri",
+                                  "value": "http://dbpedia.org/resource/Swenkas"
+                              },
+                              "label": {
+                                  "type": "literal",
+                                  "xml:lang": "en",
+                                  "value": "Swenkas"
+                              },
+                              "comment": {
+                                  "type": "literal",
+                                  "xml:lang": "en",
+                                  "value": "In South Africa, Swenkas are working-class Zulu men who participate in amateur competitions that are part fashion show and part choreography, the purpose of which is to display one's style and sense of attitude. The practice, called \"swenking\", ultimately derives from the English word \"swank\".These well-dressed men are proud and considered to serve as an inspiration to others. Frequently, on Saturday nights they meet up to compete in a fashion show of sorts."
+                              }
+                          }
+                      ]
+                  }
+                }
+             
+  /materials:
+    displayName: Clothing materials
+    type: collection
+    get:
+      description: Retrieve a list of clothing materials from the underlying ontology and inferred properties for these types.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "head": {
+                      "vars": [
+                          "clothingMaterial",
+                          "label",
+                          "comment"
+                      ]
+                  },
+                  "results": {
+                      "bindings": [
+                          {
+                              "clothingMaterial": {
+                                  "type": "uri",
+                                  "value": "http://dbpedia.org/resource/Acrylic_fiber"
+                              },
+                              "label": {
+                                  "xml:lang": "en",
+                                  "type": "literal",
+                                  "value": "Acrylic fiber"
+                              },
+                              "comment": {
+                                  "xml:lang": "en",
+                                  "type": "literal",
+                                  "value": "Acrylic fibers are synthetic fibers made from a polymer (polyacrylonitrile) with an average molecular weight of ~100,000, about 1900 monomer units. To be called acrylic in the U.S, the polymer must contain at least 85% acrylonitrile monomer. Typical comonomers are vinyl acetate or methyl acrylate. DuPont created the last acrylic fibers in 1941 and trademarked them under the name Orlon. Acrylic is also called acrilan fabric."
+                              }
+                          },
+                          {
+                              "clothingMaterial": {
+                                  "type": "uri",
+                                  "value": "http://dbpedia.org/resource/Cashmere_wool"
+                              },
+                              "label": {
+                                  "xml:lang": "en",
+                                  "type": "literal",
+                                  "value": "Cashmere wool"
+                              },
+                              "comment": {
+                                  "xml:lang": "en",
+                                  "type": "literal",
+                                  "value": "Cashmere wool, usually simply known as cashmere, is a fiber obtained from Cashmere goats and other types of goat. Common usage defines the fiber as a wool but in fact it is a hair, and this is what gives it its unique characteristics as compared to sheep's wool. The word cashmere derives from an old spelling of Kashmir. Cashmere is fine in texture, strong, light, and soft. Garments made from it provide excellent insulation.In the United States, under the U.S."
+                              }
+                          }
+                      ]
+                  }
+                }
+      
+          
+  /textures:
+    displayName: Clothing textures
+    type: collection
+    get:
+      description: Retrieve a list of clothing textures from the underlying ontology and inferred properties for these types.
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "head": {
+                      "vars": [
+                          "texture",
+                          "label"
+                      ]
+                  },
+                  "results": {
+                      "bindings": [
+                          {
+                              "texture": {
+                                  "type": "uri",
+                                  "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flowe"
+                              },
+                              "label": {
+                                  "xml:lang": "en",
+                                  "type": "literal",
+                                  "value": "Flowe"
+                              }
+                          },
+                          {
+                              "texture": {
+                                  "type": "uri",
+                                  "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#IMVU"
+                              },
+                              "label": {
+                                  "xml:lang": "en",
+                                  "type": "literal",
+                                  "value": "IMVU"
+                              }
+                          }
+                      ]
+                  }
+                }
+    
+/colors:
+  displayName: Colors
   type: collection
-  is: [ paginable, sortable, filtrable ]
   get:
-    description: List clothing items of a users wardrobe.
+    description: Retrieve a collection of colors based on dbpedia.
     responses:
       200:
-        description: Successfully returns a list of wardrobe items.
-        body:
-          application/xml:
-            example: |
-              <rdf:RDF
-                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlns:clothes="http://www.clothes.pt/ontologies/clothes.owl#"
-                xmlns="http://www.w3.org/2002/07/owl#"
-                xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-                xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
-                <rdf:Description rdf:about="http://www.clothes.pt/ontologies/clothes.owl#False_Plain_Tie">
-                  <clothes:SQL_ID_DATA rdf:datatype="http://www.w3.org/2001/XMLSchema#int">93</clothes:SQL_ID_DATA>
-                  <clothes:Model_Data rdf:datatype="http://www.w3.org/2001/XMLSchema#string">False Plain Tie</clothes:Model_Data>
-                  <clothes:Price_Data rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.99</clothes:Price_Data>
-                  <clothes:isMadeOf rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#wool"/>
-                  <clothes:hasColor rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#grey"/>
-                  <rdfs:label xml:lang="Hello">SQL-ID</rdfs:label>
-                  <rdf:type rdf:resource="http://www.clothes.pt/ontologies/clothes.owl#ClassicTie"/>
-                </rdf:Description>
-              </rdf:RDF>
-  post:
-    description:
-      Create a new wardrobe item.
-    responses:
-      201:
-        description:
-          Wardrobe item successfully created.
         body:
           application/json:
             example: |
-              
-          
-  /{id}:
-    type: item
-    get:
-      description: Retrive information about a wardrobe item.
-    patch:
-      description: Update information about a wardrobe item.
-    delete:
-      description: Remove a wardrobe item.
-    /shops:
-      type: collection
-      get:
-        description: Retrieve information about shop where you can buy related item.
-        queryParameters: 
-          range:
-            description: Maximum range where you what to find out about shops.
-            type: integer
-            required: false
-
-/recommendations:
-  displayName: Recommendatinos
-  type: collection
-  is: [ paginable, sortable ]
-  get:
-    description:
-    queryParameters:
-      event:
-        description: Type of event for which the user wants recommandation
-        type: string
-        required: true
-      style:
-        description: Types of fashion styles that a users preffers
-        type: string
-        required: true
-      weather:
-        description: Take into account weather consitions
-        type: string
-        required: false
-      trends: 
-        description: Take into consideration current fashion trends
-        type: string
-        required: false
+              {
+                "head": {
+                    "link": [],
+                    "vars": [
+                        "color",
+                        "colourHexCode",
+                        "label",
+                        "comment"
+                    ]
+                },
+                "results": {
+                    "distinct": false,
+                    "ordered": true,
+                    "bindings": [
+                        {
+                            "color": {
+                                "type": "uri",
+                                "value": "http://dbpedia.org/resource/Carnelian_(color)"
+                            },
+                            "colourHexCode": {
+                                "type": "literal",
+                                "value": "B31B1B"
+                            },
+                            "label": {
+                                "type": "literal",
+                                "xml:lang": "en",
+                                "value": "Carnelian (color)"
+                            },
+                            "comment": {
+                                "type": "literal",
+                                "xml:lang": "en",
+                                "value": "Carnelian is a color named after the carnelian variety of the mineral chalcedony. This semi-precious gemstone is noted for its rich shade of reddish-brown.Another name for this color is Cornell red, as it is the color of Cornell University.The first recorded use of Carnelian as a color name in English was in 1899."
+                            }
+                        },
+                        {
+                            "color": {
+                                "type": "uri",
+                                "value": "http://dbpedia.org/resource/Cordovan_(color)"
+                            },
+                            "colourHexCode": {
+                                "type": "literal",
+                                "value": "893F45"
+                            },
+                            "label": {
+                                "type": "literal",
+                                "xml:lang": "en",
+                                "value": "Cordovan (color)"
+                            },
+                            "comment": {
+                                "type": "literal",
+                                "xml:lang": "en",
+                                "value": "Cordovan is a rich shade of burgundy and a dark shade of rose. Cordovan takes its name from the city of Cordoba, Spain, where the production of shell cordovan leather was first practiced by the Visigoths in the seventh century. The term cordovan has come to describe the color of clothing, leather in particular.The first recorded use of cordovan as a color name in English was in 1925."
+                            }
+                        }
+                    ]
+                }
+              }
         
-/sparql:
-  displayName: SPARQL
+/events:
+  displayName: Events
   type: collection
-  is: [ paginable, sortable ]
   get:
-    description:
-      Retrieve various clothing information based on SPARQL queries that you make.
-    queryParameters:
-      q:
-        description: SPARQL query to interogate for various clothing information.
-        type: string
-        required: true
+    description: Retrieve a list of events from the underlying ontology and inferred properties for these types.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "head": {
+                    "vars": [
+                        "event",
+                        "label"
+                    ]
+                },
+                "results": {
+                    "bindings": [
+                        {
+                            "event": {
+                                "type": "uri",
+                                "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#BusinessMeeting"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Business meeting"
+                            }
+                        },
+                        {
+                            "event": {
+                                "type": "uri",
+                                "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Club"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Club"
+                            }
+                        }
+                    ]
+                }
+              }
+  
+/religions:
+  displayName: Religions
+  type: collection
+  get:
+    description: Retrieve a list of religions from the underlying ontology and inferred properties for these types.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "head": {
+                    "vars": [
+                        "religion",
+                        "label",
+                        "comment"
+                    ]
+                },
+                "results": {
+                    "bindings": [
+                        {
+                            "religion": {
+                                "type": "uri",
+                                "value": "http://dbpedia.org/resource/Baptism"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Baptism"
+                            },
+                            "comment": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Baptism (from the Greek noun βάπτισμα baptisma; see below) is a Christian rite of admission and adoption, almost invariably with the use of water, into the Christian Church generally and also a particular church. The canonical Gospels report that Jesus was baptized—a historical event to which a high degree of certainty can be assigned. Baptism has been called a sacrament and an ordinance of Jesus Christ."
+                            }
+                        },
+                        {
+                            "religion": {
+                                "type": "uri",
+                                "value": "http://dbpedia.org/resource/Catholicism"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Catholicism"
+                            },
+                            "comment": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Catholicism (from Greek καθολικισμός, katholikismos, \"according to the whole\") is used as a broad term for describing specific traditions in the Christian churches in theology, doctrine, liturgy, ethics, and spirituality.In this sense, it is to be distinguished from the sense in which it denotes Christians and churches, western and eastern, that are in full communion with the Holy See, and that are commonly called the Catholic Church or Roman Catholic Church.In the sense of indicating historical continuity of faith and practice from the first millennium, the term \"Catholicism\" is at times employed to mark a contrast to Protestantism, which tends to look solely to the Bible as interpreted on the principles of the 16th-century Protestant Reformation as its ultimate standard. "
+                            }
+                        }
+                    ]
+                }
+              }
+                
+/seasons:
+  displayName: Seasons
+  type: collection
+  get:
+    description: Retrieve a list of seasons from the underlying ontology and inferred properties for these types.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "head": {
+                    "vars": [
+                        "season",
+                        "label",
+                        "comment"
+                    ]
+                },
+                "results": {
+                    "bindings": [
+                        {
+                            "season": {
+                                "type": "uri",
+                                "value": "http://dbpedia.org/resource/Autumn"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Autumn"
+                            },
+                            "comment": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Autumn, interchangeably known as fall in the US and Canada, is one of the four temperate seasons. Autumn marks the transition from summer into winter, in September (Northern Hemisphere) or March (Southern Hemisphere) when the arrival of night becomes noticeably earlier and the temperature cools considerably."
+                            }
+                        },
+                        {
+                            "season": {
+                                "type": "uri",
+                                "value": "http://dbpedia.org/resource/Spring"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Spring"
+                            }
+                        }
+                    ]
+                }
+              }
+                  
+/weather:
+  displayName: Weather
+  type: collection
+  get:        
+    description: Retrieve a list of weather conditions from the underlying ontology and inferred properties for these types.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "head": {
+                    "vars": [
+                        "weatherCondition",
+                        "label",
+                        "comment"
+                    ]
+                },
+                "results": {
+                    "bindings": [
+                        {
+                            "weatherCondition": {
+                                "type": "uri",
+                                "value": "http://dbpedia.org/resource/Cloudy"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Cloudy"
+                            }
+                        },
+                        {
+                            "weatherCondition": {
+                                "type": "uri",
+                                "value": "http://dbpedia.org/resource/Cold"
+                            },
+                            "label": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Cold"
+                            },
+                            "comment": {
+                                "xml:lang": "en",
+                                "type": "literal",
+                                "value": "Cold refers to the condition or subjective perception of having low temperature, the absence of hot.A lower bound to temperature is absolute zero, defined as 0 K on the Kelvin scale, an absolute thermodynamic temperature scale."
+                            }
+                        }
+                    ]
+                }
+              }                    
+      
+/users/{id}:
+  displayName: Users
+  type: collection
+  /wardrobe:
+    displayName: Wardrobe
+    type: collection
+    is: [ paginable, sortable, filtrable ]
+    get:
+      description: List clothing items of a users wardrobe.
+      responses:
+        200:
+          description: Successfully returns a list of wardrobe items.
+          body:
+            application/json:
+              example: |
+                {
+                    "head": {
+                        "vars": [
+                            "subject"
+                        ]
+                    },
+                    "results": {
+                        "bindings": [
+                            {
+                                "subject": {
+                                    "type": "uri",
+                                    "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#1423700478847"
+                                }
+                            },
+                            {
+                                "subject": {
+                                    "type": "uri",
+                                    "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#1423701263498"
+                                }
+                            },
+                            {
+                                "subject": {
+                                    "type": "uri",
+                                    "value": "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#1423702739072"
+                                }
+                            }
+                        ]
+                    }
+                }
+                
+               
+    post:
+      description:
+        Create a new wardrobe item.
+      responses:
+        201:
+          description:
+            Wardrobe item successfully created.
+      body:
+            application/json:
+              example: |
+                {
+                  "clothingType": "<http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Coat>",
+                  "thumbnail": "http://students.info.uaic.ro/~oana.gagea/images-wade/coat.png",
+                  "fabrics": [
+                      "<http://dbpedia.org/resource/Cashmere_wool>"
+                  ],
+                  "colors": [
+                      "<http://dbpedia.org/resource/Midnight_blue>"
+                  ],
+                  "size": "<http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#L>",
+                  "texture": "IMVU",
+                  "note": "Present from my wife",
+                  "genres": [
+                      "<http://dbpedia.org/resource/Male>"
+                  ]
+                }
+          
+                
+            
+    /{id}:
+      type: item
+      get:
+        description: Retrive information about a wardrobe item.
+        responses:
+          200:
+            description: Item successfully retrived
+            body:
+              application/json:
+                example: |
+                  {
+                    "head" : {
+                      "vars" : [ "src", "property", "object" ]
+                    },
+                    "results" : {
+                      "bindings" : [ {
+                        "property" : {
+                          "type" : "uri",
+                          "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTexture"
+                        },
+                        "object" : {
+                          "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+                          "type" : "literal",
+                          "value" : "IMVU"
+                        }
+                      }, {
+                        "property" : {
+                          "type" : "uri",
+                          "value" : "http://dbpedia.org/property/composition"
+                        },
+                        "object" : {
+                          "type" : "uri",
+                          "value" : "http://dbpedia.org/resource/Cashmere_wool"
+                        }
+                      }, {
+                        "property" : {
+                          "type" : "uri",
+                          "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByGenre"
+                        },
+                        "object" : {
+                          "type" : "uri",
+                          "value" : "http://dbpedia.org/resource/Male"
+                        }
+                      }, {
+                        "property" : {
+                          "type" : "uri",
+                          "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTextileComposition"
+                        },
+                        "object" : {
+                          "type" : "uri",
+                          "value" : "http://dbpedia.org/resource/Cashmere_wool"
+                        }
+                      }, {
+                        "property" : {
+                          "type" : "uri",
+                          "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour"
+                        },
+                        "object" : {
+                          "type" : "uri",
+                          "value" : "http://dbpedia.org/resource/Midnight_blue"
+                        }
+                      }, {
+                        "property" : {
+                          "type" : "uri",
+                          "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasSize"
+                        },
+                        "object" : {
+                          "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+                          "type" : "literal",
+                          "value" : "<http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#L>"
+                        }
+                      }, {
+                        "property" : {
+                          "type" : "uri",
+                          "value" : "http://dbpedia.org/ontology/thumbnail"
+                        },
+                        "object" : {
+                          "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+                          "type" : "literal",
+                          "value" : "http://students.info.uaic.ro/~oana.gagea/images-wade/coat.png"
+                        }
+                      }, {
+                        "property" : {
+                          "type" : "uri",
+                          "value" : "http://rdfs.org/sioc/ns#note"
+                        },
+                        "object" : {
+                          "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+                          "type" : "literal",
+                          "value" : "Present from my wife"
+                        }
+                      } ]
+                    }
+                  }
+                  
+      delete:
+        description: Remove a wardrobe item.
+      
+  
+    /recommendations:
+      displayName: Recommendatinos
+      type: collection
+      is: [ paginable, sortable ]
+      get:
+        description:
+        queryParameters:
+          event:
+            description: Type of event for which the user wants recommandation
+            type: string
+            required: true
+          style:
+            description: Types of fashion styles that a users preffers
+            type: string
+            required: true
+          weather:
+            description: Take into account weather consitions
+            type: string
+            required: false
+          trends: 
+            description: Take into consideration current fashion trends
+            type: string
+            required: false

@@ -4,7 +4,7 @@
 		
 		
 		$userId = isset($_GET['userId']) ? $_GET['userId'] : "";
-		$clothingId = isset($_GET['user']) ? $_GET['clothingId'] : "";
+		$clothingId = isset($_GET['clothingId']) ? $_GET['clothingId'] : "";
 		
 		$endpoints = [
 		"events" => "http://riquack-n61vn:9000/events",
@@ -16,8 +16,9 @@
 		"seasons" => "http://riquack-n61vn:9000/seasons",
 		"weatherConditions" => "http://riquack-n61vn:9000/weatherConditions",
 		"clothingMaterials" => "http://riquack-n61vn:9000/clothingMaterials",
-		"wardrobe" => "http://riquack-n61vn:9000/users/" + $userId + "/wardrobe",
-		"wardrobeItem" => "http://riquack-n61vn:9000/users/" + $userId + "/wardrobe/" + $clothingId
+		"wardrobe" => "http://riquack-n61vn:9000/users/" . $userId . "/wardrobe",
+		"recommendations" => "http://riquack-n61vn:9000/users/" . $userId . "/wardrobe/recommendations",
+		"wardrobeItem" => "http://riquack-n61vn:9000/users/" . $userId . "/wardrobe/" . $clothingId
 		];
 		
 		
@@ -25,7 +26,7 @@
 		$method = $_GET["method"];
 			
 		$curl = curl_init($url);
-		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
+		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method); 
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		$response = curl_exec($curl);
 		

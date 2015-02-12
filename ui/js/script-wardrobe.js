@@ -24,7 +24,91 @@ jQuery(document).ready(function(){
 	//Sample XML    
 	//var xml = "<?xml version='1.0' ?><warderobe><item><name>T-shirt1</name><events>Funeral</events></item><item><name>T-shirt2</name><events>Interview</events></item><item><name>T-shirt3</name><events>Funeral|Interview</events></item><item><name>T-shirt4</name><events>Funeral|Interview</events></item><item><name>T-shirt5</name><events>Funeral|Interview</events></item><item><name>T-shirt6</name><events>Funeral|Interview</events></item><item><name>T-shirt7</name><events>Funeral|Interview</events></item><item><name>T-shirt8</name><events>Funeral|Interview</events></item><item><name>T-shirt9</name><events>Funeral|Interview</events></item><item><name>T-shirt10</name><events>Funeral|Interview</events></item></warderobe>";
  
-	 
+	//wardrobe
+	$.ajax({
+			type: "GET",
+			url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=wardrobe&userId="+usr[0],//"http://riquack-n61vn:9000/events",
+			dataType: "text",
+			success: function(data){
+				//	console.log(data);
+				var jresult = $.parseJSON(data);
+
+				//console.log(jresult);
+				// console.log(jresult.toSource());
+				//console.log("before for");
+				$.each(jresult.results.bindings, function(i, value) {
+					
+					//console.log(this);
+					var id_item = this.subject.value.split("#");
+					//console.log(id_item[1]);
+					//console.log("before get item details");
+ 
+					$.ajax({
+						type: "GET",
+						url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=wardrobeItem&userId="+usr[0] + "&clothingId="+id_item[1],//"http://riquack-n61vn:9000/events",
+						dataType: "text",
+						success: function(data){
+
+								//console.log(data);
+								var jresult_item = $.parseJSON(data);
+
+							var values = ["http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByGenre", 
+							"http://rdfs.org/sioc/ns#note", 
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTextileComposition", 
+							"http://semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour", 
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasSize", 
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTexture", 
+							"http://dbpedia.org/ontology/thumbnail"]; 
+							var data = {};
+							$.each(jresult_item.results.bindings, function(index, value1) {
+									
+									var prop = this.property.value;
+									data[prop] = this.object.value;	
+
+									//console.log(prop + " " + this.object.value );
+
+
+							});
+							//console.log(data[values[3]] + " " + index);
+
+		var aux = '<li id="item-'+i+'"><div class="t-item"><h3>' +'</h3>'
+		   			 	+ '<div class="r-80">'//<p class="item-events"><b>Events:</b> '+ events +'</p>'
+	    				//+ '<p class="item-season"><b>Season:</b> '+ season +'</p>'
+	    				//+ '<p class="item-styles"><b>Styles:</b> '+ styles +'</p>' 
+	    				+ '<p class="item-material"><b>Material:</b> '+ data[values[2]].split("/")[data[values[2]].split("/").length-1].replace("_", " " ) +'</p>'
+	    				+ '<p class="item-material"><b>Note:</b> '+ data[values[1]]+'</p>'
+	    				+ '<p class="item-material"><b>Texture:</b> '+ data[values[5]]+'</p>'
+	    				+ '<p class="item-material"><b>Size:</b> '+ data[values[4]].split("#")[1].replace(">", "")+'</p>'
+	    				+ '<p class="item-material"><b>Colors:</b> '+ data[values[3]]+'</p>'
+	    				+ '<button id="iditem-'+i+'" class="delete-item-list"><i class="fa fa-trash-o"></i>Delete Item</button> </div>' 
+	    				+ '<div class="r-20"><img src="'+ data[values[6]]+'"></div>'
+	    				+ '</div>'
+		   				//+'<div class="e-item"> <button id="item-e-'+i+'" class="options edit-item">Edit</button> '
+		   				//+'<button id="item-d-'+i+'" class="options delete-item">Delete</button> </div>';
+		   				+ '</li>';
+			$( ".list-w" ).append( aux);
+		
+							
+
+
+						},
+						 error: function(error, ob, message) {
+								alert("[Get props each item]: " + message.toString());
+						 }
+					});
+
+			
+				});
+
+			},
+			 error: function(error, ob, message) {
+					alert("[Get items]: " + message.toString());
+			 }
+	});
+
+
+
+	/* 
 	var xml =  	"<?xml version='1.0' ?> " 
 					+ "<warderobe> <item> <name>T-shirt0</name> <events> <event>Funneral</event>  	<event>Date</event> <event>Romantic Date</event> </events> <styles> <style>Rock</style> <style>Sport</style></styles> <materials><material>cotton</material></materials></item>"
 					+ "				<item> <name>T-shirt1</name> <events> <event>Funneral</event>  	<event>Date</event> <event>Romantic Date</event> </events> <styles> <style>Rock</style> </styles></item>"
@@ -51,7 +135,7 @@ jQuery(document).ready(function(){
 	$item.each(function(){
 	  
 	  	/*Parsez events ---------------------------- */
-	    var name = $(this).find('name').text();
+	/*    var name = $(this).find('name').text();
 		var events = "";
 	    $(this).find('events>event').each(function(){
 	    	events +=  $(this).text() + "<br/>";
@@ -60,7 +144,7 @@ jQuery(document).ready(function(){
 	    events = events.replace(/\|/g, ', ');
 
 	    /*Parsez sezoane --------------------------- */
-	    var season = ""; 
+	 /*   var season = ""; 
 		$(this).find('seasons>season').each(function(){
 	    	season +=  $(this).text() + "<br/>";
 		});
@@ -68,7 +152,7 @@ jQuery(document).ready(function(){
 	    	season = '-';
 
 	    /*Parsez styles ----------------------------- */
-	    var styles = ""; 
+	 /*   var styles = ""; 
 		$(this).find('styles>style').each(function(){
 	    	styles +=  $(this).text() + "<br/>";
 		});
@@ -77,7 +161,7 @@ jQuery(document).ready(function(){
 
 
 	    /*Parsez materials*/
-	   	var material = ""; 
+/*var material = ""; 
 		$(this).find('materials>material').each(function(){
 	    	material +=  $(this).text() + "<br/>";
 		});
@@ -99,7 +183,7 @@ jQuery(document).ready(function(){
 	   				+ '</li>';
 		$( ".list-w" ).append( aux);
 		  i++;
-	});
+	});*/
     
 
  
@@ -229,7 +313,7 @@ jQuery(document).ready(function(){
 					  }
 				});
 
-
+				 location.reload(true);
 
 
 				$("#success-error").fadeIn(5000);

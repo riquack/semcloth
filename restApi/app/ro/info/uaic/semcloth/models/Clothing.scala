@@ -3,12 +3,12 @@ package ro.info.uaic.semcloth.models
 
 case class Clothing(
     clothingType: String,
-    genres: Array[String],
-    fabrics: Array[String],
+    thumbnail: String,
+    fabrics: List[String],
+    colors: List[String],
+    note: String,
     size: String,
     texture: String,
-    colors: Array[String],
-    note: String,
-    thumbnail: String
-   )
+    genres: List[String]
+)
 

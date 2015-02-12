@@ -9,14 +9,6 @@ object WardrobeController extends Controller {
 
 
   def newClothingItem(id: String) = Action(parse.json) {
-    def asStringForSPARQL(key: String, colors: Array[String]) = {
-      colors.map{x => s"$key $x"}.mkString("; ")
-    }
-
-    def asXSDString(str: String) = {
-      "\"" + str + "\"^^xsd:string"
-    }
-
     implicit request => {
       import ro.info.uaic.semcloth.controllers.json.JsonConverters.clothingItemFormat
       request.body.validate[Clothing].fold(
@@ -49,7 +41,7 @@ object WardrobeController extends Controller {
     Ok(
       SimpleSPARQL.select(
         s"""select * FROM NAMED ${OntologyHelpers.UserNamedGraphUri(userId)}
-           |where { GRAPH ?src {<${OntologyConstants.SemclothNS + clothingId}> ?property ?object} }""".stripMargin
+           |where { GRAPH ?src {<${OntologyConstants.SemclothNS + clothingId}> ?property ?object. } }""".stripMargin
       )
     ).as(JSON)
   }
@@ -74,7 +66,47 @@ object WardrobeController extends Controller {
     else
       InternalServerError("Something went wrong. Item was not removed")
 
+  }
 
+  def recommendations(
+      userId: String,
+      event: Option[String],
+      genres: List[String],
+      materials: List[String],
+      religion: Option[String],
+      season: Option[String],
+      style: Option[String],
+      weather: Option[String]) = Action {
+
+    var x = s"""select ?indv FROM NAMED ${OntologyHelpers.UserNamedGraphUri(userId)}
+        |where { GRAPH ?src {?indv ${addConstrain("sc:isSuitableToBeDressedAtEvent", event)}
+        |                          ${addConstrain("sc:isSuitableToBeDressedInSeason", season)}
+        |                          ${addConstrain("sc:isSuitableForDressingCode", style)}
+        |                          ${addConstrain("sc:isSuitableToBeDressedOnWeather", weather)}
+        |                          ${addConstrain("sc:isSuitableForDressingForReligion", religion)}
+        |                          ${addConstrain("sc:isSuitableToBeDressedByGenre", genres)}
+        |                          ${addConstrain("sc:hasTextileComposition", materials)}} }""".stripMargin
+    Ok(x)
+  }
+
+
+  private def addConstrain(key: String, constrain: Option[String]) = {
+    if(constrain.isDefined)
+      s"$key $constrain;"
+    else ""
+  }
+
+  private def addConstrain(key: String, constrain: List[String]) = {
+    if(constrain.nonEmpty)
+      asStringForSPARQL(key, constrain) + ";"
+    else ""
+  }
+  private def asStringForSPARQL(key: String, colors: List[String]) = {
+    colors.map{x => s"$key $x"}.mkString("; ")
+  }
+
+  private def asXSDString(str: String) = {
+    "\"" + str + "\"^^xsd:string"
   }
 
 }
