@@ -1,0 +1,298 @@
+{
+  "head" : {
+    "vars" : [ "clothing", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dress"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Dress"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Coat"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Coat"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Gloves"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Gloves"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Raincoat"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Raincoat"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Shirt"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Shirt"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Skirt"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Skirt"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Suit"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Suit"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Trousers"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Trousers"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Underwear"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Underwear"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bag"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Bag"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Belt"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Belt"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Jewellery"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Jewellery"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Scarf"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Scarf"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sunglasses"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Sunglasses"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Tie"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Tie"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Umbrella"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Umbrella"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#AnkleBoots"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Ankle boots"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Handbag"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Handbag"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#ShoulderBag"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Shoulder bag"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Boots"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Boots"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Bra"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Bra"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Earrings"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Earrings"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Flats"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Flats"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#HighHeels"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "High-heels"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Necklace"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Necklace"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Moccasins"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Mocassins"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#RegularFitTrousers"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Regular fit trousers"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sandals"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Sandals"
+      }
+    }, {
+      "clothing" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Sneakers"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Sneakers"
+      }
+    } ]
+  }
+}

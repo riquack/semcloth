@@ -1,0 +1,49 @@
+
+{
+  "head" : {
+    "vars" : [ "religion", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "religion" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Catholicism"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Catholicism"
+      }
+    }, {
+      "religion" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Eastern_Orthodox_Church"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Orthodoxism"
+      }
+    }, {
+      "religion" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Hinduism"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Hinduism"
+      }
+    }, {
+      "religion" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/Muslim"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Muslim"
+      }
+    } ]
+  }
+}

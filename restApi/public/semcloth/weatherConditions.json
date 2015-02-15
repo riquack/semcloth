@@ -1,0 +1,59 @@
+
+{
+  "head" : {
+    "vars" : [ "weatherCondition", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "weatherCondition" : {
+        "type" : "uri",
+        "value" : "http://dbpedia.org/resource/cloudy"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Cloudy"
+      }
+    }, {
+      "weatherCondition" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Clear"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Clear"
+      }
+    }, {
+      "weatherCondition" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Hot"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Hot"
+      }
+    }, {
+      "weatherCondition" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Dry"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Dry"
+      }
+    }, {
+      "weatherCondition" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#Wet"
+      },
+      "label" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#string",
+        "type" : "literal",
+        "value" : "Wet"
+      }
+    } ]
+  }
+}

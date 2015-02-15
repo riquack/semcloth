@@ -1,0 +1,44 @@
+{
+  "head" : {
+    "vars" : [ "size", "label" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "size" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#S"
+      },
+      "label" : {
+        "type" : "literal",
+        "value" : "s"
+      }
+    }, {
+      "size" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#L"
+      },
+      "label" : {
+        "type" : "literal",
+        "value" : "L"
+      }
+    }, {
+      "size" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#M"
+      },
+      "label" : {
+        "type" : "literal",
+        "value" : "M"
+      }
+    }, {
+      "size" : {
+        "type" : "uri",
+        "value" : "http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#XL"
+      },
+      "label" : {
+        "type" : "literal",
+        "value" : "XL"
+      }
+    } ]
+  }
+}
