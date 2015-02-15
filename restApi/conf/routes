@@ -1,6 +1,7 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
+OPTIONS       /*all                                      ro.info.uaic.semcloth.controllers.cors.PreReqController.preFlight(all)
 
 GET           /clothingTypes                             ro.info.uaic.semcloth.controllers.EntitiesController.clothingTypes
 GET           /clothing/types                            ro.info.uaic.semcloth.controllers.EntitiesController.clothingTypes
@@ -31,3 +32,6 @@ GET           /users/:userId/wardrobe                    ro.info.uaic.semcloth.c
 GET           /users/:userId/wardrobe/:clothingId        ro.info.uaic.semcloth.controllers.WardrobeController.clothingItem(userId: String, clothingId: String)
 DELETE        /users/:userId/wardrobe/:clothingId        ro.info.uaic.semcloth.controllers.WardrobeController.removeClothing(userId: String, clothingId: String)
 GET           /users/:userId/recommendations             ro.info.uaic.semcloth.controllers.WardrobeController.recommendations(userId: String, event: Option[String] ?= None, genres: List[String], materials: List[String], religion: Option[String] ?= None , season: Option[String] ?= None , style: Option[String] ?= None , weather: Option[String] ?= None)
+
+GET           /semcloth/*file                            controllers.Assets.at(path = "/public", file)
+
