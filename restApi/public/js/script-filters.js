@@ -1,3 +1,11 @@
+var DEFAULT_SERVER_URL = "http://clevo-laptop";
+var DEFULT_SERVER_PORT = "9000";
+var DEFAULT_SERVER = DEFAULT_SERVER_URL + ":" + DEFULT_SERVER_PORT;
+
+function constructURL(path) {
+    return DEFAULT_SERVER + path;
+}
+
 jQuery(document).ready(function(){
 	/*Filters*/
 
@@ -74,7 +82,7 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ---- events */
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=events&method=GET",//"http://riquack-n61vn:9000/events",
+	    url: constructURL("/events"),
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
@@ -95,7 +103,7 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ---- clothingStyle */
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingStyles&method=GET",//"http://riquack-n61vn:9000/events",
+	    url: constructURL("/clothingStyles"),
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data); 
@@ -117,8 +125,8 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----  religions*/
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=religions&method=GET",//"http://riquack-n61vn:9000/events",
-	   	dateType: "json",
+	    url: constructURL("/religions"),
+	    dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
 		var count_rel = 0; 
@@ -140,7 +148,7 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----   seasons*/
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=seasons&method=GET",//"http://riquack-n61vn:9000/events",
+	    url: constructURL("/seasons"),
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
@@ -163,7 +171,7 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----   weatherConditions*/
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=weatherConditions&method=GET",//"http://riquack-n61vn:9000/events",
+	    url: constructURL("/weatherConditions"),
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);
@@ -186,7 +194,7 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----   clothingMaterials */
 	$.ajax({
 	    type: "GET", //clothingMaterials
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingMaterials&method=GET",//"http://riquack-n61vn:9000/events",
+	    url: constructURL("/clothingMaterials"),
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);
@@ -206,42 +214,6 @@ jQuery(document).ready(function(){
 	});
 
 
-
-	/*
-	$( "#filters-group" ).submit(function( event ) {
-
-		var events_select = $('#events').is(':checked');  
-		var style_select = $('#style').is(':checked');  
-		var season_select = $('#season').is(':checked');  
-		var material_select = $('#material').is(':checked');
-		var weather	= $('#weather').is(':checked');
-		var religions = $('#religions').is(':checked');
-		var weatherConditions = $('#weatherConditions').is(':checked');
-	
-		if (events_select == true &&  style_select == true
-				 &&  season_select == true &&  material_select == true
-				 && weather == true && religions = true && weatherConditions == true) {
-			return;
-		}
-		
-		if (events_select == false ){
-			$("#manufacturer").css("border", "2px solid red");
-		}
- 
-		
-		
-		event.preventDefault();
-
-
-
-		
-
-	});	*/
-
-	
-
- 
-  
 var smat = [];
 var gmat= [];
 	//Colect all filters
@@ -406,7 +378,7 @@ var gmat= [];
 				//	jsonResultFilter.preferences.religion = religion;
 				if(events!=="no") {
 					jsonResultFilter.preferences.events = accLink(events);
-						    queryData = queryData + "events="+event + "&";		
+						    queryData = queryData + "event="+ "<" + events + ">&";
 				}
 				if(pref!=="no") {
 					jsonResultFilter.preferences.stylePref = accLink(pref);
@@ -445,23 +417,19 @@ var gmat= [];
 	var user_name_from_chookie = $.cookie('email');
 	//console.log(user_name_from_chookie);
 	var usr = user_name_from_chookie.split("@");
-				console.log(jsonResultFilter);
 
-				/*trimit filtrele---------------------------------------------*/
-				var testUrl = "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=recommendations&userId="+usr[0]+queryData;
-				alert(testUrl);
+                alert(constructURL("/users/" + usr[0] + "/recommendations?" + queryData));
+                console.log(constructURL("/users/" + usr[0] + "/recommendations?" + queryData));
 				$.ajax({
 						type: "GET",
-						url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=recommendations&userId="+usr[0]+queryData,//"http://riquack-n61vn:9000/events",
-						dataType: "text",
+						url: constructURL("/users/" + usr[0] + "/recommendations?" + queryData),
 						success: function(data){
-							//	console.log(data);
-							//var jresult = $.parseJSON(data);
+							alert(data);
 
 
 						},
 						 error: function(error, ob, message) {
-								alert("[Get items]: " + message.toString());
+								alert("[Recommendations]: " + message.toString());
 						 }
 				});
 

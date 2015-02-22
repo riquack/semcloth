@@ -38,12 +38,34 @@
 							 
 								<h3><i class="fa fa-filter"></i>Filter by:</h3>
 								<!-- Filtru 1 -->
-								<div id="events-fi" class="filters-item no-scroll">
+                                <div class="filters-item no-scroll">
+                                    <input type="checkbox" name="gender" value="Gender" id="gender"><label for="gender">Gender</label>
+                                    <div id="grand-list-gerder" class="list-gender ls-scoll">
+                                        <input type="checkbox" id="female" value="http://dbpedia.org/resource/Female" >
+                                        <label for="female">Female</label> </br/>
+
+                                        <input type="checkbox" id="male" value="http://dbpedia.org/resource/Male" >
+                                        <label for="male">Male</label>
+                                    </div>
+                                </div>
+
+
+                            <div id="events-fi" class="filters-item no-scroll">
 									<input type="checkbox" name="events" value="Events" id="events"><label for="events">Events</label>
 									<div id="grand-list-events" class="list-events ls-scoll"> <!-- Ajax Population -->
 										<!-- With Json	-->
 									</div>
 								</div>
+
+
+                            <div id="weatherConditions-fi" class="filters-item no-scroll">
+                                <input type="checkbox" name="weather" value="weather" id="weatherConditions"><label for="weatherConditions">Weather Conditions</label>
+                                <div id="grand-list-weatherConditions" class="list-weatherConditions ls-scoll">
+                                    <!-- With Json	-->
+                                </div>
+                            </div>
+
+
 								<!-- Filtru 2 -->
 								<div id="style-fi" class="filters-item">
 									<input type="checkbox" name="style-pref" value="Style" id="style"><label for="style">Style Preferences</label>
@@ -69,12 +91,7 @@
 									</div>
 								</div>-->
 									
-								<div id="weatherConditions-fi" class="filters-item no-scroll">
-									<input type="checkbox" name="weather" value="weather" id="weatherConditions"><label for="weatherConditions">Weather Conditions</label>
-									<div id="grand-list-weatherConditions" class="list-weatherConditions ls-scoll">    
-									<!-- With Json	-->
-									</div>
-								</div>
+
 
 								<div id="season-fi" class="filters-item no-scroll">
 									<input type="checkbox" name="season" value="Season" id="season"><label for="season">Season</label>
@@ -82,7 +99,12 @@
 										<!-- With Json	-->
 									</div>
 								</div>
-
+                                <div class="filters-item no-scroll">
+                                    <input type="checkbox" name="religions" value="Religions" id="religions"><label for="religions">Religions</label>
+                                    <div id="grand-list-religions" class="list-religions ls-scoll">
+                                        <!-- With Json	-->
+                                    </div>
+                                </div>
 
 								<div class="filters-item">
 									<input type="checkbox" name="material" value="Material" id="material"><label for="material">Material</label>
@@ -90,23 +112,9 @@
 										<!-- With Json	-->
 									</div>
 								</div>
-								<div class="filters-item no-scroll">
-									<input type="checkbox" name="religions" value="Religions" id="religions"><label for="religions">Religions</label>
-									<div id="grand-list-religions" class="list-religions ls-scoll">    
-										<!-- With Json	-->
-									</div>
-								</div>
 
-								<div class="filters-item no-scroll">
-									<input type="checkbox" name="gender" value="Gender" id="gender"><label for="gender">Gender</label>
-									<div id="grand-list-gerder" class="list-gender ls-scoll">    
-										<input type="checkbox" id="female" value="http://dbpedia.org/resource/Female" > 
-										<label for="female">Female</label> </br/> 
 
-										<input type="checkbox" id="male" value="http://dbpedia.org/resource/Male" > 
-										<label for="male">Male</label>
-									</div>
-								</div> 
+
 
 
 

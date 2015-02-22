@@ -1,7 +1,13 @@
+var DEFAULT_SERVER_URL = "http://clevo-laptop";
+var DEFAULT_SERVER_PORT = "9000";
+var DEFAULT_SERVER = DEFAULT_SERVER_URL + ":" + DEFAULT_SERVER_PORT;
+
+function constructURL(path) {
+    return DEFAULT_SERVER + path;
+}
+
 jQuery(document).ready(function(){
 	/*Your wardrobe ---------------------------------------------------------------------------*/
-	 
-
 	$('button').on('click',function(e) {
 		if ($(this).hasClass('grid')) {
 			$('#container ul').removeClass('list').addClass('grid');
@@ -12,84 +18,68 @@ jQuery(document).ready(function(){
 	});
 
 	var user_name_from_chookie = $.cookie('email');
-	//console.log(user_name_from_chookie);
 	var usr = user_name_from_chookie.split("@");
-
 	$('#get_user_name').text(usr[0]);
 
-
-	
-
-
-	//Sample XML    
-	//var xml = "<?xml version='1.0' ?><warderobe><item><name>T-shirt1</name><events>Funeral</events></item><item><name>T-shirt2</name><events>Interview</events></item><item><name>T-shirt3</name><events>Funeral|Interview</events></item><item><name>T-shirt4</name><events>Funeral|Interview</events></item><item><name>T-shirt5</name><events>Funeral|Interview</events></item><item><name>T-shirt6</name><events>Funeral|Interview</events></item><item><name>T-shirt7</name><events>Funeral|Interview</events></item><item><name>T-shirt8</name><events>Funeral|Interview</events></item><item><name>T-shirt9</name><events>Funeral|Interview</events></item><item><name>T-shirt10</name><events>Funeral|Interview</events></item></warderobe>";
- 
 	//wardrobe
 	$.ajax({
 			type: "GET",
-			//url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=wardrobe&userId="+usr[0],//,
-		url:"http://riquack-n61vn:9000/events",
-        dataType: "text",
+			url: constructURL("/users/" + usr[0] + "/wardrobe"),
+            dataType: "text",
 			success: function(data){
-				//	console.log(data);
 				var jresult = $.parseJSON(data);
-
-				//console.log(jresult);
-				// console.log(jresult.toSource());
-				//console.log("before for");
 				$.each(jresult.results.bindings, function(i, value) {
-					
-					//console.log(this);
 					var id_item = this.subject.value.split("#");
-					//console.log(id_item[1]);
-					//console.log("before get item details");
- 
+
 					$.ajax({
 						type: "GET",
-						url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=wardrobeItem&userId="+usr[0] + "&clothingId="+id_item[1],//"http://riquack-n61vn:9000/events",
+						url: constructURL("/users/" + usr[0] + "/wardrobe/" + id_item[1]),
+//						url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=wardrobeItem&userId="+usr[0] + "&clothingId="+id_item[1],//"http://riquack-n61vn:9000/events",
 						dataType: "text",
 						success: function(data){
+							var jresult_item = $.parseJSON(data);
 
-								//console.log(data);
-								var jresult_item = $.parseJSON(data);
-
-							var values = ["http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByGenre", 
-							"http://rdfs.org/sioc/ns#note", 
-							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTextileComposition", 
-							"http://semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour", 
-							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasSize", 
+							var values = ["http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#isSuitableToBeDressedByGenre",
+							"http://rdfs.org/sioc/ns#note",
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTextileComposition",
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasColour",
+							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasSize",
 							"http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#hasTexture", 
 							"http://dbpedia.org/ontology/thumbnail"]; 
 							var data = {};
 							$.each(jresult_item.results.bindings, function(index, value1) {
 									
 									var prop = this.property.value;
-									data[prop] = this.object.value;	
-
-									//console.log(prop + " " + this.object.value );
-
-
+									data[prop] = this.object.value;
 							});
-							//console.log(data[values[3]] + " " + index);
 
-		var aux = '<li id="item-'+i+'"><div class="t-item"><h3>' +'</h3>'
-		   			 	+ '<div class="r-80">'//<p class="item-events"><b>Events:</b> '+ events +'</p>'
-	    				//+ '<p class="item-season"><b>Season:</b> '+ season +'</p>'
-	    				//+ '<p class="item-styles"><b>Styles:</b> '+ styles +'</p>' 
-	    				+ '<p class="item-material"><b>Material:</b> '+ data[values[2]].split("/")[data[values[2]].split("/").length-1].replace("_", " " ) +'</p>'
-	    				+ '<p class="item-material"><b>Note:</b> '+ data[values[1]]+'</p>'
-	    				+ '<p class="item-material"><b>Texture:</b> '+ data[values[5]]+'</p>'
-	    				+ '<p class="item-material"><b>Size:</b> '+ data[values[4]].split("#")[1].replace(">", "")+'</p>'
-	    				+ '<p class="item-material"><b>Colors:</b> '+ data[values[3]]+'</p>'
-	    				+ '<button id="iditem-'+i+'" class="delete-item-list"><i class="fa fa-trash-o"></i>Delete Item</button> </div>' 
-	    				+ '<div class="r-20"><img src="'+ data[values[6]]+'"></div>'
-	    				+ '</div>'
-		   				//+'<div class="e-item"> <button id="item-e-'+i+'" class="options edit-item">Edit</button> '
-		   				//+'<button id="item-d-'+i+'" class="options delete-item">Delete</button> </div>';
-		   				+ '</li>';
-			$( ".list-w" ).append( aux);
-		
-							
+							$.ajax({
+                            		 type: "GET",
+                            		 url: constructURL("/colorDetails/" + labelLink(data[values[3]])),
+                            			//contentType: "application/json",
+                            			//data: JSON.stringify(new_item),
+                            		success: function(colorDetails){
+                            						var aux = '<li id="item-'+i+'"><div class="t-item"><h3>' +'</h3>'
+                                                    	+ '<div class="r-80">'
+                                                   	+ '<p class="item-material"><b>Material:</b> '+ data[values[2]].split("/")[data[values[2]].split("/").length-1].replace("_", " " ) +'</p>'
+                                                    + '<p class="item-material"><b>Note:</b> '+ data[values[1]]+'</p>'
+                                                    + '<p class="item-material"><b>Texture:</b> '+ data[values[5]]+'</p>'
+                                                    + '<p class="item-material"><b>Size:</b> '+ data[values[4]].split("#")[1].replace(">", "")+'</p>'
+                                                    + '<p class="item-material"><b>Colors:</b> <span class="rectangle" style="background-color: #' + colorDetails.results.bindings[0].colourHexCode.value+ '"></span>' + colorDetails.results.bindings[0].label.value+'</p>'
+                                                    + '<button id="iditem-'+i+'" class="delete-item-list"><i class="fa fa-trash-o"></i>Delete Item</button> </div>'
+                                                    + '<div class="r-20"><img src="'+ data[values[6]]+'"></div>'
+                                                    + '</div>'
+
+                                                    $( ".list-w" ).append( aux);
+
+                            			},
+                            			 error: function(error, ob, message) {
+                            					    alert("[error color ]: " + message.toString());
+                            					    console.log("[error color]: " + message.toString());
+                            					  }
+                        });
+
+
 
 
 						},
@@ -109,85 +99,7 @@ jQuery(document).ready(function(){
 
 
 
-	/* 
-	var xml =  	"<?xml version='1.0' ?> " 
-					+ "<warderobe> <item> <name>T-shirt0</name> <events> <event>Funneral</event>  	<event>Date</event> <event>Romantic Date</event> </events> <styles> <style>Rock</style> <style>Sport</style></styles> <materials><material>cotton</material></materials></item>"
-					+ "				<item> <name>T-shirt1</name> <events> <event>Funneral</event>  	<event>Date</event> <event>Romantic Date</event> </events> <styles> <style>Rock</style> </styles></item>"
-					+ " 			<item> <name>T-shirt2</name> <events> <event>Business Meeting</event>  	<event>Interview</event> </events> <styles> <style>Rock</style> <style>Conservative</style></styles></item>"
-					+ " 			<item> <name>T-shirt3</name> <events> <event>Club</event>  	<event>Pyjama Party</event> </events>  <styles> <style>Casual</style> <style>Conservative</style></styles> </item>"
-					+ " 			<item> <name>T-shirt4</name> <events> <event>Funneral</event>  	<event>Interview</event> </events> <seasons><season>Autumn</season><season>Summer</season></seasons> <materials><material>cotton</material><material>wool</material></materials> </item>"
-					+ " 			<item> <name>T-shirt5</name> <events> <event>Wedding</event>  	<event>Interview</event> </events> <styles> <style>Rock</style> <style>Conservative</style></styles> </item>"
-					+ " 			<item> <name>T-shirt6</name> <events> <event>Funneral</event>  	<event>Interview</event> </events> <styles> <style>Casual</style> <style>Conservative</style></styles> <materials><material>wool</material></materials></item>"
-					+ " 			<item> <name>T-shirt7</name> <events> <event>Funneral</event>  	<event>Pyjama Party</event> </events> <styles> <style>Casual</style> <style>Conservative</style></styles></item>"
-					+ " 			<item> <name>T-shirt8</name> <events> <event>Club</event>  	<event>Interview</event> </events> <materials><material>cotton</material><material>wool</material></materials> </item>"
-					+ " 			<item> <name>T-shirt9</name> <events> <event>Funneral</event>  	<event>Interview</event> </events>  <seasons><season>Winter</season></seasons></item>"
-					+ " 			<item> <name>T-shirt10</name> <events> <event>Funneral</event>  <event>Interview</event> </events> <styles> <style>Casual</style> <style>Conservative</style></styles> </item>"
-					+ " 			<item> <name>T-shirt10</name> <events> <event>Date</event>  <event>Interview</event> </events> <seasons><season>Winter</season></seasons></item>"
-				+"</warderobe>";
 
-	//Parse the givn XML
-	var xmlDoc = $.parseXML( xml ); 
-	    
-	var $xml = $(xmlDoc);
-
-	  // Find Person Tag
-	var $item = $xml.find("item");
-	var i=0;
-	$item.each(function(){
-	  
-	  	/*Parsez events ---------------------------- */
-	/*    var name = $(this).find('name').text();
-		var events = "";
-	    $(this).find('events>event').each(function(){
-	    	events +=  $(this).text() + "<br/>";
-		});
-
-	    events = events.replace(/\|/g, ', ');
-
-	    /*Parsez sezoane --------------------------- */
-	 /*   var season = ""; 
-		$(this).find('seasons>season').each(function(){
-	    	season +=  $(this).text() + "<br/>";
-		});
-	    if(season==="")
-	    	season = '-';
-
-	    /*Parsez styles ----------------------------- */
-	 /*   var styles = ""; 
-		$(this).find('styles>style').each(function(){
-	    	styles +=  $(this).text() + "<br/>";
-		});
-	    if(styles==="")
-	    	styles = '-';
-
-
-	    /*Parsez materials*/
-/*var material = ""; 
-		$(this).find('materials>material').each(function(){
-	    	material +=  $(this).text() + "<br/>";
-		});
-	    if(material==="")
-	    	material = '-';
-
-	   // $("#ProfileList" ).append('<li>' +name+ ' - ' +events+ '</li>');
-	    var aux = '<li id="item-'+i+'"><div class="t-item"><h3>'+ name +'</h3>'
-	   			 	+ '<div class="r-80"><p class="item-events"><b>Events:</b> '+ events +'</p>'
-    				+ '<p class="item-season"><b>Season:</b> '+ season +'</p>'
-    				+ '<p class="item-styles"><b>Styles:</b> '+ styles +'</p>' 
-    				+ '<p class="item-material"><b>Material:</b> '+ material +'</p>'
-    				+ '<p class="item-material"><b>Note:</b> .... </p>'
-    				+ '<button id="iditem-'+i+'" class="delete-item-list"><i class="fa fa-trash-o"></i>Delete Item</button> </div>' 
-    				+ '<div class="r-20"><img src="http://localhost/wade-ui/images/dress.png"></div>'
-    				+ '</div>'
-	   				//+'<div class="e-item"> <button id="item-e-'+i+'" class="options edit-item">Edit</button> '
-	   				//+'<button id="item-d-'+i+'" class="options delete-item">Delete</button> </div>';
-	   				+ '</li>';
-		$( ".list-w" ).append( aux);
-		  i++;
-	});*/
-    
-
- 
 	/*Delete item from list*/
 	/*-------------------------------------------------------*/
 	/* Delete, Edit */ 
@@ -213,10 +125,6 @@ jQuery(document).ready(function(){
 		var type_type = accLink(type_type_vec[0]);
 		var type_type1 = type_type_vec[1];
 
-		//var new_type_type   = [];
-		//new_type_type.push(type_type);
-		//new_type_type.push(type_type1);
-		//va
 
 		var type_gender = $('#item-options-gender').find(":selected").val();
 
@@ -233,9 +141,6 @@ jQuery(document).ready(function(){
 			ok=1;
 		}
 
-		/*if(type_gender === "none"){
-			ok=1;
-		}*/
 		var count_gender =0 ;
 		var type_gender = [];
 		$('.item-gender input:checked').each(function() {
@@ -283,53 +188,35 @@ jQuery(document).ready(function(){
 		{
 			 
 			var new_item = {};
-			new_item.clothingType = type_type; //JSON.stringify(new_type_type);
-			new_item.thumbnail = type_type1;
+			new_item["clothingType"] = type_type; //JSON.stringify(new_type_type);
+			new_item["thumbnail"] = type_type1;
 
-			new_item.fabrics = type_material;
-			new_item.colors = type_color;
-			new_item.size = accLink(type_size);
-			new_item.texture = type_texture;
-			new_item.note = type_note; /*e vorva despre text area*/
-			new_item.genres = type_gender;
+			new_item["fabrics"] = type_material;
+			new_item["colors"] = type_color;
+			new_item["note"] = type_note; /*e vorba despre text area*/
+			new_item["size"] = accLink(type_size);
+			new_item["texture"] = type_texture;
+			new_item["genres"] = type_gender;
 
 			console.log(new_item);
 
 			var usr = user_name_from_chookie.split("@");
-
-			//$('#get_user_name').text(usr[0]);
-
 				$.ajax({
 				    type: "POST",
-				    url: "http://localhost/wade-ui/createItem.php?userId="+usr[0],//"http://riquack-n61vn:9000/events",
-				   	dateType: "json",
-				   	data: new_item,
+				    url: constructURL("/users/" + usr[0] + "/wardrobe"),
+				   	contentType: "application/json",
+				   	data: JSON.stringify(new_item),
 				    success: function(data){
-						//... ]
-						alert("succes add");
-
+                        location.reload(true);
+                        $("#success-error").fadeIn(5000);
+                        $("#success-error").removeClass().addClass('alert alert-success').html("Success");
+                        $("#success-error").fadeOut(5000);
 				  	},
 					  error: function(error, ob, message) {
 					    alert("[Create new item]: " + message.toString());
+					    console.log("[Create new item]: " + message.toString());
 					  }
 				});
-
-				 location.reload(true);
-
-
-				$("#success-error").fadeIn(5000);
-				$("#success-error").removeClass().addClass('alert alert-success').html("Success");
-				$("#success-error").fadeOut(5000);
-
-				/*reset fields*/
-				/*$('#item-options-type').find(":selected").text();
-				$('#item-options-gender').find(":selected").text();
-				//var type_material = $('#item-options-material').find(":selected").text();
-				//var type_color = $('#item-options-color').find(":selected").text(); // de modificat!!!!! 
-				$('#item-options-size').find(":selected").text();
-				$('#item-options-texture').find(":selected").text();
-				$("#item-note").val();*/
-
 		} else {
 				$("#success-error").fadeIn(5000);
 				$("#success-error").removeClass().addClass('alert alert-error').html("Check all the fileds");
@@ -358,16 +245,18 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----   clothingMaterials */
 	$.ajax({
 	    type: "GET",
-	    // url: "http://localhost/wade-ui/clothingMaterials.json",
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingMaterials&method=GET",//"http://riquack-n61vn:9000/events",
+	    url: constructURL("/clothingMaterials"),
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data); 
 		var clmatc =0; 
 		 $.each(data.results.bindings,  function(index) {
-		 	//console.log(this.label.value);
-		 	//$("#grand-list-clothingMaterials").append("<input type='radio' name='clothingMaterials' value="+ this.clothingMaterial.value+">" + this.clothingMaterial.value + "<br/>" );
-			$('#add-imaterial').append("<div class='item-mat'><input type='checkbox' name='material' id='clmatc-"+clmatc+"' value='"+this.clothingMaterial.value+"' > <label for='clmatc-"+clmatc+"'>"  + labelLink(this.label.value) + "</label></div>" );
+			$('#add-imaterial').append("<div class='item-mat'>"+
+			//<input type='checkbox' name='material' id='clmatc-"+clmatc+"' value='"+this.clothingMaterial.value+"' >
+			// <label for='clmatc-"+clmatc+"' title='"+this.coomment.+""'>"  + labelLink(this.label.value) + "</label>
+			 '<input type="checkbox" name="material" value="'+ this.clothingMaterial.value+'" id="clmatc-'+clmatc+'">'+
+             '<label for="clmatc-'+clmatc+'" title="'+this.comment.value+'">'+this.label.value+'</label>'
+			 +"</div>" );
 			clmatc++; 
 
 		 });
@@ -381,23 +270,20 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----   colors */
 	$.ajax({
 	    type: "GET",
-	   // url: "http://localhost/wade-ui/restEndpoint.php?endpoint=colors&method=GET",//"http://riquack-n61vn:9000/events",
-	   	url:  "http://localhost/wade-ui/colors.json",
+	   	url:  constructURL("/colors"),
 	   	dateType: "json",
 	    success: function(data){ 
 
 		var datAsString = JSON.stringify(data); 
 		var idcol=0;
 
-
 		$.each(data.results.bindings,  function(index) {
-		 	
 			$('#add-icolor').append('<div class="item-col">'+ 
-											'<input type="checkbox" name="color" value="'+ this.color.value+'" id="'+idcol+'">'+
+						'<input type="checkbox" name="color" value="'+ this.color.value+'" id="'+idcol+'">'+
 											'<label for="'+idcol+'" title="'+this.comment.value+'"><span class="rectangle" style="background-color:#'+this.colourHexCode.value+'">'+
 											'</span>'+this.label.value+'</label>'
 									+'</div>');
-			idcol++; 
+			idcol++;
 		 });
 	  },
 	  error: function(error) {
@@ -409,9 +295,7 @@ jQuery(document).ready(function(){
 	/*Populare graderoba -------- sizes - */
 	$.ajax({
 	    type: "GET",
-	    // url: "http://localhost/wade-ui/clothingSizes.json",
-	    //url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingSizes&method=GET",
-	    url: "http://riquack-n61vn:9000/clothingSizes",
+	    url: constructURL("/clothingSizes"),
 	   	dateType: "json",
 	    success: function(data){ 
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
@@ -429,8 +313,7 @@ jQuery(document).ready(function(){
 	/*Populare graderoba -------- clothingTypes - */
 	$.ajax({
 	    type: "GET",
-	    // url: "http://localhost/wade-ui/clothingTypes.json", 
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingTypes&method=GET",//"http://riquack-n61vn:9000/events",
+        url: constructURL("/clothingTypes"),
 	   	dateType: "json",
 	    success: function(data){ 
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);
@@ -445,10 +328,10 @@ jQuery(document).ready(function(){
 	});
 
 
-	/*Populare graderoba -------- texture - */
+	/*Populare garderoba -------- texture - */
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/restEndpoint.php?endpoint=clothingTextures&method=GET",//"http://riquack-n61vn:9000/events",
+	    url: constructURL("/clothingTextures"),
 	   	dateType: "json",
 	    success: function(data){ 
 		var datAsString = JSON.stringify(data);

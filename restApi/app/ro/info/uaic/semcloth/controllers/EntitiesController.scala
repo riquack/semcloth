@@ -21,7 +21,9 @@ object EntitiesController extends Controller {
         """select ?clothing ?label ?thumbnail
           |where { ?clothing a dbr:Clothing; rdfs:label ?label ; dbo:thumbnail ?thumbnail . }""".stripMargin
       )
-    ).as{JSON}
+    ).as {
+      JSON
+    }
   }
 
   def clothingSizes = Action {
@@ -40,11 +42,12 @@ object EntitiesController extends Controller {
     val result = WS.url(
       """http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+yago%3A+%3Chttp%3A%2F%2Fdbpedia.org%2Fclass%2Fyago%2F%3E%0D%0A%0D%0ASELECT+%3FdressingStyle+%3Flabel+%3Fcomment+%0D%0A++WHERE+%0D%0A%09%7B%0D%0A+++++%3FdressingStyle+a+yago%3AFashionAesthetics+%3B%0D%0A+++++rdfs%3Alabel+%3Flabel%3B%0D%0A+++++rdfs%3Acomment+%3Fcomment+.%0D%0A%0D%0A+++++FILTER%28lang%28%3Flabel%29+%3D+%22en%22+%26%26+lang%28%3Fcomment%29+%3D+%22en%22%29%0D%0A+++%7D&format=application%2Fsparql-results%2Bjson&timeout=30000""")
 
-    result.get().map{
+    result.get().map {
       response =>
         Ok(response.json)
     }
   }
+
 
   def clothingTextures = Action {
     Ok(
@@ -89,12 +92,12 @@ object EntitiesController extends Controller {
           |		rdfs:label ?label .
           |		OPTIONAL {?weatherCondition rdfs:comment ?comment.}
           |	}
-          |""".stripMargin
+          | """.stripMargin
       )
     ).as(JSON)
   }
 
-  def clothingMaterials =  Action {
+  def clothingMaterials = Action {
     Ok(
       SimpleSPARQL.select(
         """select ?clothingMaterial ?label ?comment
@@ -118,5 +121,20 @@ object EntitiesController extends Controller {
         Ok(response.json)
     }
   }
+
+  // define endpoint for color details
+
+  def colorDetails(color: String) = Action.async {
+
+    import play.api.Play.current
+    import scala.concurrent.ExecutionContext.Implicits.global
+    val x = WS.url(
+      """http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=PREFIX+umbel%3A+%3Chttp%3A%2F%2Fumbel.org%2Fumbel%2Frc%2F%3E%0D%0A%0D%0ASELECT+%3Fcolor+%3FcolourHexCode+%3Flabel+%3Fcomment+%0D%0A++WHERE+%7B%0D%0A+++++"""+ """%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F""" + color + """%3E""" +"""+a+umbel%3AColor+%3B%0D%0A+++++dbpedia-owl%3AcolourHexCode+%3FcolourHexCode%3B%0D%0A+++++rdfs%3Alabel+%3Flabel%3B%0D%0A+++++rdfs%3Acomment+%3Fcomment+.%0D%0A%0D%0A+++++FILTER%28lang%28%3Flabel%29+%3D+%22en%22+%26%26+lang%28%3Fcomment%29+%3D+%22en%22%29%0D%0A++%7D&format=application%2Fsparql-results%2Bjson&timeout=30000""")
+    x.get().map {
+      response =>
+        Ok(response.json)
+    }
+  }
+
 
 }

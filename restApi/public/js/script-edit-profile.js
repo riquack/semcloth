@@ -1,3 +1,11 @@
+var DEFAULT_SERVER_URL = "http://clevo-laptop";
+var DEFULT_SERVER_PORT = "9000";
+var DEFAULT_SERVER = DEFAULT_SERVER_URL + ":" + DEFULT_SERVER_PORT;
+
+function constructURL(path) {
+    return DEFAULT_SERVER + path;
+}
+
 jQuery(document).ready(function(){
 /*Popup - Edit profile-----------------------------------------------------------------*/
 	//
@@ -17,16 +25,6 @@ jQuery(document).ready(function(){
 		var dif = parseInt(age_user) - parseInt(age_values[2]);
 		$("#years-profile").text("0");
 	}
-	
-	/*var gen_user = $("#gender-profile").text();
-	
-	if(gen_user==="fem"){
-		$("#your-prof-user").html('<i class="fa fa-female"></i>');
-		 
-	}else {
-		$("#your-prof-user").html('<i class="fa fa-male"></i>');
-		
-	}*/
 
 			$("#new-mas").click(function(){            
            		 $("#new-mas").attr("checked", "checked");
@@ -66,13 +64,7 @@ jQuery(document).ready(function(){
 			$('#gender-new').val(gender);
 
 
-			/*gender --------------------------------------------- */
 
-			/*if(gender === "fem"){
-				$("#new-fem").attr('checked', 'checked');
-			}else {
-				$("#new-masc").attr('checked', 'checked');
-			}*/
 
 			var religion = $("#religion-profile").text();
 			//console.log(religion+"------");
@@ -81,12 +73,8 @@ jQuery(document).ready(function(){
 			{
 			    // add $(this).val() to your list
 			    if($(this).text() === religion){
-			    	//console.log($(this).val()+"---- "+ religion);
-			    	//$("#new-religion option:selected").text(religion);
-			    	//if($("#new-religion option").text() === religion)
-			    		$("#new-religion option").attr('selected','selected');
+			        $("#new-religion option").attr('selected','selected');
 
-			    	
 			    	true_religion =  religion; 
 			    }else {
 			    	$("#new-religion option").removeAttr('selected');
@@ -239,7 +227,7 @@ jQuery(document).ready(function(){
 	/*Populare garderoba ----  religions*/
 	$.ajax({
 	    type: "GET",
-	    url: "http://localhost/wade-ui/religions.json",//"http://riquack-n61vn:9000/events",
+	    url: constructURL("/religions"),
 	   	dateType: "json",
 	    success: function(data){
 		var datAsString = JSON.stringify(data);//(new XMLSerializer()).serializeToString(json);

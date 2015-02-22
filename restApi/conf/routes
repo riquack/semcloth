@@ -23,6 +23,7 @@ GET           /religions                                 ro.info.uaic.semcloth.c
 GET           /seasons                                   ro.info.uaic.semcloth.controllers.EntitiesController.seasons
 GET           /weatherConditions                         ro.info.uaic.semcloth.controllers.EntitiesController.weatherConditions
 GET           /colors                                    ro.info.uaic.semcloth.controllers.EntitiesController.colors
+GET           /colorDetails/:color                       ro.info.uaic.semcloth.controllers.EntitiesController.colorDetails(color: String)
 
 
 

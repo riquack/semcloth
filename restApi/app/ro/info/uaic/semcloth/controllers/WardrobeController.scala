@@ -86,6 +86,12 @@ object WardrobeController extends Controller {
         |                          ${addConstrain("sc:isSuitableForDressingForReligion", religion)}
         |                          ${addConstrain("sc:isSuitableToBeDressedByGenre", genres)}
         |                          ${addConstrain("sc:hasTextileComposition", materials)}} }""".stripMargin
+    print("--------------------")
+    print(event)
+    print(season)
+    print(style)
+    print(x)
+    print("--------------------")
     Ok(SimpleSPARQL.select(x)).as(JSON)
   }
 

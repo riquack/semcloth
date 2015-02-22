@@ -2159,7 +2159,7 @@ dbr:Wool rdf:type :NaturalClothingMaterial ,
 :S rdf:type dbr:Clothing_sizes ,
             owl:NamedIndividual ;
    
-   rdfs:label "s" .
+   rdfs:label "S" .
 
 
 

@@ -58,19 +58,6 @@ jQuery(document).ready(function(){
 	});
 	
 
-	 
-
-	/* Logout ----------------------------------------*/
-	/*$( "#logout" ).click(function() {
-			//alert("dddd");
-		//$.cookie('email', null);  
-		$.cookie('email', 'the_value', { expires: -7 });
-
-
-	});*/
-
-
-
 
 });
 
