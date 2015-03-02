@@ -78,6 +78,7 @@ object WardrobeController extends Controller {
       style: Option[String],
       weather: Option[String]) = Action {
 
+
     var x = s"""select ?indv FROM NAMED ${OntologyHelpers.UserNamedGraphUri(userId)}
         |where { GRAPH ?src {?indv ${addConstrain("sc:isSuitableToBeDressedAtEvent", event)}
         |                          ${addConstrain("sc:isSuitableToBeDressedInSeason", season)}
@@ -98,7 +99,7 @@ object WardrobeController extends Controller {
 
   private def addConstrain(key: String, constrain: Option[String]) = {
     if(constrain.isDefined)
-      s"$key $constrain;"
+      s"$key ${constrain.get};"
     else ""
   }
 

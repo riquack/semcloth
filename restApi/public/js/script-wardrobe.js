@@ -34,7 +34,6 @@ jQuery(document).ready(function(){
 					$.ajax({
 						type: "GET",
 						url: constructURL("/users/" + usr[0] + "/wardrobe/" + id_item[1]),
-//						url: "http://localhost/wade-ui/restEndpoint.php?method=GET&endpoint=wardrobeItem&userId="+usr[0] + "&clothingId="+id_item[1],//"http://riquack-n61vn:9000/events",
 						dataType: "text",
 						success: function(data){
 							var jresult_item = $.parseJSON(data);
@@ -56,9 +55,7 @@ jQuery(document).ready(function(){
 							$.ajax({
                             		 type: "GET",
                             		 url: constructURL("/colorDetails/" + labelLink(data[values[3]])),
-                            			//contentType: "application/json",
-                            			//data: JSON.stringify(new_item),
-                            		success: function(colorDetails){
+                             		 success: function(colorDetails){
                             						var aux = '<li id="item-'+i+'"><div class="t-item"><h3>' +'</h3>'
                                                     	+ '<div class="r-80">'
                                                    	+ '<p class="item-material"><b>Material:</b> '+ data[values[2]].split("/")[data[values[2]].split("/").length-1].replace("_", " " ) +'</p>'
@@ -78,9 +75,6 @@ jQuery(document).ready(function(){
                             					    console.log("[error color]: " + message.toString());
                             					  }
                         });
-
-
-
 
 						},
 						 error: function(error, ob, message) {
@@ -219,7 +213,7 @@ jQuery(document).ready(function(){
 				});
 		} else {
 				$("#success-error").fadeIn(5000);
-				$("#success-error").removeClass().addClass('alert alert-error').html("Check all the fileds");
+				$("#success-error").removeClass().addClass('alert alert-error').html("Check all the fields");
 				$("#success-error").fadeOut(5000);
 		}
 
